@@ -1,0 +1,23 @@
+<div class="block_container">
+
+    <div class="block">
+        <h2>Cambia ruolo ad un utente</h2>
+
+        <form (ngSubmit)="editRole()">
+            <div class="chose_role">
+            <div>
+                <input class="w-100" type="email" name="email" placeholder="Email dell'Utente interessato" [(ngModel)]="data.email">
+            </div>
+                <select name="role" [(ngModel)]="data.role">
+                    <option value="admin">amministratore</option>
+                    <option value="client">cliente</option>
+                </select>
+            </div>
+
+            <span *ngIf="message_error != ''"> {{ message_error }} </span>
+            <span class="allert_success" *ngIf="message_success != ''"> {{ message_success }} </span>
+
+            <input type="submit" value="Cambia ruolo">
+        </form>
+    </div>
+</div>

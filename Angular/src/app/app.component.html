@@ -1,0 +1,98 @@
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-expand w-50 animate__animated animate__backInLeft">
+      <a class="navbar-brand" id="titles_styles" routerLink="">Home</a>
+    </div>
+    
+  
+    <div class=" navbar-expand w-25 animate__animated animate__backInRight" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 d-flex flex-row justify-content-end align-items-center  mt-md-0 mt-3">
+
+
+        <li class="nav-link">
+          <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle" id="titles_styles" data-bs-toggle="dropdown" aria-expanded="false">
+               <span id="language" data-lang="{{ language.language }}">  {{ language.languageHeader }} </span> 
+            </button>
+            <ul class="dropdown-menu" id="dropdownHeader">
+               <li class="dropdown-item d-flex">  
+                  <img src="../assets/img/flags/bandiera_italia.png" alt="flag_Italy"  (click)="setItalian()">  
+                  <img src="../assets/img/flags/bandiera_spagna.png" alt="flag_Spain"   (click)="setSpanish()"> 
+               </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item me-2" >
+         
+          <a class="nav-link" id="titles_styles" routerLink="acount" *ngIf="!check_acount">Acount</a>      <!-- se non si è loggati....   -->
+
+          <!--   se si è loggati... -->
+          <a *ngIf="check_acount"> 
+    
+          <div class="btn-group">  
+            <button type="button" class="btn dropdown-toggle"  id="titles_styles" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ user.name }}
+            </button>
+            <ul class="dropdown-menu" id="dropdownHeader">
+              <li><a class="dropdown-item" [routerLink]="['/acount-edit', user._id]"> {{ language.menuHeader.datas }} </a></li>
+              <li><a class="dropdown-item" [routerLink]="['/image-update', user._id]"> {{ language.menuHeader.image }} </a></li>
+              <li><a class="dropdown-item" [routerLink]="['/password-edit', user._id]"> {{ language.menuHeader.password }} </a></li>
+              <li><a class="dropdown-item" [routerLink]="['/user-reserve', user._id]"> {{ language.menuHeader.reserves }} </a></li>
+              <li><a class="dropdown-item link-danger" style="font-size: 20px; text-shadow: none;" (click)="logout()">LOGOUT</a></li>
+             
+              <li *ngIf="user.status == 'admin'" style="color: rgb(38, 126, 97); padding-left: 15px; text-shadow: none; text-transform: uppercase;"><hr class="dropdown-divider">   {{ language.menuHeader.admin }} </li>
+
+              <li *ngIf="user.status == 'admin'">
+                <a class="dropdown-item" routerLink="/instruments">
+                  {{ language.menuHeader.general }}
+                </a>
+              </li>
+              <li *ngIf="user.status == 'admin'">
+                <a class="dropdown-item"  routerLink="/clients-reserves">
+                  {{ language.menuHeader.client_reserves }}
+                </a>
+              </li>
+             <!--  <li *ngIf="user.status == 'admin'">
+                <a class="dropdown-item" routerLink="/edit-role">
+                  Cambia ruoli
+                </a>
+              </li> -->
+              <li *ngIf="user.status == 'admin'">
+                <a class="dropdown-item" routerLink="/save-home">
+                  {{ language.menuHeader.newHome }}
+                </a>
+              </li>    
+              <li *ngIf="user.status == 'admin'">
+                <a class="dropdown-item" routerLink="/edit-homes">
+                  {{ language.menuHeader.editHomes }}
+                </a>
+              </li>  
+            </ul>
+          </div>
+         </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+<main class="container mt-5">
+      <router-outlet></router-outlet>
+</main>
+
+<footer class="container-fluid fs-4" id="titles_styles" >
+  <p> Junior Web Developper Loi Carlo</p>
+</footer>
+
+
+
+
+
+

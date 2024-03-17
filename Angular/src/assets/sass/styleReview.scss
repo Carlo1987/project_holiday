@@ -1,0 +1,135 @@
+
+
+/*      STILI  GENERALI     */
+$background_errorAllert :  rgb(219, 53, 53);
+$backgroud_successAllert : rgb(40, 145, 40);
+/* $color_theme : rgb(38, 126, 97); */
+$color_theme: rgb(99, 150, 216);
+$color_badge : rgb(242, 234, 234);
+
+%border_style{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgb(51, 50, 50);
+}
+
+
+@mixin title_style($color){
+    color: $color; 
+    text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+
+%allert_style{
+    width: 100%;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 19px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+%values_style{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: white;
+    color: $color_theme;
+    font-size: 23px;
+    @extend %border_style;
+}
+
+
+
+
+
+
+/*     STILE  REVCENSIONI     */
+
+
+.container_review{
+    width: 80%;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    @extend %border_style; 
+
+    h2{
+        padding-left: 1%;
+        @include title_style($color_theme);
+    }
+
+}
+
+
+.button_newComment{
+    width: 300px;
+    font-size: 23px;
+    letter-spacing: 1px;
+    background-color: $color_theme;
+    color: white;
+    padding: 10px;
+    @extend %border_style;
+}
+
+
+
+
+.container_reviews{
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+
+
+    .counter{
+        padding: 15px;
+        font-size: 19px;
+        @extend %border_style;
+        background-color: $color_theme;
+        color: white;
+
+        .average_value{
+            @extend %values_style;
+         }
+    }
+
+
+    .review{
+        border-bottom: 1px solid black;
+        margin-bottom: 17px;
+     
+        .vote_value{
+    
+            @extend %border_style;
+            border-radius: 5px !important;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            background-color: $color_theme;
+            color: white;
+          }
+    }
+  
+}
+
+
+.offcanvasReviews{
+    background-color: white;
+    @extend %border_style;
+}
+
+
+
+
+
+
+
+

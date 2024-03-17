@@ -1,0 +1,88 @@
+<div class="block_container">
+
+    <div class="block">
+        <h2> {{ language.acount.title_datas }} </h2>
+    
+        <form #editForm="ngForm" (ngSubmit)="edit()">
+
+          <div class="alert alert-success" role="alert" *ngIf="message_success != ''"> <p>{{ message_success }} </p> </div>
+          
+          <div>
+            <label for="name">{{ language.acount.name }}:</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required/>
+          </div>
+    
+          <span *ngIf="name.touched && !name.valid"> {{ message_form }} </span>
+         
+          <div>
+            <label for="surname">{{ language.acount.surname }}:</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required/>
+          </div>
+    
+          <span *ngIf="surname.touched && !surname.valid"> {{ message_form}} </span>
+    
+          <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required/>
+          </div>
+    
+          <span *ngIf="email.touched && !email.valid"> {{ message_form }} </span>
+    
+          <div>
+            <label for="cell">{{ language.acount.cell }}:</label>
+            <input type="number" name="cell" #cell="ngModel" [(ngModel)]="user.cell" required/>
+          </div>
+    
+          <span *ngIf="cell.touched && !cell.valid"> {{ message_form }} </span>
+    
+          <div>
+            <label for="address">{{ language.acount.address }}:</label>
+            <input type="text" name="address" [(ngModel)]="user.address" />
+          </div>
+    
+          <div>
+            <label for="city">{{ language.acount.city }}:</label>
+            <input type="text" name="city" [(ngModel)]="user.city"/>
+          </div>
+    
+          <div>
+            <label for="cap">CAP:</label>
+            <input type="text" name="cap" [(ngModel)]="user.cap"/>
+          </div>
+    
+          <input type="submit" value="{{ language.acount.button }}" [disabled]="!editForm.form.valid"/>
+        </form>
+      </div>
+
+    <div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger border-2 border-dark" data-bs-toggle="modal" data-bs-target="#deleteModal">
+  {{ language.acount.delete_acount }}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Cancellazione del profilo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Sei sicuro  di voler cancellare definitivamente il tuo profilo?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ho cambiato idea</button>
+        <button type="button" class="btn btn-danger" (click)="deleteAcount()">Sono sicuro</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+     </div>
+    
+
+</div>
+
+

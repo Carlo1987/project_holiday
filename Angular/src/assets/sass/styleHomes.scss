@@ -1,0 +1,259 @@
+
+$color_badge : rgb(242, 234, 234);
+/* $color_theme: rgb(38, 126, 97); */
+$color_theme: rgb(99, 150, 216);
+$bg_badge : rgba(173, 199, 234, 0.972);
+
+%border_style{
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px rgb(60, 58, 58);  
+}
+
+
+@mixin title_style($color){
+    color: $color; 
+    text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+
+ #visitHomes{
+    width: 99.2%; 
+    height: 45px;
+    margin: 0 auto;
+    background-color: $color_theme;
+    font-size: 20px;
+    line-height: 47px;
+    @extend %border_style;
+
+    .title_home{
+        @include title_style($color_theme);
+    }
+
+    .buttoms{
+        height: 45px;
+
+        .buttomCarousel{
+            margin-left: 90%;
+            position: relative;
+            width: 45px;
+            height: 45px;    
+        }
+    }
+ }
+
+
+
+ .cardHomes{
+    width:25%;
+    margin:3.5%;
+    @extend %border_style;
+    img{
+        height:170px;
+    }
+     .img_responsive{
+        display: none !important;
+        height: 150px !important;
+    }  
+ }
+
+ .cardHomes:hover{
+    background-color: $color_badge; 
+    border: 3px solid black;
+    border-radius: 8px;
+    transition: 500ms;
+    cursor: pointer;
+ }
+
+
+ 
+ .carousel_responsive{
+    display: none;
+}  
+
+
+
+
+.home_profile{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    background-color: white;
+    @extend %border_style;
+
+    .home_name{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+
+        h3{
+            text-align: center;
+            letter-spacing: 1px;
+            font-size: 35px;
+            text-transform: uppercase;
+            @include title_style($color_theme);
+        }
+    }
+
+    .home_rooms{
+        width: 100%;
+        font-size: 19px;
+        text-align: justify;
+    }
+
+    .home_description{
+        width: 100%;
+        font-size: 17px;
+        text-align: justify;
+        h5{
+            font-size: 19px; 
+           @include title_style($color_theme);
+        }
+     
+    }
+
+    .offcanvas{
+        background-color: $color_badge;
+        h5{            
+            text-align: center;
+            @include title_style($color_theme);
+            font-size: 30px;
+        }
+
+        .home_details{
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+    
+            div{
+               width: 400px;
+               display: flex;
+               flex-direction: column;
+               gap: 5px; 
+               padding-top: 10px;
+               padding-bottom: 10px;
+               padding-left: 25px;
+               padding-right: 25px;
+    
+                .title_detail{
+                    width: 100%;
+                    letter-spacing: 1px;
+                    text-align: center;
+                    @include title_style($color_theme);
+                    h3{ font-size: 25px; }
+                }
+
+    
+                .content_detail{
+                    width: 100%;
+                    @extend %border_style;
+                    background-color: white;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    p{
+                        display: block;  
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .new_reviews{
+        p a{
+           text-decoration: none;
+        }
+    }
+
+
+
+    .vote_home{
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $color_theme;
+        @extend %border_style;
+        padding: 8px;
+        color: white;
+
+        span{
+            background-color: white;
+            border-radius: 5px;
+            color: black;
+            @extend %border_style;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
+}
+
+
+
+.carousel_images{ display: none; }
+
+
+
+/*/////////////           MEDIA QUERY      ////////////////*/
+
+
+@media(max-width:995px){
+
+#visitHomes{
+    width: 96.5%;
+
+    .buttomCarousel{
+        margin-left: 82% !important;
+    }
+}
+
+ .carousel_normal{
+      display: none; 
+  }  
+   
+  .carousel_responsive{
+      display: block;
+  }  
+  
+  .cardHomes{
+      width:43%;
+       img{
+        display: none !important;
+      } 
+      .img_responsive{
+        display: block !important;
+    } 
+   }
+
+
+   .list_images{ display: none !important; }
+
+   .carousel_images{ display: block !important; }
+
+  
+  }
+
+
+
+  @media(max-width:770px){
+
+    #visitHomes{
+        width: 95.5%;
+
+        .buttomCarousel{
+            margin-left: 78% !important;
+        }
+    }
+
+   
+ }
+
+

@@ -1,0 +1,202 @@
+@use 'styleForms';
+@use 'styleHomes';
+@use 'styleReview';
+@use 'styleReserve';
+
+/* $color_theme: rgb(38, 126, 97); */
+$color_theme: rgb(99, 150, 216);
+$color_badge : rgb(242, 234, 234);
+
+
+%border_style{
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px rgb(60, 58, 58); 
+/*   box-shadow: 1px 1px 3px rgb(19, 105, 19); */
+}
+
+.clearfix{ clear: both;  }
+
+.alert{
+    height: 60px;
+    text-align: center;
+    p{ font-size: 19px; }
+    
+}
+
+/* ////////////////////////////////////////// */
+
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+body{     background-color: $color_badge !important;  }
+
+
+.navbar{
+    background-color: $color_theme;
+    box-shadow: 1px 2px 2px rgb(5, 40, 5);
+    font-size: 24px;
+    z-index: 1;
+
+    .navbar-brand{
+        font-size: 37px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .dropdown-toggle{
+        font-size: 23px;
+    }
+  
+}
+
+
+#titles_styles{
+    color: white;
+    text-shadow: 2px 1px 3px rgb(59, 57, 57);
+}
+
+#titles_styles:hover{
+    color: $color_badge;
+    text-shadow: 2px 1px 6px rgb(45, 41, 41);
+}
+
+#dropdownHeader{
+    background-color: $color_theme;
+
+     li,
+     li a{
+        color: white;
+        text-shadow: 2px 1px 3px rgb(59, 57, 57);
+        cursor: pointer;
+        img{
+            width: 50px;
+            height: 30px;
+        }
+    }
+
+    li,
+    li a:hover{
+        background-color: $color_theme;
+        text-shadow: 2px 1px 6px rgb(45, 41, 41);
+    }
+}
+
+
+#manage_homes{
+    color: red;
+}
+
+
+
+#welcome{
+    width: 98% !important;
+    color: rgb(56, 48, 48);
+    text-decoration: underline;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+
+#carouselSardinia{
+    
+    .carousel-inner{
+        border: 2px solid black;
+        border-radius: 7px;
+        box-shadow: 2px 2px 3px rgb(60, 58, 58);
+
+        .carousel-item{
+            min-height: 500px;
+            background-size: cover;
+            background-position: center center;
+           
+             img{
+                height: 540px;
+            } 
+        }
+    }   
+}
+
+
+main{
+    width: 100%;
+    min-height: 604px;
+    padding-top: 60px;
+}
+
+
+
+ footer{
+    margin-top: 20px;
+    height: 8vh;
+    background-color: $color_theme;
+    border-top: 1px solid black;
+    box-shadow: 1px 2px 2px inset rgb(60, 58, 58); 
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+    p{ padding-top: 15px; }
+} 
+
+
+
+input[type="submit"],button{
+    background-color: $color_theme;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
+.dropdown .button_completePayment:hover{
+    text-decoration: underline;
+    color: green;
+}
+
+.dropdown .button_refund:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+
+
+
+/* //////////   MEDIA QUERY   ////////////// */
+
+
+ @media(max-width:990px){
+
+    .carousel-item{
+        min-height: 350px !important;
+
+        img{
+            height: 350px !important;
+        } 
+    }
+
+
+} 
+
+
+
+@media(max-width:540px){
+
+    .carousel-item{
+        min-height: 300px !important;
+
+        img{
+            height: 300px !important;
+        } 
+    }
+
+
+} 
+
+
+

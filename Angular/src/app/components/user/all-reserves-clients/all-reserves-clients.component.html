@@ -1,0 +1,178 @@
+
+<div class="container container_search_reserve">
+
+    <h3>{{ language.admin.client_reserves.title }}</h3>
+
+    <div class="row row_select_home">
+          <div class="col-lg-3 col-6">
+              <select class="form-select" aria-label="select_year" name="chosed_year" [(ngModel)]="chosed_year">
+                 <option value="#"> {{ language.admin.client_reserves.year }} </option> 
+                 <option value="{{ current_year }}"> {{ current_year }} </option>
+                 <option value="{{ current_year + 1 }}"> {{ current_year +1 }} </option>
+              </select>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <select class="form-select" aria-label="select_mounth" name="chosed_mounth" [(ngModel)]="chosed_mounth">
+              <option value="#"> {{ language.admin.client_reserves.mounth }} </option>
+              <option *ngFor="let mounth of mounths; let i = index" value="{{ i }}"> {{ mounth }} </option>
+            </select>
+           </div>
+
+           <div class="col-lg-3 col-12 mt-lg-0 mt-2">
+            <select class="form-select" aria-label="select_home" name="selected_home" [(ngModel)]="selected_home">
+              <option value="#"> {{ language.admin.client_reserves.home }} </option>
+              <option *ngFor="let home of homes" value="{{ home._id + '-' + home.name }}"> {{ home.name }} </option>
+            </select>
+           </div>
+         
+           <div class="col-lg-3 col-3 mt-lg-0 mt-2">
+              <button class="ps-4 pe-4 pt-2 pb-2 rounded" (click)="choseHome()"> {{ language.admin.client_reserves.button }} </button>
+           </div>
+          
+                   
+        
+      <!--   </div> -->
+    </div>
+
+    <div class="alert alert-danger fs-5 mt-2" role="alert" *ngIf=" message_error != ''">
+      <p> {{ message_error }} </p> 
+    </div>
+
+
+<!--  inizio  prenotazioni in base alla casa   -->
+
+    <div  class="alert alert-secondary fs-5 mt-2" role="alert" *ngIf="reserves.length == 0 && message_error == ''">
+         <p> {{ message_general }} </p> 
+    </div>
+
+
+    <div *ngIf="reserves.length > 0">
+
+        <h4 style="padding-left: 5px; margin-top: 13px; text-transform: uppercase;"> {{ home_name }} </h4>
+
+        <div class="row user_reserve" >
+
+          <div *ngIf="selected_mounth_reserve.length == 1">
+            <div *ngFor="let reserve of selected_mounth_reserve; let i = index">
+
+
+              <div *ngIf="i == 0" class="row mounth_reserve">
+                 <div class="col-lg-4 col-12">
+                  <p style="font-size: 22px;"> {{ reserve.name + ' ' + selected_year }}  </p>
+                 </div>
+                 <div class="col-lg-4 col-md-6 pt-1">
+                  <p> <strong> {{ language.acount.user_reserve.confirmed }}: </strong> <span class="span_success">{{ counter_reservesConfirmed }} </span> </p>
+                </div>
+                <div class="col-lg-4 col-md-6 pt-1">
+                  <p> <strong> {{ language.acount.user_reserve.refused }}: </strong> <span class="span_danger">{{ counter_reservesRefused }} </span>  </p>
+                </div>
+              </div>
+            </div>
+
+            <p class="alert alert-secondary fs-5 text-center mt-2" role="alert" > {{ language.admin.client_reserves.no_reserves_mounth }} </p> 
+
+          </div>
+
+
+             <div *ngIf="selected_mounth_reserve.length > 1">
+               <div *ngFor="let reserve of selected_mounth_reserve; let i = index">
+
+                <div *ngIf="i == 0" class="row mounth_reserve">
+                  <div class="col-lg-4 col-12">
+                    <p style="font-size: 22px;">{{ reserve.name + ' ' + selected_year }}  </p>
+                   </div>
+                   <div class="col-lg-4 col-6 pt-1">
+                    <p> <strong>  {{ language.acount.user_reserve.confirmed }}: </strong> <span class="span_success">{{ counter_reservesConfirmed }} </span> </p>
+                  </div>
+                  <div class="col-lg-4 col-6 pt-1">
+                    <p> <strong> {{ language.acount.user_reserve.refused }}: </strong> <span class="span_danger">{{ counter_reservesRefused }} </span>  </p>
+                  </div>
+                </div>
+
+
+                 <div *ngIf="i != 0">
+                  
+                  <div class="row mt-2 mb-2 data_reserve">
+                     <div class="col-12 number_reserve">
+                       <strong> {{ language.reserve }} {{ i }}</strong>
+                     </div>
+
+                    <div class="row py-2 ps-0 m-auto border border-dark border-start-0 border-end-0">
+                      <div class="col-lg-4 col-md-6">
+                        <strong>Check-In: </strong> {{ reserve.checkIn  }} 
+                      </div>
+                      <div class="col-lg-4 col-md-6">
+                        <strong>Check-Out:</strong> {{ reserve.checkOut }} 
+                      </div>
+                      <div class="col-lg-4 col-12">
+                        <strong>N° {{ language.nights }}:</strong> {{ reserve.total_nights }}
+                      </div>
+                    </div>
+                   
+                    <div class="col-12">
+                      <p> <strong> {{ language.admin.client_reserves.datas_client }}: </strong> </p>
+                    </div>
+        
+                    <div class="col-12">
+                     <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col-4"> {{ language.client }}:</th>
+                          <th scope="col-4">Email</th>
+                          <th scope="col-4">{{ language.acount.cell }}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td class="col-4"> {{ reserve.user_data.name +' '+ reserve.user_data.surname }} </td>
+                              <td class="col-4"> {{ reserve.user_data.email }}</td>
+                              <td class="col-4"> {{ reserve.user_data.cell }} </td>
+                          </tr>
+                      </tbody>
+                     </table>
+                     </div>
+        
+                     <div class="col-12 pt-2 border-top border-dark">
+                       <p> <strong> {{ language.admin.client_reserves.datas_reserve }}: </strong> </p>
+                     </div>
+        
+                     <div class="col-12">
+                       <table class="table">
+                       <thead>
+                        <tr>
+                          <th scope="col-3">{{ language.acount.user_reserve.cost }}</th>
+                          <th scope="col-3">{{ language.advance }}</th>  
+                          <th scope="col-3">{{ language.acount.user_reserve.status }}</th>
+                          <th scope="col-3">{{ language.refund }}</th> 
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td class="col-3"> €{{ reserve.cost.final_cost |  number : '1.2-2' }} </td>
+
+                              <td class="col-3" *ngIf="reserve.advance.set == 'false'" style="color: green; font-weight: bold;"> {{ language.admin.client_reserves.debt }} </td>
+                              <td class="col-3" *ngIf="reserve.advance.set == 'true'" style="color: red;"> {{ language.acount.user_reserve.debt_1 }} €{{ reserve.advance.rest_advance |  number : '1.2-2' }} </td>
+
+                              <td class="col-3" [ngStyle]="{'color': reserve.status == 'prenotata' ? 'green' : 'red'}" style="font-weight: bold;"> {{ reserve.status | uppercase }} </td>
+
+                              <td class="col-3" *ngIf="reserve.status == 'prenotata'" style="font-weight: bold;"> / </td>
+                              <td class="col-3" *ngIf="reserve.status == 'annullata' && reserve.advance.set == 'true'" style="font-weight: bold;"> {{ language.admin.client_reserves.refund }} €{{ reserve.advance.value_advance | number : '1.2-2' }} </td>
+                              <td class="col-3" *ngIf="reserve.status == 'annullata' && reserve.advance.set == 'false'" style="font-weight: bold;"> {{ language.admin.client_reserves.refund }} €{{ reserve.cost.final_cost | number : '1.2-2' }} </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+
+                  </div>
+               </div>
+             </div>
+          
+        </div>
+
+    </div>
+    
+</div>
+
