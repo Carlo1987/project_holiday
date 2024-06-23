@@ -1,0 +1,20 @@
+<div class="block_container">
+    <div class="block">
+        <h2> {{ language.complete_payment.title }} </h2>
+
+            <p style="text-align: center; font-size: 18px;"> {{ language.complete_payment.value }} €{{ payment | number : '1.2-2' }} </p>
+
+            <app-payment  [getDatas]="{home_name : home_name , reserve : reserve}" (Payment_Method)="getPayment($event)">  </app-payment>     <!--  scelta pagamento  -->
+  
+
+        <div class="alert alert-danger mt-3" role="alert" *ngIf="message_error != ''"> {{ message_error }}</div>
+        <div class="alert alert-success mt-3" role="alert" *ngIf="message_success != ''"> {{ message_success }} </div>
+
+        <div class="w-100 text-center">
+            <input type="submit" value="{{ language.complete_payment.button }}" style="width: 80px; padding: 7px;" (click)="completePayment()">     
+        </div>
+       
+
+
+    </div>
+</div>

@@ -1,0 +1,401 @@
+<div class="block_container">
+  <div class="block">
+    <h2>{{ title_form }}</h2>
+
+    <form #newHomeForm="ngForm">
+      <div class="save_datas_form" [hidden]="!datas_form">
+
+        <p class="fs-5"> <i> {{ language.homes.save_alert }} </i> </p>
+
+       <div class="formDetails">
+
+
+        <div class="generalDetails">
+          <label for="name"> {{ language.acount.name }}:</label>
+          <input type="text" name="name" #name="ngModel" [(ngModel)]="home.name" required/>
+          <span *ngIf="name.touched && !name.valid"> {{ message_form }} </span>
+        </div>
+  
+    
+        <div class="generalDetails">
+          <label for="city"> {{ language.acount.city }}:</label>
+          <input type="text" name="city" #city="ngModel" [(ngModel)]="home.city" required/>
+          <span *ngIf="city.touched && !city.valid"> {{ message_form }} </span>
+        </div>
+  
+  
+        <div class="generalDetails">
+          <label for="address"> {{ language.acount.address }}:</label>
+          <input type="text" name="address" #address="ngModel" [(ngModel)]="home.address"/>
+          <span *ngIf="address.touched && !address.valid">  {{ message_form }}   </span>
+        </div>
+  
+       
+        <div class="generalDetails">
+          <label for="cap">CAP:</label>
+          <input type="text" name="cap" #cap="ngModel" [(ngModel)]="home.cap" />
+          <span *ngIf="cap.touched && !cap.valid"> {{ message_form }} </span>
+        </div>
+  
+  
+        <div class="generalDetails">
+          <label for="meters">{{ language.homes.meters }}²:</label>
+          <input type="number" name="meters" #meters="ngModel" [(ngModel)]="home.meters" required/>
+          <span *ngIf="meters.touched && !meters.valid"> {{ message_form }} </span>
+        </div>
+  
+  
+        <div class="generalDetails">
+          <label for="rooms">N° {{ language.homes.rooms }}:</label>
+          <input type="number"  name="rooms" #rooms="ngModel" [(ngModel)]="home.rooms" required/>
+          <span *ngIf="rooms.touched && !rooms.valid"> {{ message_form }} </span>
+        </div>
+  
+  
+        <div class="generalDetails">
+          <label for="single_bed">N° {{ language.homes.single_bed }}:</label>
+          <input type="number" name="single_bed" #single_bed="ngModel" [(ngModel)]="home.beds.single_beds" required/>
+          <span *ngIf="single_bed.touched && !single_bed.valid"> {{ message_form }} </span>
+        </div>
+  
+        <div class="generalDetails">
+          <label for="doble_beds">N° {{ language.homes.doble_bed }}:</label>
+          <input type="number" name="doble_beds" #doble_beds="ngModel" [(ngModel)]="home.beds.doble_beds" required/>
+          <span *ngIf="doble_beds.touched && !doble_beds.valid"> {{ message_form }} </span>
+        </div>
+  
+  
+        <div class="generalDetails">
+          <label for="sofa_beds">N° {{ language.homes.sofa }}:</label>
+          <input type="number" name="sofa_beds" #sofa_beds="ngModel" [(ngModel)]="home.beds.sofa_beds" required/>
+          <span *ngIf="sofa_beds.touched && !sofa_beds.valid"> {{ message_form }} </span>
+        </div>
+  
+    
+  
+        <div class="generalDetails">
+          <label for="forniture_beds">N° {{ language.homes.wardrobe }}:</label>
+          <input type="number" name="forniture_beds" #forniture_beds="ngModel" [(ngModel)]="home.beds.forniture_beds" required/>
+          <span *ngIf="forniture_beds.touched && !forniture_beds.valid"> {{ message_form }} </span>
+        </div>
+  
+      
+  
+        <div class="generalDetails">
+          <label for="bunk_beds">N° {{ language.homes.bunk_bed }}:</label>
+          <input type="number" name="bunk_beds" #bunk_beds="ngModel" [(ngModel)]="home.beds.bunk_beds" required/>
+          <span *ngIf="bunk_beds.touched && !bunk_beds.valid"> {{ message_form }} </span>
+        </div>
+  
+      
+  
+        <div class="generalDetails">
+          <label for="baths">N° {{ language.homes.bath }}:</label>
+          <input type="number" name="baths" #baths="ngModel" [(ngModel)]="home.baths" required/>
+          <span *ngIf="baths.touched && !baths.valid"> {{ message_form }} </span>
+        </div>
+  
+       
+  
+        <div class="lastRowDetails">
+          <label for="description">{{ language.homes.description }}:</label>
+          <textarea name="description" #description="ngModel" [(ngModel)]="home.description" required></textarea>
+        </div>
+
+        <span style="width: 66.5%;" *ngIf="description.touched && !description.valid"> {{ message_form }} </span>
+
+      <div class="files_home ps-xxl-4 ps-xl-2 ps-md-3 ps-4">
+        {{ language.homes.avatar }}:  
+        <input type="file" name="avatar" (change)="avatar_home($event)" id="user_avatar" style="display: none;">   
+        <button type="button" class="btn btn-secondary ms-2"  onclick="document.querySelector('#user_avatar').click()"  #button_files> 
+          {{ language.acount.choose_file }} 
+         </button> 
+      </div> 
+           
+   
+        <div class="files_home ps-xxl-4 ps-xl-2 ps-md-3 ps-4">
+          {{ language.homes.min_images }}:  
+          <input type="file" name="images" multiple (change)="images_home($event)" id="user_images" style="display: none;">   
+          <button type="button" class="btn btn-secondary ms-2"  onclick="document.querySelector('#user_images').click()"  #buttons_files> 
+            {{ language.acount.choose_file }} 
+           </button> 
+        </div>
+
+  
+    </div>
+
+      <input type="submit" value="{{ language.continue }}" [disabled]="!newHomeForm.form.valid" (click)="detailsForm()"
+             [ngStyle]="{'text-decoration' : !newHomeForm.form.valid ? 'line-through' : 'none' }"/>
+
+      <div class="alert alert-danger" role="alert" *ngIf="message_error_image != ''">  {{ message_error_image }}  </div>
+
+    </div>   <!--  fine contenuto dati -->
+
+      <!-- ////////////////////////////////////////////    DETTAGLI CASA   /////////////////////////////////////////// -->
+
+      <div class="save_datas_form" *ngIf="details_form">     
+
+        <div class="formDetails">
+
+          <div class="category_details">
+            <h4> {{ language.homes.details.bath }} </h4>
+            <div class="details">
+              <div>
+                <label for="hairdryer">{{ language.homes.details.hairdryer }}:</label>
+                <input  type="checkbox"  name="hairdryer" [(ngModel)]="home.details.hairdryer"/>
+              </div>
+              <div>
+                <label for="hot_water">{{ language.homes.details.hot_water }}:</label>
+                <input type="checkbox" name="hot_water" [(ngModel)]="home.details.hot_water"/>
+              </div>
+              <div>
+                <label for="toilet_paper">{{ language.homes.details.toilet_paper }}:</label>
+                <input type="checkbox" name="toilet_paper" [(ngModel)]="home.details.toilet_paper"/>
+              </div> 
+    
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.laundry }}</h4>
+            <div class="details">
+              <div>
+                <label for="washing_machine">{{ language.homes.details.washing_machine }}:</label>
+                <input type="checkbox" name="washing_machine" [(ngModel)]="home.details.washing_machine" />
+              </div>
+              <div>
+                <label for="dryer">{{ language.homes.details.dryer }}:</label>
+                <input type="checkbox" name="dryer" [(ngModel)]="home.details.dryer" />
+              </div>
+              <div>
+                <label for="iron">{{ language.homes.details.iron }}:</label>
+                <input type="checkbox" name="iron" [(ngModel)]="home.details.iron" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.children }}:</h4>
+            <div class="details">
+              <div>
+                <label for="crib">{{ language.homes.details.crib }}:</label>
+                <input type="checkbox" name="crib" [(ngModel)]="home.details.crib" />
+              </div>
+              <div>
+                <label for="chair_baby">{{ language.homes.details.chair_baby }}:</label>
+                <input  type="checkbox"  name="chair_baby" [(ngModel)]="home.details.chair_baby" />
+              </div>
+              <div>
+                <label for="box_baby">{{ language.homes.details.box_baby }}:</label>
+                <input  type="checkbox" name="box_baby" [(ngModel)]="home.details.box_baby" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.heating }}:</h4>
+            <div class="details">
+              <div>
+                <label for="fireplace">{{ language.homes.details.fireplace }}:</label>
+                <input type="checkbox" name="fireplace"  [(ngModel)]="home.details.fireplace" />
+              </div>
+              <div>
+                <label for="air_conditioning">{{ language.homes.details.air_conditioning }}:</label>
+                <input type="checkbox"  name="air_conditioning"  [(ngModel)]="home.details.air_conditioning"/>
+              </div>
+              <div>
+                <label for="electric_fan">{{ language.homes.details.eletric_fan }}:</label>
+                <input  type="checkbox"  name="electric_fan" [(ngModel)]="home.details.electric_fan"/>
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.kitchen }}:</h4>
+            <div class="details">
+              <div>
+                <label for="refrigerator">{{ language.homes.details.refrigerator }}:</label>
+                <input  type="checkbox"  name="refrigerator" [(ngModel)]="home.details.refrigerator" />
+              </div>
+              <div>
+                <label for="microware">{{ language.homes.details.microware }}:</label>
+                <input type="checkbox" name="microware" [(ngModel)]="home.details.microware" />
+              </div>
+              <div>
+                <label for="plate">{{ language.homes.details.plate }}:</label>
+                <input type="checkbox" name="plate" [(ngModel)]="home.details.plate" />
+              </div>
+              <div>
+                <label for="pot">{{ language.homes.details.pot }}:</label>
+                <input type="checkbox" name="pot" [(ngModel)]="home.details.pot" />
+              </div>
+              <div>
+                <label for="coffee_machine">{{ language.homes.details.coffee_machine }}:</label>
+                <input  type="checkbox" name="coffee_machine" [(ngModel)]="home.details.coffee_machine" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.outdoors }}:</h4>
+            <div class="details">
+              <div>
+                <label for="balcony">{{ language.homes.details.balcony }}:</label>
+                <input type="checkbox" name="balcony" [(ngModel)]="home.details.balcony" />
+              </div>
+              <div>
+                <label for="courtyard">{{ language.homes.details.courtyard }}:</label>
+                <input  type="checkbox"  name="courtyard" [(ngModel)]="home.details.courtyard" />
+              </div>
+              <div>
+                <label for="outdoor_food">{{ language.homes.details.outdoor }}:</label>
+                <input  type="checkbox" name="outdoor_food" [(ngModel)]="home.details.outdoor_food" />
+              </div>
+              <div>
+                <label for="barbecue">{{ language.homes.details.barbeque }}:</label>
+                <input  type="checkbox"  name="barbecue"  [(ngModel)]="home.details.barbecue"/>
+              </div>
+              <div>
+                <label for="outdoor_forniture">{{ language.homes.details.outdoor_forniture }}:</label>
+                <input  type="checkbox" name="outdoor_forniture"   [(ngModel)]="home.details.outdoor_forniture"/>
+              </div>
+              <div>
+                <label for="parking">{{ language.homes.details.parking }}:</label>
+                <input type="checkbox" name="parking" [(ngModel)]="home.details.parking" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.entertainment }}:</h4>
+            <div class="details">
+              <div>
+                <label for="tv">{{ language.homes.details.tv }}:</label>
+                <input type="checkbox" name="tv" [(ngModel)]="home.details.tv" />
+              </div>
+              <div>
+                <label for="wifi">{{ language.homes.details.wifi }}:</label>
+                <input type="checkbox" name="wifi" [(ngModel)]="home.details.wifi" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.safety }}:</h4>
+            <div class="details">
+              <div>
+                <label for="fire_prevention">{{ language.homes.details.fire_prevention }}:</label>
+                <input  type="checkbox"  name="fire_prevention"  [(ngModel)]="home.details.fire_prevention" />
+              </div>
+              <div>
+                <label for="monoxide">{{ language.homes.details.monoxide }}:</label>
+                <input  type="checkbox"  name="monoxide" [(ngModel)]="home.details.monoxide">
+              </div>
+            </div>
+          </div>
+    
+          <div class="category_details">
+            <h4>{{ language.homes.details.extra }}:</h4>
+            <div class="details">
+              <div>
+                <label for="animal">{{ language.homes.details.animal }}:</label>
+                <input type="checkbox" name="animal" [(ngModel)]="home.details.animal" />
+              </div>
+              <div>
+                <label for="smoke">{{ language.homes.details.smoke }}:</label>
+                <input type="checkbox" name="smoke" [(ngModel)]="home.details.smoke" />
+              </div>
+              <div>
+                <label for="reception">{{ language.homes.details.reception }}:</label>
+                <input  type="checkbox"  name="reception"  [(ngModel)]="home.details.reception" />
+              </div>
+            </div>
+          </div>
+
+      </div>    <!--  fine dettagli  -->
+
+        <input type="submit" value="{{ language.continue }}" (click)="pricesForm()"/>
+      </div>
+
+      <!-- ////////////////////////////////////////////    PREZZI   /////////////////////////////////////////// -->
+
+      <div class="save_datas_form" [hidden]="!prices_form">         
+
+        <div class="container">
+            <p> <i>  <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_price+'"' }}</strong> {{ language.calendary.alert1 }},
+                     <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_block+'"' }}</strong> {{ language.calendary.alert2 }}.
+               <br>   {{ language.calendary.alert3 }} {{ language.calendary.more }}. 
+            </i></p>
+        </div>
+
+        <div class="chose_year">
+          <select name="year_calendary" [(ngModel)]="year_calendary" (change)="showCalendary()">
+            <option value="{{ current_year }}"> {{ current_year }} </option>
+            <option value="{{ current_year + 1 }}"> {{ current_year + 1 }} </option>
+          </select>
+        </div>
+
+        <div *ngIf="message_error_calendary != ''" class="alert alert-danger mt-2" role="alert"> {{ message_error_calendary }} </div>
+        <div class="alert alert-success mt-2" role="alert" *ngIf="message_success_calendary != ''"> {{ message_success_calendary }} </div>
+        <div class="alert alert-success mt-2" role="alert" *ngIf="message_success_save != ''"> {{ message_success_save }}  </div>
+
+        <div class="chose_action">
+
+        <div class="calendary_form">
+
+          <div class="first_date">
+            Da:
+            <select class="first_day">
+              <option *ngFor="let day of days_january" value="{{ day }}"> {{ day }} </option>
+            </select>
+            
+            <select name="mounth" [(ngModel)]="first_mounth" (change)="getDays('checkIn')">
+              <option *ngFor="let mounth of mounths_names; let i=index" value="{{ i+1 }}"> {{ mounth }} </option>
+            </select>
+          </div>
+          <div class="second_date">
+            A:
+            <select class="second_day">
+              <option *ngFor="let day of days_january" value="{{ day }}"> {{ day }} </option>
+            </select>
+
+            <select name="mounth" [(ngModel)]="second_mounth" (change)="getDays('checkOut')">
+              <option *ngFor="let mounth of mounths_names; let i=index" value="{{ i+1 }}"> {{ mounth }} </option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="options_price">
+          <div class="container_option">
+            <div class="price_value">
+              <label for="price">€</label>
+              <input type="number" name="price" [(ngModel)]="price_value" />
+            </div>
+          </div>
+          <div class="buttonsOption">
+            <input type="submit" value="{{ language.calendary.button_price }} €" (click)="getValue(1)" />
+            <input type="submit" value=" {{ language.calendary.button_block }}  " (click)="getValue(0)"/>
+          </div>
+        </div>
+
+      </div>     <!-- fine "chose_action" -->
+
+
+      <input type="submit" class="fs-4 p-1" value="{{ language.calendary.button_end }}"  (click)="save()"/>
+
+
+        <div class="calendary">
+          <h3>{{ year_calendary }}</h3>
+
+          <div class="container_overflow">
+            <div class="container_mounths">
+                    <!--   fatto con JS  -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

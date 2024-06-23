@@ -1,0 +1,42 @@
+<div [hidden]="check_reserve" class="container pl-4">
+    <div class="block_container">
+      <div class="block mt-3" style="font-size: 20px; text-align: center;"> {{ language.acount.user_reserve.empty_reserve }}  </div>  
+    </div>
+</div>
+
+
+
+<div [hidden]="!check_reserve">
+  <div class="block_container" #reserves>
+     <div class="block mt-3 p-1">
+       <div class="row user_reserves">
+        
+        <div class="col-md-6">
+          <div  class="d-flex flex-row justify-content-around align-items-center h-100">
+            <div style="height: 40px;">
+              <h2> 
+                {{ language.acount.user_reserve.total }} : <span class="confirmed"> {{ total_reserves }} </span> 
+              </h2> 
+            </div>
+           
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="counter_reserves" >
+            <div> {{ language.acount.user_reserve.confirmed }} : <span class="confirmed"> {{ reserves_confirmed }} </span> </div>
+            <div> {{ language.acount.user_reserve.refused }} : <span class="refused"> {{ reserves_refused }} </span> </div>
+          </div>
+        </div>
+   
+
+       </div>
+        
+     </div>
+
+      <!--  fatto con JS   -->
+
+  </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+<div class="block_container">
+
+    <div class="block">
+        <h2> {{ language.admin.manage.title_role }} </h2>
+
+        <form (ngSubmit)="editRole()">
+            <div class="chose_role">
+              <div>
+                <input class="w-100" type="email" name="email" placeholder="{{ language.admin.manage.email_role }}" [(ngModel)]="data.email">
+              </div>
+                <select name="role" [(ngModel)]="data.role">
+                    <option value="admin"> {{ language.admin.manage.role_admin }} </option>
+                    <option value="client"> {{ language.admin.manage.role_client }} </option>
+                </select>
+            </div>
+
+            <div class="alert alert-success" role="alert" *ngIf="message_success != ''"> {{ message_success }}  </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="message_error != ''"> {{ message_error }}  </div>
+
+            <input type="submit" value="{{ language.admin.manage.role_button }}" style="width: 160px;">
+        </form>
+    </div>
+</div>

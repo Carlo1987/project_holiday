@@ -1,0 +1,42 @@
+<div class="method_payment">
+
+    <div class="message_method">
+      {{ language.reserves.simulation }} <img src="../../.././../assets/img/smile_divertente.jpg" style="width: 30px; height: 20px;">
+    </div>
+
+    <div class="chose_method">
+      <select [(ngModel)]="payment_method" >    <!-- (change)="deleteMessages()" -->
+        <option value="card"> {{ language.reserves.card }} </option>
+        <option value="bank"> {{ language.reserves.bank }} </option>
+      </select> 
+    </div>
+
+    <div class="form_payment" *ngIf="payment_method == 'card'">
+        <div class="row_payment">
+          <input type="text" placeholder="{{ language.reserves.number_card }}" [(ngModel)]="payment_card.number">
+        </div>
+       <div class="datas_card">
+         <input type="text" placeholder="MM/AA" [(ngModel)]="payment_card.expiration">
+         <input type="text" placeholder="CVV" [(ngModel)]="payment_card.secure_code">
+       </div>
+       <div class="row_payment">
+        <input type="text" placeholder="{{ language.reserves.example_email }}" [(ngModel)]="payment_card.email">
+       </div>
+    </div>
+
+    <div class="form_payment" *ngIf="payment_method == 'bank'">
+      <div class="row">
+        <div class="col-xxl-6"> <strong> {{ language.reserves.iban }}: </strong></div>  
+        <div class="col-xxl-6"> IT 00 X 12345 12345 000000001111 </div>
+     </div>
+      <div class="row">
+        <div class="col-6"> <strong>{{ language.reserves.name_bank }}:</strong>  </div>  
+        <div class="col-6"> {{ language.reserves.example_bank }} XXX </div>
+      </div>
+      <div class="row">
+        <div class="col-xxl-4"> <strong> {{ language.reserves.reason }}:</strong> </div>  
+        <div class="col-xxl-8"> {{ language.reserves.rest }}  {{ getDatas.home_name }} {{ language.from2 }}  {{ getDatas.reserve.checkIn }} {{ language.to2 }}  {{ getDatas.reserve.checkOut }}  </div>
+      </div>
+    </div>
+
+</div>

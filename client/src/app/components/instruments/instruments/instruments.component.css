@@ -1,0 +1,19 @@
+
+@media(max-width:500px){
+    .last_field{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .last_field label{
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .last_field select{
+        margin: 0 auto !important;
+    }
+}
+
+
+

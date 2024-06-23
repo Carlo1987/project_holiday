@@ -1,0 +1,51 @@
+
+.row_contact{
+    display: flex;
+    flex-direction: row !important;
+}
+
+.row_contact label{
+  width: 100% !important;
+}
+
+.row_contact input{
+    width: 85% !important;
+  }
+
+.row_contact textarea{
+    min-width: 92.5%;
+}
+
+.row_contact div{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 80px !important;
+    padding: 5px;
+    margin: 0 auto !important;
+    border-radius: 5px !important;
+}
+
+
+
+
+@media(max-width:770px){
+    .row_contact input,
+    .row_contact textarea{
+        margin-left: 0px !important;
+    }
+}
+
+
+@media(max-width:600px){
+    .row_contact{
+        flex-direction: column !important;
+    }
+
+    .row_contact input{
+        width: 92.5% !important;
+    }
+}
+
