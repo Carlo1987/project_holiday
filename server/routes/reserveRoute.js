@@ -11,8 +11,8 @@ router.get('/get_reserve/:id',  ReserveController.getReserve);
 router.get('/get_userReserve/:id', md_auth.authenticated , ReserveController.getReserve_byUser);
 router.post('/get_homeReserve', [ md_auth.authenticated , md_admin.admin ] , ReserveController.getReserve_byHome);
 router.get('/get_reserves', ReserveController.getReserves);
-router.put('/update_reserve/:id', md_auth.authenticated , ReserveController.completeReserve);
-router.post('/refund/:id', md_auth.authenticated ,  ReserveController.refund);
+router.put('/update_reserve/:id', ReserveController.completeReserve);
+router.post('/refund/:id',  ReserveController.refund);
 
 
 module.exports = router;

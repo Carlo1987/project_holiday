@@ -56,19 +56,17 @@ export class ReserveService {
 
 
     
-    updateReserve(id:string, reserve:any,token:any):Observable<any>{
+    updateReserve(id:string, reserve:any):Observable<any>{
         let param = JSON.stringify(reserve);
-        let header = new HttpHeaders().set('Content-Type','application/json')
-                                      .set('Authorization',token);
+        let header = new HttpHeaders().set('Content-Type','application/json');
         return this._request.put(this.url+'/update_reserve/'+id, param, {headers:header});
     }
 
 
 
-    refund(id:string, calendary:any,token:any):Observable<any>{
+    refund(id:string, calendary:any):Observable<any>{
         let param = JSON.stringify(calendary);
-        let header = new HttpHeaders().set('Content-Type','application/json')
-                                      .set('Authorization',token);
+        let header = new HttpHeaders().set('Content-Type','application/json');
         return this._request.post(this.url+'/refund/'+id, param, {headers:header});
     }
 

@@ -74,7 +74,7 @@ export const español = {
         min_images : 'Insertar almeno 5 imagenes',
         price_title : "Precios casa:",
         save_alert : "Compilar tudos los campos",
-        saved : "Casa guardada!",
+        saved : "Casa guardada! Mirala en la HOME",
 
         
         details : {
@@ -184,7 +184,7 @@ export const español = {
         wrong_password_login : 'Password equivocada',
         button : "Editar",
         title_delete : "Borrar el perfil",
-        text_delete : "Estas seguro de borrar definitivamente tu perfil?",
+        text_delete : "Estas seguro de borrar tu perfil?",
         sure_delete : "Estoy seguro",
         no_delete : "Cambiè de opinion",
 
@@ -282,7 +282,7 @@ export const español = {
         edit_calendary : "Editar calendario",
         delete_home : "Eliminar casa",
         question_delete : "Quires cancelar la casa y todos sus datos (opiniones y reservas)?",
-        impossible_delete : "Casa Cagliari, Sassari e Nuoro no pueden ser borradas",
+        impossible_delete : "Deben estar almenos 4 casas",
         delete_image : "Imagen cancelada",
         min_images : "Deben estar almenos 5 imagenes",
         type_error : "Algunos files tenian el formado equivocado",
@@ -290,7 +290,7 @@ export const español = {
         image_saved : "Imagen actualizada",
         detail_success : "Details casa actualizados",
         prices_success : "Precios actualizados",
-        prices_saved : "Precios guardados",
+        prices_saved : "Calendario actualizado",
         add_images : "Añadir imagenes",
         added_images : "Imagenes"
     },
@@ -405,7 +405,7 @@ export const español = {
     },
 
     contact : {
-        title : "Contactos",
+        title : "Contactame",
         email : "Tu correo electronico",
         object : "Titulo email",
         message : "Texto email",

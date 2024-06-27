@@ -137,9 +137,14 @@ let controller = {
         Home.findById(id, (error,homeFounded)=>{
             if(error) return res.status(500).send({message:general_error_message});
 
-            if(!homeFounded) return res.status(404).send({message:not_found});
-
-            return res.status(200).send({home : homeFounded});
+            if(!homeFounded){
+                return res.status(404).send({message:not_found});
+            
+            }else{
+                Home.find(function(error,homes){
+                    return res.status(200).send({home : homeFounded , homes_length : homes.length});
+                })
+            }
         })
     },
 

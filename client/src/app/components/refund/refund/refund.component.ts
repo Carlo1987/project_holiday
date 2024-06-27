@@ -104,7 +104,7 @@ export class RefundComponent implements OnInit{
         lang : this.language.language
       }
         
-         this._reserveService.refund(this.reserve._id, data , this.token).subscribe(response=>{
+          this._reserveService.refund(this.reserve._id, data ).subscribe(response=>{
           if(response.reserve && response.home){
             this.reserve.status = "annullata";
              this.message_success = this.language.refund_reserve.success;
@@ -112,7 +112,7 @@ export class RefundComponent implements OnInit{
             console.log(response);
             
           }
-       })    
+       })     
 
     }else{
       this.message_error = this.language.refund_reserve.checked_refund;

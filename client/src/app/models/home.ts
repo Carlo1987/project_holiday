@@ -1,3 +1,6 @@
+
+
+
 export class Home {
 
     constructor(
@@ -9,10 +12,13 @@ export class Home {
        public  rooms:Number,
        public  baths:Number,
        public  description:String,
+
        ////// letti    /////
        public beds:any,
+
        ///////   dettagli  /////////
        public details:any,
+
        ///// calendari prezzi /////
        public calendary_prices:any
     ){}

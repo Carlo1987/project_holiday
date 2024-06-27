@@ -1,4 +1,4 @@
-import { Component , Input , AfterViewInit } from '@angular/core';
+import { Component , Input } from '@angular/core';
 import { Global } from 'src/app/services/global';
 import { UserService } from 'src/app/services/user_service';
 import { ReviewService } from 'src/app/services/review_service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./reviews.component.css'],
   providers: [ UserService , ReviewService ]
 })
-export class ReviewsComponent implements AfterViewInit{
+export class ReviewsComponent {
   public token:string|null = Global.getToken();
   public language:any = Global.setLanguage();
   public url_user:string =Global.url_acount;
@@ -33,10 +33,6 @@ export class ReviewsComponent implements AfterViewInit{
     ];
   }
 
-  
-  ngAfterViewInit(): void {
-    console.log(this.reviews);
-  }
 
 
 

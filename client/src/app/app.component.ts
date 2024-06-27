@@ -165,7 +165,6 @@ export class AppComponent implements OnInit,DoCheck{
 navAcount_visibility(){
   if(!this.nav_acount){
     this.nav_acount = true;
-    console.log(this.nav_acount);
     
   }else{
     this.nav_acount = false;

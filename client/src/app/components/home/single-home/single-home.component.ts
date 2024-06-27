@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HomeService } from 'src/app/services/home_sercive';
 import { Global } from 'src/app/services/global';
 import { Home } from 'src/app/models/home';
+import { home_details } from 'src/app/models/home_details';
+import { home_beds } from 'src/app/models/home_beds';
+import { home_calendary } from 'src/app/models/home_calendary';
 
 @Component({
   selector: 'app-single-home',
@@ -13,7 +16,8 @@ import { Home } from 'src/app/models/home';
 export class SingleHomeComponent implements OnInit{
   public language:any = Global.setLanguage();
   public url:string = Global.url_home;
-  public home:any = Home;
+ // public home:any = Home;
+  public home:any = new Home("","","","",0,0,0,'', home_beds ,home_details, home_calendary);
   public home_images_number:number = 0;
   public first_image:string = '';
   public first_images:Array<string> = [];
@@ -53,9 +57,7 @@ export class SingleHomeComponent implements OnInit{
           this.first_images = this.home.images.filter((img:string,index:number) => index <= 4 && index != 0);
           this.home_images_number = this.home.images.length;
 
-          this.carousel(this.home.images);
-          console.log(this.home);
-          
+          this.carousel(this.home.images);         
             
           if(this.home.rooms > 1)  this.quantity_rooms = this.home.rooms+ ' ' +this.language.homes.rooms;
           if(this.home.beds.doble_beds != 0){ (this.home.beds.doble_beds == 1) ? this.type_beds.push(this.language.singleHome.doble_bed) : this.type_beds.push((this.home.beds.doble_beds)+' '+this.language.homes.doble_bed); }  

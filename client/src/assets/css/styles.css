@@ -1,5 +1,4 @@
 /* ////////////  STILI GENERICI   ////////////// */
-/* $color_dates: rgb(38, 126, 97); */
 .block_images .allert_success, .block_images span, .block_container .block .form_instrument .allert_success, .block_container .block .form_instrument span, .block_container .block form .allert_success, .block_container .block form span {
   width: 70%;
   color: white;
@@ -677,8 +676,10 @@
   .generalDetails {
     width: 100% !important;
   }
+  .category_details {
+    width: 100% !important;
+  }
 }
-/* $color_theme: rgb(38, 126, 97); */
 .navbar .dropdown-menu, .home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, #visitHomes, .carousel_minSize .carousel-inner .card, .carousel_responsive .carousel-inner .card, .carousel_maxSize .carousel-inner .card {
   border: 1px solid black;
   border-radius: 7px;
@@ -1054,7 +1055,6 @@
   }
 }
 /*      STILI  GENERALI     */
-/* $color_theme : rgb(38, 126, 97); */
 .navbar .dropdown-menu, .container_reviews .review .button_review .dropdown-menu, .container_reviews .review .button_review, .container_reviews .review .container_vote .vote_value, .container_reviews .review, .container_reviews .counter, .button_newComment, .container_review, .container_reviews .counter .average_value {
   border: 1px solid black;
   border-radius: 10px;
@@ -1218,7 +1218,6 @@
   }
 }
 /*      STILI  GENERALI     */
-/* $color_theme : rgb(38, 126, 97); */
 .navbar .dropdown-menu, .modal_payments, .container_search_reserve .user_reserve .mounth_reserve, .container_search_reserve, .reserve_complete, .method_payment, .container_reserve_extra .button_confirm, .container_reserve_extra .chose_payment, .container_reserve_extra #accordionPayment, .container_reserve_extra .container_mounth .mounth .container_day, .container_reserve_extra .container_mounth, .container_reserve_extra .change_dates, .container_reserve_extra, .nav_session, .user_reserves .refused, .user_reserves .confirmed {
   border: 1px solid black;
   border-radius: 10px;
@@ -1692,11 +1691,9 @@
     font-size: 17px !important;
   }
 }
-/* $color_theme: rgb(38, 126, 97); */
 .navbar .dropdown-menu {
   border-radius: 7px;
   box-shadow: 1px 1px 3px rgb(60, 58, 58);
-  /*   box-shadow: 1px 1px 3px rgb(19, 105, 19); */
 }
 
 .clearfix {
@@ -1704,8 +1701,8 @@
 }
 
 .alert {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
   font-size: 19px;
 }
 
@@ -1907,7 +1904,6 @@ main {
   width: 100%;
   min-height: 580px;
   padding-top: 20px;
-  border: 1px solid red;
 }
 
 footer {

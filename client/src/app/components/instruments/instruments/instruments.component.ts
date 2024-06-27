@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ExtraService } from 'src/app/services/extra_service';
 import { Global } from 'src/app/services/global';
+import { extra } from 'src/app/models/extra';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Global } from 'src/app/services/global';
 export class InstrumentsComponent implements OnInit{
   public language:any = Global.setLanguage();
   public current_year:number = new Date().getFullYear();
-  public extra:any;
+  public extra:any = extra;
   public min_reserve_days:Array<number> = [1,2,3,4,5];;
   public max_reserve_days:Array<number> = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
   public limit_mouthReserve:Array<number> = [8,9,10,11,12];

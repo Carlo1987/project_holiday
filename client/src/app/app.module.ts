@@ -35,8 +35,11 @@ import { ReserveNoLoginComponent } from './components/reserve/reserve-no-login/r
 import { ContactComponent } from './components/contact/contact.component';
 import { SearchReserveComponent } from './components/reserve/search-reserve/search-reserve.component';
 import { ReserveSingleComponent } from './components/reserve/reserve-single/reserve-single.component';
-import { ReviewsComponent } from './components/review/reviews/reviews.component';
-import { PaymentComponent } from './components/reserve/payment/payment.component';
+import { ReviewsComponent } from './components/includes/reviews/reviews.component';
+import { PaymentComponent } from './components/includes/payment/payment.component';
+import { HomeDetailsComponent } from './components/includes/home-details/home-details.component';
+import { HomeDatasComponent } from './components/includes/home-datas/home-datas.component';
+import { HomeCalendaryComponent } from './components/includes/home-calendary/home-calendary.component';
 
 
 
@@ -74,6 +77,9 @@ import { PaymentComponent } from './components/reserve/payment/payment.component
     ReserveSingleComponent,
     ReviewsComponent,
     PaymentComponent,
+    HomeDetailsComponent,
+    HomeDatasComponent,
+    HomeCalendaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -91,7 +91,7 @@ export class CompleteReserveComponent implements OnInit{
       if(check_payment){
         let data = { reserve : this.reserve , lang : this.language.language };
         
-      this._reserveService.updateReserve(this.reserve._id, data , this.token).subscribe(response=>{
+      this._reserveService.updateReserve(this.reserve._id, data).subscribe(response=>{
           if(response.message){
             console.log(response);
             

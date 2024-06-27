@@ -104,7 +104,17 @@
             <div *ngIf="!status_reserve.expiration">
 
                 <div *ngIf="status_reserve.filter"> 
-                    <p> <strong class="status_reserve good">{{ language.reserve +' '+ language.confirm }}</strong> </p>                   
+                    <p> <strong class="status_reserve good_text">{{ language.reserve +' '+ language.confirm }}</strong> </p>       
+                    
+                    <div class="dropdown">
+                      <button class="btn dropdown-toggle" style='background-color:rgb(38, 126, 97); color:white;'  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ this.language.acount.user_reserve.manage }}
+                     </button>
+                    <ul class="dropdown-menu">
+                       <li *ngIf="advance.set == 'true'" class="text-center"><a class="dropdown-item button_completePayment" [routerLink]="['/reserve-complete' , reserve._id]"> <strong> {{ language.acount.user_reserve.debt_2 }} </strong> </a></li>
+                       <li class="text-center"><a class="dropdown-item button_refund" [routerLink]="['/refund' , reserve._id]"> <strong> {{ language.delete }} </strong> </a></li>
+                    </ul>
+                    </div>
                 </div>
 
                 <div *ngIf="!status_reserve.filter"> <strong class="status_reserve good">{{ language.reserve +' '+ progress }}</strong>  </div>

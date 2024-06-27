@@ -85,7 +85,7 @@ const routes: Routes = [
   {path:'search-reserve', component:SearchReserveComponent},
   {path:'reserve-single/:id', component:ReserveSingleComponent },
   ////  risarcimento
-  {path:'refund/:id', component:RefundComponent, canActivate : [authGuard] },
+  {path:'refund/:id', component:RefundComponent },
   //// strumenti
   {path:'instruments', component:InstrumentsComponent , canActivate : [authGuard,adminGuard]},
   //// errors

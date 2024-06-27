@@ -2,8 +2,10 @@ import { Calendary } from "./calendary";
 import { italian } from "../language/italian";
 
 const host = "http://localhost:3700";
-const front = "http://localhost:4200";
+const front = "http://localhost:4200";  
 
+/* const host = "http://109.176.199.142:3700";
+const front = "http://109.176.199.142:3700";  */
 
 export const Global = {
   
@@ -248,56 +250,6 @@ export const Global = {
         return result;
     },
 
-
-
-    initial_beds_home: function(){
-        let beds = {
-            single_beds:0,
-            doble_beds:0,
-            sofa_beds:0,
-            forniture_beds:0,
-            bunk_beds:0,
-        }
-        return beds;
-    },
-
-
-
-    initial_details_home: function(){
-        let details = {
-            hairdryer: false,
-            hot_water:false, 
-            toilet_paper:false,
-            washing_machine:false,
-            dryer:false,
-            iron:false,
-            crib:false,
-            chair_baby:false,
-            box_baby:false,
-            fireplace:false,
-            air_conditioning:false,
-            electric_fan:false,
-            tv:false,
-            refrigerator:false,
-            microware:false,
-            plate:false,
-            pot:false,
-            coffee_machine:false,
-            wifi:false,
-            balcony:false,
-            courtyard:false,
-            outdoor_food:false,
-            barbecue:false,
-            outdoor_forniture:false,
-            parking:false,
-            animal:false,
-            smoke:false,
-            reception:false,
-            fire_prevention:false,
-            monoxide:false,
-         }
-         return details;
-    },
 
 
 

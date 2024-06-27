@@ -137,7 +137,7 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionPayment">
           <div class="accordion-body">
-            <label for="advance">  {{ language.reserves.text_noFull1 }} €{{ reserve.advance.value_advance | number : '1.2-2' }} {{ language.reserves.text_noFull2 }} €{{ reserve.advance.rest_advance | number : '1.2-2' }} {{ language.reserves.text_noFull3 }} {{ reserve.refund.date }} </label>
+            <label for="advance">  {{ language.reserves.text_noFull1 }} €{{ reserve.advance.value_advance | number : '1.2-2' }} {{ language.reserves.text_noFull2 }} €{{ reserve.advance.rest_advance | number : '1.2-2' }} {{ language.reserves.text_noFull3 }} {{ reserve.refund.limit }} </label>
             <input type="radio" name="advance" value="true" [(ngModel)]="reserve.advance.set" (click)="chosePayment()">
           </div>
         </div>

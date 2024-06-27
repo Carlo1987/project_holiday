@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 import { Global } from 'src/app/services/global';
 import { Calendary } from 'src/app/services/calendary';
 import { reserve_model } from 'src/app/models/reserve';
@@ -12,9 +12,10 @@ import { user_reserve } from 'src/app/models/user_reserve';
   styleUrls: ['./reserve.component.css'],
   providers: [ExtraService]
 })
-export class ReserveComponent implements OnInit{
+export class ReserveComponent implements AfterViewInit{
   @Input() language:any;
   @Input() home_data:any;
+
   public url_acount:string = Global.url_acount;;
   public extra:any;
   public order_reserve:any;
@@ -34,11 +35,11 @@ export class ReserveComponent implements OnInit{
 
 
   
-  ngOnInit(): void {  
+  ngAfterViewInit(): void {  
        this.optionsGuests();     
        this.getExtra();
        Calendary.starting_calndaries_reserves(this.home_data.calendary_reserve, this.home_data.calendary_price);           
-                     
+
        if(localStorage.getItem('reserve'))    localStorage.removeItem('reserve');
   }
 
@@ -53,7 +54,7 @@ export class ReserveComponent implements OnInit{
       <option value="${i}"> ${i} </option>`;
       html += option;
     }
-
+ 
     select?.insertAdjacentHTML('afterbegin' , html);
   }
 

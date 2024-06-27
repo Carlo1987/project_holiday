@@ -3,30 +3,80 @@ const env = require('../env');
 const path = require('path');
 let email = require('../emails/emails');
 
+const error_500 = "Error during the procedure: ";
+const error_404 = " not found";
+
 
 let controller = {
 
     getExtra: function(req,res){
-       let id = "656efe62f0686e616d129c0d";
 
-        Extra.findById(id, (error,extraFounded)=>{
-            if(error) return res.status(500).send({message: 'Errore: '+error});
+       Extra.find(function(error,extraFounded){
+        if(error) return res.status(500).send({message: error_500+error});
 
-            if(!extraFounded) return res.status(404).send({message: 'Errore durante il procedimento'});
+        if(!extraFounded) return res.status(404).send({message: 'Extra'+error_404});
 
-            return res.status(200).send({extra : extraFounded});
-        });
+        if(extraFounded.length == 0){
+            let extra = new Extra();
+
+            extra.current_year =  new Date().getFullYear();
+            extra.reserve_days = {
+              min : 4,
+              max: 25
+            };
+            extra.hours = {
+              checkIn : {
+                start : 18,
+                end : 21
+              },
+              checkOut : {
+                start : 7,
+                end : 11
+              }
+            };
+            extra.limit_mounthReserve = 9;
+            extra.discount = {
+              days_discount : 20,
+              value_discount : 10
+            };
+            extra.advance = 30;
+            extra.refund = {
+              mode : 'moderate',
+              days : 5,
+              limit : "",
+              date : "",
+              hour : "",
+              value : 0
+            };
+            extra.clean = 50;
+
+            extra.save(function(error,extraSaved){
+                if(error)   return res.status(500).send({message:error_500+error});
+                if(!extraSaved)   return res.status(404).send({message:'Extra_Saved'+error_404});
+
+                return res.status(200).send({ extra : extraSaved});
+            })
+          
+        }else{
+            Extra.findOne(function(error,extraFounded){
+                if(error) return res.status(500).send({message: error_500+error});
+
+                if(!extraFounded) return res.status(404).send({message: 'Extra_Founded'+error_404});
+    
+                return res.status(200).send({extra : extraFounded});
+            })
+        }
+       })
     },
 
 
     update: function(req,res){
-        let id = "656efe62f0686e616d129c0d";
         let params = req.body;
 
-        Extra.findByIdAndUpdate(id, params.data, (error,extraUpdated)=>{
-            if(error) return res.status(500).send({message: 'Errore: '+error});
+        Extra.updateOne(params.data, (error,extraUpdated)=>{
+            if(error) return res.status(500).send({message: error_500+error});
 
-            if(!extraUpdated) return res.status(404).send({message: 'Errore durante il procedimento'});
+            if(!extraUpdated) return res.status(404).send({message: 'Extra_Updated'+error_404});
 
             return res.status(200).send({extra : extraUpdated});
         })
@@ -35,14 +85,15 @@ let controller = {
 
 
     update_year: function(req,res){
-        let id = "656efe62f0686e616d129c0d";
+
         let year = req.params.year;
-        Extra.findByIdAndUpdate(id, {current_year : year}, (error,extraUpdated)=>{
-            if(error) return res.status(500).send({message: 'Errore: '+error});
 
-            if(!extraUpdated) return res.status(404).send({message: 'Errore durante il procedimento'});
+        Extra.updateOne({current_year : year}, (error,extraUpdated)=>{
+            if(error) return res.status(500).send({message:  error_500+error});
 
-            return res.status(200).send({message : `Nuovo anno ${year} iniziato!!`});
+            if(!extraUpdated) return res.status(404).send({message: 'Update_Year'+error_404});
+
+            return res.status(200).send({message : `New year ${year} arrived!!`});
         })
     },
 

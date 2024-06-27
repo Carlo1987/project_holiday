@@ -2,7 +2,6 @@
 
 $background_errorAllert :  rgb(219, 53, 53);
 $backgroud_successAllert : rgb(40, 145, 40);
-/* $color_dates: rgb(38, 126, 97); */
 $color_dates: rgb(99, 150, 216);
 $color_prices:  #dd2727;
 $color_badge : rgb(242, 234, 234);
@@ -845,6 +844,10 @@ $color_badge : rgb(242, 234, 234);
     .generalDetails{
          width: 100% !important;
     } 
+
+    .category_details{
+        width: 100% !important;
+     }
 }
 
 

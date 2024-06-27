@@ -72,7 +72,7 @@ export const italian = {
                 min_images : 'Devi inserire almeno 5 immagini',
                 price_title : "Prezzi casa:",
                 save_alert : "Compilare tutti i campi",
-                saved : "Casa salvata!",
+                saved : "Casa salvata! Guardala nella HOME",
 
                 details : {
                         title : "Dettagli casa",
@@ -181,7 +181,7 @@ export const italian = {
                wrong_password_login : 'Password sbagliata',
                button : "Modifica",
                title_delete : "Cancellazione del profilo",
-               text_delete : "  Sei sicuro  di voler cancellare definitivamente il tuo profilo?",
+               text_delete : "  Sei sicuro  di voler cancellare il tuo profilo?",
                sure_delete : "Sono sicuro",
                no_delete : "Ho cambiato idea",
 
@@ -279,7 +279,7 @@ export const italian = {
                 edit_calendary : "Modifica calendario",
                 delete_home : "Cancella casa",
                 question_delete : " Sei sicuro di voler cancellare la casa e tutti i suoi dati (recensioni e prenotazioni)?",
-                impossible_delete : "Casa Cagliari, Sassari e Nuoro non possono essere cancellate",
+                impossible_delete : "Devono esserci almeno 4 case",
                 delete_image : "Immagine eliminata",
                 min_images : "Devono essere presenti almeno 5 immagini",
                 type_error : "Qualcuno dei file non era del formato giusto",
@@ -287,7 +287,7 @@ export const italian = {
                 image_saved : "Immagine aggiornata",
                 detail_success : "Dettagli casa aggiornati",
                 prices_success : "Prezzi aggiornati",
-                prices_saved : "Prezzi salvati",
+                prices_saved : "Calendario aggiornato",
                 add_images : "Aggiungi immagini",
                 added_images : "Immagini"
         },
@@ -403,7 +403,7 @@ export const italian = {
 
 
         contact : {
-               title : "Contatti",
+               title : "Contattami",
                email : "Tua email",
                object : "Oggetto email",
                message : "Testo email",

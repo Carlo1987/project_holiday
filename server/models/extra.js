@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ExtraSchema = Schema({
-    language:String,
     current_year:Number,
     reserve_days:{
         min:String,
@@ -23,6 +22,7 @@ const ExtraSchema = Schema({
         days_discount:Number,
         value_discount:Number,
       },
+      advance:Number,
       refund:{
         mode: String,
         days:Number,

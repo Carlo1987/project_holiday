@@ -3,7 +3,7 @@
 @use 'styleReview';
 @use 'styleReserve';
 
-/* $color_theme: rgb(38, 126, 97); */
+
 $color_theme: rgb(99, 150, 216);
 $color_badge : rgb(242, 234, 234);
 
@@ -11,14 +11,13 @@ $color_badge : rgb(242, 234, 234);
 %border_style{
     border-radius: 7px;
     box-shadow: 1px 1px 3px rgb(60, 58, 58); 
-/*   box-shadow: 1px 1px 3px rgb(19, 105, 19); */
 }
 
 .clearfix{ clear: both;  }
 
 .alert{
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
     font-size: 19px;
 }
 
@@ -273,7 +272,6 @@ main{
     width: 100%;
     min-height: 580px;
     padding-top: 20px;
-    border: 1px solid red;
 }
 
 

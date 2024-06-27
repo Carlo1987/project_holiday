@@ -12,10 +12,6 @@ export class ExtraService{
     ){}
 
 
-    changeLanguage(language:string):Observable<any>{
-        return this._request.get(this.url+"/set_language/"+language);
-    }
-
 
     getExtra():Observable<any>{
         return this._request.get(this.url+'/extra');

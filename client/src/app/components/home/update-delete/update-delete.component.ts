@@ -5,6 +5,9 @@ import { HomeService } from 'src/app/services/home_sercive';
 import { UploadService } from 'src/app/services/upload_service';
 import { Calendary } from 'src/app/services/calendary';
 import { Global } from 'src/app/services/global';
+import { home_beds } from 'src/app/models/home_beds';
+import { home_details } from 'src/app/models/home_details';
+import { home_calendary } from 'src/app/models/home_calendary';
 
 
 @Component({
@@ -19,10 +22,12 @@ export class UpdateDeleteComponent implements OnInit{
   public token:string|null = Global.getToken();
   public user:any = Global.getIdentity().user;
   public id:any;
-  public url_home:string;
+  public url_home:string = Global.url_home;
   public url_front_index:string = Global.url_index_front;
-  public home:any = Home;
+  public home:any =  new Home("","","","",0,0,0,'', home_beds , home_details, home_calendary);
+  public homes_length:number = 0;
   public title:string = '';
+
   /// messaggi vari dei formulari
   public message_datas_success:string = '';
   public message_datas_error:string = '';
@@ -32,10 +37,10 @@ export class UpdateDeleteComponent implements OnInit{
   public message_avatar_error:string = '';
   public message_images_success:string = '';
   public message_images_error:string = '';
-  public message_error_calendary:string = '';
-  public message_success_calendary:string = '';
   public message_form:string = this.language.homes_edit.message_field;
   public message_delete:string = '';
+  public message_calendary:string = this.language.homes_edit.prices_saved;
+
   /// gestione menu
   public menu_datas:any = { name : "datas" , value : false};
   public menu_details:any = { name : "details" , value : false};
@@ -43,21 +48,12 @@ export class UpdateDeleteComponent implements OnInit{
   public menu_images:any = { name : "images" , value : false};
   public menu_calendary:any = { name : "calendary" , value : false};
   public button_delete:any = { name : "delete" , value : false};
+
   /// avatar e immagini
   public avatar:any;
   public images:Array<any> = [];
-  /// calendario
-  public leap_year:boolean;
-  public first_mounth:number = 1;
-  public second_mounth:number = 1;
-  public total_days_mounth:number = 31;
-  public days_january:Array<number> = Calendary.days_january;
-  public mounths_names:Array<string> = this.language.mounth_names;
-  public current_year:number;
-  public year_calendary:number;
-  public first_date_price:any;
-  public second_date_price:any; 
-  public price_value:number = 0;
+
+
 
   @ViewChildren('nav_home') nav_elements!: QueryList<ElementRef<HTMLDivElement>>; 
 
@@ -71,14 +67,7 @@ export class UpdateDeleteComponent implements OnInit{
     private _route : ActivatedRoute,
     private _homeService : HomeService,
     private _uploadService : UploadService,
-  ){
-    this.url_home = Global.url_home;
-    this.mounths_names = this.language.mounth_names;
-    this.message_form = this.language.homes_edit.message_field;
-    this.leap_year = Calendary.leap_yearForm();
-    this.current_year = new Date().getFullYear();
-    this.year_calendary = this.current_year;
-  }
+  ){}
 
 
   ngOnInit(): void {
@@ -93,11 +82,10 @@ export class UpdateDeleteComponent implements OnInit{
  getHome(id:string){
   this._homeService.getHome(id).subscribe(response=>{
     this.home = response.home;  
+    this.homes_length = response.homes_length; 
     this.title = this.home.name;   
                 
     Calendary.setCalendaries(this.home.calendary_prices);
-
-    this.showCalendary();
   })
 }
 
@@ -140,45 +128,55 @@ closeButtonDelete(){
 
 //////////////////////////////////////////////////////
 
+get_homeDatas(event:any){
+  this.home = event.data;
+}
+
 
   update(){
     this.message_datas_success = '';
     this.message_datas_error = '';
+    
     this._homeService.updateDatas(this.id,this.home,this.user.status,this.token).subscribe(response=>{
       if(!response){
         this.message_datas_error = this.language.message_error;
       }else{
         this.message_datas_success = this.language.acount.message_datas;
       }
-    })
+    }) 
   }
 
 
 
-  updateDetails(){
+  updateDetails(event:any){
     this.message_details_error = '';
     this.message_details_success = '';
+
+    this.home.details = event;
+  
     this._homeService.updateDetails(this.id,this.home,this.user.status,this.token).subscribe(response=>{
       if(!response){
         this.message_details_error = this.language.message_error;
       }else{
         this.message_details_success = this.language.homes_edit.detail_success;
       }
-    })
+    }) 
   }
 
 
 
-  updatePrices(){
-    this.message_error_calendary = '';
-    this.message_success_calendary = '';
+  updatePrices(event:any){
+
+   this.home = event;
+    
     this._homeService.updatePrices(this.id,this.home,this.user.status,this.token).subscribe(response=>{
       if(!response){
-        this.message_error_calendary = this.language.message_error;
+        console.log(this.language.message_error);
+  ;
       }else{
-        this.message_success_calendary = this.language.homes_edit.prices_saved;
+        console.log(this.language.homes_edit.prices_saved);
       }
-    })
+    }) 
   }
 
 
@@ -297,7 +295,7 @@ closeButtonDelete(){
 
 
   deleteHome(){
-     if(this.id == "655f6f090ac1c825ba0aeaca" || this.id == "655fb807d1bf0b2ed2c7cb69" || this.id == "6564b3c378766e176383b449"){
+     if(this.homes_length <= 4){
        this.message_delete = this.language.homes_edit.impossible_delete;
        this.button_delete = false;
        
@@ -313,144 +311,9 @@ closeButtonDelete(){
 
 
 
-/*         GESTIONE CALENDARIO PREZZI        */
-  
-
- getDays(Value:string){
-
-  let Mounth = this.first_mounth
-  let class_name = ".first_day";
-
-  if(Value == 'checkOut'){
-    Mounth = this.second_mounth;
-    class_name = ".second_day";
-  }
-
-  this.total_days_mounth = Calendary.total_days_mounth(this.year_calendary)[Mounth-1];
-
-  let optionsHtml = document.querySelectorAll(`${class_name} option`);
-  optionsHtml.forEach(e=> e.remove());
-
-  let select = document.querySelector( class_name );
-  let options = "";
-
-  for(let i=1; i<=this.total_days_mounth; i++){
-    if(Value == "checkIn"){
-      options += `<option value="${i}" data-firstValue=${i}> ${i} </option>`;
-    }else if(Value == "checkOut"){
-      options += `<option value="${i}"> ${i} </option>`;
-    }
-    
-  }
-    
-  select?.insertAdjacentHTML('afterbegin', options);
- }             
-                               
-
-
-
- getValue(Value:number){
-  this.message_error_calendary = '';
-  this.message_success_calendary = '';
-  let Message = this.language.calendary.block;
-
-  if(Value != 0){
-    Value = this.price_value;
-    Message = this.language.homes_edit.prices_success;
-  }
-
-  let first_day:any = document.querySelector('.first_day');
-  let second_day:any = document.querySelector('.second_day');
- 
-  this.first_date_price = first_day.value+'-'+this.first_mounth;
-  this.second_date_price = second_day.value+'-'+this.second_mounth;
-
-  let calendary_prices = Calendary.getPrices(this.first_date_price , this.second_date_price, this.year_calendary, Value);
-
-  if(typeof(calendary_prices) != "string"){
-    this.home.calendary_prices = calendary_prices;
-    this.message_success_calendary = Message;
-    this.showCalendary();
-  }else{
-    this.message_error_calendary = calendary_prices;
-  }
-}
 
   
-  
-
-
-
-  showCalendary(){
-    let calendaries_prices =  [ this.home.calendary_prices.prices.current_year, this.home.calendary_prices.prices.next_year];
-    let calendaries_reserves = [ this.home.calendary_prices.reserves.current_year, this.home.calendary_prices.reserves.next_year];
-    let calendary = [];
-    let reserves:any = []; 
- 
-
-    if(this.year_calendary == this.current_year){
-      calendary = calendaries_prices[0];
-      reserves = calendaries_reserves[0];
-    }else{
-      calendary = calendaries_prices[1];
-      reserves = calendaries_reserves[1];
-    }
-    
-    let mounths = document.querySelectorAll('.container_mounth');
-    mounths.forEach(e=> e.remove());
-  
-    const container = document.querySelector('.container_mounths');
-  
-    calendary.forEach((day:any,index:number)=>{      
-      let container_day = ``;
- 
-      for(let i=1; i<=Calendary.total_days_mounth(this.year_calendary)[index]; i++){
-        let reserve = reserves[index][i];
-        let style_day = '';
-        let style_price = '';
-        let price = '€'+day[i];
-
-        if(day[i] == 'bloccato') price = `<i class="fa-solid fa-lock" style="color: #dd2727;"></i>`;      //   se questa data risulta bloccata....
- 
-        if(typeof(reserve) == 'string'){                                                                  //   se in questa data c'è una prenotazione....
-          style_day =  "style='background-color:rgb(38, 126, 97);' "     
-          style_price = `<div class="reserved"> <p> RESERVED </p>  </div>`;
-        }
-
-        container_day += `
-         <div class="container_day">
-             ${style_price}
-           <div class="day"  ${style_day}> <p> ${i} </p> </div>
-           <div class="element"> <p> ${price} </p> </div>
-         </div>`         
-      }
-  
-       let html = `
-       <div class="container_mounth">
-         <div class="mounth_name"> <p> ${Calendary.mounth_names()[index]} </p> </div>
-       
-         <div class="mounth">
-           ${ container_day }
-         </div>
-        </div>`;
-      
-       container?.insertAdjacentHTML('beforeend',html);
-    }) 
-  }
-
-
-
-  type_price(element:any){
-    let result = '';
-     if(typeof(element) == 'string'){
-       result = "BLOC"
-     }else if(typeof(element) == 'number'){
-      result = `€${element}`;
-     }
-     return result;
-  }
-
-
+                  
 
 
 
