@@ -63,11 +63,13 @@ export class SaveComponent {
        }else{
         let formData = new FormData(); 
 
-        //// immagine avatar/sfondo della casa ////
-            formData.set('avatar', this.avatar);
-            this._uploadService.upload_homeAvatar(dataSaved.home._id , formData , this.token).subscribe(response =>{
-            console.log(response);     }); 
-
+        if(this.avatar != ''){
+             //// immagine avatar/sfondo della casa ////
+          formData.set('avatar', this.avatar);
+          this._uploadService.upload_homeAvatar(dataSaved.home._id , formData , this.token).subscribe(response =>{
+          console.log(response);     }); 
+        }
+      
         ////  immagini della casa  ////
             for(let i=0; i<this.images.length; i++){
               formData.set('images',this.images[i]);

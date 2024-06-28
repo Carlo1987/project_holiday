@@ -1,4 +1,4 @@
-import { Component , OnChanges , Input , Output, EventEmitter } from '@angular/core';
+import { Component , OnChanges , Input , Output, EventEmitter , ViewChild , ElementRef } from '@angular/core';
 import { Global } from 'src/app/services/global';
 import { Calendary } from 'src/app/services/calendary';
 
@@ -14,6 +14,7 @@ export class HomeCalendaryComponent implements OnChanges {
   @Input() home:any;
   @Input() message_calendary:string = '';
   @Output() home_calendary = new EventEmitter();  
+  @ViewChild('mounths',{static:true}) mounths!:ElementRef<HTMLDivElement>;
 
   public current_year:number = new Date().getFullYear();   
   public year_calendary:number = this.current_year; 
@@ -39,12 +40,9 @@ export class HomeCalendaryComponent implements OnChanges {
 
   showCalendary(){
     
-    let calendary = Calendary.show_calendaries(this.year_calendary);
-   
-    let mounths = document.querySelectorAll('.container_mounth');
-    mounths.forEach(e=> e.remove()); 
-  
-    const container = document.querySelector('.container_mounths');
+   let calendary = Calendary.show_calendaries(this.year_calendary);
+
+   let container_mounths = "";
   
     calendary.forEach((day:any,index:number)=>{    
       let container_day = ``;
@@ -66,9 +64,11 @@ export class HomeCalendaryComponent implements OnChanges {
            ${ container_day }
          </div>
         </div>`;
-      
-       container?.insertAdjacentHTML('beforeend',html);
+
+        container_mounths += html
+     
     })
+    this.mounths.nativeElement.innerHTML = container_mounths;
   }
 
 

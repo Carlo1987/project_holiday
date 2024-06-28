@@ -74,7 +74,7 @@ export class UserAcountComponent implements OnInit{
             formData.set('image',this.fileImage);
           
             
-            this._uploadService.upload_userImage(userSaved.user._id , formData ).subscribe((response)=>{   /* , this.token */
+            this._uploadService.upload_userImage(userSaved.user._id , formData ).subscribe((response)=>{  
                 console.log(response);  
             })
           }
