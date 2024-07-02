@@ -155,12 +155,6 @@
     <div class="block" [hidden]="!menu_calendary.value">
       <h2> {{ language.homes_edit.edit_calendary }} </h2>
 
-      <p> <i> <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_price+'"' }}</strong> {{ language.calendary.alert1 }}, 
-              <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_block+'"' }}</strong> {{ language.calendary.alert2 }}.
-       <br>   {{ language.calendary.alert3 }}. 
-      </i></p>
-
-
       <form>
 
         <app-home-calendary [home]="home" [message_calendary]="message_calendary" (home_calendary)="updatePrices($event)"></app-home-calendary>      <!--  componente calendario      -->

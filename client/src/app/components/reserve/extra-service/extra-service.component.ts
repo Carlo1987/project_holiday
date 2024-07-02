@@ -6,8 +6,8 @@ import { HomeService } from 'src/app/services/home_sercive';
 import { ExtraService } from 'src/app/services/extra_service';
 import { ReserveService } from 'src/app/services/reserve_service';
 import { UserService } from 'src/app/services/user_service';
-import { payment_card } from 'src/app/models/payment_card'; 
-import { payment_bank } from 'src/app/models/bank';
+import { payment_card } from 'src/app/models/reserve/payment_card'; 
+import { payment_bank } from 'src/app/models/reserve/bank';
 
 
 @Component({
@@ -64,16 +64,14 @@ export class ExtraServiceComponent implements OnInit{
   ){
     this.mounths_currentYear = Calendary.total_days_mounth(this.year);
     this.mounths_nextYear = Calendary.total_days_mounth(this.year+1);
+    this.reserve = JSON.parse(localStorage.getItem('reserve')!).reserve;
   }
 
 
   ngOnInit(): void {
      if(!localStorage.getItem('reserve'))    this._router.navigate(['']);
-
-      this.message_error_session = this.language.reserves.expired_session;
-
+     
       this.set_countdown_reserve();
-      this.reserve = JSON.parse(localStorage.getItem('reserve')!).reserve;
       this.getExtra();
       this.getHomeData(this.reserve.home_id);
       Calendary.starting_calndaries_reserves(this.reserve.home_calendary.reserves, this.reserve.home_calendary.prices);  
@@ -119,8 +117,10 @@ export class ExtraServiceComponent implements OnInit{
   optionsGuests(){
     let html = "";
     for(let i=1; i<=this.home_data.guests; i++){
-      let option = `
-      <option value="${i}"> ${i} </option>`;
+      let option = `<option value="${i}"> ${i} </option>`;
+      if(i == this.reserve.guests){
+        option = `<option value="${i}" selected> ${i} </option>`;
+      }
       html += option;
     }
    this.guests_number!.nativeElement.insertAdjacentHTML('afterbegin' , html);
@@ -248,7 +248,9 @@ export class ExtraServiceComponent implements OnInit{
        
        this.set_countdown_reserve();
        this.showCalendary();
-       this.message_update = this.language.reserves.upgraded_dates;       
+       this.message_update = this.language.reserves.upgraded_dates;   
+       console.log(data);
+           
       }                                                                       
   
     }else{                                                   //   se la sessione della prenotaizione è scaduta...       

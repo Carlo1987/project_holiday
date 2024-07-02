@@ -68,6 +68,8 @@ $color_badge : rgb(242, 234, 234);
         cursor: pointer;
     }
 
+    textarea{ border-radius: 5px; }
+
 }
 
 
@@ -142,6 +144,7 @@ $color_badge : rgb(242, 234, 234);
         .container_textReview{
             .text{
                 width: 91%;
+                min-width: 400px;
                 margin-left: 0px;
                 text-align: justify;
             }
@@ -208,7 +211,7 @@ $color_badge : rgb(242, 234, 234);
 
         .container_textReview{ 
             margin-top: 10px;
-            .text{ width: 100% !important; }
+            .text{ width: 100% !important; min-width: 0px !important; }
          }
        
     }
@@ -225,14 +228,20 @@ $color_badge : rgb(242, 234, 234);
         font-size: 18px;
     }
 
-    .review{     
-        font-size: 15px;
-        .button_review{
-             right: -41.5px !important; 
-          
+    .container_reviews{
+        width: 100%;
+
+        .review{     
+            font-size: 15px;
+             .button_review{
+                /*  right: -41.5px !important;  */
+               top: 57px;
+            } 
+           
         }
-       
     }
+
+  
 
 
     .container_review{

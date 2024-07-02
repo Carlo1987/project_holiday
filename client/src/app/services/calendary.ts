@@ -1,5 +1,6 @@
 import { italian } from "../language/italian"; 
-import { home_calendary } from "../models/home_calendary";
+import { home_calendary } from "../models/home/home_calendary";
+import { Global } from "./global";
 
 
 let language = italian;
@@ -316,7 +317,8 @@ export const Calendary = {
         let checkOut = this.date_reserveSplit(second_date);
         let check_reserve = [];
         let counter = 0;
-        let total_cost = 0;
+        let total_cost = 0;        
+        
         
         /////     verifica inserimento data corretta   //////
         if(typeof(this.checkDate_reserve(checkIn, checkOut)) == 'string')    return this.checkDate_reserve(checkIn, checkOut);

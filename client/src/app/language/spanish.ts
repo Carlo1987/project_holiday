@@ -309,7 +309,7 @@ export const español = {
         valid_for : "Reserva valida para almeno",
         valid_max : "Reserva valida maximo para",
         valid_to : "Reserva valida hasta los proximos",
-        dates_blocked : "Estas fechas no estan disponinibles",
+        dates_blocked : "Estas fechas estan ocupadas",
         block : "Fechas bloquedas",
         sorry : "Reservas bloqueadas hasta el 2 Enero para actualizaciones"
     },

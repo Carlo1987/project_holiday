@@ -110,9 +110,7 @@ export class AllReservesClientsComponent implements OnInit{
                    if(serch_name)   this.home_reserve = home;                       
               }) 
 
-              this.selected_mounth_reserve = reserves;    
-              console.log(this.selected_mounth_reserve);
-                            
+              this.selected_mounth_reserve = reserves;                    
             }
           }) 
         }

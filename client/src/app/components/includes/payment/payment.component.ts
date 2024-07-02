@@ -1,7 +1,7 @@
 import { Component , Input , DoCheck , Output, EventEmitter} from '@angular/core';
 import { Global } from 'src/app/services/global';
-import { payment_card } from 'src/app/models/payment_card'; 
-import { payment_bank } from 'src/app/models/bank';
+import { payment_card } from 'src/app/models/reserve/payment_card'; 
+import { payment_bank } from 'src/app/models/reserve/bank';
 
 @Component({
   selector: 'app-payment',

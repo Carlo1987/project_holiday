@@ -1,10 +1,11 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, DoCheck , Input , ViewChild , ElementRef } from '@angular/core';
 import { Global } from 'src/app/services/global';
 import { Calendary } from 'src/app/services/calendary';
-import { reserve_model } from 'src/app/models/reserve';
+import { reserve_model } from 'src/app/models/reserve/reserve';
 import { ExtraService } from 'src/app/services/extra_service';
 import { Router } from '@angular/router';
-import { user_reserve } from 'src/app/models/user_reserve';
+import { user_reserve } from 'src/app/models/reserve/user_reserve';
+
 
 @Component({
   selector: 'app-reserve',
@@ -12,11 +13,12 @@ import { user_reserve } from 'src/app/models/user_reserve';
   styleUrls: ['./reserve.component.css'],
   providers: [ExtraService]
 })
-export class ReserveComponent implements AfterViewInit{
+export class ReserveComponent implements OnInit,DoCheck{
   @Input() language:any;
   @Input() home_data:any;
+  @ViewChild('select',{static:true}) select!:ElementRef<HTMLSelectElement>;
 
-  public url_acount:string = Global.url_acount;;
+  public url_acount:string = Global.url_acount;
   public extra:any;
   public order_reserve:any;
   public reserve:any = reserve_model;
@@ -35,27 +37,46 @@ export class ReserveComponent implements AfterViewInit{
 
 
   
-  ngAfterViewInit(): void {  
-       this.optionsGuests();     
+  ngOnInit(): void {         
+      this.home_data = {
+        _id: '', 
+        name: '', 
+        guests: 0, 
+        calendary_reserve: {}, 
+        calendary_price: {} 
+       }; 
+
+     
        this.getExtra();
-       Calendary.starting_calndaries_reserves(this.home_data.calendary_reserve, this.home_data.calendary_price);           
+     
 
        if(localStorage.getItem('reserve'))    localStorage.removeItem('reserve');
   }
 
 
 
-  optionsGuests(){
-    const select = document.querySelector('.people select');
+  ngDoCheck(): void {
 
+    
+    this.optionsGuests();    
+    Calendary.starting_calndaries_reserves(this.home_data.calendary_reserve, this.home_data.calendary_price);   
+    
+  }
+
+
+
+  optionsGuests(){    
     let html = "";
     for(let i=1; i<=this.home_data.guests; i++){
-      let option = `
-      <option value="${i}"> ${i} </option>`;
+      let option = `<option value="${i}"> ${i} </option>`;
+      if(i == this.reserve.guests){
+        option = `<option value="${i}" selected> ${i} </option>`;
+      }
+     
       html += option;
     }
- 
-    select?.insertAdjacentHTML('afterbegin' , html);
+  
+    this.select.nativeElement.innerHTML = html;
   }
 
 
@@ -83,7 +104,7 @@ export class ReserveComponent implements AfterViewInit{
 
 
 
-  getReserve(){
+  getReserve(){    
     this.message_error = '';
     let data_user = user_reserve;
     data_user._id =  this.createID();  

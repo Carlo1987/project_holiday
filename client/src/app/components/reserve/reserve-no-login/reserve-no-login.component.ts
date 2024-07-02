@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Global } from 'src/app/services/global';
-import { user_reserve } from 'src/app/models/user_reserve';
+import { user_reserve } from 'src/app/models/reserve/user_reserve';
 import { countries } from 'src/app/models/list_countries';
 import { Router } from '@angular/router';
 

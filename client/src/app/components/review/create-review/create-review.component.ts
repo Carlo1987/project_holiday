@@ -25,6 +25,7 @@ export class CreateReviewComponent implements OnInit{
   public stars_value:Array<number> = [1,2,3,4,5];
   public review_created:boolean = false;
 
+
   constructor(
     private _route : ActivatedRoute,
     private _reviewService : ReviewService

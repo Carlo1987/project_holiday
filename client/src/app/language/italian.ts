@@ -305,13 +305,13 @@ export const italian = {
                 valid_for : "Prenotazione valida per almeno",
                 valid_max : "Prenotazione valida massimo per",
                 valid_to : "Prenotazione valida fino ai prossimi",
-                dates_blocked : "Queste date non sono disponibili",
+                dates_blocked : "Queste date sono già occupate",
                 block : "Date bloccate",
                 sorry : "Prenotazioni bloccate fino al 2 Gennaio per aggiornamenti"
         },
 
         review : {
-                new_comment : "Lascia un commmento!",
+                new_comment : "Lascia un commento!",
                 edit_comment : "Modifica un commento!",
                 button_new : "Invia",
                 vote : "Valutazione",

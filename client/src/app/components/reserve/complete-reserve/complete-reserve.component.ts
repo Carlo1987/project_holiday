@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReserveService } from 'src/app/services/reserve_service';
 import { HomeService } from 'src/app/services/home_sercive';
-import { payment_card } from 'src/app/models/payment_card'; 
-import { payment_bank } from 'src/app/models/bank';
+import { payment_card } from 'src/app/models/reserve/payment_card'; 
+import { payment_bank } from 'src/app/models/reserve/bank';
 import { Global } from 'src/app/services/global';
 
 @Component({

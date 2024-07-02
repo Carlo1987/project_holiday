@@ -26,7 +26,9 @@ export class ModifyReviewComponent implements OnInit{
   constructor(
     private _route : ActivatedRoute,
     private _reviewService : ReviewService
-  ){}
+  ){
+    this.data = {user_id: 0, home_id: 0, assessment:0 , review:'', progressive:0};
+  }
 
 
   ngOnInit(): void {

@@ -1090,6 +1090,9 @@
   margin-right: 4px;
   cursor: pointer;
 }
+.container_review textarea {
+  border-radius: 5px;
+}
 
 .button_newComment {
   width: 300px;
@@ -1142,6 +1145,7 @@
 }
 .container_reviews .review .container_textReview .text {
   width: 91%;
+  min-width: 400px;
   margin-left: 0px;
   text-align: justify;
 }
@@ -1191,6 +1195,7 @@
   }
   .review .container_textReview .text {
     width: 100% !important;
+    min-width: 0px !important;
   }
 }
 @media (max-width: 467px) {
@@ -1198,11 +1203,15 @@
     width: 100%;
     font-size: 18px;
   }
-  .review {
+  .container_reviews {
+    width: 100%;
+  }
+  .container_reviews .review {
     font-size: 15px;
   }
-  .review .button_review {
-    right: -41.5px !important;
+  .container_reviews .review .button_review {
+    /*  right: -41.5px !important;  */
+    top: 57px;
   }
   .container_review {
     width: 90%;

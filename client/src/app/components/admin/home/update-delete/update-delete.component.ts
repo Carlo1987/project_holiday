@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
-import { Home } from 'src/app/models/home';
+import { Home } from 'src/app/models/home/home';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from 'src/app/services/home_sercive';
 import { UploadService } from 'src/app/services/upload_service';
 import { Calendary } from 'src/app/services/calendary';
 import { Global } from 'src/app/services/global';
-import { home_beds } from 'src/app/models/home_beds';
-import { home_details } from 'src/app/models/home_details';
-import { home_calendary } from 'src/app/models/home_calendary';
+import { home_beds } from 'src/app/models/home/home_beds';
+import { home_details } from 'src/app/models/home/home_details';
+import { home_calendary } from 'src/app/models/home/home_calendary';
 
 
 @Component({

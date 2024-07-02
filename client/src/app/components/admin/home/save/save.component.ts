@@ -1,12 +1,12 @@
 import { Component, ViewChild, ElementRef} from '@angular/core';
-import { Home } from 'src/app/models/home';
+import { Home } from 'src/app/models/home/home';
 import { Global } from 'src/app/services/global';
 import { Calendary } from 'src/app/services/calendary';
 import { HomeService } from 'src/app/services/home_sercive';
 import { UploadService } from 'src/app/services/upload_service';
-import { home_details } from 'src/app/models/home_details';
-import { home_beds } from 'src/app/models/home_beds';
-import { home_calendary } from 'src/app/models/home_calendary';
+import { home_details } from 'src/app/models/home/home_details';
+import { home_beds } from 'src/app/models/home/home_beds';
+import { home_calendary } from 'src/app/models/home/home_calendary';
 
 @Component({
   selector: 'app-save',

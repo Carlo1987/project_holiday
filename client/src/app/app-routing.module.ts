@@ -18,15 +18,15 @@ import { PasswordEditComponent } from './components/user/password-edit/password-
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { EditRoleComponent } from './components/user/edit-role/edit-role.component';
 import { UserReserveComponent } from './components/user/user-reserve/user-reserve.component';
-import { AllReservesClientsComponent } from './components/user/all-reserves-clients/all-reserves-clients.component';
-import { EditHousesComponent } from './components/user/edit-houses/edit-houses.component';
+import { AllReservesClientsComponent } from './components/admin/all-reserves-clients/all-reserves-clients.component';
+import { EditHousesComponent } from './components/home/edit-houses/edit-houses.component';
 
 /// rotte Home
 import { HomesComponent } from './components/home/homes/homes.component';
 import { SingleHomeComponent } from './components/home/single-home/single-home.component';
 
 /// rotte Strumenti
-import { InstrumentsComponent } from './components/instruments/instruments/instruments.component';
+import { InstrumentsComponent } from './components/admin/instruments/instruments.component';
 
 /// rotte Recensioni
 import { CreateReviewComponent } from './components/review/create-review/create-review.component';
@@ -35,8 +35,8 @@ import { ModifyReviewComponent } from './components/review/modify-review/modify-
 /// rotte generali
 import { ErrorsComponent } from './components/errors/errors.component';
 import { AppComponent } from './app.component';
-import { SaveComponent } from './components/home/save/save.component';
-import { UpdateDeleteComponent } from './components/home/update-delete/update-delete.component';
+import { SaveComponent } from './components/admin/home/save/save.component';
+import { UpdateDeleteComponent } from './components/admin/home/update-delete/update-delete.component';
 
 ///  rotte prenotazioni
 import { ExtraServiceComponent } from './components/reserve/extra-service/extra-service.component';
@@ -47,7 +47,7 @@ import { SearchReserveComponent } from './components/reserve/search-reserve/sear
 import { ReserveSingleComponent } from './components/reserve/reserve-single/reserve-single.component';
 
 ///  rotte risarcimenti
-import { RefundComponent } from './components/refund/refund/refund.component';
+import { RefundComponent } from './components/refund/refund.component';
 
 
 

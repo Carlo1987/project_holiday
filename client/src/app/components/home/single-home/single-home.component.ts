@@ -2,10 +2,10 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from 'src/app/services/home_sercive';
 import { Global } from 'src/app/services/global';
-import { Home } from 'src/app/models/home';
-import { home_details } from 'src/app/models/home_details';
-import { home_beds } from 'src/app/models/home_beds';
-import { home_calendary } from 'src/app/models/home_calendary';
+import { Home } from 'src/app/models/home/home';
+import { home_details } from 'src/app/models/home/home_details';
+import { home_beds } from 'src/app/models/home/home_beds';
+import { home_calendary } from 'src/app/models/home/home_calendary';
 
 @Component({
   selector: 'app-single-home',
@@ -58,7 +58,7 @@ export class SingleHomeComponent implements OnInit{
           this.home_images_number = this.home.images.length;
 
           this.carousel(this.home.images);         
-            
+                   
           if(this.home.rooms > 1)  this.quantity_rooms = this.home.rooms+ ' ' +this.language.homes.rooms;
           if(this.home.beds.doble_beds != 0){ (this.home.beds.doble_beds == 1) ? this.type_beds.push(this.language.singleHome.doble_bed) : this.type_beds.push((this.home.beds.doble_beds)+' '+this.language.homes.doble_bed); }  
           if(this.home.beds.single_beds != 0){ (this.home.beds.single_beds == 1) ? this.type_beds.push(this.language.singleHome.single_bed) : this.type_beds.push((this.home.beds.single_beds)+' '+this.language.homes.single_bed); }  
@@ -70,7 +70,7 @@ export class SingleHomeComponent implements OnInit{
           this.data_reserve = {
             _id: this.home._id, 
             name: this.home.name, 
-            avatar: this.home.avatar,
+            avatar : this.home.avatar,
             guests: this.home.guests, 
             calendary_reserve:this.home.calendary_prices.reserves, 
             calendary_price:this.home.calendary_prices.prices  

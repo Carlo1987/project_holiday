@@ -1,7 +1,7 @@
  export const reserve_model = {
     home_id: '', 
     home_calendary: {},
-    home_data: {},
+    home_data : {},
     user_data:{},
     checkIn:'',
     checkOut:'',
