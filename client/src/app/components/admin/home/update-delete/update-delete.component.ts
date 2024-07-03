@@ -121,7 +121,7 @@ manageMenu(selected:string){
 
 
 closeButtonDelete(){
-  this.button_delete = false;
+  this.button_delete.value = false;
 }
 
 

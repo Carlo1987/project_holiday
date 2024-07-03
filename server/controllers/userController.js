@@ -30,13 +30,14 @@ const UserController = {
          User.findOne({email : dates.email}, async function(error,emailChecked){
             if(error) return res.status(500).send({message: general_error_message+error});
 
-            if(emailChecked && emailChecked.id_noLogin == ''){
+               ///   se trova un utente nel database già registrato, il client mi darà un messaggio di errore
+            if(emailChecked && emailChecked.id_noLogin == '' || emailChecked && emailChecked.id_noLogin != '' && emailChecked.name != dates.name || emailChecked.surname != dates.surname){                         
                 return res.status(200).send({message: "checked" , email : emailChecked});
             } 
 
             let hash = await bcryptjs.hash(dates.password , 10);           //   password criptata
 
-            if(!emailChecked){
+            if(!emailChecked){                                        //    se non trova nessun utente nel database, lo salva e registra normalmente
 
                 let user = new User();
              
@@ -64,7 +65,7 @@ const UserController = {
                 }) 
 
 
- //   utente che in realtà era già salvato nel database perchè in passato ha fatto prenotazioni senza essere registrato
+ //   se trova un utente nel database che però non era registrato, aggiorna i dati rendendolo un utente registrato
             }else if(emailChecked && emailChecked.id_noLogin != '' && emailChecked.name == dates.name && emailChecked.surname == dates.surname){ 
 
                 let params = {
@@ -398,8 +399,7 @@ const UserController = {
 
                     let token_hash = await bcryptjs.hash(token , 10);  
                     return res.status(200).send({ token:token_hash,
-                                                  expiration: new Date().getHours()+':'+new Date().getMinutes(),
-                                                  user: userFounded,
+                                                  user: userFounded
                                                });
                 })
            

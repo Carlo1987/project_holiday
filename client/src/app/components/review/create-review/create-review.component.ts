@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router } from '@angular/router';
 import { ReviewService } from 'src/app/services/review_service';
 import { Global } from 'src/app/services/global';
 
@@ -28,6 +28,7 @@ export class CreateReviewComponent implements OnInit{
 
   constructor(
     private _route : ActivatedRoute,
+    private _router : Router,
     private _reviewService : ReviewService
   ){
     this.data = {user_id: 0, home_id: 0, assessment:0 , review:'', progressive:0};
@@ -35,16 +36,22 @@ export class CreateReviewComponent implements OnInit{
 
 
   ngOnInit(): void {
+    if(localStorage.getItem('user_review')){
       this.title = this.language.review.new_comment;
       this.bottom = this.language.review.button_new;
 
-      this.user_id = JSON.parse(localStorage.getItem('user')!).user._id;
+      this.user_id = JSON.parse(localStorage.getItem('user_review')!).user_id;
       this._route.params.subscribe(param=>{       
         this.home_id = param['id'];
       })  
       this.data.user_id = this.user_id;
       this.data.home_id = this.home_id;
-      this.getLastReview();          
+      this.getLastReview();   
+
+    }else{
+      this._router.navigate(['']);
+    }
+       
   }
 
 
@@ -73,7 +80,7 @@ export class CreateReviewComponent implements OnInit{
       this.message_error = this.language.review.error_review;
     }else if(this.data.assessment != 0 && this.data.review != ''){
 
-      this._reviewService.saveReview(this.data,this.token).subscribe(response=>{
+      this._reviewService.saveReview(this.data).subscribe(response=>{
 
         if(response.review){
           this.message_success =  this.language.review.success;

@@ -20,11 +20,12 @@ export class UserEditComponent implements OnInit{
   public title:string = this.language.acount.title_datas;
   public button:string = this.language.acount.button;
   public delete_acount:boolean = true;
+
   //  messaggi
   public message_form:string = this.language.acount.message_field;
   public message_error:string = '';
   public message_success:string = '';
-
+  public message_invalidEmail:string = '';
 
 
   constructor(
@@ -57,37 +58,43 @@ export class UserEditComponent implements OnInit{
    edit(){
     this.message_error = '';
     this.message_success = '';
-    
-    let user_dates = {
-      name : this.user.name,
-      surname : this.user.surname,
-      email : this.user.email,
-      cell : parseInt(this.user.cell),
-      country : this.user.country,
-      address : this.user.address,
-      city : this.user.city,
-      cap : this.user.cap
-    }
+    this.message_invalidEmail = '';
 
-    this._userService.updateUser(this.user._id , user_dates , this.token ).subscribe(response =>{ 
-      
-           if(!response.message){
-            this.user = response.user;
+    if(Global.validateEmail(this.user.email)){
+      let user_dates = {
+        name : this.user.name,
+        surname : this.user.surname,
+        email : this.user.email,
+        cell : parseInt(this.user.cell),
+        country : this.user.country,
+        address : this.user.address,
+        city : this.user.city,
+        cap : this.user.cap
+      }
+  
+      this._userService.updateUser(this.user._id , user_dates , this.token ).subscribe(response =>{ 
+        
+             if(!response.message){
+              this.user = response.user;
+              /* 
+              let expiration = Global.create_sessionExpitation();
+              let data = Global.session_create(response , expiration);
             
-            let expiration = Global.create_sessionExpitation();
-            let data = Global.session_create(response , expiration);
-          
-            let newSession = JSON.stringify(data);
-            localStorage.setItem('user' , newSession);
-            this.message_success = this.language.acount.message_datas;        
-
-           }else if(response.message && response.message == 'checked'){
-                this.message_error = this.language.acount.message_checked_email;                
-           }else{
-            console.log(response.message);
-           }
-          }
-       ) 
+              let newSession = JSON.stringify(data);
+              localStorage.setItem('user' , newSession);
+              this.message_success = this.language.acount.message_datas;        */ 
+  
+             }else if(response.message && response.message == 'checked'){
+                  this.message_error = this.language.acount.message_checked_email;                
+             }else{
+              console.log(response.message);
+             }
+            }) 
+    }else{
+      this.message_invalidEmail = this.language.notValid_email;
+    }
+    
+ 
     }
 
 

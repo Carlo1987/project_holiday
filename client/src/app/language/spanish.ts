@@ -58,7 +58,8 @@ export const español = {
     welcome : 'Bienvenido en mi proyecto "Vacaciones en Cerdeña"!!',
 
     homes : {
-        title : "Visitas las casas",
+        title_visit : "Visitas las casas",
+        title_edit : "Modifica le case",
         edit : "Editar",
         meters : "Metros",
         rooms : "abitaciones",
@@ -315,14 +316,15 @@ export const español = {
     },
 
     review : {
-        new_comment : "Dejar una opinion!",
-        edit_comment : "Modificar una opinion!",
+        new_comment : "Dejar un comentario!",
+        edit_comment : "Modificar un comentario!",
         button_new : "Envia",
         vote : "Valutacion",
-        review : "Opinion",
+        review : "Comentario",
         error_vote : "Indicar una valutacion",
-        error_review : "Dejarr una opinion",
-        success : "Opinion enviada!"
+        error_review : "Dejarr un comentario",
+        success : "Comentario enviado!",
+        alert : "Para editar/borrar los comentarios, hacer el LOGIN"
     },
 
     reserves : {

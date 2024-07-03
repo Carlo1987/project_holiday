@@ -11,10 +11,9 @@ import { Global } from 'src/app/services/global';
 })
 export class ReviewOneHomeComponent implements OnInit{
   public home_id:string = '';
-  public check_user:boolean = true;
-
   public first_reviews:Array<any> = [];
   public reviews_home:Array<any> = [];
+  public checkLogin:boolean = false;
 
   //public stars_array:Array<any>;
   public message_error:string = '';
@@ -29,6 +28,9 @@ export class ReviewOneHomeComponent implements OnInit{
      ){}
 
      ngOnInit(): void {
+
+      if(localStorage.getItem('user'))     this.checkLogin = true;
+
        this._route.params.subscribe(param=>{
         let home_id = param['id'];
         this.home_id = home_id;
@@ -77,9 +79,8 @@ export class ReviewOneHomeComponent implements OnInit{
 
 
      newReview(){
-      this.check_user = true;
       if(!localStorage.getItem('user')){
-        this.check_user = false;
+        this._router.navigate(['review-noLogin/'+this.home_id]);
       }else{
         this._router.navigate(['create-review/'+this.home_id]);
       } 

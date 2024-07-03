@@ -8,6 +8,8 @@
     <span class="vote"> {{ reviews_home.length }} </span>
   </p>
 
+  <p style="font-weight: bold;" *ngIf="!checkLogin"> {{ language.review.alert }} </p>
+
 
    <app-reviews [reviews]="first_reviews"></app-reviews>              <!-- prime due recensioni -->
 
@@ -38,11 +40,6 @@
  <!--   fine offcanvas recensioni    -->
 </div>
 
-
-
-<div class="alert alert-danger mx-2 fs-5 text-center" role="alert" *ngIf="!check_user">
-  {{ language.singleHome.error_review }}
-</div>
 
 
 <div style="text-align: center">

@@ -168,8 +168,9 @@ export class UserAcountComponent implements OnInit{
 
              this._userService.loginUser(user,true).subscribe(userLogged=>{
               
-              let expiration = Global.create_sessionExpitation();
+              let expiration = Global.create_expiration_sessions(60*3);
               let data = Global.session_create(userLogged,expiration);
+              console.log(data);
               
               localStorage.setItem('user' , JSON.stringify(data));  
             

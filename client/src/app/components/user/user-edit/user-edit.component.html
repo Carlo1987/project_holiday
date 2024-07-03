@@ -57,9 +57,11 @@
             <input type="text" name="cap" [(ngModel)]="user.cap"/>
           </div>
     
-          <input type="submit" value="{{ button }}" [disabled]="!editForm.form.valid"/>
+          <input type="submit" value="{{ button }}" [disabled]="!editForm.form.valid"
+           [ngStyle]="{'text-decoration': !editForm.form.valid ? 'line-through' : 'none' }"  />
 
           <div class="alert alert-danger" role="alert" *ngIf="message_error != ''"> {{ message_error }}  </div>
+          <div class="alert alert-danger" role="alert" *ngIf="message_invalidEmail != ''"> {{ message_invalidEmail }}  </div>
           <div class="alert alert-success" role="alert" *ngIf="message_success != ''"> {{ message_success }}  </div>
 
         </form>

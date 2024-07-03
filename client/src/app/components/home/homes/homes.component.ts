@@ -14,6 +14,7 @@ export class HomesComponent implements AfterViewInit{
   public url:string;
   public url_front:string = Global.url_home_front;
   public language:any = Global.setLanguage();
+  public title:string = this.language.homes.title_visit;
   @ViewChild ('carousel_homes') carousel!:ElementRef<HTMLDivElement>;
   @ViewChild ('carousel_homes_maxSize') carousel_MaxSize!:ElementRef<HTMLDivElement>;
   @ViewChild ('carousel_homes_minSize') carousel_MinSize!:ElementRef<HTMLDivElement>;

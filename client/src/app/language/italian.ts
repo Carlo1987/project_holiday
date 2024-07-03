@@ -56,7 +56,8 @@ export const italian = {
         welcome : 'Benvenuto nel mio progetto "Case vacanze in Sardegna"!!',
 
         homes : {
-                title : "Visita le case",
+                title_visit : "Visita le case",
+                title_edit : "Modifica le case",
                 edit : "Modifica",
                 meters : "Metri",
                 rooms : "stanze da letto",
@@ -318,7 +319,8 @@ export const italian = {
                 review : "Recensione",
                 error_vote : "Indicare una valutazione",
                 error_review : "Lasciare un commento",
-                success : "Recensione inviata!"
+                success : "Recensione inviata!",
+                alert : "Per modificare/cancellare i commenti, effettuare il LOGIN"
         },
 
         reserves : {

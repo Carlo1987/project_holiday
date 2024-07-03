@@ -13,6 +13,7 @@ export class EditHousesComponent implements OnInit{
   public url:string = Global.url_home;
   public url_front:string = Global.url_index_front;
   public language:any = Global.setLanguage();
+  public title:string = this.language.homes.title_edit;
   @ViewChild ('carousel_homes') carousel!:ElementRef<HTMLDivElement>;
   @ViewChild ('carousel_homes_maxSize') carousel_MaxSize!:ElementRef<HTMLDivElement>;
   @ViewChild ('carousel_homes_minSize') carousel_MinSize!:ElementRef<HTMLDivElement>;

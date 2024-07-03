@@ -94,20 +94,14 @@ export class ReserveComponent implements OnInit,DoCheck{
 
 
 
-  createID(){
-    let id = "NOLOGIN";
-    for(let i=0; i<12; i++){
-      id += Math.round(Math.random()*9);
-    }
-    return id;
-  }
+
 
 
 
   getReserve(){    
     this.message_error = '';
     let data_user = user_reserve;
-    data_user._id =  this.createID();  
+    data_user._id =  Global.createID();  
     let navigate = "/reserve-noLogin";
 
     if(localStorage.getItem('user')){ 
@@ -141,7 +135,7 @@ export class ReserveComponent implements OnInit,DoCheck{
            
           let data = {
             reserve : this.reserve,
-            expiration :  Global.expiration_sessionReserve()
+            expiration :  Global.create_expiration_sessions(10)
            }
           localStorage.setItem('reserve',JSON.stringify(data));   
                 

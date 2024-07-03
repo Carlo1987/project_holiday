@@ -210,7 +210,7 @@ export class ExtraServiceComponent implements OnInit{
     this.message_error = '';
     this.message_update = '';
 
-    if(Global.expiration_countdown(this.countdown_value)){                     //   se la sessione della prenotaizione non è scaduta...
+    if(Global.expiration(this.countdown_value)){                     //   se la sessione della prenotaizione non è scaduta...
 
       let starting_reserve = JSON.parse(localStorage.getItem('reserve')!).reserve;
 
@@ -242,7 +242,7 @@ export class ExtraServiceComponent implements OnInit{
 
        let data = {
         reserve : this.reserve,
-        expiration : Global.expiration_sessionReserve()
+        expiration : Global.create_expiration_sessions(10)
        }
        localStorage.setItem('reserve',JSON.stringify(data));   
        
@@ -279,7 +279,7 @@ export class ExtraServiceComponent implements OnInit{
 
 
   setStorage(){
-    let storage = { reserve : this.reserve , expiration : Global.expiration_sessionReserve() }
+    let storage = { reserve : this.reserve , expiration : Global.create_expiration_sessions(10) }
              
     localStorage.setItem('reserve', JSON.stringify(storage));
 
@@ -306,7 +306,7 @@ export class ExtraServiceComponent implements OnInit{
     this.message_error_method = '';
     this.message_error_payment = '';
 
-    if(Global.expiration_countdown(this.countdown_value)){             //   se la sessione non è scaduta
+    if(Global.expiration(this.countdown_value)){             //   se la sessione non è scaduta
 
     let check_payment = false;
 

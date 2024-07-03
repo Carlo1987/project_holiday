@@ -58,6 +58,7 @@ $color_badge : rgb(242, 234, 234);
 
     h2{
         padding-left: 1%;
+        text-align: center;
         @include title_style($color_theme);
     }
 
@@ -92,7 +93,7 @@ $color_badge : rgb(242, 234, 234);
     padding: 15px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 6px;
 
 
 
@@ -112,7 +113,7 @@ $color_badge : rgb(242, 234, 234);
     .review{
         @extend %border_style;
         background-color: white;
-        margin-bottom: 5px;
+        margin-bottom: 12px;
         padding: 8px;
         position: relative;
      

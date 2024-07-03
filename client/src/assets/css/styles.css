@@ -368,13 +368,13 @@
 }
 .block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .reserved {
   width: 100%;
-  height: 8px;
   text-align: center;
-  font-size: 8px;
+  font-size: 7px;
   font-weight: bold;
   position: absolute;
-  margin-top: 18.5px;
+  margin-top: 22px;
   padding-top: 1px;
+  background-color: rgb(68, 63, 63);
   color: white;
 }
 .block_container .block .form_instrument {
@@ -1081,6 +1081,7 @@
 }
 .container_review h2 {
   padding-left: 1%;
+  text-align: center;
   color: rgb(99, 150, 216);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
@@ -1109,7 +1110,7 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 6px;
 }
 .container_reviews .counter {
   padding: 15px;
@@ -1119,7 +1120,7 @@
 }
 .container_reviews .review {
   background-color: white;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
   padding: 8px;
   position: relative;
 }

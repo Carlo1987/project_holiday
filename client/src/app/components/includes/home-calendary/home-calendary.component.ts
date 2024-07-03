@@ -40,19 +40,30 @@ export class HomeCalendaryComponent implements OnChanges {
 
   showCalendary(){
     
-   let calendary = Calendary.show_calendaries(this.year_calendary);
+   let calendary = Calendary.show_calendaries(this.year_calendary);   
+   let reserves = calendary.reserves;
 
    let container_mounths = "";
   
-    calendary.forEach((day:any,index:number)=>{    
+    calendary.prices.forEach((day:any,index:number)=>{    
       let container_day = ``;
       for(let i=1; i<=Calendary.total_days_mounth(this.year_calendary)[index]; i++){
         let price = '€'+day[i];
+        let style_day = '';
+        let reserved = "";
+
         if(day[i] == 'bloccato') price = `<i class="fa-solid fa-lock" style="color: #dd2727;"></i>`;
+
+        if(typeof(reserves[index][i]) == 'string' && reserves[index][i] != 'bloccato'){          
+           style_day = `style="background-color:green"`;
+           reserved = `<p class="reserved">  reserved  </p>`;
+        } 
+
         container_day += `
          <div class="container_day">
-           <div class="day"> <p> ${i} </p> </div>
+           <div class="day" ${style_day}> <p> ${i} </p> </div>
            <div class="element"> <p> ${price} </p> </div>
+           ${reserved}
          </div>`
       }
   

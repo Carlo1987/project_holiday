@@ -179,11 +179,15 @@ export const Calendary = {
     show_calendaries: function(year:number){
         let yearString = year.toString();
         let years = [`${current_year}` , `${next_year}`] ;
-        let calendaries =  [ calendary_currentYear, calendary_nextYear];
+        let calendaries_price =  [ calendary_currentYear, calendary_nextYear];
+        let calendaries_reserve =  [ reserves_currentYear, reserves_nextYear];
 
         let search_index = years.indexOf(yearString);
-        return calendaries[search_index];
-    },
+        return {
+            prices : calendaries_price[search_index],
+            reserves : calendaries_reserve[search_index]
+        };
+    }, 
 
 
 

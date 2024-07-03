@@ -35,10 +35,8 @@ export class AppComponent implements OnInit,DoCheck{
 
   ngOnInit(): void {   
     this.language = Global.setLanguage();
-    this.update_year();
-    this.session_manage();
-    this.codePassw_manage();  
     this.getHomes(); 
+    this.update_year();
   }
 
 
@@ -46,6 +44,9 @@ export class AppComponent implements OnInit,DoCheck{
   ngDoCheck(): void {
     this.identity = Global.getIdentity();
     this.setFlag();
+    this.session_manage();
+    this.expiration_sessions('code_passw');
+    this.expiration_sessions('user_review');
   }
 
 
@@ -86,15 +87,21 @@ export class AppComponent implements OnInit,DoCheck{
  
       let expirationSession = Global.expiration(data.expiration);
  
-      if(expirationSession){                     //   se sono passate tre ore dall'ultima connessione, cancella la sessione
+      if(!expirationSession){                     //   se sono passate tre ore dall'ultima connessione, cancella la sessione
+        localStorage.removeItem('code_passw');
         localStorage.removeItem('token');
+        localStorage.removeItem('reserve');
         localStorage.removeItem('user');
         
-        }else{                                //    se non sono passate le tre ore, mantiene la sessione e ogni ora la aggiorna
-          let new_expiration = Global.create_sessionExpitation();         
-          let expiration = Global.session_update(data.user , data.expiration , new_expiration);
-          if(expiration != ''){                                             //    ogni ora la sessione aggiorna l'ora di "expiration"                                       
-               localStorage.setItem('user', JSON.stringify(expiration));     
+      }else{                                //    se non sono passate le tre ore, mantiene la sessione e ogni ora la aggiorna
+
+          let update_session = Global.session_update(data.expiration);
+
+          if(update_session){
+
+            let expiration = Global.create_expiration_sessions(60*3);
+            let user = Global.session_create(data,expiration);
+            localStorage.setItem('user',JSON.stringify(user));
           }
       } 
     }
@@ -102,18 +109,15 @@ export class AppComponent implements OnInit,DoCheck{
 
 
 
-  codePassw_manage(){                                      /*  metodo per l'espirazione del codice necessario per creare una nuova password se dimenticata   */
-    if(localStorage.getItem('code_passw')){
-      let data =  JSON.parse(localStorage.getItem('code_passw')!);
+  expiration_sessions(storage:string){                                      /*  metodo per l'espirazione sessioni varie   */
+    if(localStorage.getItem(storage)){
+      let data =  JSON.parse(localStorage.getItem(storage)!);
 
-      let expirationToken = Global.token_expiration(data.expiration);
-
-      if(expirationToken){
-         localStorage.removeItem('code_passw');
+      if(!Global.expiration(data.expiration)){
+        localStorage.removeItem(storage);
       }
     }
   }
-
 
 
 

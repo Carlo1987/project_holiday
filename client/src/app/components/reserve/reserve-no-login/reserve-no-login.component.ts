@@ -17,10 +17,12 @@ export class ReserveNoLoginComponent {
   public button:string = this.language.acount.user_reserve.button_noLogin;
   public delete_acount:boolean = false;
   public reserve:any = JSON.parse(localStorage.getItem('reserve')!).reserve;
+  
   //  messaggi
   public message_form:string = this.language.acount.message_field;
   public message_error:string = '';
   public message_success:string = '';
+  public message_invalidEmail:string = '';
 
 
   constructor(
@@ -30,23 +32,33 @@ export class ReserveNoLoginComponent {
 
 
   edit(){ 
-    this.reserve.user_data = this.user;
-    let storage = JSON.parse(localStorage.getItem('reserve')!);
+    this.message_error = '';
+    this.message_invalidEmail = '';
+    this.message_success = '';
 
-    storage.reserve.user_data.name = this.reserve.user_data.name;
-    storage.reserve.user_data.surname = this.reserve.user_data.surname;
-    storage.reserve.user_data.email = this.reserve.user_data.email;
-    storage.reserve.user_data.cell = this.reserve.user_data.cell;
-    storage.reserve.user_data.country = this.reserve.user_data.country;
-    storage.reserve.user_data.city = this.reserve.user_data.city;
-    storage.reserve.user_data.address = this.reserve.user_data.address;
-    storage.reserve.user_data.cap = this.reserve.user_data.cap;
- 
-    storage.expiration = Global.expiration_sessionReserve();
+    if(Global.validateEmail(this.user.email)){
+      this.reserve.user_data = this.user;
+      let storage = JSON.parse(localStorage.getItem('reserve')!);
+  
+      storage.reserve.user_data.name = this.reserve.user_data.name;
+      storage.reserve.user_data.surname = this.reserve.user_data.surname;
+      storage.reserve.user_data.email = this.reserve.user_data.email;
+      storage.reserve.user_data.cell = this.reserve.user_data.cell;
+      storage.reserve.user_data.country = this.reserve.user_data.country;
+      storage.reserve.user_data.city = this.reserve.user_data.city;
+      storage.reserve.user_data.address = this.reserve.user_data.address;
+      storage.reserve.user_data.cap = this.reserve.user_data.cap;
+   
+      storage.expiration = Global.create_expiration_sessions(10);
+  
+      localStorage.setItem('reserve',JSON.stringify(storage));    
+  
+      this._router.navigate(['/reserve']);
 
-    localStorage.setItem('reserve',JSON.stringify(storage));    
-
-    this._router.navigate(['/reserve']);
+    }else{
+      this.message_invalidEmail = this.language.notValid_email;
+    }
+   
   }
 
 

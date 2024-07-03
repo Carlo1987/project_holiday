@@ -31,6 +31,7 @@ import { InstrumentsComponent } from './components/admin/instruments/instruments
 /// rotte Recensioni
 import { CreateReviewComponent } from './components/review/create-review/create-review.component';
 import { ModifyReviewComponent } from './components/review/modify-review/modify-review.component';
+import { ReviewNoLoginComponent } from './components/review/review-no-login/review-no-login.component';
 
 /// rotte generali
 import { ErrorsComponent } from './components/errors/errors.component';
@@ -75,8 +76,9 @@ const routes: Routes = [
   {path:'home/:id', component:SingleHomeComponent},
   {path:'home-update&delete/:id', component:UpdateDeleteComponent , canActivate : [authGuard,adminGuard]},
   //// recensioni
-  {path:'create-review/:id', component:CreateReviewComponent, canActivate : [authGuard] },
+  {path:'create-review/:id', component:CreateReviewComponent},
   {path:'modify-review/:id', component:ModifyReviewComponent, canActivate : [authGuard] },
+  {path:'review-noLogin/:id', component:ReviewNoLoginComponent},
   ////  prenotazioni
   {path:'reserve', component:ExtraServiceComponent },     
   {path:'reserve-success/:id', component:ReserveSuccessComponent },

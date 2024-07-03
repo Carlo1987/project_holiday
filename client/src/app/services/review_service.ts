@@ -15,10 +15,9 @@ export class ReviewService{
 
 
 
-    saveReview(data:any,token:any):Observable<any>{
+    saveReview(data:any):Observable<any>{
         let params = JSON.stringify(data);
-        let header = new HttpHeaders().set('Content-Type','application/json')
-                                      .set('Authorization',token);
+        let header = new HttpHeaders().set('Content-Type','application/json');
         return this._request.post(this.url+'/save', params , {headers:header});
     }
 

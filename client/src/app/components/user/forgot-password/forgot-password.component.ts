@@ -50,7 +50,13 @@ export class ForgotPasswordComponent implements OnInit{
            this.message_error = response.message
 
         }else{
-          localStorage.setItem('code_passw', JSON.stringify(response));
+          let code = {
+            token : response.token,
+            user : response.user,
+            expiration : Global.create_expiration_sessions(10)
+          }
+          
+          localStorage.setItem('code_passw', JSON.stringify(code));
           this.success = true;
         }     
    })
@@ -73,7 +79,7 @@ export class ForgotPasswordComponent implements OnInit{
       this.session_expired = false;
       
       }else{
-      this.message_error = this.language.resetPassword.error_code;
+         this.message_error = this.language.resetPassword.error_code;
       }
     
      });

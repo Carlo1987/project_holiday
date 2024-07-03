@@ -5,7 +5,7 @@ const ReviewController = require('../controllers/reviewController');
 
 const md_auth = require('../middlewares/authenticate');
 
-router.post('/save' , md_auth.authenticated , ReviewController.save);
+router.post('/save' , ReviewController.save);
 router.get('/reviews', ReviewController.getLastReview);
 router.get('/review_home/:id' , ReviewController.getReviewHome);
 router.get('/get_avatar/:id' , ReviewController.getAvatar);

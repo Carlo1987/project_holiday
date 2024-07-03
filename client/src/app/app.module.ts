@@ -41,6 +41,7 @@ import { PaymentComponent } from './components/includes/payment/payment.componen
 import { HomeDetailsComponent } from './components/includes/home-details/home-details.component';
 import { HomeDatasComponent } from './components/includes/home-datas/home-datas.component';
 import { HomeCalendaryComponent } from './components/includes/home-calendary/home-calendary.component';
+import { ReviewNoLoginComponent } from './components/review/review-no-login/review-no-login.component';
 
 
 
@@ -81,6 +82,7 @@ import { HomeCalendaryComponent } from './components/includes/home-calendary/hom
     HomeDetailsComponent,
     HomeDatasComponent,
     HomeCalendaryComponent,
+    ReviewNoLoginComponent,
   ],
   imports: [
     BrowserModule,

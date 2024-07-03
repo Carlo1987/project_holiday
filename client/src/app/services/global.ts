@@ -1,11 +1,13 @@
-import { Calendary } from "./calendary";
+
 import { italian } from "../language/italian";
 
 const host = "http://localhost:3700";
 const front = "http://localhost:4200";  
 
-/* const host = "http://109.176.199.142:3700";
-const front = "http://109.176.199.142:3700";  */
+/* 
+const host = "http://109.176.199.142:3700";
+const front = "http://109.176.199.142:3700";  
+*/
 
 export const Global = {
   
@@ -69,69 +71,66 @@ export const Global = {
 
 
 
-
-    expiration: function(date:any){
-        let result = false;
-        let current_year = new Date().getFullYear();
-        let current_mounth = new Date().getMonth()+1;
-        let current_day = new Date().getDate();
+  
+     expiration(value:string){                                            /*  espirazione sessioni  */
+        let expirationSplit = value.split(':');
+        let hour = parseInt(expirationSplit[0]);
+        let minute = parseInt(expirationSplit[1]);
         let current_hour = new Date().getHours();
-        let current_minutes = new Date().getMinutes();     
-        
-        if(current_hour == date.hour && current_minutes >= date.minute && current_day == date.day && current_year == date.year && current_mounth == date.mounth){
-            result = true;  
-            
-        }else if(current_hour > date.hour && current_day == date.day && current_year == date.year && current_mounth == date.mounth){
-            result = true;
-        }else if(current_day > date.day && date.hour >= 3  &&  current_year == date.year && current_mounth == date.mounth){
-            result = true;
-        }else if(current_year == date.year && current_mounth > date.mounth && date.day != 1){
-            result = true;
-        }else if(current_year > date.year && date.mounth != 1 && date.day != 1){
-            result = true;
+        let current_minute = new Date().getMinutes();
+
+        let result = true;
+        if(current_hour == hour && current_minute >= minute || current_hour > hour || current_hour == 0 && hour == 23){
+            result = false;
+        }
+        return result;
+      },  
+ 
+
+
+
+
+    countHours(limit:number){                          /*   funzione per conteggiare la differenza di ore e minuti   */
+        let hour = 0;
+        let minute = 0;
+
+        for(let i=1; i<=limit; i++){
+            minute++;
+            if(minute == 60){
+                minute = 0;
+                hour++
+            }            
         }
 
-        return result;  
+        return {
+            hour : hour,
+            minute : minute
+        }
     },
 
 
+   
+   create_expiration_sessions(limit:number){                                      /*   creazione espirazione sessioni varie  */         
+    /// limit sono minuti
+        let hour = new Date().getHours();
+        let minutes = new Date().getMinutes();
+        let value_limit = this.countHours(limit);
 
-    create_sessionExpitation: function(){
-        let newDate = new Date();
-        let current_hour = newDate.getHours();
-        let day = newDate.getDate();
-        let mounth = newDate.getMonth()+1;
-        let year = newDate.getFullYear();
+        hour = hour + value_limit.hour;
+        minutes = minutes + value_limit.minute;
 
-        let hour_expiration =current_hour+3;
+        if(hour >= 24){
+            hour = hour-24;
+        } 
 
-        if(hour_expiration >= 24){
-            hour_expiration = hour_expiration-24;
-            day = day+1;
-
-            if(day > Calendary.total_days_mounth(year)[mounth-1]){
-                day = 1;
-                mounth= mounth+1;
-
-                if(mounth == 13){
-                    mounth = 1;
-                    year = year+1;
-                }
-            }
-        }
-
-        let expiration = {
-            day : day,
-            mounth : mounth,
-            year : year,
-            hour : hour_expiration,
-            minute : newDate.getMinutes()
-        }
-        return expiration;
-    },
+        return hour+':'+minutes;
+    },    
 
 
-    session_create: function(element:any , expire:any){
+
+
+    session_create: function(element:any , expire:any){                                       /*    creazione sessione utente loggato   */
+
         let data = {
             user: {
               _id : element.user._id,
@@ -147,98 +146,30 @@ export const Global = {
               cap : element.user.cap
             },
             session: true,
-            expiration: {
-                day : expire.day,
-                mounth : expire.mounth,
-                year : expire.year,
-                hour : expire.hour,
-                minute : expire.minute
-            }
+            expiration: expire
            }
 
            return data;
-    },
+    }, 
 
 
 
-    session_update: function(user:any , date:any , new_expiration:any){
-        let new_session:any = '';
+    session_update(expiration:string){                                                /*   funzione per aggiornamento sessione utente   */
+        let expSplit = expiration.split(':');
+        let exp_hour = parseInt(expSplit[0]); 
+        let hour = new Date().getDate();
+    
         let result = false;
-        let newDate = new Date();
-        let hour = newDate.getHours();
-        let day = newDate.getDate();
-        let mounth = newDate.getMonth()+1;
-        let year = newDate.getFullYear();
 
-
-        if(day == date.day && mounth == date.mounth && year == date.year && date.hour-hour <= 2){
-             result = true;
-        }else if(date.day == day+1 && mounth == date.mounth && year == date.year && hour > date.hour){
-             if(date.hour == 0 && hour >= 22 || date.hour == 1 && hour >= 23){
-                result = true;
-             }
-        }else if(day == 31 || day == 30 || day == 28 || day == 29){
-            if(date.day == 1 && date.mounth == mounth+1){
-                if(date.hour == 0 && hour >= 22 || date.hour == 1 && hour >= 23){
-                    result = true;
-                 }
-            }
-        }else if(date.year == year+1 && mounth == 12 && date.mounth == 1){
-            if(date.hour == 0 && hour >= 22 || date.hour == 1 && hour >= 23){
-                result = true;
-             }
-        } 
-        
-        if(result){
-            new_session =  {
-                user: {
-                    _id : user._id,
-                    name : user.name,
-                    surname : user.surname,
-                    email : user.email,
-                    cell : user.cell,
-                    image: user.image,
-                    image_path: user.image_path,
-                    status : user.status,
-                    address : user.address,
-                    city : user.city,
-                    cap : user.cap
-                  },
-                  session: true,
-                  expiration: {
-                    day : new_expiration.day,
-                    mounth : new_expiration.mounth,
-                    year : new_expiration.year,
-                    hour : new_expiration.hour,
-                    minute : new_expiration.minute
-                  }
-            }
-        }
-        return new_session;
-    },
-
-
-    token_expiration: function(date:string){
-        let result = false;
-        let currentHour = new Date().getHours();
-        let currentMinutes = new Date().getMinutes();
-
-        let dateSplit = date.split(':');
-        let hour = parseInt(dateSplit[0]);
-        let minutes = parseInt(dateSplit[1]);
-
-        if(currentHour == hour && currentMinutes >= minutes+10){
-            result = true;
-
-        }else if(currentHour >= hour+1){
-            result = true;
-
-        }else if(hour == 23 && currentHour >= 0 && currentHour != 23){
+        if(exp_hour - hour <= 2){
             result = true;
         }
 
         return result;
+
     },
+
+
 
 
 
@@ -261,39 +192,16 @@ export const Global = {
 
 
 
-    expiration_sessionReserve(){
-         let hour = new Date().getHours();
-         let minutes = new Date().getMinutes();
 
-         minutes = minutes+10;
-         if(minutes >= 60){
-            minutes = minutes-60;
-            hour++;
-         }
-
-         if(hour >= 24){
-            hour = hour-24;
-         }
-
-         return hour+':'+minutes;
-     }, 
-
-
-
-
-     expiration_countdown(value:string){
-        let expirationSplit = value.split(':');
-        let hour = parseInt(expirationSplit[0]);
-        let minute = parseInt(expirationSplit[1]);
-        let current_hour = new Date().getHours();
-        let current_minute = new Date().getMinutes();
-
-        let result = true;
-        if(current_hour == hour && current_minute >= minute || current_hour > hour || current_hour == 0 && hour == 23){
-            result = false;
+    createID: function(){
+        let id = "NOLOGIN";
+        for(let i=0; i<12; i++){
+          id += Math.round(Math.random()*9);
         }
-        return result;
+        return id;
       }
+
+
 
 
   
