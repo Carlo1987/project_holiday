@@ -315,7 +315,7 @@ const UserController = {
 
                 }else{          
             
-                    if(params.getToken = null || params.getToken == undefined){
+                    if(params.getToken == null || params.getToken == undefined){
                         return res.status(200).send({
                             status : true,
                             token : jwt(userFounded)

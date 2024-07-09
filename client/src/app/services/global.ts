@@ -133,16 +133,16 @@ export const Global = {
         let hour = current_hour + difference.hour;
         let minutes = current_minute + difference.minute;
 
+        if(minutes >= 60){
+            minutes = minutes - 60;
+            hour++;
+        }
+
         if(hour >= 24){
             hour = hour-24;
             day++;
         }
 
-        if(hour == 23 && minutes >= 60){
-            minutes = minutes - 60;
-            hour = 0;
-            day++;
-        }
 
         return {
             day : day,

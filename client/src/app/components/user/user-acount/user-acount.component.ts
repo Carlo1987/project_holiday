@@ -139,6 +139,10 @@ export class UserAcountComponent implements OnInit{
 
 
 
+
+
+  
+
   login(form:any){
     this.message_notValid_email = '';
     this.errors_login = '';
