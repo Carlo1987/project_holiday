@@ -19,10 +19,12 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 %cardHomes_style{
-     float: left; 
+    float: left;   
     width: 250px;
     margin-top: 15px;
     margin-bottom: 5px;
+    margin-left: 65px;
+/*     margin-right: 3%;  */
     @extend %border_style;
     img{
         height:170px;
@@ -71,42 +73,19 @@ $bg_badge : rgba(173, 199, 234, 0.972);
  .carousel-inner{  overflow: hidden !important;  }
 
 
- .carousel_maxSize{
-    .carousel-inner{
-       
-        width: 1170px !important;
-        .card{
-            @extend %cardHomes_style;
-            margin-left: 35px;
-         }
-     }
-  
- }
-
 
  .carousel_responsive{
-    display: none;
+/*     display: none; */
     .carousel-inner{
-        width: 900px !important;
+         width: 980px; 
         .card{
             @extend %cardHomes_style;
-            margin-left: 35px;
+          /*   margin-left: 35px; */
          }
      }
  }
 
 
- .carousel_minSize{
-    display: none;
-    .carousel-inner{
-      /*   width: 1170px !important; */
-        .card{
-            @extend %cardHomes_style;
-           /*  margin-left: 35px; */
-         }
-     }
-  
- }
 
 
 
@@ -274,34 +253,16 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 /*/////////////           MEDIA QUERY      ////////////////*/
 
 
-@media(max-width:1399px){
-    .carousel_maxSize{
-        .carousel-inner{
-         
-            .card:first-child{
-                margin-left: 0px !important;
+
+ @media(max-width:1180px){
+       .carousel_responsive{
+           .carousel-inner{
+               .card{
+                     width: 24%; 
+                 } 
              }
-         }
-      
-     }
+    }
 } 
-
-
-
-
-@media(max-width:1285px){
-    .carousel_maxSize{
-        display: none !important;
-     }
-
-
-     .carousel_responsive{
-        display: block;
-        .card{
-            margin-left: 35px;
-         }
-     }
-}
 
 
 
@@ -312,42 +273,42 @@ $bg_badge : rgba(173, 199, 234, 0.972);
     width: 99%;
 }
 
- 
-.carousel_responsive{
-    margin-left: 10px !important;   
- } 
+.carousel_responsive{  
+    .carousel-inner{
+        width: 100%;
+        .card{
+            margin-left: 45px;
+            width: 26%;
+        }
+     } 
+} 
+
+
 }
 
 
   @media(max-width:940px){   
     
-    .carousel_responsive{
-        margin-left: 0px !important;
-          .carousel-inner{
-                padding-left: 0px !important;
-                 .card:first-child{
-                    margin-left: 0px !important;
-                } 
-             } 
-     }
-
      .list_images, .button_totalImages{  display: none !important; }
      .carousel_singleHome{  display: block; }
 }
 
 
 
-@media(max-width:870px){   
-    
-    .carousel_responsive{
-        margin: 0 auto !important;
-             .carousel-inner{
-                .card:first-child{
-                    margin-left: 45px !important;
-                }
-             } 
-     }
-} 
+
+
+ @media(max-width:883px){
+
+    .carousel_responsive{      
+        .carousel-inner{
+            .card{
+                margin-left: 40px;
+                width: 200px;
+            }
+         } 
+    } 
+ }
+
 
 
 
@@ -357,21 +318,21 @@ $bg_badge : rgba(173, 199, 234, 0.972);
         width: 98%;
 
     }
+
+    .carousel_responsive{      
+        .carousel-inner{
+            .card{
+                margin-left: 15px;
+                width: 200px;
+            }
+         } 
+    } 
  }
 
 
 
 
 @media(max-width:767px){   
-    
-    .carousel_responsive{
-             .carousel-inner{
-                .card:first-child{
-                    margin-left:0px !important;
-                }
-             } 
-     }
-
      .carousel_singleHome{ 
        width: 100%;
     }
@@ -379,22 +340,21 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
-@media(max-width:715px){   
-    
-    .carousel_responsive{
-             .carousel-inner{
-                .card{
-                    width: 200px !important;
-                    img{
-                        height: 130px;
-                    }
-                }
-                .card:first-child{
-                    margin-left:25px !important;
-                }
-             } 
-     }
-} 
+@media(max-width:700px){
+    .carousel_responsive{      
+        .carousel-inner{
+            .card{
+                margin-left: 45px;
+                width: 35%;
+                font-size: 10px;
+                h5,a{ font-size: 13px; }
+                img{  height: 120px; }
+            }
+         } 
+    } 
+}
+
+
 
 
 @media(max-width:550px){
@@ -408,36 +368,33 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
+@media(max-width:460px){
+    .carousel_responsive{      
+        .carousel-inner{
+            .card{
+                margin-left: 20px;
+                width: 150px;
+                img{ height: 90px; }
+            }
+         } 
+    } 
+}
 
-@media(max-width:515px){   
-    
-    .carousel_responsive{
-             .carousel-inner{
-                .card:first-child{
-                    margin-left:0px !important;
-                }
-             } 
-     }
-} 
+
+@media(max-width:390px){
+    .carousel_responsive{     
+        .carousel-inner{
+            .card{
+                margin-left: 10px;
+                width: 120px;
+                img{ height: 70px; }
+            }
+         } 
+    } 
+}
 
 
 
-@media(max-width:485px){   
-    
- .carousel_responsive{  display: none !important; }
- 
-.carousel_minSize{
-    display: block;
-    .carousel-inner{
-      
-        .card{
-           float: none;
-          
-         }
-     }
- } 
-
-}  
 
 
 
@@ -527,17 +484,6 @@ $bg_badge : rgba(173, 199, 234, 0.972);
         }
            
     }
-
-
-
-    .carousel_minSize{
-        .carousel-inner{ 
-            .card{
-               width: 200px;
-               img{ height: 130px; }
-             }
-         }
-     } 
 
 
      .carousel_singleHome{ 

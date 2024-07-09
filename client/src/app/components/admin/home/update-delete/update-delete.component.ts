@@ -295,7 +295,7 @@ get_homeDatas(event:any){
 
 
   deleteHome(){
-     if(this.homes_length <= 4){
+     if(this.homes_length <= 3){
        this.message_delete = this.language.homes_edit.impossible_delete;
        this.button_delete = false;
        

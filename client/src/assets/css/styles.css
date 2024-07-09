@@ -680,7 +680,7 @@
     width: 100% !important;
   }
 }
-.navbar .dropdown-menu, .home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, #visitHomes, .carousel_minSize .carousel-inner .card, .carousel_responsive .carousel-inner .card, .carousel_maxSize .carousel-inner .card {
+.navbar .dropdown-menu, .home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, #visitHomes, .carousel_responsive .carousel-inner .card {
   border: 1px solid black;
   border-radius: 7px;
   box-shadow: 1px 1px 3px rgb(60, 58, 58);
@@ -692,13 +692,15 @@
   width: 50%;
 }
 
-.carousel_minSize .carousel-inner .card, .carousel_responsive .carousel-inner .card, .carousel_maxSize .carousel-inner .card {
+.carousel_responsive .carousel-inner .card {
   float: left;
   width: 250px;
   margin-top: 15px;
   margin-bottom: 5px;
+  margin-left: 65px;
+  /*     margin-right: 3%;  */
 }
-.carousel_minSize .carousel-inner .card img, .carousel_responsive .carousel-inner .card img, .carousel_maxSize .carousel-inner .card img {
+.carousel_responsive .carousel-inner .card img {
   height: 170px;
 }
 
@@ -728,31 +730,14 @@
   overflow: hidden !important;
 }
 
-.carousel_maxSize .carousel-inner {
-  width: 1170px !important;
-}
-.carousel_maxSize .carousel-inner .card {
-  margin-left: 35px;
-}
-
 .carousel_responsive {
-  display: none;
+  /*     display: none; */
 }
 .carousel_responsive .carousel-inner {
-  width: 900px !important;
+  width: 980px;
 }
 .carousel_responsive .carousel-inner .card {
-  margin-left: 35px;
-}
-
-.carousel_minSize {
-  display: none;
-}
-.carousel_minSize .carousel-inner {
-  /*   width: 1170px !important; */
-}
-.carousel_minSize .carousel-inner .card {
-  /*  margin-left: 35px; */
+  /*   margin-left: 35px; */
 }
 
 .card:hover {
@@ -888,40 +873,24 @@
 }
 
 /*/////////////           MEDIA QUERY      ////////////////*/
-@media (max-width: 1399px) {
-  .carousel_maxSize .carousel-inner .card:first-child {
-    margin-left: 0px !important;
-  }
-}
-@media (max-width: 1285px) {
-  .carousel_maxSize {
-    display: none !important;
-  }
-  .carousel_responsive {
-    display: block;
-  }
-  .carousel_responsive .card {
-    margin-left: 35px;
+@media (max-width: 1180px) {
+  .carousel_responsive .carousel-inner .card {
+    width: 24%;
   }
 }
 @media (max-width: 991px) {
   #visitHomes {
     width: 99%;
   }
-  .carousel_responsive {
-    margin-left: 10px !important;
+  .carousel_responsive .carousel-inner {
+    width: 100%;
+  }
+  .carousel_responsive .carousel-inner .card {
+    margin-left: 45px;
+    width: 26%;
   }
 }
 @media (max-width: 940px) {
-  .carousel_responsive {
-    margin-left: 0px !important;
-  }
-  .carousel_responsive .carousel-inner {
-    padding-left: 0px !important;
-  }
-  .carousel_responsive .carousel-inner .card:first-child {
-    margin-left: 0px !important;
-  }
   .list_images, .button_totalImages {
     display: none !important;
   }
@@ -929,36 +898,37 @@
     display: block;
   }
 }
-@media (max-width: 870px) {
-  .carousel_responsive {
-    margin: 0 auto !important;
-  }
-  .carousel_responsive .carousel-inner .card:first-child {
-    margin-left: 45px !important;
+@media (max-width: 883px) {
+  .carousel_responsive .carousel-inner .card {
+    margin-left: 40px;
+    width: 200px;
   }
 }
 @media (max-width: 770px) {
   #visitHomes {
     width: 98%;
   }
+  .carousel_responsive .carousel-inner .card {
+    margin-left: 15px;
+    width: 200px;
+  }
 }
 @media (max-width: 767px) {
-  .carousel_responsive .carousel-inner .card:first-child {
-    margin-left: 0px !important;
-  }
   .carousel_singleHome {
     width: 100%;
   }
 }
-@media (max-width: 715px) {
+@media (max-width: 700px) {
   .carousel_responsive .carousel-inner .card {
-    width: 200px !important;
+    margin-left: 45px;
+    width: 35%;
+    font-size: 10px;
+  }
+  .carousel_responsive .carousel-inner .card h5, .carousel_responsive .carousel-inner .card a {
+    font-size: 13px;
   }
   .carousel_responsive .carousel-inner .card img {
-    height: 130px;
-  }
-  .carousel_responsive .carousel-inner .card:first-child {
-    margin-left: 25px !important;
+    height: 120px;
   }
 }
 @media (max-width: 550px) {
@@ -966,20 +936,22 @@
     height: 250px;
   }
 }
-@media (max-width: 515px) {
-  .carousel_responsive .carousel-inner .card:first-child {
-    margin-left: 0px !important;
+@media (max-width: 460px) {
+  .carousel_responsive .carousel-inner .card {
+    margin-left: 20px;
+    width: 150px;
+  }
+  .carousel_responsive .carousel-inner .card img {
+    height: 90px;
   }
 }
-@media (max-width: 485px) {
-  .carousel_responsive {
-    display: none !important;
+@media (max-width: 390px) {
+  .carousel_responsive .carousel-inner .card {
+    margin-left: 10px;
+    width: 120px;
   }
-  .carousel_minSize {
-    display: block;
-  }
-  .carousel_minSize .carousel-inner .card {
-    float: none;
+  .carousel_responsive .carousel-inner .card img {
+    height: 70px;
   }
 }
 @media (max-width: 440px) {
@@ -1043,12 +1015,6 @@
   #visitHomes #visit_buttons .buttomCarousel .buttonLeft {
     width: 45px;
     margin-left: 20px;
-  }
-  .carousel_minSize .carousel-inner .card {
-    width: 200px;
-  }
-  .carousel_minSize .carousel-inner .card img {
-    height: 130px;
   }
   .carousel_singleHome img {
     height: 170px;

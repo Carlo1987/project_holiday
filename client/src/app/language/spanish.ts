@@ -283,7 +283,7 @@ export const español = {
         edit_calendary : "Editar calendario",
         delete_home : "Eliminar casa",
         question_delete : "Quires cancelar la casa y todos sus datos (opiniones y reservas)?",
-        impossible_delete : "Deben estar almenos 4 casas",
+        impossible_delete : "Deben estar almenos 3 casas",
         delete_image : "Imagen cancelada",
         min_images : "Deben estar almenos 5 imagenes",
         type_error : "Algunos files tenian el formado equivocado",

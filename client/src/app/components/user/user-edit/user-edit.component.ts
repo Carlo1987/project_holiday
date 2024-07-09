@@ -76,13 +76,13 @@ export class UserEditComponent implements OnInit{
         
              if(!response.message){
               this.user = response.user;
-              /* 
-              let expiration = Global.create_sessionExpitation();
+              
+              let expiration = Global.create_expiration_sessions(60*3);
               let data = Global.session_create(response , expiration);
             
-              let newSession = JSON.stringify(data);
-              localStorage.setItem('user' , newSession);
-              this.message_success = this.language.acount.message_datas;        */ 
+              localStorage.setItem('user' , JSON.stringify(data));
+              
+              this.message_success = this.language.acount.message_datas;        
   
              }else if(response.message && response.message == 'checked'){
                   this.message_error = this.language.acount.message_checked_email;                

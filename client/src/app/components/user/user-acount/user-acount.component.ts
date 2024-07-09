@@ -70,6 +70,8 @@ export class UserAcountComponent implements OnInit{
         }else{
 
           if(this.fileImage != ''){
+            console.log('file');
+            
             let formData = new FormData();
             formData.set('image',this.fileImage);
           
@@ -77,6 +79,9 @@ export class UserAcountComponent implements OnInit{
             this._uploadService.upload_userImage(userSaved.user._id , formData ).subscribe((response)=>{  
                 console.log(response);  
             })
+          }else{
+            console.log('no file');
+            
           }
 
          this.register_success = true;
@@ -170,7 +175,6 @@ export class UserAcountComponent implements OnInit{
               
               let expiration = Global.create_expiration_sessions(60*3);
               let data = Global.session_create(userLogged,expiration);
-              console.log(data);
               
               localStorage.setItem('user' , JSON.stringify(data));  
             

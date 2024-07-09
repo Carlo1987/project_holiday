@@ -31,8 +31,10 @@ const UserController = {
             if(error) return res.status(500).send({message: general_error_message+error});
 
                ///   se trova un utente nel database già registrato, il client mi darà un messaggio di errore
-            if(emailChecked && emailChecked.id_noLogin == '' || emailChecked && emailChecked.id_noLogin != '' && emailChecked.name != dates.name || emailChecked.surname != dates.surname){                         
-                return res.status(200).send({message: "checked" , email : emailChecked});
+            if(emailChecked && emailChecked.id_noLogin == '' 
+                || emailChecked && emailChecked.id_noLogin != '' && emailChecked.name != dates.name 
+                || emailChecked && emailChecked.id_noLogin != '' && emailChecked.surname != dates.surname){                         
+                return res.status(200).send({message: "checked"});
             } 
 
             let hash = await bcryptjs.hash(dates.password , 10);           //   password criptata
@@ -57,7 +59,7 @@ const UserController = {
                 user.save((error , userSaved)=>{
                     const message_error = "Errore durante il salvataggio ";
         
-                    if(error) return res.status(500).send({message: message_error+error});
+                    if(error) return res.status(200).send({message: message_error+error});
         
                     if(!userSaved) return res.status(404).send({message: no_found_User})
         
@@ -339,6 +341,8 @@ const UserController = {
         for(let i=0; i<12; i++){
             id_noLogin += Math.round(Math.random()*9);
         }
+
+
 
         let params = {
             id_noLogin : id_noLogin,

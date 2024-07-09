@@ -280,7 +280,7 @@ export const italian = {
                 edit_calendary : "Modifica calendario",
                 delete_home : "Cancella casa",
                 question_delete : " Sei sicuro di voler cancellare la casa e tutti i suoi dati (recensioni e prenotazioni)?",
-                impossible_delete : "Devono esserci almeno 4 case",
+                impossible_delete : "Devono esserci almeno 3 case",
                 delete_image : "Immagine eliminata",
                 min_images : "Devono essere presenti almeno 5 immagini",
                 type_error : "Qualcuno dei file non era del formato giusto",

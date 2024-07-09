@@ -9,6 +9,14 @@ const host = "http://109.176.199.142:3700";
 const front = "http://109.176.199.142:3700";  
 */
 
+
+let date = new Date();
+let current_year = date.getFullYear();
+let current_mounth = date.getMonth()+1;
+let current_day = date.getDate();
+let current_hour = date.getHours();
+let current_minute = date.getMinutes();
+
 export const Global = {
   
     url : host,
@@ -72,17 +80,23 @@ export const Global = {
 
 
   
-     expiration(value:string){                                            /*  espirazione sessioni  */
-        let expirationSplit = value.split(':');
-        let hour = parseInt(expirationSplit[0]);
-        let minute = parseInt(expirationSplit[1]);
-        let current_hour = new Date().getHours();
-        let current_minute = new Date().getMinutes();
+     expiration(value:any){                                            /*  espirazione sessioni  */
+        let expirationSplit = value.hour.split(':');
+        let exp_hour = parseInt(expirationSplit[0]);
+        let exp_minute = parseInt(expirationSplit[1]);
+        let exp_day = value.day;
 
         let result = true;
-        if(current_hour == hour && current_minute >= minute || current_hour > hour || current_hour == 0 && hour == 23){
+        if(current_day == exp_day){
+            if(current_hour == exp_hour && current_minute >= exp_minute || current_hour > exp_hour ){
+                result = false;
+            } 
+        }else if(current_day == exp_day-1 && current_hour < exp_hour){
+            result = false;
+        }else if(current_day != exp_day-1 && current_day != exp_day){
             result = false;
         }
+       
         return result;
       },  
  
@@ -112,18 +126,29 @@ export const Global = {
    
    create_expiration_sessions(limit:number){                                      /*   creazione espirazione sessioni varie  */         
     /// limit sono minuti
-        let hour = new Date().getHours();
-        let minutes = new Date().getMinutes();
-        let value_limit = this.countHours(limit);
-
-        hour = hour + value_limit.hour;
-        minutes = minutes + value_limit.minute;
+        let day = current_day;  
+  
+        let  difference = this.countHours(limit);
+        
+        let hour = current_hour + difference.hour;
+        let minutes = current_minute + difference.minute;
 
         if(hour >= 24){
             hour = hour-24;
-        } 
+            day++;
+        }
 
-        return hour+':'+minutes;
+        if(hour == 23 && minutes >= 60){
+            minutes = minutes - 60;
+            hour = 0;
+            day++;
+        }
+
+        return {
+            day : day,
+            hour :  hour+':'+minutes
+        };
+       
     },    
 
 
@@ -154,17 +179,33 @@ export const Global = {
 
 
 
-    session_update(expiration:string){                                                /*   funzione per aggiornamento sessione utente   */
-        let expSplit = expiration.split(':');
+    session_update(expiration:any){                                                /*    aggiornamento sessione utente   */
+        let expSplit = expiration.hour.split(':');
         let exp_hour = parseInt(expSplit[0]); 
-        let hour = new Date().getDate();
+        let exp_day = expiration.day;
     
         let result = false;
 
-        if(exp_hour - hour <= 2){
+        if(exp_day == current_day && exp_hour - current_hour <= 2){
             result = true;
-        }
+        }else if(exp_day == current_day+1){
+            let counter = 0;
 
+            for(let i=current_hour; i<24; i++){
+                counter++;
+            }
+
+            for(let x=exp_hour; x>0; x--){
+                counter++;
+            }
+ 
+            if(counter <= 2){
+                result = true;
+            }
+            
+       
+        }
+       
         return result;
 
     },
