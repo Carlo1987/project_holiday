@@ -13,8 +13,8 @@ export class ImageUpdateComponent implements OnInit{
   public url:string = Global.url_acount;
   public FileImage:any = null;
   public message_wrong_file:string = '';
-  public session:any;
-  public session_expiration:string = '';
+ // public session:any;
+  public identity:any = Global.getIdentity();
   public update_success:boolean = false;
   public token:string|null = Global.getToken();
   @ViewChild ('buttons_files',{static:true}) buttons_files!:ElementRef<HTMLButtonElement>;
@@ -26,8 +26,8 @@ export class ImageUpdateComponent implements OnInit{
 
 
   ngOnInit(): void {
-        this.session = JSON.parse(localStorage.getItem('user')!);
-        this.session_expiration = this.session.expiration;
+
+     
   }
 
 
@@ -61,21 +61,26 @@ export class ImageUpdateComponent implements OnInit{
       if(Global.type_file(this.FileImage.type)){
         let form = new FormData();
         form.set('image',this.FileImage);
-  
-        this._uploadService.upload_userImage(this.session.user._id , form).subscribe(response =>{
+
+        let id = this.identity.user._id;
+         
+        this._uploadService.upload_userImage(id , form).subscribe(response =>{
           
           if(response.message){
              this.message_wrong_file = response.message;
           }else{
-            let data = Global.session_create(response , this.session_expiration);
-            
-            let newSession = JSON.stringify(data);
-            localStorage.setItem('user' , newSession);
+
+            this.identity.user.image = response.image;
+            this.identity.user.image_path = response.image_path;
+
+            let expiration = Global.create_expiration_sessions(60*3);
+            let user = Global.session_create(this.identity,expiration);
+            localStorage.setItem('user',JSON.stringify(user));
   
             location.reload(); 
           }
            
-        })
+        }) 
 
       }else{                         //   se il formato dell'immagine è sbagliato
         this.message_wrong_file = this.language.acount.message_wrong_file;     

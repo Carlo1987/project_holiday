@@ -50,7 +50,8 @@ const UserController = {
                 user.cell = dates.cell;
                 user.password = hash;
                 user.status = env.starting_role;
-                user.image = "user_default.png",
+                user.image = "user_default.png"
+                user.country = dates.country,
                 user.image_path = '';
                 user.address = dates.address,
                 user.city = dates.city,
@@ -168,19 +169,19 @@ const UserController = {
 
                
         
-                    User.findByIdAndUpdate(id, data, (error,userUpdated)=>{
+                    User.findByIdAndUpdate(id, data, {new:true} , (error,userUpdated)=>{
                         if(error){
                             fs.unlink(file_path, ()=>{ return res.status(500).send({message: general_error_message+error}); })
                         } 
         
                         if(!userUpdated){
-                            fs.unlink(file_path, ()=>{ return res.status(404).send({message: "File non trovato"}); })
+                            fs.unlink(file_path, ()=>{ return res.status(404).send({message: "File not found"}); })
                         } else{
 
                             if(user_imagePath != ''){
-                                fs.unlink(user_imagePath, ()=>{    return  res.status(200).send({user: 'updated'}); });  
+                                fs.unlink(user_imagePath, ()=>{    return  res.status(200).send(userUpdated); });  
                             }else{
-                                return  res.status(200).send({user:  'updated'});   
+                                return  res.status(200).send(userUpdated);   
                             }   
                           
                         }
@@ -193,7 +194,7 @@ const UserController = {
             })
         }else{                                                     //  se il file non è di tipo immagine
             fs.unlink(file_path, ()=>{
-                return res.status(200).send({message: 'File non supportato'});
+                return res.status(200).send({message: 'File not suported'});
             }) 
         }  
        }else{                                                       //    se la req.files == null

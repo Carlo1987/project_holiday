@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms';  
 import { AppRoutingModule } from './app-routing.module';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';   
 
 import { AppComponent } from './app.component';
 import { ErrorsComponent } from './components/errors/errors.component';
@@ -90,9 +89,7 @@ import { HomesCarouselComponent } from './components/includes/homes-carousel/hom
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,        
-    FormsModule, 
-    FroalaEditorModule.forRoot(), 
-    FroalaViewModule.forRoot()
+    FormsModule
   ],
   providers: [ UserService ],
   bootstrap: [AppComponent]

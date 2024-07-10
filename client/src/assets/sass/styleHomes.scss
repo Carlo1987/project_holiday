@@ -381,17 +381,7 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 }
 
 
-@media(max-width:390px){
-    .carousel_responsive{     
-        .carousel-inner{
-            .card{
-                margin-left: 10px;
-                width: 120px;
-                img{ height: 70px; }
-            }
-         } 
-    } 
-}
+
 
 
 
@@ -457,6 +447,22 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
   
+}
+
+
+
+
+@media(max-width:390px){
+    .carousel_responsive{     
+        .carousel-inner{
+            .card{
+                margin-left: 10px;
+                width: 125px;
+
+                img{ height: 70px; }
+            }
+         } 
+    } 
 }
 
 

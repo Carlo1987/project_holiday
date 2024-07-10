@@ -16,7 +16,7 @@ import { español } from './language/spanish';
 export class AppComponent implements OnInit,DoCheck{
  public language:any =  italian;
  public current_year:number;
- public url_acount:string;
+ public url_acount:string = Global.url_acount;;
  public url_frontEnd:string = Global.url_index_front+'/user'
  public identity:any = Global.getIdentity();
  public nav_acount:boolean = false;
@@ -29,7 +29,6 @@ export class AppComponent implements OnInit,DoCheck{
     private _homeService : HomeService,
   ){
     this.current_year = new Date().getFullYear();
-    this.url_acount = Global.url_acount;
   }
 
 

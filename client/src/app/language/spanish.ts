@@ -55,7 +55,7 @@ export const español = {
 
 },
 
-    welcome : 'Bienvenido en mi proyecto "Vacaciones en Cerdeña"!!',
+    welcome : 'Reservas o regístrate y creas nuevos casas!! Disfrutalo',
 
     homes : {
         title_visit : "Visitas las casas",

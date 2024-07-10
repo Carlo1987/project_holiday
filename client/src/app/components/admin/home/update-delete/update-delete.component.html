@@ -110,7 +110,7 @@
 
     <form>   
 
-      <app-home-details [home]="home" (home_details)="updateDetails($event)"></app-home-details>              <!--  componente dettagli casa  -->
+      <app-home-details [home]="home" [button]="button" (home_details)="updateDetails($event)"></app-home-details>              <!--  componente dettagli casa  -->
 
       <div class="alert alert-success w-100 mt-2" role="alert" *ngIf="message_details_success != ''">   {{ message_details_success }}   </div>
       <div class="alert alert-danger w-100 mt-2" role="alert" *ngIf="message_details_error != ''"> {{ message_details_error }} </div>

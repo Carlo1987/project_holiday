@@ -6,13 +6,12 @@ const front = "http://localhost:4200";
 
 /* 
 const host = "http://109.176.199.142:3700";
-const front = "http://109.176.199.142:3700";  
+const front = "http://carloloidevholiday.com/";  
 */
 
 
 let date = new Date();
-let current_year = date.getFullYear();
-let current_mounth = date.getMonth()+1;
+
 let current_day = date.getDate();
 let current_hour = date.getHours();
 let current_minute = date.getMinutes();
@@ -34,10 +33,10 @@ export const Global = {
         let identity = { status : false , user : null};
         
         if(localStorage.getItem('user')){
-             identity = {
+              identity = {
                 status : true,
                 user : JSON.parse(localStorage.getItem('user')!).user
-            }; 
+            };  
         }
 
         return identity;

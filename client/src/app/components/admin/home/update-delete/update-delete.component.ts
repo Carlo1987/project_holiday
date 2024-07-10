@@ -27,6 +27,7 @@ export class UpdateDeleteComponent implements OnInit{
   public home:any =  new Home("","","","",0,0,0,'', home_beds , home_details, home_calendary);
   public homes_length:number = 0;
   public title:string = '';
+  public button:string = this.language.homes.edit;
 
   /// messaggi vari dei formulari
   public message_datas_success:string = '';

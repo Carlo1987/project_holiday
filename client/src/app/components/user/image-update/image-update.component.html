@@ -4,7 +4,7 @@
         <h2> {{ language.acount.title_image }} </h2>
 
         <div class="w-100 text-center">
-          <img src="{{ url+'/getImage/'+ session.user.image }}" alt="user_avatar" class="avatar_image">  
+          <img src="{{ url+'/getImage/'+ identity.user.image }}" alt="user_avatar" class="avatar_image">  
         </div>
     
         <form #editForm="ngForm" (ngSubmit)="edit()">

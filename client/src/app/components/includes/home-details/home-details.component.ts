@@ -9,6 +9,7 @@ import { Global } from 'src/app/services/global';
 export class HomeDetailsComponent {
   public language:any = Global.setLanguage();
   @Input() home:any;
+  @Input() button:any;
   @Output() home_details = new EventEmitter();  
 
 

@@ -86,22 +86,8 @@
         <input type="text" placeholder="{{ language.acount.field_register }}"  name="cap" [(ngModel)]="user.cap" />
       </div>
 
-      <div id="container_buttons_files">
-        <input type="file" name="image" (change)="uploadImage($event)" id="user_avatar" style="display: none;">   
-        <button type="button" class="btn btn-secondary ms-0"  onclick="document.querySelector('#user_avatar').click()"  #buttons_files> 
-          {{ language.acount.choose_file }} 
-        </button> 
-      </div>
-
-      <span *ngIf="message_wrong_file != ''">
-        {{ message_wrong_file }}
-      </span>
-
-   
 
       <div  class="alert alert-danger" role="alert"  *ngIf="message_notValid_email != ''">  {{ message_notValid_email }}  </div>
-
-      <div class="alert alert-danger" role="alert" *ngIf="message_wrong_email != ''"> {{ message_wrong_email }}   </div>
 
       <div class="alert alert-success" role="alert" *ngIf="register_success">    {{ message_success_register }}   </div>
 

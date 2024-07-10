@@ -37,8 +37,10 @@ $color_badge : rgb(242, 234, 234);
 
 
 %dropdown_style{
-    background-color: $color_theme;
+    background-color: $color_theme; 
     position: absolute;
+    z-index: 4 !important;
+
   
      li,
      li a{
@@ -71,7 +73,7 @@ $color_badge : rgb(242, 234, 234);
 }
 
 
-body{     background-color: $color_badge !important;  }
+body{     background-color:  $color_badge !important;   }
 
 
 .titles_styles{ 
@@ -121,9 +123,9 @@ input[type="submit"]{
         align-items: center; 
         position: relative;  
 
-        #home{ @extend %titles_nav }
+        #home{ @extend %titles_nav; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
 
-        #home:hover{ @extend %titles_nav_hover }
+        #home:hover{ @extend %titles_nav_hover; }
     }
 
 
@@ -235,13 +237,22 @@ input[type="submit"]{
 
 
 #welcome{
-    width: 98% !important;
+    width: 100%;
     color: rgb(56, 48, 48);
-    text-decoration: underline;
+    text-shadow: 1px 1px 2px rgb(181, 165, 165);
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+
+    img{
+        width: 35px;
+        height: 30px;
+        border-radius: 900px;
+        background-color: transparent;
+        padding-bottom: 5px;
+    }
 }
 
 
@@ -349,6 +360,18 @@ main{
 
 #carouselSardinia{
     width: 100% ; 
+}
+
+
+
+#welcome{
+    font-size: 17px;
+
+    img{
+        width: 30px;
+        height: 25px;
+        padding-bottom: 5px;
+    }
 }
  
 

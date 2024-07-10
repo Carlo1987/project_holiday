@@ -19,6 +19,7 @@ export class SaveComponent {
   public token:string|null = Global.getToken();
   public user:any = Global.getIdentity().user;
   public required_fields:boolean = false;
+  public button:string = this.language.continue;
 
   //  messaggi
   public message_success:string = '';

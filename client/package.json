@@ -19,7 +19,6 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@popperjs/core": "^2.11.8",
-    "angular-froala-wysiwyg": "^4.2.1",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.3.2",
     "jquery": "^3.7.1",

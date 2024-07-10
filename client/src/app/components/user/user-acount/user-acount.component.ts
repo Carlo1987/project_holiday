@@ -1,17 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Global } from 'src/app/services/global';
 import { countries } from 'src/app/models/list_countries';
 import { UserService } from 'src/app/services/user_service';
-import { UploadService } from 'src/app/services/upload_service';
 
 
 @Component({
   selector: 'app-user-acount',
   templateUrl: './user-acount.component.html',
   styleUrls: ['./user-acount.component.css'],
-  providers: [UserService , UploadService]
+  providers: [UserService ]
 })
 export class UserAcountComponent implements OnInit{
   public language:any = Global.setLanguage();
@@ -23,10 +21,9 @@ export class UserAcountComponent implements OnInit{
   public message_notValid_email:string = '';
   public message_wrong_email:string = '';
   public message_wrong_password:string = '';
-  public message_wrong_file:string = '';
   public message_success_register:string = this.language.acount.message_register;
   public register_success:boolean = false;
-  public fileImage:any = '';
+
   public email_login:string = '';
   public password_login:string = '';
   public errors_login:string = '';
@@ -36,9 +33,7 @@ export class UserAcountComponent implements OnInit{
   @ViewChild ('buttons_files',{static:true}) buttons_files!:ElementRef<HTMLButtonElement>;
 
   constructor(
-    private _router : Router,
     private _userService: UserService,
-    private _uploadService : UploadService,
   ){
     this.url = Global.url_acount;
     this.user = new User("","","","","","Italy","","","");
@@ -63,30 +58,12 @@ export class UserAcountComponent implements OnInit{
       this._userService.saveUser(this.user).subscribe( userSaved =>{    
         
         if(userSaved.message && userSaved.message == 'checked'){
-          console.log(userSaved);
           this.message_wrong_email = this.language.acount.message_checked_email;
         }else if(userSaved.message){
           console.log(userSaved.message);
         }else{
-
-          if(this.fileImage != ''){
-            console.log('file');
-            
-            let formData = new FormData();
-            formData.set('image',this.fileImage);
-          
-            
-            this._uploadService.upload_userImage(userSaved.user._id , formData ).subscribe((response)=>{  
-                console.log(response);  
-            })
-          }else{
-            console.log('no file');
-            
-          }
-
          this.register_success = true;
           form.reset();
-          console.log(userSaved);
         }
           
         })
@@ -118,9 +95,7 @@ export class UserAcountComponent implements OnInit{
 
 
   changeButtonFile(type:string){
-    this.message_wrong_file = '';
     if(!Global.type_file(type)){
-      this.message_wrong_file = this.language.acount.message_wrong_file;
       this.buttons_files.nativeElement.style.backgroundColor = "rgb(219, 53, 53)";
       this.buttons_files.nativeElement.style.width = "110px";
       this.buttons_files.nativeElement.innerHTML = this.language.acount.choose_file ;    
@@ -129,12 +104,6 @@ export class UserAcountComponent implements OnInit{
       this.buttons_files.nativeElement.style.width = "160px";
       this.buttons_files.nativeElement.innerHTML = `  <i class="fa fa-file-image-o" aria-hidden="true"></i>  ${this.language.acount.selected}` ;    
     }
-  }
-
-
-  uploadImage(file:any){
-    this.fileImage = file.target.files[0];  
-    this.changeButtonFile(this.fileImage.type);   
   }
 
 

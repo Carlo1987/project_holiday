@@ -53,7 +53,7 @@ export const italian = {
                 editHomes : "Modificare case"
         },
 
-        welcome : 'Benvenuto nel mio progetto "Case vacanze in Sardegna"!!',
+        welcome : 'Prenota o regístrati e crea nuove case!! Divertiti!!',
 
         homes : {
                 title_visit : "Visita le case",
