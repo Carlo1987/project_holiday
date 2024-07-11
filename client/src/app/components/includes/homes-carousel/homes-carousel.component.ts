@@ -11,8 +11,7 @@ export class HomesCarouselComponent implements OnInit{
   public homes:Array<any> = [];
  
   @ViewChild ('carousel_homes') carousel!:ElementRef<HTMLDivElement>;
-  @ViewChild ('carousel_homes_maxSize') carousel_MaxSize!:ElementRef<HTMLDivElement>;
-  @ViewChild ('carousel_homes_minSize') carousel_MinSize!:ElementRef<HTMLDivElement>;
+
 
   @Input() datas:any;
 

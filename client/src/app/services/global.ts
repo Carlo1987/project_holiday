@@ -6,7 +6,7 @@ const front = "http://localhost:4200";
 
 /* 
 const host = "http://109.176.199.142:3700";
-const front = "http://carloloidevholiday.com/";  
+const front = "http://carloloidevholiday.com";  
 */
 
 

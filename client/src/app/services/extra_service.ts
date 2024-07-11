@@ -5,7 +5,7 @@ import { Global } from "./global";
 
 @Injectable()
 export class ExtraService{
-    private url:string = Global.url;
+    private url:string = Global.url+'/extra';
 
     constructor(
         private _request : HttpClient
@@ -14,7 +14,7 @@ export class ExtraService{
 
 
     getExtra():Observable<any>{
-        return this._request.get(this.url+'/extra');
+        return this._request.get(this.url+'/get_extra');
     }
 
 
@@ -26,7 +26,7 @@ export class ExtraService{
         let params = JSON.stringify(json);
         let header = new HttpHeaders().set('Content-Type','application/json')
                                       .set('Authorization',token);
-        return  this._request.put(this.url+'/extra_update', params, {headers:header})
+        return  this._request.put(this.url+'/update_extra', params, {headers:header})
     }
 
 

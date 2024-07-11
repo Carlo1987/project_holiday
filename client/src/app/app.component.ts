@@ -17,7 +17,7 @@ export class AppComponent implements OnInit,DoCheck{
  public language:any =  italian;
  public current_year:number;
  public url_acount:string = Global.url_acount;;
- public url_frontEnd:string = Global.url_index_front+'/user'
+
  public identity:any = Global.getIdentity();
  public nav_acount:boolean = false;
  public homes:Array<any> = [];

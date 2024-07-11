@@ -51,7 +51,7 @@ app.use((req, res, next) => {
   app.use('/home', home_routes);
   app.use('/review', review_routes);
   app.use('/reserve', reserve_routes);
-  app.use(extra_routes);
+  app.use('/extra', extra_routes);
 
 
   /////  ESPORTARE MODULO  ///////
