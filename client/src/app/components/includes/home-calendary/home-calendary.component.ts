@@ -13,6 +13,7 @@ export class HomeCalendaryComponent implements OnChanges {
   public mounths_names:Array<string> = this.language.mounth_names;
   @Input() home:any;
   @Input() message_calendary:string = '';
+  @Input() loading:boolean = false;
   @Output() home_calendary = new EventEmitter();  
   @ViewChild('mounths',{static:true}) mounths!:ElementRef<HTMLDivElement>;
 
@@ -25,6 +26,7 @@ export class HomeCalendaryComponent implements OnChanges {
   public price_value:number = 0;
   public first_date_price:any;
   public second_date_price:any; 
+
 
   public message_error_calendary:string = '';
   public message_success_calendary:string = '';
@@ -158,7 +160,7 @@ sendData(){
   this.message_success_calendary = '';
 
   this.home_calendary.emit(this.home);     
-  this.saved = true;                              
+  this.saved = true;                          
 }
 
 

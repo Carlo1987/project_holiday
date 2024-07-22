@@ -18,6 +18,7 @@ export class SearchReserveComponent {
   public message_error_code:string = '';
   public verify:boolean = false;
   public code_value:string = '';
+  public loading:boolean = false;
 
 
   constructor(
@@ -31,6 +32,7 @@ export class SearchReserveComponent {
   search(){
     this.message_error = '';
     this.message_error_code = '';
+    this.loading = true;
      this._reserveService.getReserve(this.reserve_id).subscribe(response=>{
       if(response.message){
         this.message_error = this.language.reserves.search_error;
@@ -42,12 +44,18 @@ export class SearchReserveComponent {
 
         this._userService.forgotPassword(data).subscribe(response=>{
 
-            localStorage.setItem('code_passw', JSON.stringify(response));
+          let session_code = {
+            token : response.token,
+            user : response.user,
+            expiration : Global.create_expiration_sessions(10)
+          }
+
+            localStorage.setItem('code_passw', JSON.stringify(session_code));
           
         }) 
-       
       }      
-     })    
+      this.loading = false;
+    })    
   }
 
 
@@ -57,6 +65,7 @@ export class SearchReserveComponent {
     this.message_error_code = '';
 
     if(localStorage.getItem('code_passw')){
+      this.loading = true;
       let data = JSON.parse(localStorage.getItem('code_passw')!);
       let params = {
         token: this.code_value,
@@ -69,6 +78,7 @@ export class SearchReserveComponent {
         }else{
         this.message_error_code = this.language.resetPassword.error_code;
         }
+        this.loading = false;
       })
     
     }else{

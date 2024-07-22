@@ -26,6 +26,7 @@ export class UserEditComponent implements OnInit{
   public message_error:string = '';
   public message_success:string = '';
   public message_invalidEmail:string = '';
+  public loading:boolean = false;
 
 
   constructor(
@@ -61,18 +62,10 @@ export class UserEditComponent implements OnInit{
     this.message_invalidEmail = '';
 
     if(Global.validateEmail(this.user.email)){
-      let user_dates = {
-        name : this.user.name,
-        surname : this.user.surname,
-        email : this.user.email,
-        cell : parseInt(this.user.cell),
-        country : this.user.country,
-        address : this.user.address,
-        city : this.user.city,
-        cap : this.user.cap
-      }
+
+      this.loading = true;
   
-      this._userService.updateUser(this.user._id , user_dates , this.token ).subscribe(response =>{ 
+      this._userService.updateUser(this.user._id , this.user , this.token ).subscribe(response =>{ 
         
              if(!response.message){
               this.user = response.user;
@@ -89,6 +82,8 @@ export class UserEditComponent implements OnInit{
              }else{
               console.log(response.message);
              }
+
+             this.loading = false;
             }) 
     }else{
       this.message_invalidEmail = this.language.notValid_email;

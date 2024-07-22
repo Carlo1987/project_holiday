@@ -23,6 +23,8 @@ export class UserAcountComponent implements OnInit{
   public message_wrong_password:string = '';
   public message_success_register:string = this.language.acount.message_register;
   public register_success:boolean = false;
+  public loading:boolean = false;
+  public loading_login:boolean = false;
 
   public email_login:string = '';
   public password_login:string = '';
@@ -50,10 +52,13 @@ export class UserAcountComponent implements OnInit{
     this.message_wrong_password = '';
     this.message_wrong_email = '';
     this.message_notValid_email = '';
+    this.register_success = false;
 
     if(Global.validateEmail(this.user.email)){
 
     if(this.user.password == this.confirm_password){      
+
+      this.loading = true;
 
       this._userService.saveUser(this.user).subscribe( userSaved =>{    
         
@@ -65,6 +70,8 @@ export class UserAcountComponent implements OnInit{
          this.register_success = true;
           form.reset();
         }
+
+        this.loading = false;
           
         })
        
@@ -126,6 +133,8 @@ export class UserAcountComponent implements OnInit{
 
       if(Global.validateEmail(user.email)){
 
+        this.loading_login = true;
+
       this._userService.loginUser(user).subscribe(response =>{      
       
       if(!response.status){
@@ -156,7 +165,8 @@ export class UserAcountComponent implements OnInit{
              window.location.href = '';
              })
           }
-      }    
+        }    
+        this.loading_login = false;
     }) 
     form.reset();
 

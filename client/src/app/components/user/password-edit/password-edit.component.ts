@@ -15,6 +15,7 @@ export class PasswordEditComponent implements OnInit {
   public session:any;
   public message_wrong_password:string = '';
   public message_success:string = '';
+  public loading:boolean = false;
   public token:string|null = Global.getToken();
 
   constructor(
@@ -41,6 +42,7 @@ export class PasswordEditComponent implements OnInit {
     this.message_success = '';
     this.message_wrong_password = '';
     if(this.password.new_password == this.password.confirm_password){
+      this.loading = true;
         let passwords = { 
           old_password: this.password.old_password,
           new_password: this.password.new_password };
@@ -52,6 +54,8 @@ export class PasswordEditComponent implements OnInit {
           }else{
             this.message_wrong_password = this.language.acount.message_wrong_password;
           }
+
+          this.loading = false;
             
         })
       

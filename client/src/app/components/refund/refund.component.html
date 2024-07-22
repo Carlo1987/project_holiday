@@ -18,6 +18,8 @@
          <div class="alert alert-danger" role="alert" *ngIf="message_error != ''" > {{ message_error }}  </div>
          <div *ngIf="message_success != ''" class="alert alert-success" role="alert">  {{ message_success }}</div>
 
+         <app-loading [loading]="loading"></app-loading>
+
         <input type="submit" class="btn btn-danger"  value="{{ language.refund_reserve.button }}" (click)="refund()"> 
         </form>
        

@@ -18,6 +18,8 @@
             </div>
 
             <div class="alert alert-danger" role="alert" *ngIf="message_wrong_file != '' ">  {{ message_wrong_file }}  </div>
+
+            <app-loading [loading]="loading"></app-loading>
     
           <input type="submit" value="{{ language.acount.button }}"/>
 

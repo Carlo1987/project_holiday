@@ -23,6 +23,7 @@ export class ReserveNoLoginComponent {
   public message_error:string = '';
   public message_success:string = '';
   public message_invalidEmail:string = '';
+  public loading:boolean = false;
 
 
   constructor(
@@ -37,6 +38,7 @@ export class ReserveNoLoginComponent {
     this.message_success = '';
 
     if(Global.validateEmail(this.user.email)){
+      this.loading = true;
       this.reserve.user_data = this.user;
       let storage = JSON.parse(localStorage.getItem('reserve')!);
   
@@ -52,6 +54,7 @@ export class ReserveNoLoginComponent {
       storage.expiration = Global.create_expiration_sessions(10);
   
       localStorage.setItem('reserve',JSON.stringify(storage));    
+      this.loading = false;
   
       this._router.navigate(['/reserve']);
 

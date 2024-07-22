@@ -143,12 +143,19 @@
             </div> 
         </div>
 
+        <app-loading [loading]="loading"></app-loading>
+
             <input type="submit" value="Imposta">
-           
+
+      
         </form>
 
         <div class="alert alert-danger mt-2" role="alert" *ngIf="message_error != ''">  {{ message_error }}  </div>
         <div class="alert alert-success mt-2" role="alert" *ngIf="message_success != ''"> {{ message_success }} </div>
+
+      
      </div>
+
+ 
 
 </div> 

@@ -13,6 +13,8 @@ export class ImageUpdateComponent implements OnInit{
   public url:string = Global.url_acount;
   public FileImage:any = null;
   public message_wrong_file:string = '';
+  public loading:boolean = false;
+
  // public session:any;
   public identity:any = Global.getIdentity();
   public update_success:boolean = false;
@@ -57,8 +59,10 @@ export class ImageUpdateComponent implements OnInit{
   edit(){
     this.message_wrong_file = '';
     this.update_success = false;
+
     if(this.FileImage != null){
       if(Global.type_file(this.FileImage.type)){
+        this.loading = true;
         let form = new FormData();
         form.set('image',this.FileImage);
 

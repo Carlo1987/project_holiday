@@ -41,6 +41,7 @@ export class UpdateDeleteComponent implements OnInit{
   public message_form:string = this.language.homes_edit.message_field;
   public message_delete:string = '';
   public message_calendary:string = this.language.homes_edit.prices_saved;
+  public loading:boolean = false;
 
   /// gestione menu
   public menu_datas:any = { name : "datas" , value : false};
@@ -137,6 +138,7 @@ get_homeDatas(event:any){
   update(){
     this.message_datas_success = '';
     this.message_datas_error = '';
+    this.loading = true;
     
     this._homeService.updateDatas(this.id,this.home,this.user.status,this.token).subscribe(response=>{
       if(!response){
@@ -144,6 +146,7 @@ get_homeDatas(event:any){
       }else{
         this.message_datas_success = this.language.acount.message_datas;
       }
+      this.loading = false;
     }) 
   }
 
@@ -152,6 +155,7 @@ get_homeDatas(event:any){
   updateDetails(event:any){
     this.message_details_error = '';
     this.message_details_success = '';
+    this.loading = true;
 
     this.home.details = event;
   
@@ -161,6 +165,7 @@ get_homeDatas(event:any){
       }else{
         this.message_details_success = this.language.homes_edit.detail_success;
       }
+      this.loading = false;
     }) 
   }
 
@@ -169,6 +174,7 @@ get_homeDatas(event:any){
   updatePrices(event:any){
 
    this.home = event;
+   this.loading = true;
     
     this._homeService.updatePrices(this.id,this.home,this.user.status,this.token).subscribe(response=>{
       if(!response){
@@ -177,6 +183,7 @@ get_homeDatas(event:any){
       }else{
         console.log(this.language.homes_edit.prices_saved);
       }
+      this.loading = false;
     }) 
   }
 
@@ -232,7 +239,8 @@ get_homeDatas(event:any){
       this.message_avatar_error = "";
       this.message_avatar_success = '';
       let formData = new FormData();
-    if(Global.type_file(this.avatar.type)){      
+    if(Global.type_file(this.avatar.type)){   
+      this.loading = true;   
       formData.set('avatar',this.avatar);
       this._uploadService.upload_homeAvatar(this.home._id , formData,this.token).subscribe(response=>{
         if(response){
@@ -241,6 +249,7 @@ get_homeDatas(event:any){
         }else{
           this.message_avatar_error = this.language.message_error;
         } 
+        this.loading = false;
         }) 
     }else{
       this.message_avatar_error = this.language.acount.message_wrong_file;
@@ -255,6 +264,7 @@ get_homeDatas(event:any){
     let formData = new FormData();
     for(let i=0; i<this.images.length; i++){
       if(Global.type_file(this.images[i].type)){
+        this.loading = true;
         formData.set('images',this.images[i]);
         this._uploadService.upload_homeImages(this.home._id , formData,this.token).subscribe(response=>{
           if(response){
@@ -263,6 +273,7 @@ get_homeDatas(event:any){
           }else{
             this.message_images_error = this.language.message_error;
           }
+          this.loading = false;
             })  
       }else{
         this.message_images_error = this.language.homes_edit.type_error;
@@ -276,6 +287,7 @@ get_homeDatas(event:any){
     this.message_images_success = '';
     this.message_images_error = '';
     if(this.home.images.length > 5){
+      this.loading = true;
       this._homeService.delete_image(this.home._id,image,this.token).subscribe(response=>{
         if(response){
           this.message_images_success = this.language.homes_edit.delete_image;
@@ -283,6 +295,7 @@ get_homeDatas(event:any){
         }else{
           this.message_images_error = this.language.message_error;
         }
+        this.loading = false;
        }) 
 
     }else{

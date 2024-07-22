@@ -6,7 +6,7 @@ const front = "http://localhost:4200";
 
 /* 
 const host = "http://109.176.199.142:3700";
-const front = "http://carloloidevholiday.com";  
+const front = "https://carloloidevholiday.com";  
 */
 
 
@@ -26,7 +26,6 @@ export const Global = {
 
     url_home_front : front+'/home',
     url_index_front : front,
-
 
 
     getIdentity(){
@@ -165,6 +164,7 @@ export const Global = {
               image: element.user.image,
               image_path: element.user.image_path,
               status : element.user.status,
+              country : element.user.country, 
               address : element.user.address,
               city : element.user.city,
               cap : element.user.cap

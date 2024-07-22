@@ -25,6 +25,7 @@ export class SaveComponent {
   public message_success:string = '';
   public message_error_image:string = '';
   public message_calendary:string = this.language.homes.saved
+  public loading:boolean = false;
 
   //  dati casa
   public home:any = new Home("","","","",0,0,0,'', home_beds , home_details, home_calendary);
@@ -53,7 +54,7 @@ export class SaveComponent {
   save(event:any){
 
     this.home = event;
-    
+    this.loading = true;    
     
        ////  dati casa  ////    
      this._homeService.saveHome(this.home,this.user.status,this.token).subscribe(dataSaved=>{   
@@ -80,6 +81,7 @@ export class SaveComponent {
             } 
 
        }
+       this.loading = false;
     })   
 
 }

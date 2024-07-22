@@ -23,6 +23,7 @@ export class InstrumentsComponent implements OnInit{
   /// messaggi
   public message_error:string = '';
   public message_success:string = '';
+  public loading:boolean = false;
 
 
   constructor(
@@ -69,6 +70,7 @@ export class InstrumentsComponent implements OnInit{
   updateExtra(){
     this.message_error = '';
     this.message_success = '';
+    this.loading = true;
   
     if(this.extra.refund.mode == 'flexible'){
         this.extra.refund.days = 1;
@@ -84,6 +86,7 @@ export class InstrumentsComponent implements OnInit{
      }else if(response.extra){
       this.message_success = this.language.admin.manage.message_success;
      }
+     this.loading = false;
     })  
   }
 

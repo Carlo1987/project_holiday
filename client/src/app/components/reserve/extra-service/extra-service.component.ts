@@ -22,7 +22,8 @@ export class ExtraServiceComponent implements OnInit{
   public language:any = Global.setLanguage();
   public token:string|null = Global.getToken();
   public url_home:string = Global.url_home;
-  public countdown_value:string =  '';
+  public countdown_value:any;
+  public countdown_adapted:string = '';
   public extra:any;
   public hours:any = {};
   public reserve:any;
@@ -54,6 +55,7 @@ export class ExtraServiceComponent implements OnInit{
   public message_error_method:string = '';
   public message_error_payment:string = '';
   public message_error_session:string = this.language.reserves.expired_session;
+  public loading:boolean = false;
 
   constructor(
     private _router : Router,
@@ -103,8 +105,8 @@ export class ExtraServiceComponent implements OnInit{
 
 
   set_countdown_reserve(){
-     let countdown_value = JSON.parse(localStorage.getItem('reserve')!).expiration;  
-     this.countdown_value = Calendary.adapt_hour(countdown_value);
+    this.countdown_value = JSON.parse(localStorage.getItem('reserve')!).expiration;  
+     this.countdown_adapted = Calendary.adapt_hour(this.countdown_value.hour);     
   } 
 
 
@@ -248,9 +250,7 @@ export class ExtraServiceComponent implements OnInit{
        
        this.set_countdown_reserve();
        this.showCalendary();
-       this.message_update = this.language.reserves.upgraded_dates;   
-       console.log(data);
-           
+       this.message_update = this.language.reserves.upgraded_dates;              
       }                                                                       
   
     }else{                                                   //   se la sessione della prenotaizione è scaduta...       
@@ -329,6 +329,7 @@ export class ExtraServiceComponent implements OnInit{
   
     if(check_payment && this.set_method){
      
+       this.loading = true;
        let user_data = this.reserve.user_data;
 
 
@@ -355,15 +356,14 @@ export class ExtraServiceComponent implements OnInit{
                /*    prenotazione  per utente non loggato  */
                this.setReserve(this.setStorage());    
         
-            }
-
-         
+            }         
           })
        
         }else{
           /*    prenotazione per utente loggato */
           this.setReserve(this.setStorage());      
         }
+        this.loading = false;
     }
 
     }else{                                                       //   se la sessione è scaduta

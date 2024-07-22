@@ -15,7 +15,7 @@ mongoose.connect(`mongodb://${env.database.host}/${env.database.database}`)
           ////////   CREAZIONE  SERVER  //////
 
            app.listen(env.database.port, ()=>{
-            console.log('server attivo nella url: localhost:'+env.database.port);
+            console.log('server attivo nella porta '+env.database.port);
           }) 
         
         })

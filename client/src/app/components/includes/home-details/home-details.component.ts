@@ -10,6 +10,7 @@ export class HomeDetailsComponent {
   public language:any = Global.setLanguage();
   @Input() home:any;
   @Input() button:any;
+  @Input() loading:boolean = false;
   @Output() home_details = new EventEmitter();  
 
 

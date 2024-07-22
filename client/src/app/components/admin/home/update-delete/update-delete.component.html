@@ -45,6 +45,8 @@
 
     <form (ngSubmit)="addImages()">
 
+      <app-loading [loading]="loading"></app-loading>
+
       <div class="mt-3 row_filesImages">
             <input type="file" name="images" multiple (change)="getImage($event)" id="user_images" style="display: none;">   
             <button type="button" class="btn btn-secondary mt-1 me-0"  onclick="document.querySelector('#user_images').click()"  #button_files> 
@@ -58,6 +60,8 @@
      
     <div class="alert alert-success w-100" role="alert" *ngIf="message_images_success != ''">  {{ message_images_success }} </div>
     <div class="alert alert-danger w-100" role="alert" *ngIf="message_images_error != ''"> {{ message_images_error }}  </div>
+
+  
 
 
     <div class="home_images">
@@ -89,7 +93,10 @@
 
     <div  class="formDetails">
 
-      <app-home-datas [home]="home" (home_datas)="get_homeDatas($event)"></app-home-datas>         <!--  componente dati casa   -->
+      <app-home-datas [home]="home" 
+                      [loading]="loading"
+                      (home_datas)="get_homeDatas($event)">
+      </app-home-datas>                                                             <!--  componente dati casa   -->
 
     </div>     <!--   fine contenuto form -->
 
@@ -110,7 +117,11 @@
 
     <form>   
 
-      <app-home-details [home]="home" [button]="button" (home_details)="updateDetails($event)"></app-home-details>              <!--  componente dettagli casa  -->
+      <app-home-details [home]="home" 
+                        [button]="button" 
+                        [loading]="loading"
+                        (home_details)="updateDetails($event)">
+      </app-home-details>                                                       <!--  componente dettagli casa  -->
 
       <div class="alert alert-success w-100 mt-2" role="alert" *ngIf="message_details_success != ''">   {{ message_details_success }}   </div>
       <div class="alert alert-danger w-100 mt-2" role="alert" *ngIf="message_details_error != ''"> {{ message_details_error }} </div>
@@ -137,6 +148,8 @@
              </button> 
       </div> 
 
+      <app-loading [loading]="loading"></app-loading>
+
       <div class="alert alert-success w-100 mt-2" role="alert" *ngIf="message_avatar_success != ''"> {{ message_avatar_success }}  </div>
       <div class="alert alert-danger w-100 mt-2" role="alert" *ngIf="message_avatar_error != ''">  {{ message_avatar_error }} </div>
 
@@ -157,7 +170,11 @@
 
       <form>
 
-        <app-home-calendary [home]="home" [message_calendary]="message_calendary" (home_calendary)="updatePrices($event)"></app-home-calendary>      <!--  componente calendario      -->
+        <app-home-calendary [home]="home" 
+                            [message_calendary]="message_calendary" 
+                            [loading]="loading"
+                            (home_calendary)="updatePrices($event)">
+       </app-home-calendary>                                                        <!--  componente calendario      -->
 
       </form>
 

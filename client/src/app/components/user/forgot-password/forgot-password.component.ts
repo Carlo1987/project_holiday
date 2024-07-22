@@ -19,6 +19,8 @@ export class ForgotPasswordComponent implements OnInit{
   public new_password:any;
   public session_expired:boolean;
 
+  public loading:boolean = false;
+
   constructor(
     private _userService : UserService
   ){
@@ -42,9 +44,12 @@ export class ForgotPasswordComponent implements OnInit{
   sendEmail(){
     this.message_error = '';
     this.success = false;
+    this.loading = true;
 
     let data = {email : this.email, lang : this.language.language}
       this._userService.forgotPassword(data).subscribe(response=>{
+
+        this.loading = false;  
 
         if(response.message){
            this.message_error = response.message
@@ -58,8 +63,10 @@ export class ForgotPasswordComponent implements OnInit{
           
           localStorage.setItem('code_passw', JSON.stringify(code));
           this.success = true;
-        }     
+        }   
+     
    })
+
   }
 
 
@@ -96,15 +103,18 @@ export class ForgotPasswordComponent implements OnInit{
     this.message_error = '';
   
     if(localStorage.getItem('code_passw')){
+
         if(this.new_password.password != '' && this.new_password.confirm != ''){
 
         if(this.new_password.password == this.new_password.confirm){
+          this.loading = true;
 
         let data = JSON.parse(localStorage.getItem('code_passw')!);
         let password = {password:this.new_password.password , lang : this.language.language}
 
         this._userService.resetPassword(data.user._id, password).subscribe(response=>{
               this.session_expired = true;
+              this.loading = false;
               this.message_success = response.message;    
               localStorage.removeItem('code_passw');          
         }) 

@@ -198,7 +198,7 @@ let email = {
          <div ${message_style}>
           <p>${lang.refund.name} ${reserve.user_data.name} ${reserve.user_data.surname} ${lang.refund.delete}. ${message_refund} </p>
           <p> ${lang.refund.thanks} <strong>${env.cell}</strong> ${lang.refund.email} <a href='mailto:${env.email}'>${env.email}</a> </p>
-           <p> ${lang.refund.soon}!! <img ${img_style} src='${env.host}/images/smile_divertente.jpg' alt='smile'>  </p> 
+           <p> ${lang.refund.soon}!! </p> 
          </div>
        </div>
       `;

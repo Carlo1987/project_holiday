@@ -10,6 +10,7 @@ export class HomeDatasComponent implements DoCheck{
   public language:any = Global.setLanguage();
   public message_form:string = this.language.homes_edit.message_field;
   @Input() home:any;
+  @Input() loading:boolean = false;
   @Output() home_datas = new EventEmitter();  
 
 

@@ -1,22 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
 const app = express();
-
-////  SESSIONI E COOKIES  ///////
-
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-
-app.use(cookieParser());
-
-app.use(session({
-    secret: 'Ilbacala',
-    resave: true,
-    saveUninitialized: true
- }));
-
 
 
 ////    ARCHIVI ROTTE   //////////

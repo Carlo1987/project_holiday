@@ -26,6 +26,7 @@ export class ReviewNoLoginComponent implements OnInit{
     public message_error:string = '';
     public message_success:string = '';
     public message_invalidEmail:string = '';
+    public loading:boolean = false;
 
 
 
@@ -51,6 +52,7 @@ export class ReviewNoLoginComponent implements OnInit{
       this.message_invalidEmail = '';
 
       if(Global.validateEmail(this.user.email)){
+        this.loading = true;
         this.user._id = Global.createID();
         this._userService.findUser_noLogin(this.user).subscribe(response=>{
           if(response.message){
@@ -65,6 +67,7 @@ export class ReviewNoLoginComponent implements OnInit{
             localStorage.setItem('user_review',JSON.stringify(data));
             this._router.navigate(['create-review/'+this.home_id]); 
           }
+          this.loading = false;
         })
    
       }else{

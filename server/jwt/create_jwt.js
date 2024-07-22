@@ -14,6 +14,7 @@ let createToken = function(user){
         status : user.status,
         image : user.image,
         image_path : user.image_path,
+        country : user.country,
         address : user.address,
         city : user.city,
         cap : user.cap,

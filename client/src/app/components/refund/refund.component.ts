@@ -20,6 +20,7 @@ export class RefundComponent implements OnInit{
   public refund_value:number = 0;
   public message_error:string = '';
   public message_success:string = '';
+  public loading:boolean = false;
   @ViewChild ('show') show_refund!:ElementRef<HTMLDivElement>;
 
   constructor(
@@ -95,6 +96,8 @@ export class RefundComponent implements OnInit{
     this.message_success = '';
     if(this.reserve.status == "prenotata"){
 
+      this.loading = true;
+
       let calendary_home = Calendary.refund(this.home_reserve,this.reserve.checkIn, this.reserve.checkOut);
      
       let data = {
@@ -112,6 +115,7 @@ export class RefundComponent implements OnInit{
             console.log(response);
             
           }
+          this.loading = false;
        })     
 
     }else{

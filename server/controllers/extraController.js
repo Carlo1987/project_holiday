@@ -107,15 +107,24 @@ let controller = {
 
 
 
+
+
     contact: function(req,res){
         let params = req.body;
         let transport = email.transport;
+
+        let html = `
+        <h4> Messaggio ricevuto da: <strong> ${params.email} </strong> </h4>
+        <hr>
+        <h4> Testo messaggio: </h4>
+        <p> ${params.message} </p>
+        `;
 
         const message = {
             from : params.email,
             to : env.email,
             subject : params.object,
-            html : params.message
+            html : html
         }
 
         transport.sendMail(message, function(error,info){

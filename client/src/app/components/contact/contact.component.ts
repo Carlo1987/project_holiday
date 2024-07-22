@@ -13,6 +13,7 @@ export class ContactComponent {
   public contact:any;
   public message_error:string = '';
   public message_success:string = '';
+  public loading:boolean = false;
 
 
   constructor(
@@ -36,15 +37,16 @@ export class ContactComponent {
 
       let validate_email = Global.validateEmail(this.contact.email);
       if(validate_email){
+        this.loading = true;
         this._extraService.contact(this.contact).subscribe(response=>{
-          console.log(response);
-          
+           
            if(response.message.status == 'error'){
             this.message_error = response.message.text;
            }else if(response.message.status == 'success'){
              this.message_success = this.language.sendEmail;
            }
 
+           this.loading = false;
            this.contact = {
             email : "",
             object : "",

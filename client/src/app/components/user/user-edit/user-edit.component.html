@@ -64,6 +64,8 @@
           <div class="alert alert-danger" role="alert" *ngIf="message_invalidEmail != ''"> {{ message_invalidEmail }}  </div>
           <div class="alert alert-success" role="alert" *ngIf="message_success != ''"> {{ message_success }}  </div>
 
+          <app-loading [loading]="loading"></app-loading>
+
         </form>
       </div>
 

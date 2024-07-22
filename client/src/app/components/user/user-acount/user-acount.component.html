@@ -86,11 +86,14 @@
         <input type="text" placeholder="{{ language.acount.field_register }}"  name="cap" [(ngModel)]="user.cap" />
       </div>
 
-
+    
       <div  class="alert alert-danger" role="alert"  *ngIf="message_notValid_email != ''">  {{ message_notValid_email }}  </div>
+
+      <div  class="alert alert-danger" role="alert"  *ngIf="message_wrong_email != ''">  {{   message_wrong_email }}  </div>
 
       <div class="alert alert-success" role="alert" *ngIf="register_success">    {{ message_success_register }}   </div>
 
+      <app-loading [loading]="loading"></app-loading>
 
       <input type="submit" value="{{ language.acount.title_register }}" [disabled]="!registerForm.form.valid">
   
@@ -115,9 +118,17 @@
 
       <div class="w-100 text-align-center"> <p> {{ language.acount.forgot_password }} <a routerLink="/forgot-password"> {{ language.acount.forgot_link }} </a> </p></div>
 
-
       <div  class="alert alert-danger" role="alert"  *ngIf="error_email_login != ''">  {{ error_email_login }}  </div>
       <div class="alert alert-danger" role="alert" *ngIf="errors_login != ''">  {{ errors_login }}  </div>
+
+
+      <div class="d-flex align-items-center" *ngIf="loading_login">  
+         <div class="spinner-border ps-0" style="width: 1.8rem; height: 1.8rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+         </div>
+   
+      </div>
+     
 
 
       <input type="submit" value="Login" />   

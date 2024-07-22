@@ -42,6 +42,7 @@ import { HomeDatasComponent } from './components/includes/home-datas/home-datas.
 import { HomeCalendaryComponent } from './components/includes/home-calendary/home-calendary.component';
 import { ReviewNoLoginComponent } from './components/review/review-no-login/review-no-login.component';
 import { HomesCarouselComponent } from './components/includes/homes-carousel/homes-carousel.component';
+import { LoadingComponent } from './components/includes/loading/loading.component';
 
 
 
@@ -84,6 +85,7 @@ import { HomesCarouselComponent } from './components/includes/homes-carousel/hom
     HomeCalendaryComponent,
     ReviewNoLoginComponent,
     HomesCarouselComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

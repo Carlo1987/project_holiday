@@ -28,7 +28,7 @@ const UserController = {
         let dates = req.body;
 
          User.findOne({email : dates.email}, async function(error,emailChecked){
-            if(error) return res.status(500).send({message: general_error_message+error});
+            if(error) return res.status(200).send({message: general_error_message+error});
 
                ///   se trova un utente nel database già registrato, il client mi darà un messaggio di errore
             if(emailChecked && emailChecked.id_noLogin == '' 
@@ -83,8 +83,8 @@ const UserController = {
                 }
 
                 User.findByIdAndUpdate(emailChecked._id , params , {new:true} , (err,userSaved)=>{
-                    if(err)   return res.status(500).send({message:general_error_message});
-                    if(!userSaved)   return res.status(404).send({message:no_found_User});
+                    if(err)   return res.status(200).send({message:general_error_message});
+                    if(!userSaved)   return res.status(200).send({message:no_found_User});
 
                     return res.status(200).send({user: userSaved });       
                 
@@ -400,7 +400,7 @@ const UserController = {
                 }    
                 
                 transport.sendMail(message , async function(error,info){
-                    if(error) return res.status(500).send({message: general_error_message+error});
+                    if(error) return res.status(200).send({message: general_error_message+error});
 
                     let token_hash = await bcryptjs.hash(token , 10);  
                     return res.status(200).send({ token:token_hash,

@@ -1,6 +1,6 @@
 
 
-<div class="fs-3 nav_session"> {{ language.reserves.session }} <span> {{ countdown_value }}  </span>  </div>
+<div class="fs-3 nav_session"> {{ language.reserves.session }} <span> {{ countdown_adapted }}  </span>  </div>
 
 <div class="container_reserve_extra">
 
@@ -156,10 +156,7 @@
 </div>
 
 
-
-
-
-
+    <app-loading [loading]="loading"></app-loading>
 
     <div class="alert alert-danger fs-4 mt-1 w-100" role="alert" *ngIf="message_error_method != ''">{{ message_error_method }}  </div>
     <div  class="alert alert-danger fs-4 mt-1 w-100" role="alert"  *ngIf="message_error_payment != ''"> {{ message_error_payment }} </div>

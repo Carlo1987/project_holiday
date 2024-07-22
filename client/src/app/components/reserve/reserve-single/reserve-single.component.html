@@ -56,8 +56,12 @@
             <div *ngFor="let payment of reserve.payment; let i = index">
                 <div *ngIf="i == 0" class="block">
 
-                    <p *ngIf="number_payments == 1">
+                    <p *ngIf="number_payments == 1 && reserve.advance.set == 'false'">
                         <strong class="good_text">  {{ language.complete_payment.paid }}: </strong> €{{  cost.final_cost | number : "1.2-2" }};
+                    </p>
+
+                    <p *ngIf="number_payments == 1 && reserve.advance.set == 'true'">
+                      <strong class="good_text">  {{ language.complete_payment.paid }}: </strong> €{{  cost.advance | number : "1.2-2" }};
                     </p>
                   
                     <p  *ngIf="number_payments > 1">
@@ -77,7 +81,7 @@
                     <p> <strong> {{ language.method }}: </strong> {{ methodPayment(payment) }} </p>     
                     
                     <p> <strong> {{ language.day }}: </strong> {{ payment.hour }} </p>
-                </div>
+                </div> 
                 
             </div>
 
