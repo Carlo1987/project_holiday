@@ -36,7 +36,7 @@ export class CreateReviewComponent implements OnInit{
 
 
   ngOnInit(): void {
-    if(localStorage.getItem('user_review')){
+    if(localStorage.getItem('user_review') && !localStorage.getItem('user') || localStorage.getItem('user')){
       this.title = this.language.review.new_comment;
       this.bottom = this.language.review.button_new;
 

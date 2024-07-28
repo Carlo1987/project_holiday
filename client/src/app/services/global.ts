@@ -4,11 +4,6 @@ import { italian } from "../language/italian";
 const host = "http://localhost:3700";
 const front = "http://localhost:4200";  
 
-/* 
-const host = "http://109.176.199.142:3700";
-const front = "https://carloloidevholiday.com";  
-*/
-
 
 let date = new Date();
 
