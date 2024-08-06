@@ -121,7 +121,7 @@ let controller = {
         `;
 
         const message = {
-            from : params.email,
+            from : env.host_email,
             to : env.email,
             subject : params.object,
             html : html

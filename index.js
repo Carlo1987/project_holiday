@@ -9,8 +9,8 @@ const host_database = env.database.host;
 const database = env.database.database;
 
 const options = {
-  key: fs.readFileSync('./ssl/key.pem'),
-  cert: fs.readFileSync('./ssl/cert.pem')
+  key: fs.readFileSync('./ssl/privkey.pem'),
+  cert: fs.readFileSync('./ssl/fullchain.pem')
 };
 
 mongoose.Promise = global.Promise;
@@ -23,14 +23,7 @@ mongoose.connect(`mongodb://${host_database}/${database}`)
           ////////   CREAZIONE  SERVER  //////
 
           const server = https.createServer(options,app);
-        //  server.on("Errore di connessione", onError);
-        //  server.on("Server https attivo", onListening);
           server.listen(port, ()=> { console.log('Server https attivo nella porta '+port);  });
 
-/* 
-           app.listen(port, ()=>{
-            console.log('Server http attivo nella porta '+port);
-          }) 
-         */
         })
         .catch(error => console.log('trovato il seguente errore: '+error));
