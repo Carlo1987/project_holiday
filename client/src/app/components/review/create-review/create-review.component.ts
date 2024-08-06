@@ -40,7 +40,12 @@ export class CreateReviewComponent implements OnInit{
       this.title = this.language.review.new_comment;
       this.bottom = this.language.review.button_new;
 
-      this.user_id = JSON.parse(localStorage.getItem('user_review')!).user_id;
+      if(localStorage.getItem('user_review') && !localStorage.getItem('user')){
+        this.user_id = JSON.parse(localStorage.getItem('user_review')!).user_id;
+      }else if(localStorage.getItem('user')){
+        this.user_id = JSON.parse(localStorage.getItem('user')!).user._id;
+      }
+     
       this._route.params.subscribe(param=>{       
         this.home_id = param['id'];
       })  
@@ -79,8 +84,8 @@ export class CreateReviewComponent implements OnInit{
     }else if(this.data.review == ''){
       this.message_error = this.language.review.error_review;
     }else if(this.data.assessment != 0 && this.data.review != ''){
-
-      this._reviewService.saveReview(this.data).subscribe(response=>{
+   
+       this._reviewService.saveReview(this.data).subscribe(response=>{
 
         if(response.review){
           this.message_success =  this.language.review.success;
@@ -88,7 +93,7 @@ export class CreateReviewComponent implements OnInit{
         }else if(response.message){
           this.message_error = response.message;
         }
-      })
+      }) 
     }
   }
 

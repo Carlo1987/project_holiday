@@ -41,6 +41,11 @@ export const italian = {
 
         mounth_names : ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],
 
+        nav : {
+                contact : "Contatti",
+                reserve : "Prenotazioni",                
+        },
+
         menuHeader : {
                 datas : "Dati personali",
                 image : "Modifica immagine",

@@ -42,6 +42,11 @@ export const español = {
 
     mounth_names : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octobre","Noviembre","Diciembre"],
 
+    nav : {
+        contact : "Contactos",
+        reserve : "Reservas",                
+},
+
     menuHeader : {
         datas : "Datos personales",
         image : "Editar imagen",

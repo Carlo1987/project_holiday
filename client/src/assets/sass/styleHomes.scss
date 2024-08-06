@@ -19,12 +19,8 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 %cardHomes_style{
-    float: left;   
     width: 250px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin-left: 65px;
-/*     margin-right: 3%;  */
+    height: 330px;
     @extend %border_style;
     img{
         height:170px;
@@ -70,33 +66,49 @@ $bg_badge : rgba(173, 199, 234, 0.972);
  }
 
 
- .carousel-inner{  overflow: hidden !important;  }
 
 
+.container_carousel_homes{
+    width: 92%;
+    margin: 0 auto;
+    overflow: hidden; 
 
- .carousel_responsive{
-/*     display: none; */
-    .carousel-inner{
-         width: 980px; 
+ .carousel_homes{
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: all 1s ease;
+
+    .div_homes{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
         .card{
             @extend %cardHomes_style;
-          /*   margin-left: 35px; */
+        }
+
+        .card:hover{
+            background-color: $color_badge; 
+            border: 3px solid black;
+            border-radius: 8px;
+            transition: 500ms;
+            cursor: pointer;
          }
-     }
+    }
  }
+}
 
 
 
+.buttons_min,
+.carousel_min{ display: none;  }
 
-
- .card:hover{
-    background-color: $color_badge; 
-    border: 3px solid black;
-    border-radius: 8px;
-    transition: 500ms;
-    cursor: pointer;
- }
- 
 
 
 
@@ -254,15 +266,7 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
- @media(max-width:1180px){
-       .carousel_responsive{
-           .carousel-inner{
-               .card{
-                     width: 24%; 
-                 } 
-             }
-    }
-} 
+
 
 
 
@@ -273,41 +277,35 @@ $bg_badge : rgba(173, 199, 234, 0.972);
     width: 99%;
 }
 
-.carousel_responsive{  
-    .carousel-inner{
-        width: 100%;
-        .card{
-            margin-left: 45px;
-            width: 26%;
-        }
-     } 
-} 
-
 
 }
 
 
-  @media(max-width:940px){   
+
+@media(max-width:940px){   
     
      .list_images, .button_totalImages{  display: none !important; }
      .carousel_singleHome{  display: block; }
+
+
+     .container_carousel_homes{    
+     .carousel_homes{    
+        .div_homes{   
+            .card{
+               width: 30%;
+               height: auto; 
+               min-height: 310px;
+               img{ height: 120px; }
+            }
+        }
+     }
+    }
+    
+
 }
 
 
 
-
-
- @media(max-width:883px){
-
-    .carousel_responsive{      
-        .carousel-inner{
-            .card{
-                margin-left: 40px;
-                width: 200px;
-            }
-         } 
-    } 
- }
 
 
 
@@ -319,14 +317,6 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
     }
 
-    .carousel_responsive{      
-        .carousel-inner{
-            .card{
-                margin-left: 15px;
-                width: 200px;
-            }
-         } 
-    } 
  }
 
 
@@ -340,19 +330,28 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
-@media(max-width:700px){
-    .carousel_responsive{      
-        .carousel-inner{
-            .card{
-                margin-left: 45px;
-                width: 35%;
-                font-size: 10px;
-                h5,a{ font-size: 13px; }
-                img{  height: 120px; }
-            }
-         } 
-    } 
+
+
+@media(max-width:720px){
+    .buttons_min,
+    .carousel_min{ display: block;  }
+
+
+    .buttons_max,
+    .carousel_max{ display: none;  } 
+
+
+    .container_carousel_homes{    
+        .carousel_homes{    
+           .div_homes{   
+               .card{
+                  width: 200px;
+               }
+           }
+        }
+    }
 }
+
 
 
 
@@ -368,21 +367,23 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
-@media(max-width:460px){
-    .carousel_responsive{      
-        .carousel-inner{
-            .card{
-                margin-left: 20px;
-                width: 150px;
-                img{ height: 90px; }
-            }
-         } 
-    } 
+@media(max-width:500px){
+    .container_carousel_homes{    
+        width: 100%;
+        .carousel_homes{    
+           .div_homes{  
+               .card{
+                  width: 47%;
+                  min-height: 280px;
+                  font-size: 13px;
+                  h5{ font-size: 16px; }
+                  img{ height: 90px; }
+                  a{ font-size: 13px; }
+               }
+           }
+        }
+    }
 }
-
-
-
-
 
 
 
@@ -452,24 +453,12 @@ $bg_badge : rgba(173, 199, 234, 0.972);
 
 
 
-@media(max-width:390px){
-    .carousel_responsive{     
-        .carousel-inner{
-            .card{
-                margin-left: 10px;
-                width: 125px;
-
-                img{ height: 70px; }
-            }
-         } 
-    } 
-}
 
 
 
 
 
- @media(max-width:350px){
+ @media(max-width:360px){
 
     #visitHomes{
         width: 97%;
@@ -496,6 +485,20 @@ $bg_badge : rgba(173, 199, 234, 0.972);
         img{ 
             height: 170px;
           }
+    }
+
+
+    .container_carousel_homes{    
+        width: 100%;
+        .carousel_homes{    
+           .div_homes{  
+               .card{
+                  width: 42%;
+                  min-height: 200px;
+                  .card-text{ display: none; }
+               }
+           }
+        }
     }
 
  }

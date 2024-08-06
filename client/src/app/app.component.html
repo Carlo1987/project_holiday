@@ -29,12 +29,12 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbar-Menu">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex flex-row">
           <li class="nav-item">
-            <a class="nav-item titles_styles " routerLink="search-reserve">  <i class="fa-solid fa-ticket fa-lg me-0"></i> Prenotazioni     </a> 
+            <a class="nav-item titles_styles " routerLink="search-reserve">  <i class="fa-solid fa-ticket fa-lg me-0"></i> {{ language.nav.reserve }}    </a> 
           </li>
           <li class="nav-item">
-            <a class="nav-item titles_styles " routerLink="contact"> <i class="fa fa-phone-square fa-lg me-0" aria-hidden="true"></i>   Assistenza   </a> 
+            <a class="nav-item titles_styles" routerLink="contact"> <i class="fa fa-phone-square fa-lg me-0" aria-hidden="true"></i>    {{ language.nav.contact }}    </a> 
           </li>
 
 
@@ -71,11 +71,6 @@
                     {{ language.menuHeader.client_reserves }}
                   </a>
                 </li>
-            <!--      <li *ngIf="identity.user.status == 'admin'">
-                  <a class="dropdown-item" (click)="link('/edit-role')">
-                    Cambia ruoli
-                  </a>
-                </li>  -->
                 <li *ngIf="identity.user.status == 'admin'">
                   <a class="dropdown-item" (click)="link('/save-home')">
                     {{ language.menuHeader.newHome }}
