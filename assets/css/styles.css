@@ -680,7 +680,7 @@
     width: 100% !important;
   }
 }
-.navbar .dropdown-menu, .home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, #visitHomes, .carousel_responsive .carousel-inner .card {
+.navbar .dropdown-menu, .home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, #visitHomes, .container_carousel_homes .carousel_homes .div_homes .card {
   border: 1px solid black;
   border-radius: 7px;
   box-shadow: 1px 1px 3px rgb(60, 58, 58);
@@ -692,15 +692,11 @@
   width: 50%;
 }
 
-.carousel_responsive .carousel-inner .card {
-  float: left;
+.container_carousel_homes .carousel_homes .div_homes .card {
   width: 250px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  margin-left: 65px;
-  /*     margin-right: 3%;  */
+  height: 330px;
 }
-.carousel_responsive .carousel-inner .card img {
+.container_carousel_homes .carousel_homes .div_homes .card img {
   height: 170px;
 }
 
@@ -726,26 +722,38 @@
   background-color: black;
 }
 
-.carousel-inner {
-  overflow: hidden !important;
+.container_carousel_homes {
+  width: 92%;
+  margin: 0 auto;
+  overflow: hidden;
 }
-
-.carousel_responsive {
-  /*     display: none; */
+.container_carousel_homes .carousel_homes {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transition: all 1s ease;
 }
-.carousel_responsive .carousel-inner {
-  width: 980px;
+.container_carousel_homes .carousel_homes .div_homes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
-.carousel_responsive .carousel-inner .card {
-  /*   margin-left: 35px; */
-}
-
-.card:hover {
+.container_carousel_homes .carousel_homes .div_homes .card:hover {
   background-color: rgb(242, 234, 234);
   border: 3px solid black;
   border-radius: 8px;
   transition: 500ms;
   cursor: pointer;
+}
+
+.buttons_min,
+.carousel_min {
+  display: none;
 }
 
 .home_profile {
@@ -873,21 +881,9 @@
 }
 
 /*/////////////           MEDIA QUERY      ////////////////*/
-@media (max-width: 1180px) {
-  .carousel_responsive .carousel-inner .card {
-    width: 24%;
-  }
-}
 @media (max-width: 991px) {
   #visitHomes {
     width: 99%;
-  }
-  .carousel_responsive .carousel-inner {
-    width: 100%;
-  }
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 45px;
-    width: 26%;
   }
 }
 @media (max-width: 940px) {
@@ -897,20 +893,18 @@
   .carousel_singleHome {
     display: block;
   }
-}
-@media (max-width: 883px) {
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 40px;
-    width: 200px;
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 30%;
+    height: auto;
+    min-height: 310px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card img {
+    height: 120px;
   }
 }
 @media (max-width: 770px) {
   #visitHomes {
     width: 98%;
-  }
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 15px;
-    width: 200px;
   }
 }
 @media (max-width: 767px) {
@@ -918,17 +912,17 @@
     width: 100%;
   }
 }
-@media (max-width: 700px) {
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 45px;
-    width: 35%;
-    font-size: 10px;
+@media (max-width: 720px) {
+  .buttons_min,
+  .carousel_min {
+    display: block;
   }
-  .carousel_responsive .carousel-inner .card h5, .carousel_responsive .carousel-inner .card a {
-    font-size: 13px;
+  .buttons_max,
+  .carousel_max {
+    display: none;
   }
-  .carousel_responsive .carousel-inner .card img {
-    height: 120px;
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 200px;
   }
 }
 @media (max-width: 550px) {
@@ -936,13 +930,23 @@
     height: 250px;
   }
 }
-@media (max-width: 460px) {
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 20px;
-    width: 150px;
+@media (max-width: 500px) {
+  .container_carousel_homes {
+    width: 100%;
   }
-  .carousel_responsive .carousel-inner .card img {
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 47%;
+    min-height: 280px;
+    font-size: 13px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card h5 {
+    font-size: 16px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card img {
     height: 90px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card a {
+    font-size: 13px;
   }
 }
 @media (max-width: 440px) {
@@ -990,16 +994,7 @@
     font-size: 22px;
   }
 }
-@media (max-width: 390px) {
-  .carousel_responsive .carousel-inner .card {
-    margin-left: 10px;
-    width: 125px;
-  }
-  .carousel_responsive .carousel-inner .card img {
-    height: 70px;
-  }
-}
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   #visitHomes {
     width: 97%;
   }
@@ -1018,6 +1013,16 @@
   }
   .carousel_singleHome img {
     height: 170px;
+  }
+  .container_carousel_homes {
+    width: 100%;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 42%;
+    min-height: 200px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card-text {
+    display: none;
   }
 }
 /*      STILI  GENERALI     */
@@ -1837,6 +1842,9 @@ input[type=submit] {
   top: 40px;
   left: -130px;
 }
+.navbar #dropdown_acount li {
+  width: 100%;
+}
 .navbar #nav_admin {
   background-color: rgb(52, 118, 88);
   color: white;
@@ -2000,14 +2008,19 @@ footer p {
   .navbar #dropdown_acount {
     left: -70px;
   }
-  .navbar .collapse ul {
+  .navbar .collapse .navbar-nav {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: column-reverse !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
   }
-  .navbar .collapse ul li {
+  .navbar .collapse .navbar-nav .nav-item {
+    width: 100%;
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 10px;
+  }
+  .navbar .collapse .navbar-nav .nav-item a {
+    width: 100%;
   }
   #carouselSardinia .carousel-inner .carousel-item {
     min-height: 200px;
