@@ -1,0 +1,471 @@
+@use 'styleForms';
+@use 'styleHomes';
+@use 'styleReview';
+@use 'styleReserve';
+
+.dancing-scrip{
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+}
+
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+$color_theme: rgb(99, 150, 216);
+$color_badge : rgb(242, 234, 234);
+
+
+%border_style{
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px rgb(60, 58, 58); 
+}
+
+
+.alert{
+    display: flex !important;
+    justify-content: center !important;
+    font-size: 19px;
+}
+
+
+%titles_nav{
+    text-shadow: 2px 1px 3px rgb(59, 57, 57);
+    text-decoration: none;
+    border: transparent;
+    color: white;
+}
+
+%titles_nav_hover{
+    color: $color_badge;
+    text-shadow: 2px 1px 6px rgb(12, 12, 12);
+}
+
+
+
+%dropdown_style{
+    background-color: $color_theme; 
+    position: absolute;
+    z-index: 4 !important;
+
+  
+     li,
+     li a{
+        color: white;
+        text-shadow: 2px 1px 3px rgb(59, 57, 57);
+        cursor: pointer;
+        img{
+            width: 40px;
+            height: 25px;
+        } 
+    }
+
+    li:hover,
+    li a:hover,
+    li:visited,
+    li a:visited{
+        background-color: transparent;
+        text-shadow: 2px 1px 6px rgb(45, 41, 41);
+    }
+}
+
+
+
+/* ////////////////////////////////////////// */
+
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+body{     background-color:  $color_badge !important;   }
+
+
+.titles_styles{ 
+    @extend %titles_nav;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.titles_styles:hover{ @extend %titles_nav_hover;}  
+
+button{  
+    background-color: $color_theme;
+    color: white;
+ }
+
+input[type="submit"]{
+    width: 40%; 
+    margin: 0 auto;
+    margin-top: 5px;
+    background-color: $color_theme;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.dropdown-toggle:visited,
+.dropdown-toggle:focus,
+.dropdown-toggle:active{ border: transparent !important;  }
+
+
+.loading{
+    width: 180px !important;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+
+    span{
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 20px;
+        margin-right: 8px !important;
+        width: auto !important;
+        border: transparent !important;
+        box-shadow: none !important;
+    }
+
+}
+
+ 
+.navbar{
+    background-color: $color_theme;
+    box-shadow: 1px 2px 2px rgb(5, 40, 5);
+    font-size: 20px;
+    z-index: 1;
+
+    #nav_home{
+        width: 50%; 
+        display: flex;
+        justify-content: space-between;  
+        align-items: center; 
+        position: relative;  
+
+        #home{ 
+            @extend %titles_nav;
+            letter-spacing: 2px;
+            padding-left: 10px;
+         }
+
+        #home:hover{ @extend %titles_nav_hover; }
+    }
+
+
+
+    .navbar-brand{
+        font-size: 37px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .dropdown-toggle{
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+    }
+
+ 
+
+
+    #dropdown_flags{
+        width: 150px; 
+        top: 40px;
+        left: -40px;
+        @extend %dropdown_style;
+    }
+
+    #flag{
+        width: 40px;
+        height: 25px;
+        border: 1.5px solid black;
+        border-radius: 5px;
+    }
+
+    #flag:hover{
+        border: 2px solid black;
+        scale: 1.2;
+    }
+
+    .dropdown-menu{
+        @extend %border_style;
+
+        img:hover{
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    }
+
+    #nav_avatar{
+        width: 40px; 
+        height: 35px; 
+        border-radius: 100px; 
+        border:1px solid black;
+        position: absolute;
+        left: -40px; 
+    } 
+
+
+    #dropdown_acount{
+        width: 220px;
+        top: 40px;
+        left: -130px;
+        @extend %dropdown_style;
+
+        li{  width: 100%;  }
+    }
+
+
+
+    #nav_admin{
+        background-color: rgb(52, 118, 88);
+        color: white;
+        padding: 5px;
+        border-radius: 5px; 
+        font-size: 16px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-shadow: none;
+        text-transform: uppercase;
+        cursor: auto;
+    }
+
+
+    #button_collapse{
+        border: 2px solid black;
+        box-shadow: 1px 1px 2px rgb(35, 34, 34);
+        padding-top: 6px;
+    }
+
+    .collapse{
+        ul{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li{
+                padding-left: 15px;
+                padding-right: 15px ;
+            }
+        }
+    } 
+}
+ 
+
+
+
+
+#manage_homes{
+    color: red;
+}
+
+
+
+
+main{
+    width: 100%;
+    min-height: 580px;
+
+}
+
+
+
+.container__image_welcome{
+   width: 100%;
+   height: 657px; 
+   position: relative;
+   box-shadow: 0px 2px 2px rgb(5, 40, 5);
+ 
+
+   .image_welcome{
+    width: 100%;
+    height: 100% !important;  
+    position: absolute !important;
+    border-radius: 0px !important;
+    border: transparent !important;
+
+       .card-text{
+        text-align: center;
+        font-size: 40px;
+        letter-spacing: 3px;
+        text-shadow: 0px 0px 20px rgb(28, 27, 27) !important;
+       }
+       img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+    }
+
+    .image_welcome--opacity2,
+    .image_welcome--opacity3,
+    .image_welcome--opacity4{ opacity: 0; }
+}
+
+
+
+
+
+ footer{
+    height: 8vh;
+    background-color: $color_theme;
+    border-top: 1px solid black;
+    box-shadow: 1px 2px 2px inset rgb(60, 58, 58); 
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    text-shadow: 2px 1px 3px rgb(59, 57, 57);
+    letter-spacing: 1px;
+    p{ padding-top: 15px; }
+} 
+
+
+
+
+
+
+.dropdown .button_completePayment:hover{
+    text-decoration: underline;
+    color: green;
+}
+
+.dropdown .button_refund:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+
+
+
+/* //////////   MEDIA QUERY   ////////////// */
+
+
+@media(max-width:1200px){
+    .navbar{   #nav_home{ width: 40%; } }
+
+     #carouselSardinia{
+        
+        .carousel-inner{
+            .carousel-item{     
+                min-height: 480px;      
+                 img{
+                    height: 480px;
+                } 
+            }
+        }   
+    } 
+  
+}
+
+
+
+@media(max-width:1095px){
+    
+.container__image_welcome{
+   .image_welcome{
+       .card-text{
+        font-size: 25px;
+       }
+    }
+}
+
+}
+
+
+
+
+@media(max-width:991px){
+
+.navbar{
+    #nav_home{
+        width: 87%;
+      }
+
+    .titles_styles{ margin-bottom: 10px; font-size: 22px; }
+    .titles_styles:first-child{ margin-top: 10px; }
+
+    #nav_avatar{
+        top: 0px;
+    }
+
+}
+
+
+
+.container__image_welcome{
+    .image_welcome{
+        .card-text{
+         font-size: 20px;
+        }
+      
+     }
+ }
+
+ 
+}  
+
+
+
+
+
+
+@media(max-width:455px){
+
+  .navbar{
+    #nav_home{
+        width: 76%;
+
+        #home{font-size: 28px; }
+  
+    }
+
+    #dropdown_acount{
+        left: -70px;
+    }
+  }
+
+
+  .collapse{
+    .navbar-nav{
+        display: flex;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+
+        .nav-item{
+            width: 100%; 
+            padding-left: 0px;
+            padding-right: 10px ;
+            display: flex; 
+
+            a{ width: auto;  margin-right: 0px;}
+        }
+
+        #dropdown_acount{
+            left: -120px !important;
+        }
+    }    
+  } 
+
+
+
+
+
+   
+}  
+
+
+
+
+
