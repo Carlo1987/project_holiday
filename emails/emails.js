@@ -102,8 +102,8 @@ let email = {
         const main_style = " style='width:95%; margin: 0 auto;  padding:5px;' ";
         const header = " style='width:100%; margin-bottom:10px;' ";
         const title_header = `style='width:100%; text-align:center; font-size:24px; color:${color_theme}; letter-spacing: 1px; margin-bottom:5px;' `;
-        const container_img = " style='width:95%; height:230px; margin:0 auto;' ";
-        const img_style = " style='width:100%; height:100%; border-radius:8px;' ";
+        const container_img = " style='width:95%; height:260px; margin:0 auto;' ";
+        const img_style = " style='width:100%; height:100%; object-fit: cover; border-radius:8px;' ";
         const article_style = " style='width:95%; border:1px solid black; border-radius:10px; box-shadow:2px 2px 3px rgb(32, 32, 32); margin:0 auto; padding:8px; margin-bottom:5px;' ";
         const titleArticle_style = ` style='color:${color_theme}; font-size:20px; text-align:center;' `;
         const price_style = `style='font-size:20px; color:${color_theme}; font-weight: bold;' `;
