@@ -1,0 +1,71 @@
+<div id="visitHomes">
+
+    <div id="visit_text" class="titles_styles">
+      <div class="ms-3">{{ datas.title }}</div>
+    </div>
+
+    <div id="visit_buttons">
+
+      <div class="buttomCarousel buttons_max me-4">
+
+        <div class="carousel_responsive">
+          <button class="carousel-control-prev buttonLeft" (click)="translate_max(0)" type="button">
+            <span class="carousel-control-prev-icon btn"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+        </div>
+
+        <div class="carousel_responsive">
+            <button class="carousel-control-next buttonRight" (click)="translate_max(1)" type="button">
+            <span  class="carousel-control-next-icon btn"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> 
+
+      </div> 
+
+
+
+      <div class="buttomCarousel buttons_min me-4">
+
+        <div class="carousel_responsive">
+          <button class="carousel-control-prev buttonLeft" (click)="translate_min(0)" type="button">
+            <span class="carousel-control-prev-icon btn"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+        </div>
+
+        <div class="carousel_responsive">
+            <button class="carousel-control-next buttonRight" (click)="translate_min(1)" type="button">
+            <span  class="carousel-control-next-icon btn"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> 
+
+      </div> 
+
+    </div>
+
+</div>
+
+
+
+<div class="container_carousel_homes carousel_max">        <!-- carousel grandezza schermo grande/medio -->
+  <div class="carousel_homes" #carousel_homes_max>
+    <!--  fatto con JS  -->
+  </div>
+</div>
+
+
+<div class="container_carousel_homes carousel_min">           <!-- carousel grandezza schermo piccolo -->
+  <div class="carousel_homes" #carousel_homes_min>
+    <!--  fatto con JS  -->
+  </div>
+</div>
+
+
+
+
+
+
+

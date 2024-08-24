@@ -1,0 +1,271 @@
+
+
+/*      STILI  GENERALI     */
+$background_errorAllert :  rgb(219, 53, 53);
+$backgroud_successAllert : rgb(40, 145, 40);
+$color_theme: rgb(99, 150, 216);
+$color_badge : rgb(242, 234, 234);
+
+%border_style{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgb(51, 50, 50);
+}
+
+
+@mixin title_style($color){
+    color: $color; 
+    text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+
+%allert_style{
+    width: 100%;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 19px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+%values_style{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: white;
+    color: $color_theme;
+    font-size: 23px;
+    @extend %border_style;
+}
+
+
+
+
+
+
+/*     STILE  RECENSIONI     */
+
+
+.container_review{
+    width: 80%;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    @extend %border_style; 
+
+    h2{
+        padding-left: 1%;
+        text-align: center;
+        @include title_style($color_theme);
+    }
+
+    .star{
+        width: 26px; 
+        height: 26px;
+        margin-right: 4px;
+        cursor: pointer;
+    }
+
+    textarea{ border-radius: 5px; }
+
+}
+
+
+.button_newComment{
+    width: 300px;
+    font-size: 23px;
+    letter-spacing: 1px;
+    background-color: $color_theme;
+    color: white;
+    padding: 10px;
+    @extend %border_style;
+}
+
+
+
+
+.container_reviews{
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+
+
+    .counter{
+        padding: 15px;
+        font-size: 19px;
+        @extend %border_style;
+        background-color: $color_theme;
+        color: white;
+
+        .average_value{
+            @extend %values_style;
+         }
+    }
+
+
+    .review{
+        @extend %border_style;
+        background-color: white;
+        margin-bottom: 12px;
+        padding: 8px;
+        position: relative;
+     
+        .container_vote{
+            width: 115px;
+            display: flex;
+            margin-left: 0px;
+
+
+            .star{
+                width: 15px; 
+                height: 15px;
+            }
+
+            .vote_value{
+                @extend %border_style;
+                border-radius: 5px !important;
+                font-size: 17px;
+                font-weight: bold;
+                text-align: center;
+                padding-left: 8px;
+                padding-right: 8px;
+                margin-left: 0px;
+                background-color: $color_theme;
+                color: white;
+            }
+        }
+
+        .container_textReview{
+            .text{
+                width: 91%;
+                min-width: 400px;
+                margin-left: 0px;
+                text-align: justify;
+            }
+        }
+
+        .button_review{
+            position: absolute; 
+            width: 40px;   
+            right: 4px;
+            top: 4px; 
+            padding-left: 5px;
+            background-color: $color_theme;
+            @extend %border_style;
+            border-radius: 5px;
+            color: white;
+
+            .btn:focus{
+                border: transparent;
+            }
+     
+
+            .dropdown-menu{
+                @extend %border_style;
+                background-color: $color_theme;
+           
+                li{ cursor: pointer; color: white; font-weight: bold; text-align: center; }
+                li:first-child:hover{ color: green;  }
+                li:hover{ color: red };
+            }
+        }
+       
+    }
+  
+}
+
+
+
+
+
+
+
+/////////////     MEDIAQUERY  
+
+
+
+@media(max-width:991px){
+
+    .review{     
+        .container_vote{
+            .vote_value{
+        
+                border-radius: 5px !important;
+                font-size: 17px;
+                font-weight: bold;
+                text-align: center;
+                padding-left: 8px;
+                padding-right: 8px;
+       
+                margin-left: 0px;
+                background-color: $color_theme;
+                color: white;
+            }
+        }
+
+        .container_textReview{ 
+            margin-top: 10px;
+            .text{ width: 100% !important; min-width: 0px !important; }
+         }
+       
+    }
+
+}
+
+
+
+
+@media(max-width:467px){
+
+    .button_newComment{
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .container_reviews{
+        width: 100%;
+
+        .review{     
+            font-size: 15px;
+             .button_review{
+                /*  right: -41.5px !important;  */
+               top: 57px;
+            } 
+           
+        }
+    }
+
+  
+
+
+    .container_review{
+        width: 90%;
+        font-size: 14px;
+
+        h2{
+            font-size: 19px;
+            text-align: center;
+         }
+
+        .star{
+            width: 19px; 
+            height: 19px;
+        }
+    
+    }
+    
+}
+
+
+
+
+
+
+

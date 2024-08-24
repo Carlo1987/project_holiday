@@ -1,0 +1,161 @@
+<div class="block_container"> 
+
+    <div class="title_general_instrument"> <h3> {{ language.admin.manage.title }} </h3> </div>
+
+     <div class="block" style="background-color: rgb(242, 234, 234); border: none; box-shadow: none;"> 
+        <form class="form_instrument" (ngSubmit)="updateExtra()">
+
+   <!--          <input type="hidden" value="{{ current_year }}" [(ngModel)]="extra.current_year"> -->
+
+          <div class="container_instrument">
+
+          <div class="form_field">  <!--  style="height: 125px;" -->
+                <div class="title_instrument"> <p> {{ language.admin.manage.N_days_reserve }} </p> </div>
+
+                  <div class="field">
+                    <label for="min">{{ language.admin.manage.min_days }}:</label>
+                    <select  name="min" [(ngModel)]="extra.reserve_days.min">
+                       <option *ngFor="let min of min_reserve_days" value="{{min}}"> {{ min }} </option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="max">{{ language.admin.manage.max_days }}:</label>
+                    <select name="max" [(ngModel)]="extra.reserve_days.max">
+                      <option *ngFor="let max of max_reserve_days" value="{{max}}"> {{ max }} </option>
+                    </select>
+                  </div>
+                  
+          </div>
+
+          <div class="form_field">  <!--  style="height: 125px;" -->
+              <div class="title_instrument"> <p> {{ language.admin.manage.N_mounths_reserve }} </p> </div>
+
+              <div class="field">
+                  <label for="limit_mouth">{{ language.admin.manage.mounths }}:</label>
+                  <select  name="limit_mouth" [(ngModel)]="extra.limit_mounthReserve">
+                     <option *ngFor="let mounths of limit_mouthReserve" value="{{mounths}}"> {{ mounths }} </option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="form_field">  <!--  style="height: 125px;" -->
+            <div class="title_instrument"> <p> {{ language.admin.manage.advance_title }} </p> </div>
+
+            <div class="field">
+                <label for="advance">{{ language.admin.manage.advance }} %:</label>
+                <input type="number" name="advance" [(ngModel)]="extra.advance">
+            </div>
+          </div>
+
+            <div class="form_field">
+              <div class="title_instrument"> <p> {{ language.hours }} Check-In {{ language.and }} Check-Out: </p> </div>
+
+              <div class="field">
+                  <label for="checkInStart">Check-In {{ language.from }}:</label>
+                  <select  name="checkInStart" [(ngModel)]="extra.hours.checkIn.start">
+                     <option *ngFor="let hour of hours" value="{{hour}}"> {{ hour }} </option>
+                  </select>
+              </div>
+
+              <div class="field">
+                  <label for="checkInEnd">Check-In {{ language.to }}:</label>
+                  <select name="checkInEnd" [(ngModel)]="extra.hours.checkIn.end">
+                    <option *ngFor="let hour of hours" value="{{hour}}"> {{ hour }} </option>
+                  </select>
+              </div>
+
+              <div class="field">
+                <label for="checkOutStart">Check-Out {{ language.from }}:</label>
+                <select  name="checkOutStart" [(ngModel)]="extra.hours.checkOut.start">
+                  <option *ngFor="let hour of hours" value="{{hour}}"> {{ hour }} </option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="checkOutEnd">Check-Out {{ language.to }}:</label>
+                <select name="checkOutEnd" [(ngModel)]="extra.hours.checkOut.end">
+                  <option *ngFor="let hour of hours" value="{{hour}}"> {{ hour }} </option>
+                </select>
+            </div>
+          </div>
+
+            <div class="form_field">
+                <div class="title_instrument"> <p> {{ language.admin.manage.discount_title }} </p> </div>
+
+                  <div class="field">
+                    <label for="days_discount">{{ language.admin.manage.min_days }}:</label>
+                    <input type="number" name="days_discount" [(ngModel)]="extra.discount.days_discount">
+                  </div>
+
+                  <div class="field">
+                    <label for="value_discount">{{ language.admin.manage.discount }} %:</label>
+                    <input type="number" name="value_discount" [(ngModel)]="extra.discount.value_discount">
+                  </div>
+            </div>
+
+            <div class="form_field" style="height: 80px;">
+              <div class="title_instrument"> {{ language.admin.manage.services }} </div>
+
+              <div class="field">
+                  <label for="clean">{{ language.admin.manage.clean }} €:</label>
+                  <input type="number" name="clean" [(ngModel)]="extra.clean">
+              </div>
+
+            </div>
+
+          </div>    <!-- fine container instrument -->
+
+
+          <div class="container_acordion">
+            <div class="title_acordion"> <p> {{ language.admin.manage.mode }} {{ language.admin.manage.refund }} </p> </div>
+
+            <div class="refund_description">
+              <div>
+                 <div class="refund_title"> <h4> {{ language.admin.manage.mode }} {{ language.admin.manage.flexible_title }}: </h4>  </div>
+                 <div class="refund_text"> 
+                          {{ language.admin.manage.flexible }}
+                   </div>
+              </div>
+
+              <div>
+                <div class="refund_title"> <h4>{{ language.admin.manage.mode }} {{ language.admin.manage.moderate_title }}: </h4>  </div>
+                <div class="refund_text"> 
+                     {{ language.admin.manage.moderate }}
+                </div>
+              </div>
+
+              <div>
+                <div class="refund_title"> <h4> {{ language.admin.manage.mode }} {{ language.admin.manage.rigid_title }}: </h4> </div>
+                <div class="refund_text"> 
+                    {{ language.admin.manage.rigid }}
+                </div>
+              </div>
+            </div>
+
+           <div class="field last_field"> 
+                  <label  for="refund" style="font-size: 20px;"> {{ language.admin.manage.mode }}:</label>
+                  <select  name="refund" [(ngModel)]="extra.refund.mode" style="padding: 5px; font-size: 17px;">
+                    <option value="flexible"> {{ language.admin.manage.flexible_title }} </option>
+                    <option value="moderate"> {{ language.admin.manage.moderate_title }} </option>
+                    <option value="rigid"> {{ language.admin.manage.rigid_title }} </option>
+                  </select> 
+            </div> 
+        </div>
+
+        <app-loading [loading]="loading"></app-loading>
+
+            <input type="submit" value="Imposta">
+
+      
+        </form>
+
+        <div class="alert alert-danger mt-2" role="alert" *ngIf="message_error != ''">  {{ message_error }}  </div>
+        <div class="alert alert-success mt-2" role="alert" *ngIf="message_success != ''"> {{ message_success }} </div>
+
+      
+     </div>
+
+ 
+
+</div> 

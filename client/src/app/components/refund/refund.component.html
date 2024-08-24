@@ -1,0 +1,37 @@
+
+
+<div class="block_container">
+    <div class="block block_refund">
+        <h2> {{ language.refund_reserve.title }} </h2>
+
+        <form>
+            <div #show>
+                   <!-- fatto con JS --> 
+            </div>
+
+            <div>
+                <p> <strong> {{ language.refund_reserve.sure }} </strong></p>
+            </div>
+                
+            <div class="mb-3">  <i class="fa-solid fa-arrow-down fa-2xl"></i>    </div>
+        
+         <div class="alert alert-danger" role="alert" *ngIf="message_error != ''" > {{ message_error }}  </div>
+         <div *ngIf="message_success != ''" class="alert alert-success" role="alert">  {{ message_success }}</div>
+
+         <app-loading [loading]="loading"></app-loading>
+
+        <input type="submit" class="btn btn-danger"  value="{{ language.refund_reserve.button }}" (click)="refund()"> 
+        </form>
+       
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

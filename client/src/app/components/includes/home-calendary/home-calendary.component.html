@@ -1,0 +1,83 @@
+<div class="save_datas_form">           
+
+    <div class="container">
+        <p> <i>  <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_price+'"' }}</strong> {{ language.calendary.alert1 }},
+                 <strong style="text-transform: uppercase;">{{ '"'+language.calendary.button_block+'"' }}</strong> {{ language.calendary.alert2 }}.
+           <br>   {{ language.calendary.alert3 }} {{ language.calendary.more }}. 
+        </i></p>
+    </div>
+
+    <div class="chose_year">
+      <select name="year_calendary" [(ngModel)]="year_calendary" (change)="showCalendary()">
+        <option value="{{ current_year }}"> {{ current_year }} </option>
+        <option value="{{ current_year + 1 }}"> {{ current_year + 1 }} </option>
+      </select>
+    </div>
+
+
+    <div class="chose_action">
+
+    <div class="calendary_form">
+
+      <div class="first_date">
+        Da:
+        <select class="first_day">
+          <option *ngFor="let day of days_january" value="{{ day }}"> {{ day }} </option>
+        </select>
+        
+        <select name="mounth" [(ngModel)]="first_mounth" (change)="getDays('checkIn')">
+          <option *ngFor="let mounth of mounths_names; let i=index" value="{{ i+1 }}"> {{ mounth }} </option>
+        </select>
+      </div>
+      <div class="second_date">
+        A:
+        <select class="second_day">
+          <option *ngFor="let day of days_january" value="{{ day }}"> {{ day }} </option>
+        </select>
+
+        <select name="mounth" [(ngModel)]="second_mounth" (change)="getDays('checkOut')">
+          <option *ngFor="let mounth of mounths_names; let i=index" value="{{ i+1 }}"> {{ mounth }} </option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="options_price">
+      <div class="container_option">
+        <div class="price_value">
+          <label for="price">€</label>
+          <input type="number" name="price" [(ngModel)]="price_value" />
+        </div>
+      </div>
+      <div class="buttonsOption">
+        <input type="submit" value="{{ language.calendary.button_price }} €" (click)="getValue(1)" />
+        <input type="submit" value=" {{ language.calendary.button_block }}  " (click)="getValue(0)"/>
+      </div>
+    </div>
+
+   </div>     <!-- fine "chose_action" -->
+
+
+   <app-loading [loading]="loading"></app-loading>
+
+
+   <input type="submit" class="fs-4 p-1" value="{{ language.calendary.button_end }}"  (click)="sendData()"/>
+
+
+   
+   <div *ngIf="message_error_calendary != ''" class="alert alert-danger mt-2" role="alert"> {{ message_error_calendary }} </div>
+   <div class="alert alert-success mt-2" role="alert" *ngIf="message_success_calendary != ''"> {{ message_success_calendary }} </div>
+   <div class="alert alert-success mt-2" role="alert" *ngIf="saved"> {{ message_calendary }}  </div>
+
+
+    <div class="calendary">
+      <h3>{{ year_calendary }}</h3>
+
+      <div class="container_overflow">
+        <div class="container_mounths" #mounths>
+                <!--   fatto con JS  -->
+        </div>
+      </div>
+    </div>
+
+  </div>

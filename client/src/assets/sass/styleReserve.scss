@@ -1,0 +1,696 @@
+
+/*      STILI  GENERALI     */
+$background_errorAllert :  rgb(219, 53, 53);
+$backgroud_successAllert : rgb(40, 145, 40);
+$color_theme: rgb(99, 150, 216);
+
+%border_style{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgb(51, 50, 50);
+}
+
+
+%allert_style{
+    width: 100%;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+
+%discount_style{
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+%values_style{
+    color: white; 
+    padding: 3px;  
+    border-radius: 5px; 
+    font-weight: bold;
+    @extend %border_style;
+}
+
+@mixin title_style($color){
+    color: $color; 
+    text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+
+
+
+
+/*     STILE  PRENOTAZIONE    */
+
+
+.box_check{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    
+    input[type="date"]{
+        width: 135px;
+    }
+}
+
+
+.user_reserves{
+    font-size: 23px;
+
+    h2 span{
+            width: 100%;
+            text-align: center;
+            @include title_style($color_theme);
+            color: white; 
+            padding: 3px; 
+            border-radius: 5px;
+    } 
+
+
+    .counter_reserves{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    
+
+    .confirmed{
+        @extend %values_style;
+        background-color: $color_theme;
+    }
+
+    .refused{
+        @extend %values_style;
+        background-color: $background_errorAllert;
+    }
+
+ 
+}
+
+
+
+.container_search{
+
+    .search_image{
+        display: flex;
+        align-items: center;
+    }
+
+    img{
+        width: 155px;
+        height: 145px;
+        border-radius: 5px;
+    }
+}
+
+
+
+
+.container_reserve{
+    padding: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+    h3{
+        @include title_style($color_theme);
+        text-align:center;
+    }
+
+    form{  width: 500px;
+
+        label{
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        input[type="date"]{
+            max-width: 160px;
+            margin: 0 auto; 
+            font-size: 17px;
+            padding-left: 5px;
+        }
+    
+        select{
+            width: 130px; 
+            margin: 0 auto;
+            font-size: 17px;
+            padding: 3px;
+        }
+    
+        input[type="submit"]{
+            width: 190px;
+            padding: 5px;
+            background-color: $color_theme;
+            color: white;
+            border-radius: 5px;
+            font-size: 19px;
+        }
+    }  
+}
+
+
+
+.nav_session{
+    width: auto;
+   background-color: white;
+   box-shadow: 1px 1px 3px rgb(51, 50, 50);
+   text-align: center;
+   @extend %border_style;
+   @include title_style($color_theme);
+   padding-top: 5px;
+   padding-bottom: 5px;
+   span { @include title_style($background_errorAllert);  }
+}
+
+
+.title_element{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    @include title_style($color_theme);
+   }
+
+
+.discountNo{
+    background-color: $background_errorAllert;
+    @extend %discount_style;
+}
+
+.discountYes{
+    background-color: $color_theme;
+    @extend %discount_style;
+}
+
+
+.container_reserve_extra{
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    background-color: white;
+    @extend %border_style;
+
+
+    .reserve_datas{
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .change_dates{
+        @extend %border_style;
+        height: 100%;
+        padding-bottom: 10px;
+        padding-top: 5px;
+
+        h4{
+           text-align: center;
+           background-color: $color_theme;
+           @include title_style(white);
+           height: 40px;
+           border-radius: 8px;
+           padding-top: 3px;
+           font-size: 25px;
+           font-weight: normal;
+        }
+    }
+
+
+    .container_mounth{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        @extend %border_style;
+
+                .mounth_name{
+                    width: 100%;
+                    height: 40px;
+                    text-align: center;
+                    font-size: 20px;
+                    border-bottom: 1px solid black;
+                    margin-bottom: 10px;
+                    background-color: $color_theme;
+                    @include title_style(white);
+                    border-radius: 5px;
+                }
+
+                .mounth{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+      
+                    .container_day{
+                        width: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        @extend %border_style;
+
+                        .day{
+                            width: 100%;
+                            height: 30px;
+                            text-align: center;
+                            font-size: 18px;
+                            color: white;
+                            background-color: $color_theme;
+                            border-bottom: 1px solid black;
+                            border-start-start-radius: 9px;
+                            border-top-right-radius: 9px;
+                            padding: 1px;
+                        }
+
+                        .element{
+                            width: 100%;
+                            height: 30px;
+                            display: flex;
+                            align-items: center;
+                       
+                            p{
+                                height: 8px;
+                            }
+                        }
+                    }
+                }
+    }
+
+
+    #accordionPayment{
+        @extend %border_style;
+        border-radius: 6px;
+
+        .accordion-button{
+            height: 30px;
+            padding-top: 30px;
+        }
+
+        .p_accordion{
+            font-size: 20px;
+            padding-left: 0px;
+            font-weight: bold;
+        }
+
+        .accordion-body{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+
+            input[type="radio"]{
+                padding: 20px;
+                margin-bottom: 5px;  
+                margin-right: 1%;
+                }
+        }
+    }
+ 
+
+ 
+
+        .chose_payment{
+            width: 30%;
+            height: 245px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px;
+            @extend %border_style;
+
+
+            .row_payment{
+                width: 100%;
+                display: flex;
+                border-top: 1px solid black;
+                padding-top: 5px;
+                label{
+                    width: 90%;
+                }
+            }
+        }
+
+    .button_confirm{
+        width: 350px;
+        margin: 0 auto;
+        padding: 11px;
+        font-size: 25px;
+        letter-spacing: 5px;
+        text-align: center;
+        background-color: $color_theme;
+        color: white;
+        @extend %border_style;
+        cursor: pointer;
+    }
+
+}
+
+
+
+
+.method_payment{
+    @extend %border_style;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+
+    .message_method{
+        width: 100%;
+        font-size: 17px;
+        text-align: center;
+        img{
+            width: 30px; 
+            height: 20px;
+            padding-bottom: 3px;
+        }
+    }
+
+    .chose_method{
+        width: 100%;
+        select{ 
+         width: 100%;
+         font-size: 20px;
+        padding: 8px; }
+    }
+
+    .form_payment{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .row_payment{
+            width: 100%;
+            input{ 
+                width: 100%;
+             }
+        }
+
+        .datas_card{
+            width: 100%;
+            display: flex;
+            input{
+                width: 50%;
+            }
+        }
+
+        textarea{
+            width: 100%;
+        }
+    }
+} 
+
+
+
+.reserve_complete{
+    background-color: white;
+    margin-top: 25px;
+    @extend %border_style;
+}
+
+
+
+.container_search_reserve{
+    background-color: white;
+    @extend %border_style;
+
+     button{  border: 1px solid black; }
+
+    h3{
+        width: 100%;
+        text-align: center;
+        @include title_style($color_theme);
+        font-size: 35px;
+        margin-bottom: 15px;
+        padding: 5px;
+    }
+
+    .row_select_home{
+        select{
+            font-size: 20px;
+            border: 1px solid black;
+        }
+    }
+
+    h4{  @include title_style($color_theme); }
+
+    .user_reserve{
+
+        span{
+            background-color: white;
+            border-radius: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-weight: bold;
+        }
+
+        .span_success{ color: black; }
+        .span_danger{ color: $background_errorAllert; }
+    
+        .mounth_reserve{
+            background-color: $color_theme;
+            color: white;
+            font-size: 16px;
+            @extend %border_style;
+            border-radius: 4px !important;
+            padding-top: 13px; 
+            margin: 0 auto;
+        }
+
+        .data_reserve{
+           border: 2px solid rgb(37, 37, 37);
+           border-radius: 4px;
+           margin: 0 auto;
+        }
+
+        .number_reserve{
+            @include title_style($color_theme);
+            font-size: 19px;
+            padding-left: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        table th,td{ text-align: center; }
+    }
+}
+
+
+
+
+
+.modalAdmin{
+    right: 0px;
+    top: 0px;
+}
+
+.modalClient{
+    right: 0px;
+    top: 37px;
+    display: none;
+}
+
+.paymentClient:hover{
+    .modalClient{ display: block; }
+}
+
+
+
+.modal_text{
+    color: $color_theme !important;
+    border: transparent !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+}
+
+.modal_payments{
+    position: absolute;
+    width: auto;
+    @extend %border_style;
+    background-color: white;
+    z-index: 1;
+    padding: 8px;
+    color: black;
+    font-weight: bold;
+    h3{
+        display: block;
+        width: 75%;
+        color: $color_theme;
+        text-align: end;
+        margin-bottom: 10px;
+        font-size: 20px;
+        padding: 3px;
+    }
+
+    p{
+        text-align: start;
+    }
+
+    .payment_good{
+        color: green;
+    }
+    
+    .payment_bad{
+        color: red;
+    }
+    
+}
+
+
+
+.noReserve_homeAvatar{
+    width: 100%;
+    height: 350px;
+    position: relative;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .noReserve_homeAvatar__button{
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        display: none;
+    }
+}
+
+
+.noReserve_homeAvatar:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @extend %border_style;
+
+    img{
+        width: 95%;
+        height: 95%;
+        opacity: 0.5;
+    }
+
+    .noReserve_homeAvatar__button{
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+/*     MEDIA QUERY    */
+
+
+
+@media(max-width:991px){
+    
+.container_reserve_extra{
+
+    .change_dates{
+       width: 78%;
+       margin-top:18px;
+    }
+}
+}
+
+
+ @media(max-width:770px){
+
+    .container_reserve{
+        form{
+            width: 100%;
+        }
+    }
+
+    .container_reserve_extra{
+
+        .change_dates{
+           width: 87.5%;
+        }
+    }
+
+
+    .container_mounth{
+        width: 90% !important;
+    }
+} 
+
+
+
+@media(max-width:767px){
+
+    .container_reserve{
+        form{
+            .people{
+              width: 150px;
+              margin: 0 auto;
+              select{ width: 40px; }
+            }
+        }
+    }
+}  
+
+
+
+
+@media(max-width:460px){
+    .counter_reserves{
+        flex-direction: column;
+        justify-content: none;
+        gap: 10px;
+    }
+
+    .method_payment{    
+        .chose_method{
+            select{ 
+             font-size: 17px;
+             }
+        }
+    }
+
+    .button_confirm{
+        width: 245px !important;
+        padding: 8px !important;
+        letter-spacing: 0px !important;
+        font-size: 19px !important;
+    }
+}
+
+
+@media(max-width:355px){
+    .container_reserve_extra{  
+        .reserve_datas{
+          padding-left: 12px;
+        }
+        .container_mounth{    
+                    .mounth_name{
+                        padding-top: 4px;
+                        font-size: 17px;
+                    }
+        }
+
+        .p_accordion{ font-size: 17px !important;}
+    }
+}
+
+
+
+
+
+

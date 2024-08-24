@@ -1,0 +1,60 @@
+.method_payment{
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+
+    .message_method{
+        width: 100%;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .chose_method{
+        width: 100%;
+        select{ 
+         width: 100%;
+         font-size: 20px;
+        padding: 8px; }
+    }
+
+    .form_payment{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .row_payment{
+            width: 100%;
+            input{ 
+                width: 100%;
+             }
+        }
+
+        .datas_card{
+            width: 100%;
+            display: flex;
+            input{
+                width: 50%;
+            }
+        }
+
+        textarea{
+            width: 100%;
+        }
+    }
+} 
+
+
+
+
+@media(max-width:1024px){
+    .method_payment{
+        width: 95% !important;
+    }
+
+}
+

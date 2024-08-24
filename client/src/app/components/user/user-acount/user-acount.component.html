@@ -1,0 +1,140 @@
+<div class="block_container">
+
+
+  <div class="block">
+    <h2> {{ language.acount.title_register }} </h2>
+
+    <p> <i> {{ language.acount.register }} </i></p>
+
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+
+      <div>
+        <label for="name">{{ language.acount.name }}:</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required/>
+      </div>
+
+      <span *ngIf="name.touched && !name.valid"> {{ message_form }} </span>
+
+      <div>
+        <label for="surname">{{ language.acount.surname }}:</label>
+        <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required/>
+      </div>
+
+      <span *ngIf="surname.touched && !surname.valid">
+        {{ message_form }}
+      </span>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="{{ language.acount.email_register }}" #email="ngModel" [(ngModel)]="user.email" required/>
+      </div>
+
+      <span *ngIf="email.touched && !email.valid"> {{ message_form }} </span>
+
+      <div>
+        <label for="cell">{{ language.acount.cell }}:</label>
+        <input type="number" name="cell" placeholder="{{ language.acount.cell_register }}" #cell="ngModel" [(ngModel)]="user.cell" required/>
+      </div>
+
+      <span *ngIf="cell.touched && !cell.valid"> {{ message_form }} </span>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required/>
+      </div>
+
+      <span *ngIf="password.touched && !password.valid">
+        {{ message_form }}
+      </span>
+
+      <div>
+        <label for="confirm">{{ language.acount.confirm_register }}:</label>
+        <input type="password" name="confirm" #confirm="ngModel" [(ngModel)]="confirm_password" required/>
+      </div>
+
+      <span *ngIf="confirm.touched && !confirm.valid">
+        {{ message_form }}
+      </span>
+      <span *ngIf="message_wrong_password != ''">
+        {{ message_wrong_password }}
+      </span>
+
+
+      
+      <div>
+        <label for="country">{{ language.acount.country }}:</label>
+        <select name="country" #country="ngModel" [(ngModel)]="user.country" class="select_acount">
+           <option *ngFor="let country of countries" value="{{country.name}}"> {{ country.name }} </option>
+        </select>
+      </div>
+
+      <span *ngIf="country.touched && !country.valid">  {{ message_form }}   </span>
+    
+
+      <div>
+        <label for="address">{{ language.acount.address }}:</label>
+        <input type="text" placeholder="{{ language.acount.field_register }}"  name="address" [(ngModel)]="user.address" />
+      </div>
+
+      <div>
+        <label for="city">{{ language.acount.city }}:</label>
+        <input type="text" placeholder="{{ language.acount.field_register }}" name="city" [(ngModel)]="user.city" />
+      </div>
+
+      <div>
+        <label for="cap">CAP:</label>
+        <input type="text" placeholder="{{ language.acount.field_register }}"  name="cap" [(ngModel)]="user.cap" />
+      </div>
+
+    
+      <div  class="alert alert-danger" role="alert"  *ngIf="message_notValid_email != ''">  {{ message_notValid_email }}  </div>
+
+      <div  class="alert alert-danger" role="alert"  *ngIf="message_wrong_email != ''">  {{   message_wrong_email }}  </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="register_success">    {{ message_success_register }}   </div>
+
+      <app-loading [loading]="loading"></app-loading>
+
+      <input type="submit" value="{{ language.acount.title_register }}" [disabled]="!registerForm.form.valid">
+  
+    </form>
+  </div>
+
+
+
+  <div class="block">
+    <h2>Login</h2>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" [(ngModel)]="email_login"  />
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" [(ngModel)]="password_login" />
+      </div>
+
+      <div class="w-100 text-align-center"> <p> {{ language.acount.forgot_password }} <a routerLink="/forgot-password"> {{ language.acount.forgot_link }} </a> </p></div>
+
+      <div  class="alert alert-danger" role="alert"  *ngIf="error_email_login != ''">  {{ error_email_login }}  </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errors_login != ''">  {{ errors_login }}  </div>
+
+
+      <div class="d-flex align-items-center" *ngIf="loading_login">  
+         <div class="spinner-border ps-0" style="width: 1.8rem; height: 1.8rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+         </div>
+   
+      </div>
+     
+
+
+      <input type="submit" value="Login" />   
+
+    </form>
+  </div>
+
+  
+</div>

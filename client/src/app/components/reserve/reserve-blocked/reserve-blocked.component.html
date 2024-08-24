@@ -1,0 +1,120 @@
+
+
+<div class="block_container">
+  <div class="block">
+
+
+  <div class="save_datas_form">           
+
+    <h2> {{ language.calendary.no_reserve }} </h2>
+
+   
+    <p class="noFoud_reserve"> <i>  {{ language.calendary.find_home }} </i></p>
+
+
+
+    <div class="row w-100">
+
+      <div class="col-md-6">
+
+        <div class="noReserve_homeAvatar">
+
+          <img src="{{ url +'/get_avatar/'+ home.avatar }}">
+
+          <div class="btn btn-primary noReserve_homeAvatar__button" (click)="link(home._id)"> {{ language.calendary.look_home }} </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+
+        <div class="chose_year text-center my-2">
+          <select name="homes" [(ngModel)]="selected_home" (change)="setHome()" #chose_home>
+                <!--  fatto con JS  -->
+          </select>
+        </div>
+    
+    
+    
+    
+        <div class="chose_year text-center mb-2">
+          <select name="year_calendary" [(ngModel)]="year_calendary" (change)="showCalendary()">
+            <option value="{{ current_year }}"> {{ current_year }} </option>
+            <option value="{{ current_year + 1 }}"> {{ current_year + 1 }} </option>
+          </select>
+        </div>
+    
+    
+    
+    
+    
+    
+      <div class="chose_action p-2 m-auto" style="width: auto;">
+    
+          <div class="row w-100">
+    
+            <div class="col-sm-6">
+              <div class="box_check ">
+                <label for="checkIn" class="fs-5"> Check-In: </label>
+                <input type="date" name="checkIn"  [(ngModel)]="reserve.checkIn" class="ms-2 ps-1">
+              </div>
+            </div>
+      
+            <div class="col-sm-6">
+              <div class="box_check">
+                <label for="checkOut" class="fs-5"> Check-Out: </label>
+                <input type="date" name="checkOut" [(ngModel)]="reserve.checkOut" class="ms-1 ps-1">
+              </div>
+            </div>
+    
+    
+            <div class="mt-2 text-center">
+              <label for="guests" class="fs-5"> {{ language.reserves.guests }}:</label>
+              <select name="guests" [(ngModel)]="reserve.guests" style="height: 25px; margin-left: 5px;" #guests_number>
+                 <!-- fatto con JS -->
+              </select>
+          </div>
+    
+          </div>  
+    
+       </div>   
+       
+
+      </div>
+
+    </div>
+
+ 
+
+
+
+
+   
+
+
+   <app-loading [loading]="loading"></app-loading>
+
+
+   <div *ngIf="message_error != ''" class="alert alert-danger text-center mt-2 w-100" role="alert"> {{ message_error }} </div>
+
+   <input type="submit" class="fs-4 p-1" style="width: 150px;" value="{{ language.calendary.button_reserve }}"  (click)="setReserve()"/>
+
+
+    <div class="calendary">
+      <h3>{{ year_calendary }}</h3>
+
+      <div class="container_overflow">
+        <div class="container_mounths" #mounths>
+                <!--   fatto con JS  -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+

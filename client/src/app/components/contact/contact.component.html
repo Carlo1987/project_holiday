@@ -1,0 +1,42 @@
+
+<div class="block_container">
+    <div class="block">
+        <h2> {{ language.contact.title }}</h2>
+
+        <form (ngSubmit)="send()">
+
+            <div class="row_contact">
+                <div>
+                    <label for="email">{{ language.contact.email }}:</label>
+                    <input type="email" name="email" [(ngModel)]="contact.email" />    
+                </div>
+    
+                <div>
+                    <label for="object">{{ language.contact.object }}:</label>
+                    <input type="object" name="object"  [(ngModel)]="contact.object" />     
+                </div>
+            </div>
+
+
+            <div class="row_contact">
+                <div>
+                    <label for="message"> {{ language.contact.message }} </label>
+                    <textarea form="message" name="message"  [(ngModel)]="contact.message"> </textarea>
+                </div>
+            </div>
+              
+
+            <div class="alert alert-danger" role="alert" *ngIf="message_error != ''" > {{ message_error }} </div>
+            <div class="alert alert-success" role="alert" *ngIf="message_success != ''" > {{ message_success }} </div>
+
+            
+            <app-loading [loading]="loading"></app-loading>
+
+            <button type="submit"> {{ language.contact.button }} </button>
+          
+           
+           
+        </form>
+
+    </div>
+</div>

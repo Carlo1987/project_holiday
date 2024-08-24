@@ -1,0 +1,20 @@
+<div class="block_container">
+    <div class="block block_refund">
+        <h2> {{ language.reserve_rejected.title }} </h2>
+
+        <form>
+            <div>
+                <strong>
+                    <p> {{ language.reserve_rejected.message_1 }} </p>
+                </strong>
+            </div>
+
+            <div>
+                <strong>
+                    <p> {{ language.reserve_rejected.message_2 }} <a [routerLink]="[ '/reserve-blocked' , home_id ]"> {{ language.reserve_rejected.link }} </a>  </p>
+                </strong>
+            </div>
+        </form>
+    
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="alert alert-secondary fs-4" role="alert" *ngIf="reviews_home.length == 0">
+  {{ language.singleHome.no_reviews }}
+</div>
+
+<div class="container_reviews" *ngIf="reviews_home.length != 0">
+  <p class="vote_home w-100">
+    {{ language.singleHome.reviews_total }}:
+    <span class="vote"> {{ reviews_home.length }} </span>
+  </p>
+
+  <p style="font-weight: bold;" *ngIf="!checkLogin"> {{ language.review.alert }} </p>
+
+
+   <app-reviews [reviews]="first_reviews"></app-reviews>              <!-- prime due recensioni -->
+
+ 
+  <!--   inizio offcanvas recensioni     -->
+  
+  <div class="w-100 d-flex justify-content-end">
+    <button  style="width: 300px" class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasReviews" aria-controls="offcanvasTop"  *ngIf="reviews_home.length > 2" >
+      <i class="fa fa-arrows-v fa-lg" aria-hidden="true"></i>
+      <strong> {{ language.singleHome.show_reviews }} </strong>
+    </button>
+    <div class="offcanvas offcanvas-top" style="min-height: 730px" tabindex="-1" id="offcanvasReviews" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header w-100 d-flex justify-content-start">
+        <button type="button" class="btn btn-dark border" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>
+          {{ language.back }}
+        </button>
+      </div>
+      <div class="offcanvas-body">
+
+        <div class="container_reviews"> 
+          <app-reviews [reviews]="reviews_home"> </app-reviews>         <!-- contenuto offcanvas (recensioni totali) -->
+        </div> 
+
+      </div>
+    </div>
+  </div>
+ <!--   fine offcanvas recensioni    -->
+</div>
+
+
+
+<div style="text-align: center">
+  <button type="button" class="button_newComment" (click)="newReview()">
+    {{ language.singleHome.review }}!!
+  </button>
+</div>

@@ -1,0 +1,105 @@
+<div class="block_container">
+
+    <div class="block">
+        <h2> {{ title }} </h2>
+    
+        <form #editForm="ngForm" (ngSubmit)="edit()">                                                      <!-- form per aggiornare dati utente   -->
+          
+          <div>
+            <label for="name">{{ language.acount.name }}:</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required/>
+          </div>
+    
+          <span *ngIf="name.touched && !name.valid"> {{ message_form }} </span>
+         
+          <div>
+            <label for="surname">{{ language.acount.surname }}:</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required/>
+          </div>
+    
+          <span *ngIf="surname.touched && !surname.valid"> {{ message_form}} </span>
+    
+          <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required/>
+          </div>
+    
+          <span *ngIf="email.touched && !email.valid"> {{ message_form }} </span>
+    
+          <div>
+            <label for="cell">{{ language.acount.cell }}:</label>
+            <input type="number" name="cell" #cell="ngModel" [(ngModel)]="user.cell" required/>
+          </div>
+    
+          <span *ngIf="cell.touched && !cell.valid"> {{ message_form }} </span>
+
+          <div>
+            <label for="country">{{ language.acount.country }}:</label>
+            <select name="country" #country="ngModel" [(ngModel)]="user.country" class="select_acount">
+               <option *ngFor="let country of countries" value="{{country.name}}"> {{ country.name }} </option>
+            </select>
+          </div>
+    
+          <span *ngIf="country.touched && !country.valid">  {{ message_form }}   </span>
+    
+          <div>
+            <label for="address">{{ language.acount.address }}:</label>
+            <input type="text" name="address" [(ngModel)]="user.address" />
+          </div>
+    
+          <div>
+            <label for="city">{{ language.acount.city }}:</label>
+            <input type="text" name="city" [(ngModel)]="user.city"/>
+          </div>
+    
+          <div>
+            <label for="cap">CAP:</label>
+            <input type="text" name="cap" [(ngModel)]="user.cap"/>
+          </div>
+    
+          <input type="submit" value="{{ button }}" [disabled]="!editForm.form.valid"
+           [ngStyle]="{'text-decoration': !editForm.form.valid ? 'line-through' : 'none' }"  />
+
+          <div class="alert alert-danger" role="alert" *ngIf="message_error != ''"> {{ message_error }}  </div>
+          <div class="alert alert-danger" role="alert" *ngIf="message_invalidEmail != ''"> {{ message_invalidEmail }}  </div>
+          <div class="alert alert-success" role="alert" *ngIf="message_success != ''"> {{ message_success }}  </div>
+
+          <app-loading [loading]="loading"></app-loading>
+
+        </form>
+      </div>
+
+    <div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger border-2 border-dark" data-bs-toggle="modal" data-bs-target="#deleteModal" *ngIf="delete_acount">        <!--  bottone per eliminare acount   -->
+  {{ language.acount.delete_acount }}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">   {{ language.acount.title_delete }} </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ language.acount.text_delete }} 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> {{ language.acount.no_delete }}  </button>
+        <button type="button" class="btn btn-danger" (click)="deleteAcount()"> {{ language.acount.sure_delete }}  </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+     </div>
+    
+
+</div>
+
+
