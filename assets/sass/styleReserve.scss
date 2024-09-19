@@ -1,8 +1,12 @@
 
 /*      STILI  GENERALI     */
-$background_errorAllert :  rgb(219, 53, 53);
-$backgroud_successAllert : rgb(40, 145, 40);
-$color_theme: rgb(99, 150, 216);
+
+@use './styleGlobal.scss' as global;
+
+$background_errorAllert :  global.$background_errorAllert;
+$backgroud_successAllert : global.$backgroud_successAllert;
+
+$color_theme: global.$color_lightBlue;
 
 %border_style{
     border: 1px solid black;

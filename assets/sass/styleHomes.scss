@@ -1,7 +1,9 @@
 
-$color_badge : rgb(242, 234, 234);
-$color_theme: rgb(99, 150, 216);
-$bg_badge : rgba(173, 199, 234, 0.972);
+@use './styleGlobal.scss' as global;
+
+$color_theme: global.$color_lightBlue;
+$color_badge : global.$color_light;
+$bg_badge : global.$color_lightSecondary;
 
 %border_style{
     border: 1px solid black;

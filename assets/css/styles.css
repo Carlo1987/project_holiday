@@ -1,4 +1,10 @@
 /* ////////////  STILI GENERICI   ////////////// */
+.navbar .dropdown-menu, .block_images .home_images .content_image, .block_images .allert_success, .block_images span, .block_images form .buttons_images input[type=submit], .block_images, .block_container .block .form_instrument div .refund_description .refund_title, .block_container .block .form_instrument .container_acordion, .block_container .block .form_instrument .form_field, .block_container .block .save_datas_form .calendary .container_mounths .container_mounth, .block_container .block .save_datas_form .chose_action, .block_container .block .save_datas_form .chose_year select, .block_container .block .save_datas_form .formDetails .category_details, .block_container .block #avatar_userProfile, .block_container .block form input[type=submit], .block_container .block form .avatar, .block_container .block {
+  border: 2px solid black;
+  box-shadow: 1px 1px 3px rgb(51, 50, 50);
+  border-radius: 10px;
+}
+
 .block_images .allert_success, .block_images span, .block_container .block .form_instrument .allert_success, .block_container .block .form_instrument span, .block_container .block form .allert_success, .block_container .block form span {
   width: 70%;
   color: white;
@@ -7,12 +13,7 @@
   margin: 0 auto;
   text-align: center;
   letter-spacing: 1px;
-}
-
-.navbar .dropdown-menu, .block_images .home_images .content_image, .block_images .allert_success, .block_images span, .block_images form .buttons_images input[type=submit], .block_images, .block_container .block .form_instrument div .refund_description .refund_title, .block_container .block .form_instrument .container_acordion, .block_container .block .form_instrument .form_field, .block_container .block .save_datas_form .calendary .container_mounths .container_mounth, .block_container .block .save_datas_form .chose_action, .block_container .block .save_datas_form .chose_year select, .block_container .block .save_datas_form .formDetails .category_details, .block_container .block #avatar_userProfile, .block_container .block form input[type=submit], .block_container .block form .avatar, .block_container .block {
-  border: 2px solid black;
-  box-shadow: 1px 1px 3px rgb(51, 50, 50);
-  border-radius: 10px;
+  box-shadow: 0px 0px 2px rgb(65, 63, 63);
 }
 
 .block_container .menu_admin_end, .block_container .menu_admin {
@@ -30,7 +31,7 @@
 
 .title {
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 
@@ -62,7 +63,7 @@
   width: 100%;
   text-align: center;
   margin-bottom: 15px;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .block_container .block form {
@@ -72,7 +73,7 @@
   gap: 10px;
 }
 .block_container .block form span {
-  background-color: rgb(219, 53, 53);
+  background-color: rgb(201, 78, 78);
 }
 .block_container .block form .allert_success {
   background-color: rgb(40, 145, 40);
@@ -115,7 +116,7 @@
   width: 20%;
   margin: 0 auto;
   padding: 10px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   cursor: pointer;
 }
@@ -200,7 +201,7 @@
 .block_container .block .save_datas_form .formDetails .category_details h4 {
   width: 100%;
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .block_container .block .save_datas_form .formDetails .category_details .details {
@@ -296,7 +297,7 @@
   width: 97.5%;
   text-align: center;
   font-size: 23px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   padding: 10px;
   border: 2px solid black;
@@ -331,7 +332,7 @@
   font-weight: bold;
   text-transform: uppercase;
   border-bottom: 1px solid black;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth {
@@ -358,7 +359,7 @@
 .block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .day {
   height: 30px;
   color: white;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   border-bottom: 1px solid black;
   border-start-start-radius: 3px;
   border-top-right-radius: 3px;
@@ -395,7 +396,7 @@
   margin-bottom: 10px;
 }
 .block_container .block .form_instrument span {
-  background-color: rgb(219, 53, 53);
+  background-color: rgb(201, 78, 78);
 }
 .block_container .block .form_instrument .allert_success {
   background-color: rgb(40, 145, 40);
@@ -407,7 +408,7 @@
 }
 .block_container .block .form_instrument .container_acordion .title_acordion p {
   font-size: 23px;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
 }
 .block_container .block .form_instrument div {
   width: 100%;
@@ -418,7 +419,7 @@
   width: 100%;
   text-align: center;
   font-size: 17px;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
 }
 .block_container .block .form_instrument div .refund_description {
   width: 80%;
@@ -459,7 +460,7 @@
   border-bottom: 1px solid black;
 }
 .block_container .title_general_instrument h3 {
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   text-transform: uppercase;
 }
@@ -474,7 +475,7 @@
   padding-top: 10px;
 }
 .block_images h2 {
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
 }
 .block_images form {
   width: 100%;
@@ -485,13 +486,13 @@
   width: 600px;
 }
 .block_images form .buttons_images input[type=submit] {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   padding: 8px;
   width: 185px;
 }
 .block_images span {
-  background-color: rgb(219, 53, 53);
+  background-color: rgb(201, 78, 78);
   width: 450px !important;
 }
 .block_images .allert_success {
@@ -710,7 +711,7 @@
 #visitHomes {
   width: 100%;
   height: 75px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   font-size: 30px;
   line-height: 47px;
   border-radius: 0px;
@@ -801,7 +802,7 @@
   letter-spacing: 1px;
   font-size: 35px;
   text-transform: uppercase;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .home_profile .home_rooms {
@@ -816,7 +817,7 @@
 }
 .home_profile .home_description h5 {
   font-size: 19px;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .home_profile .offcanvas {
@@ -824,7 +825,7 @@
 }
 .home_profile .offcanvas h5 {
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   font-size: 30px;
 }
@@ -849,7 +850,7 @@
   width: 100%;
   letter-spacing: 1px;
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .home_profile .offcanvas .home_details div .title_detail h3 {
@@ -871,7 +872,7 @@
 .home_profile .vote_home {
   font-size: 18px;
   font-weight: bold;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   padding: 8px;
   color: white;
 }
@@ -982,7 +983,7 @@
   }
   .home_profile .home_description h5 {
     font-size: 18px;
-    color: rgb(99, 150, 216);
+    color: rgb(148, 178, 218);
     text-shadow: 1px 1px 2px rgb(70, 67, 67);
   }
   .home_profile .vote_home {
@@ -1056,7 +1057,7 @@
   padding-left: 8px;
   padding-right: 8px;
   background-color: white;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   font-size: 23px;
 }
 
@@ -1071,7 +1072,7 @@
 .container_review h2 {
   padding-left: 1%;
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .container_review .star {
@@ -1088,7 +1089,7 @@
   width: 300px;
   font-size: 23px;
   letter-spacing: 1px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   padding: 10px;
 }
@@ -1104,7 +1105,7 @@
 .container_reviews .counter {
   padding: 15px;
   font-size: 19px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
 }
 .container_reviews .review {
@@ -1130,7 +1131,7 @@
   padding-left: 8px;
   padding-right: 8px;
   margin-left: 0px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
 }
 .container_reviews .review .container_textReview .text {
@@ -1145,7 +1146,7 @@
   right: 4px;
   top: 4px;
   padding-left: 5px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   border-radius: 5px;
   color: white;
 }
@@ -1153,7 +1154,7 @@
   border: transparent;
 }
 .container_reviews .review .button_review .dropdown-menu {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
 }
 .container_reviews .review .button_review .dropdown-menu li {
   cursor: pointer;
@@ -1177,7 +1178,7 @@
     padding-left: 8px;
     padding-right: 8px;
     margin-left: 0px;
-    background-color: rgb(99, 150, 216);
+    background-color: rgb(148, 178, 218);
     color: white;
   }
   .review .container_textReview {
@@ -1255,7 +1256,7 @@
 .user_reserves h2 span {
   width: 100%;
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   color: white;
   padding: 3px;
@@ -1268,10 +1269,10 @@
   height: 100%;
 }
 .user_reserves .confirmed {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
 }
 .user_reserves .refused {
-  background-color: rgb(219, 53, 53);
+  background-color: rgb(201, 78, 78);
 }
 
 .container_search .search_image {
@@ -1290,7 +1291,7 @@
   border-bottom: 2px solid black;
 }
 .container_reserve h3 {
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   text-align: center;
 }
@@ -1316,7 +1317,7 @@
 .container_reserve form input[type=submit] {
   width: 190px;
   padding: 5px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   border-radius: 5px;
   font-size: 19px;
@@ -1327,29 +1328,29 @@
   background-color: white;
   box-shadow: 1px 1px 3px rgb(51, 50, 50);
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .nav_session span {
-  color: rgb(219, 53, 53);
+  color: rgb(201, 78, 78);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 
 .title_element {
   padding-top: 8px;
   padding-bottom: 8px;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 
 .discountNo {
-  background-color: rgb(219, 53, 53);
+  background-color: rgb(201, 78, 78);
 }
 
 .discountYes {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
 }
 
 .container_reserve_extra {
@@ -1373,7 +1374,7 @@
 }
 .container_reserve_extra .change_dates h4 {
   text-align: center;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   height: 40px;
@@ -1395,7 +1396,7 @@
   font-size: 20px;
   border-bottom: 1px solid black;
   margin-bottom: 10px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   border-radius: 5px;
@@ -1416,7 +1417,7 @@
   text-align: center;
   font-size: 18px;
   color: white;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   border-bottom: 1px solid black;
   border-start-start-radius: 9px;
   border-top-right-radius: 9px;
@@ -1477,7 +1478,7 @@
   font-size: 25px;
   letter-spacing: 5px;
   text-align: center;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   cursor: pointer;
 }
@@ -1543,7 +1544,7 @@
 .container_search_reserve h3 {
   width: 100%;
   text-align: center;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   font-size: 35px;
   margin-bottom: 15px;
@@ -1554,7 +1555,7 @@
   border: 1px solid black;
 }
 .container_search_reserve h4 {
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
 }
 .container_search_reserve .user_reserve span {
@@ -1570,10 +1571,10 @@
   color: black;
 }
 .container_search_reserve .user_reserve .span_danger {
-  color: rgb(219, 53, 53);
+  color: rgb(201, 78, 78);
 }
 .container_search_reserve .user_reserve .mounth_reserve {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   font-size: 16px;
   border-radius: 4px !important;
@@ -1586,7 +1587,7 @@
   margin: 0 auto;
 }
 .container_search_reserve .user_reserve .number_reserve {
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-shadow: 1px 1px 2px rgb(70, 67, 67);
   font-size: 19px;
   padding-left: 12px;
@@ -1613,7 +1614,7 @@
 }
 
 .modal_text {
-  color: rgb(99, 150, 216) !important;
+  color: rgb(148, 178, 218) !important;
   border: transparent !important;
   text-decoration: none !important;
   font-weight: bold !important;
@@ -1631,7 +1632,7 @@
 .modal_payments h3 {
   display: block;
   width: 75%;
-  color: rgb(99, 150, 216);
+  color: rgb(148, 178, 218);
   text-align: end;
   margin-bottom: 10px;
   font-size: 20px;
@@ -1743,13 +1744,13 @@
 
 .anton-regular {
   font-family: "Anton", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
 .navbar .dropdown-menu {
   border-radius: 7px;
-  box-shadow: 1px 1px 3px rgb(60, 58, 58);
+  box-shadow: 1px 1px 3px rgb(59, 57, 57);
 }
 
 .alert {
@@ -1765,13 +1766,13 @@
   color: white;
 }
 
-.navbar #nav_home #home:hover, .titles_styles:hover {
+.titles_styles:hover {
   color: rgb(242, 234, 234);
   text-shadow: 2px 1px 6px rgb(12, 12, 12);
 }
 
 .navbar #dropdown_acount, .navbar #dropdown_flags {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   position: absolute;
   z-index: 4 !important;
 }
@@ -1820,7 +1821,7 @@ body {
 }
 
 button {
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
 }
 
@@ -1828,7 +1829,7 @@ input[type=submit] {
   width: 40%;
   margin: 0 auto;
   margin-top: 5px;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   color: white;
   border-radius: 5px;
 }
@@ -1856,21 +1857,38 @@ input[type=submit] {
 }
 
 .navbar {
-  background-color: rgb(99, 150, 216);
+  min-height: 70px;
+  background-color: rgb(148, 178, 218);
   box-shadow: 1px 2px 2px rgb(5, 40, 5);
   font-size: 20px;
   z-index: 1;
 }
 .navbar #nav_home {
   width: 50%;
+  padding: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 }
 .navbar #nav_home #home {
+  width: 100%;
   letter-spacing: 2px;
-  padding-left: 10px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.navbar #nav_home #home img {
+  width: 120px;
+  height: 60px;
+  border-radius: 7px;
+  position: absolute;
+  left: 10%;
+  box-shadow: 1px 1px 3px rgb(59, 57, 57);
+}
+.navbar #nav_home #home img:hover {
+  box-shadow: 0px 0px 3px black;
 }
 .navbar .navbar-brand {
   font-size: 37px;
@@ -1886,6 +1904,15 @@ input[type=submit] {
   width: 150px;
   top: 40px;
   left: -40px;
+}
+.navbar #dropdown_flags img {
+  border: 1px solid rgb(59, 57, 57);
+  box-shadow: 0px 0px 4px rgb(59, 57, 57);
+  border-radius: 5px;
+}
+.navbar #dropdown_flags img:hover {
+  border: 1px solid rgb(36, 35, 35);
+  box-shadow: 0px 0px 2px black;
 }
 .navbar #flag {
   width: 40px;
@@ -1985,7 +2012,7 @@ main {
 
 footer {
   height: 8vh;
-  background-color: rgb(99, 150, 216);
+  background-color: rgb(148, 178, 218);
   border-top: 1px solid black;
   box-shadow: 1px 2px 2px inset rgb(60, 58, 58);
   text-align: center;
