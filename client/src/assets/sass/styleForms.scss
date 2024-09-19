@@ -1,10 +1,20 @@
 /* ////////////  STILI GENERICI   ////////////// */
 
-$background_errorAllert :  rgb(219, 53, 53);
-$backgroud_successAllert : rgb(40, 145, 40);
-$color_dates: rgb(99, 150, 216);
-$color_prices: rgb(30, 175, 30);
-$color_badge : rgb(242, 234, 234);
+@use './styleGlobal.scss' as global;
+
+$background_errorAllert :  global.$background_errorAllert;
+$backgroud_successAllert : global.$backgroud_successAllert;
+
+$color_dates: global.$color_lightBlue;
+$color_prices: global.$color_success;
+$color_badge : global.$color_light;
+
+
+%border_style{
+    border: 2px solid black;
+    box-shadow: 1px 1px 3px rgb(51, 50, 50);
+    border-radius: 10px;
+}
 
 %allert_style{
     width: 70%;
@@ -14,13 +24,9 @@ $color_badge : rgb(242, 234, 234);
     margin: 0 auto;
     text-align: center;
     letter-spacing: 1px;
+    box-shadow: 0px 0px 2px rgb(65, 63, 63);
 }
 
-%border_style{
-    border: 2px solid black;
-    box-shadow: 1px 1px 3px rgb(51, 50, 50);
-    border-radius: 10px;
-}
 
 @mixin title_style($color){
     color: $color; 

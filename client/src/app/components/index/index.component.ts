@@ -45,7 +45,7 @@ export class IndexComponent implements AfterViewInit {
 
     setInterval(()=>{
       this.animation_images();
-    },4000);
+    },3000);
    
   }
 

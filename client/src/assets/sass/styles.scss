@@ -1,3 +1,4 @@
+@use './styleGlobal.scss' as global;
 @use 'styleForms';
 @use 'styleHomes';
 @use 'styleReview';
@@ -12,18 +13,19 @@
 
 .anton-regular {
     font-family: "Anton", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
   }
 
 
-$color_theme: rgb(99, 150, 216);
-$color_badge : rgb(242, 234, 234);
+$color_theme: global.$color_lightBlue;
+$color_badge : global.$color_light;
+$color_shadow : global.$color_shadow;
 
 
 %border_style{
     border-radius: 7px;
-    box-shadow: 1px 1px 3px rgb(60, 58, 58); 
+    box-shadow: 1px 1px 3px $color_shadow; 
 }
 
 
@@ -35,7 +37,7 @@ $color_badge : rgb(242, 234, 234);
 
 
 %titles_nav{
-    text-shadow: 2px 1px 3px rgb(59, 57, 57);
+    text-shadow: 2px 1px 3px $color_shadow;
     text-decoration: none;
     border: transparent;
     color: white;
@@ -57,7 +59,7 @@ $color_badge : rgb(242, 234, 234);
      li,
      li a{
         color: white;
-        text-shadow: 2px 1px 3px rgb(59, 57, 57);
+        text-shadow: 2px 1px 3px $color_shadow;
         cursor: pointer;
         img{
             width: 40px;
@@ -141,6 +143,7 @@ input[type="submit"]{
 
  
 .navbar{
+    min-height: 70px;
     background-color: $color_theme;
     box-shadow: 1px 2px 2px rgb(5, 40, 5);
     font-size: 20px;
@@ -148,18 +151,34 @@ input[type="submit"]{
 
     #nav_home{
         width: 50%; 
+        padding: 5px;
         display: flex;
         justify-content: space-between;  
         align-items: center; 
         position: relative;  
-
+  
         #home{ 
-            @extend %titles_nav;
-            letter-spacing: 2px;
-            padding-left: 10px;
-         }
+             @extend %titles_nav; 
+             width: 100%;
+             letter-spacing: 2px;
+             font-size: 20px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+     
+            img {
+                width: 120px;
+                height: 60px;
+                border-radius: 7px;
+                position: absolute;
+                left: 10%;
+                box-shadow: 1px 1px 3px $color_shadow;
+            }
 
-        #home:hover{ @extend %titles_nav_hover; }
+            img:hover{
+                box-shadow: 0px 0px 3px black;
+            }
+         }
     }
 
 
@@ -184,13 +203,25 @@ input[type="submit"]{
         top: 40px;
         left: -40px;
         @extend %dropdown_style;
-    }
+        img{ 
+            border: 1px solid $color_shadow;
+            box-shadow: 0px 0px 4px $color_shadow; 
+            border-radius: 5px; 
+        }
+
+        img:hover{ 
+            border: 1px solid rgb(36, 35, 35);
+            box-shadow: 0px 0px 2px black; 
+        }
+        
+        }
 
     #flag{
         width: 40px;
         height: 25px;
         border: 1.5px solid black;
         border-radius: 5px;
+    
     }
 
     #flag:hover{
