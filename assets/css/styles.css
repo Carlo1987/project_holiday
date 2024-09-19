@@ -1766,7 +1766,7 @@
   color: white;
 }
 
-.titles_styles:hover {
+.navbar #nav_home #home:hover span, .titles_styles:hover {
   color: rgb(242, 234, 234);
   text-shadow: 2px 1px 6px rgb(12, 12, 12);
 }
@@ -1872,23 +1872,25 @@ input[type=submit] {
   position: relative;
 }
 .navbar #nav_home #home {
-  width: 100%;
-  letter-spacing: 2px;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  position: relative;
 }
-.navbar #nav_home #home img {
-  width: 120px;
-  height: 60px;
-  border-radius: 7px;
+.navbar #nav_home #home span {
+  font-family: "Fascinate Inline", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+  letter-spacing: 2px;
   position: absolute;
-  left: 10%;
-  box-shadow: 1px 1px 3px rgb(59, 57, 57);
+  margin-left: 50px;
 }
-.navbar #nav_home #home img:hover {
-  box-shadow: 0px 0px 3px black;
+.navbar #nav_home #home .home__one {
+  bottom: -5px;
+}
+.navbar #nav_home #home .home__two {
+  top: -2px;
+  left: 23px;
 }
 .navbar .navbar-brand {
   font-size: 37px;
@@ -2074,10 +2076,16 @@ footer p {
   .navbar #nav_home {
     width: 76%;
   }
-  .navbar #nav_home #home img {
-    left: 0;
-    width: 100px;
-    height: 50px;
+  .navbar #nav_home #home span {
+    font-size: 20px;
+    margin-left: 0px;
+  }
+  .navbar #nav_home #home .home__one {
+    bottom: 0px;
+  }
+  .navbar #nav_home #home .home__two {
+    top: 0px;
+    left: 23px;
   }
   .navbar #dropdown_acount {
     left: -70px;
