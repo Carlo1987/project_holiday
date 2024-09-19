@@ -21,6 +21,15 @@
 $color_theme: global.$color_lightBlue;
 $color_badge : global.$color_light;
 $color_shadow : global.$color_shadow;
+$color_border : rgb(129, 145, 129);
+
+$bg_nav :  linear-gradient(
+ 
+    rgb(108, 159, 225) 0%,
+  
+    rgb(172, 190, 213) 75%,
+    rgb(193, 205, 220)  100%
+  );
 
 
 %border_style{
@@ -144,8 +153,8 @@ input[type="submit"]{
  
 .navbar{
     min-height: 70px;
-    background-color: $color_theme;
-    box-shadow: 1px 2px 2px rgb(5, 40, 5);
+    background-image: $bg_nav;
+    box-shadow: 0px 2px 2px $color_border;   
     font-size: 20px;
     z-index: 1;
 
@@ -316,7 +325,7 @@ main{
    width: 100%;
    height: 657px; 
    position: relative;
-   box-shadow: 0px 2px 2px rgb(5, 40, 5);
+    box-shadow: 0px 2px 2px $color_border; 
  
 
    .image_welcome{
@@ -352,7 +361,7 @@ main{
     height: 8vh;
     background-color: $color_theme;
     border-top: 1px solid black;
-    box-shadow: 1px 2px 2px inset rgb(60, 58, 58); 
+    box-shadow: 1px 2px 2px inset $color_border; 
     text-align: center;
     font-size: 22px;
     color: white;
@@ -451,13 +460,19 @@ main{
 
 
 
-@media(max-width:455px){
+@media(max-width:460px){
 
   .navbar{
     #nav_home{
         width: 76%;
 
-        #home{font-size: 28px; }
+        #home{
+            img {
+                left: 0;
+                width: 100px;
+                height: 50px;
+            }
+         }
   
     }
 
