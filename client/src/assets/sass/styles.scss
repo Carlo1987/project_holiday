@@ -24,11 +24,17 @@ $color_shadow : global.$color_shadow;
 $color_border : rgb(129, 145, 129);
 
 $bg_nav :  linear-gradient(
- 
+  /*   270deg, */
     rgb(108, 159, 225) 0%,
   
     rgb(172, 190, 213) 75%,
-    rgb(193, 205, 220)  100%
+    rgb(193, 205, 220)  100% 
+
+
+/*     rgb(108, 159, 225) 0%,
+  
+    rgb(172, 190, 213) 65%,
+     rgb(226, 221, 221)  100% */
   );
 
 
@@ -168,26 +174,38 @@ input[type="submit"]{
   
         #home{ 
              @extend %titles_nav; 
-             width: 100%;
-             letter-spacing: 2px;
-             font-size: 20px;
              display: flex;
              flex-direction: column;
-             justify-content: center;
-     
-            img {
-                width: 120px;
-                height: 60px;
-                border-radius: 7px;
-                position: absolute;
-                left: 10%;
-                box-shadow: 1px 1px 3px $color_shadow;
-            }
+             position: relative;
+         
+                span{
+                        font-family: "Fascinate Inline", system-ui;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 28px;
+                        letter-spacing: 2px;
+                        position: absolute;
+                        margin-left: 50px;
+                 }
 
-            img:hover{
-                box-shadow: 0px 0px 3px black;
+                 .home__one{
+                    bottom: -5px;
+                 }
+
+                 .home__two{
+                    top: -2px;
+                    left: 23px;
+                 }            
+         
+        }
+
+
+        
+        #home:hover{
+            span{
+                @extend %titles_nav_hover;
             }
-         }
+        }
     }
 
 
@@ -467,11 +485,19 @@ main{
         width: 76%;
 
         #home{
-            img {
-                left: 0;
-                width: 100px;
-                height: 50px;
-            }
+           span{
+            font-size: 20px;
+            margin-left: 0px; 
+           }
+
+           .home__one{
+            bottom: 0px;
+         }
+
+         .home__two{
+            top: 0px;
+            left: 23px;
+         } 
          }
   
     }

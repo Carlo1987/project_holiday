@@ -35,7 +35,7 @@ export class UserAcountComponent implements OnInit{
   @ViewChild ('buttons_files',{static:true}) buttons_files!:ElementRef<HTMLButtonElement>;
 
   constructor(
-    private _userService: UserService,
+    private _userService: UserService
   ){
     this.url = Global.url_acount;
     this.user = new User("","","","","","Italy","","","");

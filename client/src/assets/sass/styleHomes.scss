@@ -102,7 +102,7 @@ $bg_badge : global.$color_lightSecondary;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    transition: all 1s ease;
+    transition: all 2s ease-in-out;
   
 
     .div_homes{
@@ -129,12 +129,6 @@ $bg_badge : global.$color_lightSecondary;
 
 
 
-.buttons_min,
-.carousel_min{ display: none;  }
-
-
-
-
 
 .home_profile{
     width: 90%;
@@ -145,6 +139,7 @@ $bg_badge : global.$color_lightSecondary;
     gap: 20px;
     padding: 15px;
     background-color: white;
+    margin-bottom: 25px;
     @extend %border_style;
 
     .home_name{
@@ -332,13 +327,6 @@ $bg_badge : global.$color_lightSecondary;
 
 
 @media(max-width:720px){
-    .buttons_min,
-    .carousel_min{ display: block;  }
-
-
-    .buttons_max,
-    .carousel_max{ display: none;  } 
-
 
     .container_carousel_homes{    
         .carousel_homes{    

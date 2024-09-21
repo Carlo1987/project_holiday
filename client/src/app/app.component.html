@@ -3,9 +3,10 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <div id="nav_home">
-      <div class="ms-0 w-100">
+      <div class="ms-0">
           <a class="navbar-brand anton-regular" id="home" routerLink="">
-             <img src="../assets/img/logo.jpg" alt="logo">  
+                <span class="home__one">  SARDEGNA </span>
+                <span class="home__two"> DREAM </span>
           </a>
       </div>
       
@@ -45,13 +46,13 @@
           </li>
 
 
-         <li class="nav-item"  *ngIf="identity.status">   <!--  se sono loggato  -->
+         <li class="nav-item"  *ngIf="identity.status && access">       <!--  se sono loggato  -->
 
           <a class="nav-item  titles_styles position-relative">       
     
             <div class="btn-group d-flex align-items-center position-relative">  
               <img src="{{ url_acount+'/getImage/'+ identity.user.image }}" alt="user_avatar" id="nav_avatar"> 
-              <button type="button" class="btn dropdown-toggle"  class="titles_styles" data-bs-toggle="dropdown" aria-expanded="false"  (click)="navAcount_visibility()">
+              <button type="button" class="btn dropdown-toggle" style="background-color: transparent;"  class="titles_styles" data-bs-toggle="dropdown" aria-expanded="false"  (click)="navAcount_visibility()">
                 {{ identity.user.name }} <i class="fa fa-sort-desc fa-2xs ms-1" aria-hidden="true"></i>
               </button>
               <ul class="dropdown-menu" id="dropdown_acount" [hidden]="!nav_acount">

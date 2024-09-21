@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild, ViewChildren , QueryList , ElementRef , Input } from '@angular/core';
+import { Component, OnInit , ViewChild , ElementRef , Input } from '@angular/core';
 import { HomeService } from 'src/app/services/home_sercive';
 
 @Component({
@@ -9,18 +9,13 @@ import { HomeService } from 'src/app/services/home_sercive';
 })
 export class HomesCarouselComponent implements OnInit{
   public homes:Array<any> = [];
-  public divs_max:number  = 0; 
-  public divs_min:number  = 0; 
+  public divs:number  = 0; 
   private start:number = 0;
 
-  @ViewChild ('carousel_homes_max') carousel_homes_max!:ElementRef<HTMLDivElement>;
-  @ViewChild ('carousel_homes_min') carousel_homes_min!:ElementRef<HTMLDivElement>;
+  @ViewChild ('carousel_homes') carousel_homes!:ElementRef<HTMLDivElement>;
   @Input() datas:any;
 
-
-
-
-
+  
   constructor(
     private _homeService : HomeService,
   ){}
@@ -37,31 +32,36 @@ export class HomesCarouselComponent implements OnInit{
 getHomes(){
   this._homeService.getHomes().subscribe(response=>{
     this.homes = response.homes;
-    this.Carousel(this.homes);
+    this.Carousel();
   })
 }
 
 
 
+mqHandler=((e:any)=>{
+
+    if(e.matches){
+      this.show(this.homes,3);
+    }else{
+      this.show(this.homes,2);
+    }
+})
 
 
-Carousel(homes:any){
 
-  let carousel_max = this.show(homes,3);
-  let carousel_min = this.show(homes,2);
 
-  this.carousel_homes_max.nativeElement.style.width = `${carousel_max.counter}00%`;
-  this.divs_max = carousel_max.counter;
-  this.carousel_homes_max.nativeElement.innerHTML = carousel_max.container;
+Carousel(){
 
-  this.carousel_homes_min.nativeElement.style.width = `${carousel_min.counter}00%`;
-  this.divs_min = carousel_min.counter;
-  this.carousel_homes_min.nativeElement.innerHTML = carousel_min.container;
+  const mqLarge = window.matchMedia( '(min-width: 720px)' );                                                
+   
+  mqLarge.addEventListener('change', this.mqHandler);
+
+  this.mqHandler(mqLarge);  
 }
 
 
 
-show(homes:Array<any>,limit:number){
+show(homes:Array<any>,limit:number):void{
   let container = "";
 
   let urls = {
@@ -112,11 +112,11 @@ show(homes:Array<any>,limit:number){
     }
   
    })
-  
-   return {
-    container : container,
-    counter : counter
-   }
+
+
+   this.carousel_homes.nativeElement.style.width = `${counter}00%`;
+   this.divs = counter;
+   this.carousel_homes.nativeElement.innerHTML = container;
 }
 
 
@@ -125,40 +125,19 @@ show(homes:Array<any>,limit:number){
 
 
 
- translate_max(value:number){
+ translate(value:number){
 
-   if(value == 1 && this.start < this.divs_max-1){
+   if(value == 1 && this.start < this.divs-1){
     this.start++;
     
   }else if(value == 0 && this.start > 0){
     this.start--;
   }
 
-  let translation = this.start * -(100 / this.divs_max);
+  let translation = this.start * -(100 / this.divs);
   
-  this.carousel_homes_max.nativeElement.style.transform = `translateX(${translation}%)`; 
+  this.carousel_homes.nativeElement.style.transform = `translateX(${translation}%)`; 
 } 
-
-
-
-translate_min(value:number){
-
-  if(value == 1 && this.start < this.divs_min-1){
-   this.start++;
-   
- }else if(value == 0 && this.start > 0){
-   this.start--;
- }
-
- let translation = this.start * -(100 / this.divs_min);
- 
- this.carousel_homes_min.nativeElement.style.transform = `translateX(${translation}%)`; 
-} 
-
-
-
-
-
 
 
 

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit,DoCheck{
  public url_acount:string = Global.url_acount;;
 
  public identity:any = Global.getIdentity();
+ public access:boolean = false;
  public nav_acount:boolean = false;
  public homes:Array<any> = [];
  @ViewChild('flag', {static:true}) flag!: ElementRef<HTMLImageElement>;  
@@ -34,15 +35,17 @@ export class AppComponent implements OnInit,DoCheck{
 
   ngOnInit(): void {   
     this.language = Global.setLanguage();
+    if(this.identity.status)   this.access = true;
     this.getHomes(); 
-    this.update_year();
+    this.update_year(); console.log(this.identity.status+'---'+this.access);
+    
   }
 
 
 
   ngDoCheck(): void {
-    this.identity = Global.getIdentity();
     this.setFlag();
+    this.identity = Global.getIdentity();
     this.session_manage();
     this.expiration_sessions('code_passw');
     this.expiration_sessions('user_review');
