@@ -51,6 +51,7 @@
   justify-content: center;
   gap: 20px;
   margin-top: 25px;
+  margin-bottom: 25px;
 }
 .block_container .block {
   width: 100%;
@@ -759,7 +760,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  transition: all 1s ease;
+  transition: all 2s ease-in-out;
 }
 .container_carousel_homes .carousel_homes .div_homes {
   width: 100%;
@@ -776,11 +777,6 @@
   cursor: pointer;
 }
 
-.buttons_min,
-.carousel_min {
-  display: none;
-}
-
 .home_profile {
   width: 90%;
   margin: auto;
@@ -790,6 +786,7 @@
   gap: 20px;
   padding: 15px;
   background-color: white;
+  margin-bottom: 25px;
 }
 .home_profile .home_name {
   width: 100%;
@@ -929,14 +926,6 @@
   }
 }
 @media (max-width: 720px) {
-  .buttons_min,
-  .carousel_min {
-    display: block;
-  }
-  .buttons_max,
-  .carousel_max {
-    display: none;
-  }
   .container_carousel_homes .carousel_homes .div_homes .card {
     width: 200px;
   }
@@ -1066,6 +1055,7 @@
   width: 80%;
   min-height: 500px;
   margin: 0 auto;
+  margin-top: 25px;
   padding: 10px;
   background-color: white;
 }

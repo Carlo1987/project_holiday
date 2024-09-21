@@ -55,6 +55,7 @@ $color_badge : global.$color_light;
     width: 80%;
     min-height: 500px;
     margin: 0 auto;
+    margin-top: 25px;
     padding: 10px;
     background-color: white;
     @extend %border_style; 
