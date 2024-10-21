@@ -2000,6 +2000,7 @@ main {
 .container__image_welcome .image_welcome--opacity3,
 .container__image_welcome .image_welcome--opacity4 {
   opacity: 0;
+  display: none;
 }
 
 footer {

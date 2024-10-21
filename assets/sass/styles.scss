@@ -368,7 +368,9 @@ main{
 
     .image_welcome--opacity2,
     .image_welcome--opacity3,
-    .image_welcome--opacity4{ opacity: 0; }
+    .image_welcome--opacity4{ 
+        opacity: 0; 
+        display: none;}
 }
 
 
