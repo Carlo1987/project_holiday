@@ -68,14 +68,14 @@ export class IndexComponent implements AfterViewInit {
     repeat : 0
    });
 
-    tl.to(`.image_welcome--opacity${prev}`,{                   
+    tl.to(`.image_welcome--opacity${prev}`,{               
     duration : 1.5,        
     opacity : 0,                                       
   }); 
  
-    tl.to(`.image_welcome--opacity${this.counter}`,{                   
+    tl.to(`.image_welcome--opacity${this.counter}`,{                    
       duration : 1.5,        
-       opacity : 1,                               
+      opacity : 1,                               
     },"-=1.5"); 
      
 

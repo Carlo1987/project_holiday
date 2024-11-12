@@ -74,7 +74,9 @@ show(homes:Array<any>,limit:number):void{
   function Card(home:any,lang:string,url:any){
     return `
     <div class="card">    
-        <img src="${url.back}/get_avatar/${home.avatar}" class="d-block w-100 rounded-top" alt="home_img">
+        <div class="d-block w-100 card__home">
+           <img src="${url.back}/get_avatar/${home.avatar}" class="w-100 rounded-top" alt="home_img">
+        </div>
      
         <div class="card-body">
           <h5 class="card-title">${home.name}</h5>

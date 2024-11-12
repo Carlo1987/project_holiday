@@ -45,6 +45,7 @@ import { HomesCarouselComponent } from './components/includes/homes-carousel/hom
 import { LoadingComponent } from './components/includes/loading/loading.component';
 import { ReserveBlockedComponent } from './components/reserve/reserve-blocked/reserve-blocked.component';
 import { ReserveRejectedComponent } from './components/reserve/reserve-rejected/reserve-rejected.component';
+import { StartLoadingComponent } from './components/start-loading/start-loading.component';
 
 
 
@@ -90,6 +91,7 @@ import { ReserveRejectedComponent } from './components/reserve/reserve-rejected/
     LoadingComponent,
     ReserveBlockedComponent,
     ReserveRejectedComponent,
+    StartLoadingComponent,
   ],
   imports: [
     BrowserModule,

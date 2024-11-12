@@ -43,7 +43,7 @@ export const italian = {
 
         nav : {
                 contact : "Contatti",
-                reserve : "Prenotazioni",                
+                reserve : "Prenotazione",                
         },
 
         menuHeader : {

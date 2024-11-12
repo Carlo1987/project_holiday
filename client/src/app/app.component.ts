@@ -6,6 +6,9 @@ import { HomeService } from './services/home_sercive';
 import { italian } from './language/italian'; 
 import { español } from './language/spanish'; 
 
+import { gsap } from "gsap";
+import { ExpoScaleEase } from "gsap/EasePack";
+
 
 @Component({
   selector: 'app-root',
@@ -13,14 +16,17 @@ import { español } from './language/spanish';
   styleUrls: ['./app.component.css'],
   providers: [ExtraService, HomeService]
 })
+
 export class AppComponent implements OnInit,DoCheck{
  public language:any =  italian;
+ public starting_loading:boolean = true;
  public current_year:number;
  public url_acount:string = Global.url_acount;;
 
  public identity:any = Global.getIdentity();
  public access:boolean = false;
- public nav_acount:boolean = false;
+
+ private open_menu:boolean = false;
  public homes:Array<any> = [];
  @ViewChild('flag', {static:true}) flag!: ElementRef<HTMLImageElement>;  
 
@@ -34,10 +40,11 @@ export class AppComponent implements OnInit,DoCheck{
 
 
   ngOnInit(): void {   
+    this.startingLoading();
     this.language = Global.setLanguage();
     if(this.identity.status)   this.access = true;
     this.getHomes(); 
-    this.update_year(); console.log(this.identity.status+'---'+this.access);
+    this.update_year(); 
     
   }
 
@@ -52,6 +59,11 @@ export class AppComponent implements OnInit,DoCheck{
   }
 
 
+  startingLoading(){
+    setTimeout(()=>{
+      this.starting_loading = false;
+    },1000);
+  }
 
 
   setLanguage(get_language:string){
@@ -79,6 +91,33 @@ export class AppComponent implements OnInit,DoCheck{
       }
     }
     this.flag.nativeElement.setAttribute('src',`../assets/img/flags/${image}`);
+  }
+
+
+
+  openMenu(){
+    if(!this.open_menu){
+      this.moveMenu("0px",1);
+      this.open_menu = true;
+    }else{
+      this.moveMenu("130px",0);
+      this.open_menu = false;
+      
+    }
+  }
+
+
+
+
+
+  moveMenu(translate:string,opacity:number){
+    gsap.registerPlugin(ExpoScaleEase);
+
+    gsap.to('.collapse',{
+      duration : 1,
+      translateX : translate,
+      opacity : opacity
+    })
   }
 
 
@@ -168,22 +207,10 @@ export class AppComponent implements OnInit,DoCheck{
 
 
 
-
-navAcount_visibility(){
-  if(!this.nav_acount){
-    this.nav_acount = true;
-    
-  }else{
-    this.nav_acount = false;
-  }
-}
-
-
-
 link(url:string,value:string|null = null){
   if(value != null)   url =  url+value;
   this._router.navigate([url]);
-  this.nav_acount = false;
+  this.open_menu = false;
 }
 
 

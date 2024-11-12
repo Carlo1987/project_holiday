@@ -44,7 +44,7 @@ export const español = {
 
     nav : {
         contact : "Contactos",
-        reserve : "Reservas",                
+        reserve : "Reserva",                
 },
 
     menuHeader : {
