@@ -1,0 +1,4 @@
+docker-compose.prod.yml
+client/Dockerfile.prod
+server/Dockerfile.prod
+mongod.conf

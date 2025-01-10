@@ -1,0 +1,41 @@
+<div class="block_container">
+    <div class="block">
+
+        <h2> {{ language.reserves.search_title }} </h2>
+
+    
+        <form  (ngSubmit)="search()" *ngIf="!verify">
+
+            <p style="text-align: center; font-size: 18px;"> {{ language.reserves.search_text }} </p>
+
+            <div>
+                <label for="reserve_id">Number order:</label>
+                <input type="text" name="reserve_id" [(ngModel)]="reserve_id"/>  
+            </div>
+
+            <app-loading [loading]="loading"></app-loading>
+
+            <input type="submit" value="{{ language.reserves.search }}"/>
+
+            <div class="alert alert-danger" role="alert" *ngIf="message_error != ''"> {{ message_error }}  </div>
+
+        </form>
+
+
+        <form  (ngSubmit)="code()" *ngIf="verify">
+
+            <p style="text-align: center; font-size: 18px;"> Inserisci il codice ricevuto per email </p>
+
+            <div>
+                <label for="code">Code:</label>
+                <input type="text" name="code" [(ngModel)]="code_value" />  
+            </div>
+
+            <input type="submit" value="{{ language.reserves.search }}"/>
+
+            <div class="alert alert-danger" role="alert" *ngIf="message_error_code != ''"> {{ message_error_code }}  </div>
+
+        </form>
+   
+    </div>
+</div>

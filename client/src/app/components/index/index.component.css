@@ -1,0 +1,65 @@
+
+
+.container__image_welcome{
+    width: 100%;
+    height: 91vh;
+    position: relative;
+    box-shadow: 0px 2px 2px rgb(129, 145, 129);
+  
+ 
+    .image_welcome{
+     width: 100%;
+     height: 100% ;  
+     position: absolute;
+     border-radius: 0px;
+     border: transparent;
+ 
+        .card-text{
+         text-align: center;
+         font-size: 40px;
+         letter-spacing: 3px;
+         text-shadow: 0px 0px 20px rgb(28, 27, 27) !important;
+        }
+        img{
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         }
+     }
+ 
+     .image_welcome--opacity2,
+     .image_welcome--opacity3,
+     .image_welcome--opacity4{ 
+         opacity: 0; 
+     }
+}
+
+
+
+
+@media(max-width:1095px){
+    
+    .container__image_welcome{
+       .image_welcome{
+           .card-text{
+            font-size: 25px;
+           }
+        }
+    }
+    
+}
+
+
+
+@media(max-width:991px){
+
+    .container__image_welcome{
+        .image_welcome{
+            .card-text{
+             font-size: 20px;
+            }
+          
+         }
+     }
+
+}

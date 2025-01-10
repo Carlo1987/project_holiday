@@ -1,0 +1,47 @@
+<div id="visitHomes">
+
+    <div id="visit_text" class="titles_styles">
+      <div class="ms-3">{{ datas.title }}</div>
+    </div>
+
+    <div id="visit_buttons">
+
+      <div class="buttomCarousel me-4">
+
+        <div class="carousel_responsive">
+          <button class="carousel-control-prev buttonLeft" (click)="translate(0)" type="button">
+            <span class="carousel-control-prev-icon btn"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+        </div>
+
+        <div class="carousel_responsive">
+            <button class="carousel-control-next buttonRight" (click)="translate(1)" type="button">
+            <span  class="carousel-control-next-icon btn"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> 
+
+      </div> 
+
+    </div>
+
+</div>
+
+
+
+<div class="container_carousel_homes">       
+  <div class="carousel_homes" #carousel_homes>
+    <!--  fatto con JS  -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

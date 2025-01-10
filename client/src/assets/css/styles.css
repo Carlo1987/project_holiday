@@ -1,0 +1,1894 @@
+/* ////////////  STILI GENERICI   ////////////// */
+.block_images .home_images .content_image, .block_images .allert_success, .block_images span, .block_images form .buttons_images input[type=submit], .block_images, .block_container .block .form_instrument div .refund_description .refund_title, .block_container .block .form_instrument .container_acordion, .block_container .block .form_instrument .form_field, .block_container .block .save_datas_form .calendary .container_mounths .container_mounth, .block_container .block .save_datas_form .chose_action, .block_container .block .save_datas_form .chose_year select, .block_container .block .save_datas_form .formDetails .category_details, .block_container .block #avatar_userProfile, .block_container .block form input[type=submit], .block_container .block form .avatar, .block_container .block {
+  border: 2px solid black;
+  box-shadow: 1px 1px 3px rgb(51, 50, 50);
+  border-radius: 10px;
+}
+
+.block_images .allert_success, .block_images span, .block_container .block .form_instrument .allert_success, .block_container .block .form_instrument span, .block_container .block form .allert_success, .block_container .block form span {
+  width: 70%;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 0px 0px 2px rgb(65, 63, 63);
+}
+
+.block_container .menu_admin_end, .block_container .menu_admin {
+  width: 40%;
+  text-align: center;
+  margin-right: 80%;
+  list-style: none;
+  border-top: 1px solid black;
+}
+
+/* //////////// STILE GENERICO FORM  ////////////// */
+.title {
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+#container_buttons_files {
+  width: 85%;
+  margin-right: 0px;
+}
+#container_buttons_files button {
+  width: 110px;
+}
+
+.block_container {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.block_container .block {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  background-color: white;
+}
+.block_container .block h2 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.block_container .block form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.block_container .block form span {
+  background-color: rgb(201, 78, 78);
+}
+.block_container .block form .allert_success {
+  background-color: rgb(40, 145, 40);
+}
+.block_container .block form .avatar {
+  width: 400px;
+  height: 200px;
+}
+.block_container .block form .avatar img {
+  border-radius: 10px;
+}
+.block_container .block form .change_avatar {
+  width: 450px;
+}
+.block_container .block form .change_avatar label {
+  width: 150px;
+}
+.block_container .block form .change_avatar input {
+  width: 300px;
+}
+.block_container .block form div {
+  width: 100%;
+  display: flex;
+}
+.block_container .block form label {
+  width: 15%;
+}
+.block_container .block form select {
+  height: 31px;
+}
+.block_container .block form input[type=text],
+.block_container .block form input[type=number],
+.block_container .block form input[type=email],
+.block_container .block form input[type=password],
+.block_container .block form .select_acount,
+.block_container .block form textarea {
+  width: 85%;
+}
+.block_container .block form input[type=submit] {
+  width: 20%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  cursor: pointer;
+}
+.block_container .block #avatar_userProfile {
+  width: 450px;
+  height: 300px;
+  margin: 0 auto;
+}
+.block_container .block #avatar_userProfile img {
+  border-radius: 9px;
+}
+.block_container .block table {
+  width: 100%;
+}
+.block_container .block table th {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+}
+.block_container .block table td {
+  text-align: center;
+  border-right: 1px solid black;
+}
+.block_container .block .save_datas_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.block_container .block .save_datas_form .formDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.block_container .block .save_datas_form .formDetails .generalDetails {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.block_container .block .save_datas_form .formDetails .generalDetails label {
+  width: 100%;
+}
+.block_container .block .save_datas_form .formDetails .generalDetails input {
+  width: 100%;
+}
+.block_container .block .save_datas_form .formDetails .generalDetails span {
+  width: 100%;
+  margin-top: 4px;
+}
+.block_container .block .save_datas_form .formDetails .lastRowDetails {
+  width: 95%;
+  margin: 0 auto;
+}
+.block_container .block .save_datas_form .formDetails .lastRowDetails label {
+  width: 15%;
+}
+.block_container .block .save_datas_form .formDetails .lastRowDetails textarea {
+  width: 85%;
+}
+.block_container .block .save_datas_form .formDetails .files_home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.block_container .block .save_datas_form .formDetails .files_home button {
+  max-width: 150px;
+}
+.block_container .block .save_datas_form .formDetails .row_files {
+  margin-left: 2%;
+}
+.block_container .block .save_datas_form .formDetails .category_details {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 7px;
+}
+.block_container .block .save_datas_form .formDetails .category_details h4 {
+  width: 100%;
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.block_container .block .save_datas_form .formDetails .category_details .details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.block_container .block .save_datas_form .formDetails .category_details .details div label {
+  width: 70%;
+}
+.block_container .block .save_datas_form .formDetails .category_details .details div input {
+  width: 25%;
+}
+.block_container .block .save_datas_form .title_calendary {
+  width: 100%;
+  text-align: center;
+}
+.block_container .block .save_datas_form .title_calendary h3 {
+  font-size: 19px;
+}
+.block_container .block .save_datas_form .chose_year select {
+  width: auto;
+  height: 45px;
+  margin: 0 auto;
+  font-size: 25px;
+}
+.block_container .block .save_datas_form .chose_action {
+  width: 530px;
+  margin: 0 auto;
+  display: flex;
+}
+.block_container .block .save_datas_form .chose_action .calendary_form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.block_container .block .save_datas_form .chose_action .calendary_form .first_date,
+.block_container .block .save_datas_form .chose_action .calendary_form .second_date {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.block_container .block .save_datas_form .chose_action .calendary_form .first_date select:first-child {
+  margin-left: 5px;
+}
+.block_container .block .save_datas_form .chose_action .calendary_form .second_date select:first-child {
+  margin-left: 15px;
+}
+.block_container .block .save_datas_form .chose_action .options_price {
+  width: 300px;
+  display: flex;
+  gap: 20px;
+}
+.block_container .block .save_datas_form .chose_action .options_price .container_option {
+  width: 100%;
+  display: flex;
+}
+.block_container .block .save_datas_form .chose_action .options_price .container_option .price_value {
+  width: 50%;
+  padding-top: 13px;
+}
+.block_container .block .save_datas_form .chose_action .options_price .container_option label {
+  font-size: 20px;
+  width: 30px;
+  padding-right: 5px;
+}
+.block_container .block .save_datas_form .chose_action .options_price .container_option input[type=number] {
+  width: 65px;
+  height: 33px;
+  font-size: 20px;
+}
+.block_container .block .save_datas_form .chose_action .options_price .buttonsOption {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 8px;
+}
+.block_container .block .save_datas_form .chose_action .options_price .buttonsOption input[type=submit] {
+  width: 140px;
+  height: 45px;
+  margin: 0 auto;
+}
+.block_container .block .save_datas_form .calendary {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+}
+.block_container .block .save_datas_form .calendary h3 {
+  width: 97.5%;
+  text-align: center;
+  font-size: 23px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.block_container .block .save_datas_form .calendary .container_overflow {
+  height: 300px;
+  overflow-y: scroll;
+  padding: 4px;
+}
+.block_container .block .save_datas_form .calendary .container_mounths {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth_name {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(56, 55, 55);
+  border-radius: 3.8px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .day,
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .element {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 18px;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .day {
+  height: 30px;
+  color: white;
+  background-color: rgb(148, 178, 218);
+  border-bottom: 1px solid black;
+  border-start-start-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 1px;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .element p {
+  color: rgb(30, 175, 30);
+  text-shadow: 1px 1px 1px black;
+}
+.block_container .block .save_datas_form .calendary .container_mounths .container_mounth .mounth .container_day .reserved {
+  width: 100%;
+  text-align: center;
+  font-size: 7px;
+  font-weight: bold;
+  position: absolute;
+  margin-top: 22px;
+  padding-top: 1px;
+  background-color: rgb(68, 63, 63);
+  color: white;
+}
+.block_container .block .form_instrument {
+  width: 100%;
+}
+.block_container .block .form_instrument .container_instrument {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.block_container .block .form_instrument .form_field {
+  width: 300px;
+  background-color: white;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.block_container .block .form_instrument span {
+  background-color: rgb(201, 78, 78);
+}
+.block_container .block .form_instrument .allert_success {
+  background-color: rgb(40, 145, 40);
+}
+.block_container .block .form_instrument .container_acordion {
+  width: 75%;
+  background-color: white;
+  padding: 10px;
+}
+.block_container .block .form_instrument .container_acordion .title_acordion p {
+  font-size: 23px;
+  color: rgb(148, 178, 218);
+}
+.block_container .block .form_instrument div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.block_container .block .form_instrument div .title_instrument {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  color: rgb(148, 178, 218);
+}
+.block_container .block .form_instrument div .refund_description {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.block_container .block .form_instrument div .refund_description div {
+  width: 100%;
+  display: flex;
+}
+.block_container .block .form_instrument div .refund_description .refund_title {
+  padding-top: 5px;
+  cursor: pointer;
+}
+.block_container .block .form_instrument div .refund_description .refund_title:hover {
+  background-color: rgb(242, 234, 234);
+}
+.block_container .block .form_instrument div .refund_description .refund_text {
+  display: none;
+  padding: 5px;
+}
+.block_container .block .form_instrument div .field {
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.block_container .block .form_instrument div .field label {
+  width: 80%;
+}
+.block_container .block .form_instrument div .field input[type=number] {
+  width: 50px;
+}
+.block_container .menu_admin {
+  border-bottom: 1px solid black;
+}
+.block_container .title_general_instrument h3 {
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  text-transform: uppercase;
+}
+
+/*     immagini di un singola casa  */
+.block_images {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: white;
+  padding-top: 10px;
+}
+.block_images h2 {
+  color: rgb(148, 178, 218);
+}
+.block_images form {
+  width: 100%;
+  border-bottom: 2px solid black;
+  padding: 10px;
+}
+.block_images form .buttons_images {
+  width: 600px;
+}
+.block_images form .buttons_images input[type=submit] {
+  background-color: rgb(148, 178, 218);
+  color: white;
+  padding: 8px;
+  width: 185px;
+}
+.block_images span {
+  background-color: rgb(201, 78, 78);
+  width: 450px !important;
+}
+.block_images .allert_success {
+  background-color: rgb(40, 145, 40);
+  width: 300px !important;
+}
+.block_images .home_images {
+  width: 100%;
+  display: flex;
+  justify-content: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+.block_images .home_images .content_image {
+  width: 250px;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.block_images .home_images .content_image .image {
+  width: 100%;
+  height: 200px;
+  border: 1px solid black;
+}
+.block_images .home_images .content_image .image img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ////////  MEDIA QUERY  ////////////// */
+@media (max-width: 1285px) {
+  .generalDetails {
+    margin-left: 0px !important;
+  }
+}
+@media (max-width: 993px) {
+  .block_container {
+    width: 95% !important;
+  }
+}
+@media (max-width: 770px) {
+  .block_container .block form span, .block_container .block form .allert_success, .block_container .block .form_instrument span, .block_container .block .form_instrument .allert_success, .block_images span, .block_images .allert_success {
+    width: 85% !important;
+  }
+  #container_buttons_files {
+    margin: 0 auto;
+  }
+  .block_container .block form div {
+    flex-direction: column;
+  }
+  .block_container .block form label {
+    width: 85% !important;
+    margin: 0 auto;
+  }
+  .block_container .block form input[type=text],
+  .block_container .block form input[type=number],
+  .block_container .block form input[type=email],
+  .block_container .block form input[type=password],
+  .block_container .block form input[type=file],
+  .block_container .block form select,
+  .block_container .block form textarea {
+    display: block;
+    margin: 0 auto;
+  }
+  .block_container .block form input[type=submit] {
+    width: 100px;
+  }
+  .generalDetails {
+    width: 200px;
+  }
+  .generalDetails input[type=text],
+  .generalDetails input[type=number] {
+    width: 85% !important;
+  }
+  .lastRowDetails {
+    width: 100% !important;
+  }
+  .lastRowDetails label {
+    width: 90% !important;
+    margin-left: 20px !important;
+  }
+  .lastRowDetails textarea {
+    width: 90% !important;
+  }
+  .formDetails .row_files {
+    margin-left: -10px !important;
+  }
+  .formDetails .details div {
+    flex-direction: row !important;
+  }
+  .content_image {
+    width: 350px !important;
+  }
+  .buttons_images {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .chose_year select {
+    width: 100px;
+    height: 45px;
+    margin: 0 auto;
+    font-size: 25px;
+  }
+  .chose_action {
+    width: 100% !important;
+  }
+  .chose_action .calendary_form {
+    width: 190px !important;
+  }
+  .chose_action .calendary_form .first_date,
+  .chose_action .calendary_form .second_date {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  .chose_action .options_price {
+    width: 100% !important;
+    display: flex;
+    flex-direction: row !important;
+  }
+  .chose_action .options_price .container_option {
+    width: 50% !important;
+    display: flex;
+    flex-direction: row !important;
+  }
+  .chose_action .options_price .container_option .price_value {
+    width: 80px !important;
+    margin-right: 0px !important;
+    display: flex;
+    flex-direction: row;
+  }
+  .chose_action .options_price .buttonsOption {
+    width: 50% !important;
+  }
+  .chose_action .options_price .buttonsOption input[type=submit] {
+    width: 115px !important;
+    height: 45px !important;
+    margin-left: 0px !important;
+  }
+  .form_field {
+    width: 75% !important;
+  }
+  .container_mounth {
+    width: 100% !important;
+  }
+  .container_mounth .mounth {
+    flex-direction: row !important;
+  }
+  .refund_description {
+    width: 100% !important;
+  }
+  .refund_description .refund_text {
+    border-bottom: 1px solid black;
+    display: none;
+    padding: 5px;
+  }
+  .chose_role {
+    flex-direction: row !important;
+  }
+}
+@media (max-width: 500px) {
+  .chose_role {
+    flex-direction: column !important;
+  }
+  .chose_role select {
+    width: 100%;
+    margin-top: 7px !important;
+  }
+  .generalDetails {
+    width: 180px !important;
+  }
+  .files_home {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+@media (max-width: 422px) {
+  .generalDetails {
+    width: 100% !important;
+  }
+  .category_details {
+    width: 100% !important;
+  }
+  .mounth .container_day .day,
+  .mounth .container_day .element {
+    font-size: 16px !important;
+    padding-top: 2px !important;
+  }
+}
+.home_profile .vote_home .vote, .home_profile .vote_home, .home_profile .offcanvas .home_details div .content_detail, .home_profile, .container_carousel_homes .carousel_homes .div_homes .card, #visitHomes {
+  border: 1px solid rgb(96, 89, 89);
+  border-radius: 6.2px;
+  box-shadow: 0px 0px 3px rgb(51, 48, 48);
+}
+
+#visitHomes #visit_buttons, #visitHomes #visit_text {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+#visitHomes {
+  width: 100%;
+  height: 75px;
+  background-color: rgb(148, 178, 218);
+  font-size: 30px;
+  line-height: 47px;
+  border-radius: 0px;
+  display: flex;
+}
+#visitHomes #visit_buttons {
+  height: 75px;
+}
+#visitHomes #visit_buttons .buttomCarousel {
+  position: relative;
+  width: 45px;
+  height: 75px;
+}
+#visitHomes #visit_buttons .buttomCarousel .btn {
+  background-color: rgb(24, 8, 8);
+  border: 1px solid rgb(186, 175, 175);
+  box-shadow: 0px 0px 8px rgb(118, 114, 114);
+  padding: 15px;
+}
+
+.container_carousel_homes {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgb(49, 47, 47) inset;
+  background-image: url(../img/mare.jpg);
+  background-position: -500px -800px;
+  animation-name: homes;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes homes {
+  0% {
+    background-position: 0px -800px;
+  }
+  100% {
+    background-position: -500px -800px;
+  }
+}
+.container_carousel_homes .carousel_homes {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transition: all 2s ease-in-out;
+}
+.container_carousel_homes .carousel_homes .div_homes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.container_carousel_homes .carousel_homes .div_homes .card {
+  width: 250px;
+  height: 330px;
+  cursor: pointer;
+  transition: 500ms;
+}
+.container_carousel_homes .carousel_homes .div_homes .card .card__home {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.container_carousel_homes .carousel_homes .div_homes .card .card__home img {
+  height: 170px;
+}
+.container_carousel_homes .carousel_homes .div_homes .card:hover {
+  background-color: rgb(242, 234, 234);
+  border-radius: 8px;
+}
+.container_carousel_homes .carousel_homes .div_homes .card:hover img {
+  transform: scale(1.1);
+  transition: 600ms all ease-in-out;
+}
+
+.home_profile {
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background-color: white;
+  margin-bottom: 25px;
+}
+.home_profile .home_name {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.home_profile .home_name h3 {
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 35px;
+  text-transform: uppercase;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.home_profile .home_rooms {
+  width: 100%;
+  font-size: 19px;
+  text-align: justify;
+}
+.home_profile .home_description {
+  width: 100%;
+  font-size: 19px;
+  text-align: justify;
+}
+.home_profile .home_description h5 {
+  font-size: 19px;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.home_profile .offcanvas {
+  background-color: rgb(242, 234, 234);
+}
+.home_profile .offcanvas h5 {
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  font-size: 30px;
+}
+.home_profile .offcanvas .home_details {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.home_profile .offcanvas .home_details div {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.home_profile .offcanvas .home_details div .title_detail {
+  width: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.home_profile .offcanvas .home_details div .title_detail h3 {
+  font-size: 25px;
+}
+.home_profile .offcanvas .home_details div .content_detail {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+}
+.home_profile .offcanvas .home_details div .content_detail p {
+  display: block;
+  width: 100%;
+}
+.home_profile .new_reviews p a {
+  text-decoration: none;
+}
+.home_profile .vote_home {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(148, 178, 218);
+  padding: 8px;
+  color: white;
+}
+.home_profile .vote_home .vote {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.home_profile .vote_home .vote img {
+  width: 20px;
+  height: 20px;
+  padding-bottom: 5px;
+}
+
+.carousel_singleHome {
+  display: none;
+  width: 85%;
+  position: relative;
+}
+.carousel_singleHome img {
+  width: 100%;
+  height: 350px;
+}
+.carousel_singleHome .index_image {
+  position: absolute;
+  top: 15px;
+  right: 40%;
+}
+
+/*/////////////           MEDIA QUERY      ////////////////*/
+@media (max-width: 940px) {
+  .list_images, .button_totalImages {
+    display: none !important;
+  }
+  .carousel_singleHome {
+    display: block;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 30%;
+    height: auto;
+    min-height: 310px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card__home img {
+    height: 120px;
+  }
+}
+@media (max-width: 767px) {
+  .carousel_singleHome {
+    width: 100%;
+  }
+}
+@media (max-width: 720px) {
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 200px;
+  }
+}
+@media (max-width: 550px) {
+  .carousel_singleHome img {
+    height: 250px;
+  }
+  #visitHomes #visit_text div {
+    font-size: 23px;
+  }
+}
+@media (max-width: 500px) {
+  .container_carousel_homes {
+    width: 100%;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    width: 45%;
+    min-height: 280px;
+    font-size: 13px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card a {
+    font-size: 13px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card h5 {
+    font-size: 16px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card__home img {
+    height: 5;
+  }
+}
+@media (max-width: 440px) {
+  .home_profile .home_name h3 {
+    font-size: 25px;
+  }
+  .home_profile .home_rooms {
+    font-size: 16px;
+    text-align: justify;
+  }
+  .home_profile .home_description {
+    width: 100%;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .home_profile .home_description h5 {
+    font-size: 18px;
+    color: rgb(148, 178, 218);
+    text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  }
+  .home_profile .vote_home {
+    font-size: 14.5px;
+  }
+  .home_profile .vote_home .vote_text {
+    display: none;
+  }
+  .home_profile .offcanvas .home_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .home_profile .offcanvas .home_details div {
+    width: 100%;
+  }
+  .home_profile .offcanvas .home_details div .title_detail {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .home_profile .offcanvas .home_details div .title_detail h3 {
+    width: 100%;
+    font-size: 22px;
+  }
+}
+@media (max-width: 360px) {
+  #visitHomes #visit_text div {
+    font-size: 20px;
+  }
+  .container_carousel_homes {
+    width: 100%;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card {
+    position: relative;
+    width: 42%;
+    min-height: 100px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card-body {
+    height: 120px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card-body .card-title {
+    font-size: 14px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card-body .card-text {
+    font-size: 12px;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card .card-body a {
+    display: none;
+    position: absolute;
+    top: 20%;
+    right: 30%;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card:hover .card__home img {
+    opacity: 0.5;
+  }
+  .container_carousel_homes .carousel_homes .div_homes .card:hover a {
+    display: block;
+  }
+}
+/*      STILI  GENERALI     */
+.container_reviews .review .button_review .dropdown-menu, .container_reviews .review .button_review, .container_reviews .review .container_vote .vote_value, .container_reviews .review, .container_reviews .counter, .button_newComment, .container_review, .container_reviews .counter .average_value {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgb(51, 50, 50);
+}
+
+.container_reviews .counter .average_value {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: white;
+  color: rgb(148, 178, 218);
+  font-size: 23px;
+}
+
+/*     STILE  RECENSIONI     */
+.container_review {
+  width: 80%;
+  min-height: 500px;
+  margin: 0 auto;
+  margin-top: 25px;
+  padding: 10px;
+  background-color: white;
+}
+.container_review h2 {
+  padding-left: 1%;
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.container_review .star {
+  width: 26px;
+  height: 26px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.container_review textarea {
+  border-radius: 5px;
+}
+
+.button_newComment {
+  width: 300px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  padding: 10px;
+}
+
+.container_reviews {
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.container_reviews .counter {
+  padding: 15px;
+  font-size: 19px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+}
+.container_reviews .review {
+  background-color: white;
+  margin-bottom: 12px;
+  padding: 8px;
+  position: relative;
+}
+.container_reviews .review .container_vote {
+  width: 115px;
+  display: flex;
+  margin-left: 0px;
+}
+.container_reviews .review .container_vote .star {
+  width: 15px;
+  height: 15px;
+}
+.container_reviews .review .container_vote .vote_value {
+  border-radius: 5px !important;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 0px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+}
+.container_reviews .review .container_textReview .text {
+  width: 91%;
+  min-width: 400px;
+  margin-left: 0px;
+  text-align: justify;
+}
+.container_reviews .review .button_review {
+  position: absolute;
+  width: 40px;
+  right: 4px;
+  top: 4px;
+  padding-left: 5px;
+  background-color: rgb(148, 178, 218);
+  border-radius: 5px;
+  color: white;
+}
+.container_reviews .review .button_review .btn:focus {
+  border: transparent;
+}
+.container_reviews .review .button_review .dropdown-menu {
+  background-color: rgb(148, 178, 218);
+}
+.container_reviews .review .button_review .dropdown-menu li {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.container_reviews .review .button_review .dropdown-menu li:first-child:hover {
+  color: green;
+}
+.container_reviews .review .button_review .dropdown-menu li:hover {
+  color: red;
+}
+
+@media (max-width: 991px) {
+  .review .container_vote .vote_value {
+    border-radius: 5px !important;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 0px;
+    background-color: rgb(148, 178, 218);
+    color: white;
+  }
+  .review .container_textReview {
+    margin-top: 10px;
+  }
+  .review .container_textReview .text {
+    width: 100% !important;
+    min-width: 0px !important;
+  }
+}
+@media (max-width: 467px) {
+  .button_newComment {
+    width: 100%;
+    font-size: 18px;
+  }
+  .container_reviews {
+    width: 100%;
+  }
+  .container_reviews .review {
+    font-size: 15px;
+  }
+  .container_reviews .review .button_review {
+    /*  right: -41.5px !important;  */
+    top: 57px;
+  }
+  .container_review {
+    width: 90%;
+    font-size: 14px;
+  }
+  .container_review h2 {
+    font-size: 19px;
+    text-align: center;
+  }
+  .container_review .star {
+    width: 19px;
+    height: 19px;
+  }
+}
+/*      STILI  GENERALI     */
+.noReserve_homeAvatar:hover, .modal_payments, .container_search_reserve .user_reserve .mounth_reserve, .container_search_reserve, .reserve_complete, .method_payment, .container_reserve_extra .button_confirm, .container_reserve_extra .chose_payment, .container_reserve_extra #accordionPayment, .container_reserve_extra .container_mounth .mounth .container_day, .container_reserve_extra .container_mounth, .container_reserve_extra .change_dates, .container_reserve_extra, .nav_session, .user_reserves .refused, .user_reserves .confirmed {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgb(51, 50, 50);
+}
+
+.discountYes, .discountNo {
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.user_reserves .refused, .user_reserves .confirmed {
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/*     STILE  PRENOTAZIONE    */
+.box_check {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.box_check input[type=date] {
+  width: 135px;
+}
+
+.user_reserves {
+  font-size: 23px;
+}
+.user_reserves h2 span {
+  width: 100%;
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+}
+.user_reserves .counter_reserves {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.user_reserves .confirmed {
+  background-color: rgb(148, 178, 218);
+}
+.user_reserves .refused {
+  background-color: rgb(201, 78, 78);
+}
+
+.container_search .search_image {
+  display: flex;
+  align-items: center;
+}
+.container_search img {
+  width: 155px;
+  height: 145px;
+  border-radius: 5px;
+}
+
+.container_reserve {
+  padding: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+.container_reserve h3 {
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  text-align: center;
+}
+.container_reserve form {
+  width: 500px;
+}
+.container_reserve form label {
+  font-size: 18px;
+  font-weight: bold;
+}
+.container_reserve form input[type=date] {
+  max-width: 160px;
+  margin: 0 auto;
+  font-size: 17px;
+  padding-left: 5px;
+}
+.container_reserve form select {
+  width: 130px;
+  margin: 0 auto;
+  font-size: 17px;
+  padding: 3px;
+}
+.container_reserve form input[type=submit] {
+  width: 190px;
+  padding: 5px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  border-radius: 5px;
+  font-size: 19px;
+}
+
+.nav_session {
+  width: auto;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(51, 50, 50);
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.nav_session span {
+  color: rgb(201, 78, 78);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+.title_element {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+
+.discountNo {
+  background-color: rgb(201, 78, 78);
+}
+
+.discountYes {
+  background-color: rgb(148, 178, 218);
+}
+
+.container_reserve_extra {
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  position: relative;
+  background-color: white;
+}
+.container_reserve_extra .reserve_datas {
+  width: 300px;
+  margin: 0 auto;
+}
+.container_reserve_extra .change_dates {
+  height: 100%;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.container_reserve_extra .change_dates h4 {
+  text-align: center;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  height: 40px;
+  border-radius: 8px;
+  padding-top: 3px;
+  font-size: 25px;
+  font-weight: normal;
+}
+.container_reserve_extra .container_mounth {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.container_reserve_extra .container_mounth .mounth_name {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  border-radius: 5px;
+}
+.container_reserve_extra .container_mounth .mounth {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.container_reserve_extra .container_mounth .mounth .container_day {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.container_reserve_extra .container_mounth .mounth .container_day .day {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(148, 178, 218);
+  border-bottom: 1px solid black;
+  border-start-start-radius: 9px;
+  border-top-right-radius: 9px;
+  padding: 1px;
+}
+.container_reserve_extra .container_mounth .mounth .container_day .element {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.container_reserve_extra .container_mounth .mounth .container_day .element p {
+  height: 8px;
+}
+.container_reserve_extra #accordionPayment {
+  border-radius: 6px;
+}
+.container_reserve_extra #accordionPayment .accordion-button {
+  height: 30px;
+  padding-top: 30px;
+}
+.container_reserve_extra #accordionPayment .p_accordion {
+  font-size: 20px;
+  padding-left: 0px;
+  font-weight: bold;
+}
+.container_reserve_extra #accordionPayment .accordion-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.container_reserve_extra #accordionPayment .accordion-body input[type=radio] {
+  padding: 20px;
+  margin-bottom: 5px;
+  margin-right: 1%;
+}
+.container_reserve_extra .chose_payment {
+  width: 30%;
+  height: 245px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+.container_reserve_extra .chose_payment .row_payment {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid black;
+  padding-top: 5px;
+}
+.container_reserve_extra .chose_payment .row_payment label {
+  width: 90%;
+}
+.container_reserve_extra .button_confirm {
+  width: 350px;
+  margin: 0 auto;
+  padding: 11px;
+  font-size: 25px;
+  letter-spacing: 5px;
+  text-align: center;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  cursor: pointer;
+}
+
+.method_payment {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+.method_payment .message_method {
+  width: 100%;
+  font-size: 17px;
+  text-align: center;
+}
+.method_payment .message_method img {
+  width: 30px;
+  height: 20px;
+  padding-bottom: 3px;
+}
+.method_payment .chose_method {
+  width: 100%;
+}
+.method_payment .chose_method select {
+  width: 100%;
+  font-size: 20px;
+  padding: 8px;
+}
+.method_payment .form_payment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.method_payment .form_payment .row_payment {
+  width: 100%;
+}
+.method_payment .form_payment .row_payment input {
+  width: 100%;
+}
+.method_payment .form_payment .datas_card {
+  width: 100%;
+  display: flex;
+}
+.method_payment .form_payment .datas_card input {
+  width: 50%;
+}
+.method_payment .form_payment textarea {
+  width: 100%;
+}
+
+.reserve_complete {
+  background-color: white;
+  margin-top: 25px;
+}
+
+.container_search_reserve {
+  background-color: white;
+}
+.container_search_reserve button {
+  border: 1px solid black;
+}
+.container_search_reserve h3 {
+  width: 100%;
+  text-align: center;
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  font-size: 35px;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+.container_search_reserve .row_select_home select {
+  font-size: 20px;
+  border: 1px solid black;
+}
+.container_search_reserve h4 {
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+}
+.container_search_reserve .user_reserve span {
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: bold;
+}
+.container_search_reserve .user_reserve .span_success {
+  color: black;
+}
+.container_search_reserve .user_reserve .span_danger {
+  color: rgb(201, 78, 78);
+}
+.container_search_reserve .user_reserve .mounth_reserve {
+  background-color: rgb(148, 178, 218);
+  color: white;
+  font-size: 16px;
+  border-radius: 4px !important;
+  padding-top: 13px;
+  margin: 0 auto;
+}
+.container_search_reserve .user_reserve .data_reserve {
+  border: 2px solid rgb(37, 37, 37);
+  border-radius: 4px;
+  margin: 0 auto;
+}
+.container_search_reserve .user_reserve .number_reserve {
+  color: rgb(148, 178, 218);
+  text-shadow: 1px 1px 2px rgb(70, 67, 67);
+  font-size: 19px;
+  padding-left: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.container_search_reserve .user_reserve table th, .container_search_reserve .user_reserve td {
+  text-align: center;
+}
+
+.modalAdmin {
+  right: 0px;
+  top: 0px;
+}
+
+.modalClient {
+  right: 0px;
+  top: 37px;
+  display: none;
+}
+
+.paymentClient:hover .modalClient {
+  display: block;
+}
+
+.modal_text {
+  color: rgb(148, 178, 218) !important;
+  border: transparent !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+}
+
+.modal_payments {
+  position: absolute;
+  width: auto;
+  background-color: white;
+  z-index: 1;
+  padding: 8px;
+  color: black;
+  font-weight: bold;
+}
+.modal_payments h3 {
+  display: block;
+  width: 75%;
+  color: rgb(148, 178, 218);
+  text-align: end;
+  margin-bottom: 10px;
+  font-size: 20px;
+  padding: 3px;
+}
+.modal_payments p {
+  text-align: start;
+}
+.modal_payments .payment_good {
+  color: green;
+}
+.modal_payments .payment_bad {
+  color: red;
+}
+
+.noReserve_homeAvatar {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+.noReserve_homeAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.noReserve_homeAvatar .noReserve_homeAvatar__button {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  display: none;
+}
+
+.noReserve_homeAvatar:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noReserve_homeAvatar:hover img {
+  width: 95%;
+  height: 95%;
+  opacity: 0.5;
+}
+.noReserve_homeAvatar:hover .noReserve_homeAvatar__button {
+  display: block;
+}
+
+/*     MEDIA QUERY    */
+@media (max-width: 991px) {
+  .container_reserve_extra .change_dates {
+    width: 78%;
+    margin-top: 18px;
+  }
+}
+@media (max-width: 770px) {
+  .container_reserve form {
+    width: 100%;
+  }
+  .container_reserve_extra .change_dates {
+    width: 87.5%;
+  }
+  .container_mounth {
+    width: 90% !important;
+  }
+}
+@media (max-width: 767px) {
+  .container_reserve form .people {
+    width: 150px;
+    margin: 0 auto;
+  }
+  .container_reserve form .people select {
+    width: 40px;
+  }
+}
+@media (max-width: 460px) {
+  .counter_reserves {
+    flex-direction: column;
+    justify-content: none;
+    gap: 10px;
+  }
+  .method_payment .chose_method select {
+    font-size: 17px;
+  }
+  .button_confirm {
+    width: 245px !important;
+    padding: 8px !important;
+    letter-spacing: 0px !important;
+    font-size: 19px !important;
+  }
+}
+@media (max-width: 355px) {
+  .container_reserve_extra .reserve_datas {
+    padding-left: 12px;
+  }
+  .container_reserve_extra .container_mounth .mounth_name {
+    padding-top: 4px;
+    font-size: 17px;
+  }
+  .container_reserve_extra .p_accordion {
+    font-size: 17px !important;
+  }
+}
+.dancing-scrip {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.alert {
+  display: flex !important;
+  justify-content: center !important;
+  font-size: 19px;
+}
+
+.titles_styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding-right: 10px;
+  text-shadow: 2px 1px 3px rgb(59, 57, 57);
+  text-decoration: none;
+  border: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.titles_styles:hover {
+  color: rgb(242, 234, 234);
+  text-shadow: 2px 1px 6px rgb(12, 12, 12);
+}
+
+button {
+  background-color: rgb(148, 178, 218);
+  color: white;
+}
+
+input[type=submit] {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 5px;
+  background-color: rgb(148, 178, 218);
+  color: white;
+  border-radius: 5px;
+}
+
+.dropdown-toggle:visited,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+  border: transparent !important;
+}
+
+.loading {
+  width: 180px !important;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.loading span {
+  background-color: transparent !important;
+  color: black !important;
+  font-size: 20px;
+  margin-right: 8px !important;
+  width: auto !important;
+  border: transparent !important;
+  box-shadow: none !important;
+}
+
+#manage_homes {
+  color: red;
+}
+
+footer {
+  height: 8vh;
+  background-color: rgb(148, 178, 218);
+  border-top: 1px solid black;
+  box-shadow: 1px 2px 2px inset rgb(129, 145, 129);
+  text-align: center;
+  font-size: 22px;
+  color: white;
+  text-shadow: 2px 1px 3px rgb(59, 57, 57);
+  letter-spacing: 1px;
+}
+footer p {
+  padding-top: 15px;
+}
+
+.dropdown .button_completePayment:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.dropdown .button_refund:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+/* //////////   MEDIA QUERY   ////////////// */
+@media (max-width: 1200px) {
+  .navbar #nav_home {
+    width: 40%;
+  }
+  #carouselSardinia .carousel-inner .carousel-item {
+    min-height: 480px;
+  }
+  #carouselSardinia .carousel-inner .carousel-item img {
+    height: 480px;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .titles_styles {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+  .navbar .titles_styles:first-child {
+    margin-top: 10px;
+  }
+  .navbar #nav_avatar {
+    display: none;
+  }
+  .navbar .collapse {
+    position: absolute;
+    right: -32px;
+    top: 55px;
+    z-index: 2;
+    display: block !important;
+    transform: translateX(130px);
+    opacity: 0;
+  }
+  .navbar .collapse ul {
+    width: 100%;
+    flex-direction: column-reverse;
+    padding-left: 15px;
+    padding-right: 10px;
+    flex-wrap: wrap;
+    background-image: linear-gradient(rgb(198, 209, 223) 0%, rgb(172, 190, 213) 25%, rgb(108, 159, 225) 100%);
+  }
+  .navbar .collapse ul .nav-item {
+    font-weight: 300;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+@media (max-width: 545px) {
+  .navbar #nav_home #home span {
+    font-size: 20px;
+    margin-left: 0px;
+  }
+  .navbar #nav_home #home .home__one {
+    bottom: 0px;
+  }
+  .navbar #nav_home #home .home__two {
+    top: 0px;
+    left: 23px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

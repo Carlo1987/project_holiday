@@ -1,0 +1,239 @@
+<div class="container container_search_reserve mt-4">
+  <h3>{{ language.admin.client_reserves.title }}</h3>
+
+  <div class="row row_select_home">
+    <div class="col-lg-3 col-sm-6">
+      <select class="form-select" aria-label="select_year" name="chosed_year" [(ngModel)]="chosed_year">
+        <option value="#">{{ language.admin.client_reserves.year }}</option>
+        <option value="{{ current_year - 1 }}">{{ current_year - 1 }}</option>
+        <option value="{{ current_year }}">{{ current_year }}</option>
+        <option value="{{ current_year + 1 }}">{{ current_year + 1 }}</option>
+      </select>
+    </div>
+
+    <div class="col-lg-3 col-sm-6 mt-sm-0 mt-2">
+      <select class="form-select" aria-label="select_mounth" name="chosed_mounth" [(ngModel)]="chosed_mounth">
+        <option value="#">{{ language.admin.client_reserves.mounth }}</option>
+        <option  *ngFor="let mounth of mounths; let i = index"  value="{{ i + 1 }}">
+          {{ mounth }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-lg-3 col-12 mt-lg-0 mt-2">
+      <select class="form-select" aria-label="select_home" name="selected_home" [(ngModel)]="selected_home">
+        <option value="#">{{ language.admin.client_reserves.home }}</option>
+        <option *ngFor="let home of homes" value="{{ home._id }}">
+          {{ home.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-3 d-flex justify-content-center mt-lg-0 mt-1">
+      <button class="ps-4 pe-4 pt-2 pb-2 rounded" (click)="choseHome()">
+        {{ language.admin.client_reserves.button }}
+      </button>
+    </div>
+  </div>
+
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="message_error != ''">  {{ message_error }}  </div>
+
+
+  <!--  inizio  prenotazioni in base alla casa   -->
+
+  <div *ngIf="selected_mounth_reserve.length == 0">
+    <div class="alert alert-secondary fs-5 mt-2" role="alert" *ngIf="reserves.length == 0 && message_error == ''">
+      {{ message_general }}
+    </div>
+  </div>
+
+  <div *ngIf="selected_mounth_reserve.length > 0">
+    <h4 style="padding-left: 5px; margin-top: 13px; text-transform: uppercase; text-align: center;">
+     <img src="{{ url +'/get_avatar/'+ home_reserve.avatar }}" style="width: 40px; height: 30px; border-radius: 5px;"> {{ home_reserve.name }}
+    </h4>
+
+    <div class="row user_reserve">
+
+      <div *ngFor="let reserve of selected_mounth_reserve; let i = index">
+        <div *ngIf="i == 0" class="row mounth_reserve">
+          <div class="col-lg-4 col-12 text-center">
+            <p style="font-size: 22px">
+              {{ selected_mounth + " " + selected_year }}
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center pt-1">
+            <p>
+              <strong> {{ language.acount.user_reserve.confirmed }}: </strong>
+              <span class="span_success">{{ counter_reservesConfirmed }} </span>
+            </p>
+          </div>
+          <div class="col-lg-4 col-sm-6 text-center pt-1">
+            <p>
+              <strong> {{ language.acount.user_reserve.refused }}: </strong>
+              <span class="span_danger">{{ counter_reservesRefused }} </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="row mt-2 mb-2 data_reserve">
+          <div class="col-12 number_reserve">
+            <strong> {{ language.reserve }} {{ i + 1 }}</strong>
+          </div>
+
+          <div class="row py-2 ps-0 m-auto border border-dark border-start-0 border-end-0">
+            <div class="col-lg-4 col-md-6">
+              <strong>Check-In: </strong> {{ reserve.checkIn }}
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <strong>Check-Out:</strong> {{ reserve.checkOut }}
+            </div>
+            <div class="col-lg-4 col-12">
+              <strong>N° {{ language.nights }}:</strong>
+              {{ reserve.total_nights }}
+            </div>
+          </div>
+
+          <div class="col-12">
+              <p>   <strong>  {{ language.admin.client_reserves.datas_client }}:  </strong>   </p>
+          </div>
+
+          <div class="col-12">
+            <div class="table-responsive-sm">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{ language.client }}:</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">{{ language.acount.cell }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {{ reserve.user_data.surname + " " + reserve.user_data.name }}
+                    </td>
+                    <td>
+                      <span class="text-danger"> {{ censured(reserve.user_data.email,reserve.user_data._id) }}</span>
+                    </td>
+                    <td>
+                      <span class="text-danger"> {{ censured(reserve.user_data.cell,reserve.user_data._id) }} </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-12 pt-2 border-top border-dark">
+            <div class="d-flex position-relative"> 
+                  <p class="ms-0">  <strong>  {{ language.admin.client_reserves.datas_reserve }}:  </strong>  </p>
+
+               <!-- //////////////////   modal     /////////////////////// -->
+
+
+                        <button type="button" class="btn btn-link modal_text" (click)="activeModal(true,reserve._id)">
+                            {{ language.payments }}  <i class="fa fa-arrow-down fa-2xs" aria-hidden="true"></i> 
+                        </button>
+
+                        <div *ngIf="modalPayment.set && modalPayment._id == reserve._id"  class="modal_payments modalAdmin">  
+                          
+                          <div class="d-flex flex-row align-items-center">
+                            <h3> 
+                              {{ language.complete_payment.payments }}    
+                             </h3>
+                             <div class="w-25 d-flex flex-row justify-content-end pb-1" style="cursor: pointer;" (click)="activeModal(false,reserve._id)"> <i class="fa fa-times fa-lg" aria-hidden="true"></i> </div>   
+                          </div>
+                      
+
+                           <div *ngIf="reserve.payment.length == 1  then onePayment  else twoPayments">  </div>
+
+                           <ng-template #onePayment> 
+                              <div *ngIf="reserve.advance.set == 'false'">  
+                                <span class="payment_good"> {{ language.complete_payment.paid }}: </span> <strong> €{{ reserve.cost.final_cost | number : "1.2-2" }} </strong> con {{ typePayment(reserve.payment[0].type) }} il {{ reserve.payment[0].hour }} 
+                              </div>
+                              <div *ngIf="reserve.advance.set == 'true'">  
+                                <span class="payment_good"> {{ language.complete_payment.advance }}: </span> <strong> €{{ reserve.advance.value_advance | number : "1.2-2" }} </strong> con {{ typePayment(reserve.payment[0].type) }} il {{ reserve.payment[0].hour }} 
+                                <br>
+                                <span class="payment_bad"> {{ language.complete_payment.to_pay }}: </span> <strong>€{{ reserve.advance.rest_advance | number : "1.2-2" }} </strong> 
+                              </div>
+                               
+                           </ng-template>
+
+                           <ng-template #twoPayments> 
+                            <div *ngFor="let payment of reserve.payment; let i=index">
+                              <div *ngIf="i == 0">  
+                                <span class="payment_good">   {{ language.complete_payment.advance }}:  </span> <strong>€{{ reserve.advance.value_advance | number : "1.2-2" }} </strong> con {{ typePayment(payment.type) }} il {{ payment.hour }}
+                                <br>
+                              </div>
+                              <div *ngIf="i == 1">  
+                                <span class="payment_good">   {{ language.complete_payment.pay_end }}: </span> <strong> €{{ reserve.advance.rest_advance | number : "1.2-2" }} </strong> con {{ typePayment(payment.type) }} il {{ payment.hour }} 
+                              </div>
+                           </div>
+                           </ng-template>
+
+                           
+                           <div *ngIf="reserve.status == 'annullata'">
+                              <hr>
+                              <span class="payment_bad">Risarciti: </span> <strong> €{{ reserve.refund.value | number : "1.2-2" }} </strong>  il {{ reserve.refund.date }} alle {{ reserve.refund.hour }} 
+                           </div>
+
+                        </div>
+
+                            <!-- //////////////////  fine modal     /////////////////////// -->
+
+            </div> 
+          </div>
+
+          <div class="col-12">
+            <div class="table-responsive-xl">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{ language.acount.user_reserve.cost }}</th>
+                    <th scope="col">{{ language.advance }}</th>
+                    <th scope="col"> {{ language.acount.user_reserve.status }} </th>
+                    <th scope="col">{{ language.refund }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">
+                      €{{ reserve.cost.final_cost | number : "1.2-2" }}
+                    </td>
+
+                    <td  *ngIf="reserve.advance.set == 'false'" style="color: green; font-weight: bold">
+                      {{ language.admin.client_reserves.debt }}
+                    </td>
+                    <td *ngIf="reserve.advance.set == 'true'" style="color: red">
+                      {{ language.acount.user_reserve.debt_1 }} €{{ reserve.advance.rest_advance | number : "1.2-2" }}
+                    </td>
+ 
+                    <td *ngIf="reserve.status == 'prenotata'"  style="font-weight: bold; color: green">
+                      {{ reserve.status | uppercase }}
+                    </td>
+                    <td *ngIf="reserve.status == 'annullata'" style="font-weight: bold; color: red">
+                      {{ reserve.status | uppercase }} {{ reserve.refund.date }}
+                    </td>
+
+                    <td *ngIf="reserve.status == 'prenotata'" style="font-weight: bold">
+                      /
+                    </td>
+                    <td *ngIf="reserve.status == 'annullata'" style="font-weight: bold">
+                      {{ language.admin.client_reserves.refund }} €{{ reserve.refund.value }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="w-100 btn btn-link tect-center modal_text paymentClien"> 
+                <a (click)="link('/reserve-single/'+reserve._id)">  Mostra dettagli  <i class="fa fa-arrow-down fa-2xs" aria-hidden="true"></i>  </a>   <!-- routerLink="{{ '/reserve-single/' + reserve._id }}" -->
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

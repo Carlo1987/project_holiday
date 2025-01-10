@@ -1,0 +1,31 @@
+<div class="block_container">
+
+    <div class="block">
+        <h2> {{ language.acount.title_image }} </h2>
+
+        <div class="w-100 text-center">
+          <img src="{{ url+'/getImage/'+ identity.user.image }}" alt="user_avatar" class="avatar_image">  
+        </div>
+    
+        <form #editForm="ngForm" (ngSubmit)="edit()">
+
+            <div class="w-100 mt-3 d-flex flex-row justify-content-center align-items-center">
+               {{ language.acount.image }}:    
+                   <input type="file" name="image" (change)="uploadImage($event)" id="user_avatar" style="display: none;">   
+                   <button type="button" class="btn btn-secondary ms-2"  onclick="document.querySelector('#user_avatar').click()"  #buttons_files> 
+                     {{ language.acount.choose_file }} 
+                    </button> 
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="message_wrong_file != '' ">  {{ message_wrong_file }}  </div>
+
+            <app-loading [loading]="loading"></app-loading>
+    
+          <input type="submit" value="{{ language.acount.button }}"/>
+
+        </form>
+
+      </div>
+    
+
+</div>

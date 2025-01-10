@@ -1,0 +1,15 @@
+
+.avatar_image{
+    width:420px; 
+    height: 300px; 
+    border-radius: 15px;
+}
+
+
+
+@media(max-width:480px){
+    .avatar_image{
+        width:97%; 
+        height: 80%;
+    }
+}

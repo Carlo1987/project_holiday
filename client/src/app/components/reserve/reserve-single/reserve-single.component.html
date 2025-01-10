@@ -1,0 +1,193 @@
+
+<div class="block_container">
+    <div class="block">
+
+        <h2> {{ language.reserve +' '+home.name }} </h2>
+
+        <div id="avatar_search">
+            <img src="{{ url_home+'/get_avatar/'+ home.avatar }}" alt="user_avatar"> 
+        </div>
+
+
+       <div class="mt-4 d-flex flex-row">
+         <div class="user_search">
+            <img src="{{ url_acount+'/getImage/'+ user.image }}" alt="user_avatar"> 
+         </div>
+         <div class="w-100 ps-3">
+            <p> <strong> {{ language.client }}:  </strong> {{ user.name }} {{ user.surname }}   </p>
+            <p> <strong> Email: </strong> {{ private_datas.email }}  </p>
+            <p> <strong> {{ language.phone }}: </strong> {{ private_datas.cell }}  </p>
+         </div>
+         
+       </div>
+
+
+
+        <table class="table mt-3" style="border: 2px solid black;">
+            <thead>
+              <tr>
+                <th scope="col">Check-In</th>
+                <th scope="col">Check-Out</th>
+                <th scope="col">N° {{ language.nights }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>  {{ reserve.checkIn | date:'dd/MM/yy' }}  </td>
+                <td> {{ reserve.checkOut | date:'dd/MM/yy' }} </td>
+                <td> {{ reserve.total_nights }} </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        <div *ngIf="advance.set =='false'  then  completePayment  else  halfPayment">  </div>
+
+        <p class="ps-2"> <strong> {{ language.acount.user_reserve.refund }}: </strong> {{ refund.limit }} </p> 
+     
+        <div *ngIf="reserve.status == 'prenotata'  then reserved  else  rejected">   </div>
+
+     
+
+
+        <div class="mt-2">
+            <h6 class="status_reserve"> {{ language.complete_payment.payments }}: </h6>
+
+            <div *ngFor="let payment of reserve.payment; let i = index">
+                <div *ngIf="i == 0" class="block">
+
+                    <p *ngIf="number_payments == 1 && reserve.advance.set == 'false'">
+                        <strong class="good_text">  {{ language.complete_payment.paid }}: </strong> €{{  cost.final_cost | number : "1.2-2" }};
+                    </p>
+
+                    <p *ngIf="number_payments == 1 && reserve.advance.set == 'true'">
+                      <strong class="good_text">  {{ language.complete_payment.paid }}: </strong> €{{  cost.advance | number : "1.2-2" }};
+                    </p>
+                  
+                    <p  *ngIf="number_payments > 1">
+                        <strong class="good_text"> {{ language.complete_payment.paid }}: </strong> €{{  cost.advance | number : "1.2-2" }}; 
+                    </p>
+
+                    <p> <strong> {{ language.method }}: </strong> {{ methodPayment(payment) }} </p> 
+               
+                    <p> <strong> {{ language.day }}: </strong> {{ payment.hour }} </p>
+                </div>
+
+
+                <div *ngIf="number_payments > 1 && i == 1" class="block mt-3">
+                 
+                    <p>  <strong class="good_text">  {{ language.complete_payment.paid }}: </strong>  €{{  cost.rest_advance | number : "1.2-2" }}; </p>
+
+                    <p> <strong> {{ language.method }}: </strong> {{ methodPayment(payment) }} </p>     
+                    
+                    <p> <strong> {{ language.day }}: </strong> {{ payment.hour }} </p>
+                </div> 
+                
+            </div>
+
+
+            <div *ngIf="reserve.status == 'annullata'" class="block mt-3">
+                <p>  <strong class="bad"> {{ language.refund_text }}: </strong>  €{{  refund.value | number : "1.2-2" }}; </p>   
+                
+               <!--  qui posso eventualmente aggiungere il metodo di rimborso  --> 
+                
+                <p> <strong> {{ language.day }}: </strong> {{ refund.date +' - '+ refund.hour }} </p>
+
+            </div>
+        
+
+       </div>
+
+
+
+
+
+        <!--    vari  "template"     -->
+    
+        <ng-template #reserved>
+            <div *ngIf="!status_reserve.expiration">
+
+                <div *ngIf="status_reserve.filter"> 
+                    <p> <strong class="status_reserve good_text">{{ language.reserve +' '+ language.confirm }}</strong> </p>       
+                    
+                    <div class="dropdown">
+                      <button class="btn dropdown-toggle" style='background-color:rgb(38, 126, 97); color:white;'  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ this.language.acount.user_reserve.manage }}
+                     </button>
+                    <ul class="dropdown-menu">
+                       <li *ngIf="advance.set == 'true'" class="text-center"><a class="dropdown-item button_completePayment" [routerLink]="['/reserve-complete' , reserve._id]"> <strong> {{ language.acount.user_reserve.debt_2 }} </strong> </a></li>
+                       <li class="text-center"><a class="dropdown-item button_refund" [routerLink]="['/refund' , reserve._id]"> <strong> {{ language.delete }} </strong> </a></li>
+                    </ul>
+                    </div>
+                </div>
+
+                <div *ngIf="!status_reserve.filter"> <strong class="status_reserve good">{{ language.reserve +' '+ progress }}</strong>  </div>
+            </div>
+
+            <div *ngIf="status_reserve.expiration">
+                <strong class="status_reserve good">{{ language.acount.user_reserve.ended }}</strong> 
+            </div>
+        </ng-template>
+
+
+
+
+        <ng-template #rejected>
+            <div> <strong class="status_reserve bad"> {{ language.acount.user_reserve.refuse }}: </strong> {{ refund.date }}  </div>
+            <div> <strong class="status_reserve bad"> {{ language.refund_text }}: </strong> €{{ refund.value | number : "1.2-2" }} </div>
+        </ng-template>
+
+
+
+       <ng-template #completePayment>
+        <div> 
+            <table class="table mt-3" style="border: 2px solid black;">
+                <thead>
+                  <tr>
+                    <th scope="col"> {{ language.reserves.price }} </th>
+                    <th scope="col"> {{ language.complete_payment.paid }} </th>
+                    <th scope="col"> {{ language.complete_payment.to_pay }} </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>  €{{ cost.final_cost | number : "1.2-2" }}   </td>
+                    <td>  €{{ cost.final_cost | number : "1.2-2" }}  </td>
+                    <td> / </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </ng-template>
+
+
+    <ng-template #halfPayment>
+        <div> 
+            <table class="table mt-3" style="border: 2px solid black;">
+                <thead>
+                  <tr>
+                    <th scope="col"> {{ language.reserves.price }} </th>
+                    <th scope="col"> {{ language.complete_payment.paid }} </th>
+                    <th scope="col"> {{ language.complete_payment.to_pay }} </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>  €{{ cost.final_cost | number : "1.2-2" }}   </td>
+                    <td>  €{{ cost.advance | number : "1.2-2" }}  </td>
+                    <td>  €{{ cost.rest_advance | number : "1.2-2" }}  </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </ng-template>
+
+
+
+                
+
+
+
+
+    </div>
+</div>

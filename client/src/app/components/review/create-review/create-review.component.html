@@ -1,0 +1,42 @@
+<div class="container_review">
+    <h2> {{ title }} </h2>
+
+    <form (ngSubmit)="getReview()">
+        <div class="container">
+
+        <div class="row mb-2">
+ 
+            <div class="col-lg-2 col-md-3 col-5">{{ language.review.vote }}:</div>
+
+            <div class="col-lg-10 col-md-9 col-7">
+                        <div>
+                            <img  *ngFor="let star of stars_value" class="star"  src="../../../../assets/img/stella_bianca.png" (click)="starClick(star)" (mouseenter)="starHover(star)" (mouseout)="starOut(star)" >
+                        </div> 
+            </div>
+        </div>
+ 
+         <div class="row">
+            <div class="col-lg-2">
+                <label for="review"> {{ language.review.review }}: </label>
+            </div>
+            <div class="col-lg-10">
+                <textarea style="width: 100%;" name="review" [(ngModel)]="data.review"></textarea>
+            </div>
+         </div>
+ 
+         <div style="width: 100%; text-align: center;">
+            <input type="submit" class="btn btn-success" style="width: 100px;" value="{{ bottom }}">
+         </div>
+        
+
+      </div>
+    </form>
+
+
+    <div class="review_messages" style="width: 100%; margin-top: 30px;">
+        <div class="alert alert-danger text-center fs-4" role="alert" *ngIf="message_error != ''"> {{ message_error }} </div>
+        <div class="alert alert-success text-center fs-4" role="alert" *ngIf="message_success != ''"> <span>{{ message_success }} <a [routerLink]="['/home' , home_id]"> {{ language.back }} </a> </span> </div>
+    </div>
+   
+
+</div>

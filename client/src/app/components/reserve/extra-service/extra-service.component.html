@@ -1,0 +1,173 @@
+
+<div class="m-3">
+
+<div class="fs-3 nav_session"> {{ language.reserves.session }} <span> {{ countdown_adapted }}  </span>  </div>
+
+<div class="container_reserve_extra">
+
+    <div class="row">
+
+        <div class="col-md-6">
+          <div class="reserve_datas">
+            <div class="title_element"> <h4> {{ language.reserves.holiday }} </h4> </div>
+   
+            <p class="fs-4">  <img src="{{ url_home +'/get_avatar/'+ home_avatar }}" style="width: 60px; height: 40px; border-radius: 5px;">  <strong> {{ home_name }} </strong> </p> 
+   
+            <p class="fs-5"> <strong> Check-In: </strong> {{ date_reserve.checkIn }} </p> 
+
+             <p class="fs-5"> <strong> Check-Out: </strong> {{ date_reserve.checkOut }} </p> 
+
+             <p class="fs-5 ms-0"> <strong> N° {{ language.guests }}: </strong>  {{ reserve.guests }}  </p>   
+
+             <p class="fs-5"> <strong> {{ language.reserves.nights }}: </strong>  {{ reserve.total_nights }} </p> 
+          </div>
+        </div> 
+
+ 
+        <div class="col-md-6">
+          <div class="reserve_datas">
+            <div class="title_element"> <h4> {{ language.reserves.details }} </h4> </div>
+      
+            <p class="fs-5"> <strong> {{ language.reserves.price }}: </strong>  €{{ reserve.cost.total_cost | number : '1.2-2' }} </p> 
+      
+               <div class=" position-relative ms-0">  
+                <h6 class="btn btn-secondary" style="width: 230px;" (click)="infoDiscount()">  {{ language.reserves.discount }}:  
+                  <strong [ngClass]="{ 'discountYes' : discount_access == 'SI' , 'discountNo' : discount_access == 'NO'}">  {{ discount_access }} </strong> 
+                </h6>  
+                  <div class="btn btn-secondary text-start position-absolute start-0 w-100" *ngIf="info_discount">
+                    <div class="row border-bottom pb-1"> 
+                        <div class="col-3">  <strong> {{ language.reserves.rule }}: </strong>  </div>
+                        <div class='col-2 offset-7 pe-0' (click)="closeInfo()"> <i class="fa fa-times border rounded p-1" aria-hidden="true"></i> </div>  
+                    </div>
+                    {{ language.reserves.message_discount1 }} {{ extra.discount.value_discount }}% {{ language.reserves.message_discount2 }} {{ extra.discount.days_discount }} {{ language.nights }}
+                  </div> 
+  
+                </div>
+  
+                <p class="fs-5"> <strong> {{ language.reserves.discount_value }}: </strong>  - €{{  reserve.discount.value | number : '1.2-2' }} </p> 
+                <p class="fs-5"> <strong> {{ language.reserves.clean }}: </strong>  + €{{ reserve.clean | number : '1.2-2' }} </p> 
+                <p class="fs-5"> <strong class=" title_element fs-4"> {{ language.reserves.cost_final }}:</strong> <strong class="ms-1 fs-4">  €{{ reserve.cost.final_cost | number : '1.2-2' }} </strong> </p> 
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+ 
+      
+ 
+    <div class="row w-100">
+
+           <div class=" col-xl-6 col-lg-7">
+
+              <div id="carouselCalendary" class="carousel slide">
+                <div class="carousel-inner calendary_availability">
+                      <!-- fatto con JS -->
+                </div>
+                     
+              </div>
+           </div>
+
+
+          <div class="col-xl-6 col-lg-5 change_dates">
+                 <h4> {{ language.reserves.modify_dates }} </h4> 
+
+                  <form (ngSubmit)="updateReserve()">
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="text-center">
+                          <label for="checkIn" class="fs-5"> Check-In: </label>
+                          <input type="date" name="checkIn"  [(ngModel)]="reserve.checkIn" class="ms-2 ps-1">
+                        </div>
+                      </div>
+      
+                      <div class=" col-sm-6">
+                        <div class="text-center">
+                          <label for="checkOut" class="fs-5"> Check-Out: </label>
+                          <input type="date" name="checkOut" [(ngModel)]="reserve.checkOut" class="ms-1 ps-1">
+                        </div>
+                      </div>
+                     </div>
+        
+                    <div class="mt-1 text-center">
+                        <label for="guests" class="fs-5"> {{ language.reserves.guests }}:</label>
+                        <select name="guests" [(ngModel)]="reserve.guests" style="height: 25px; margin-left: 5px;" #guests_number>
+                           <!-- fatto con JS -->
+                        </select>
+                    </div>
+
+                    <div class="w-100 text-center">
+                      <input type="submit" value="{{ language.reserves.button_dates }}" class="p-1 fs-4" style="width: 150px;">
+                    </div>
+                   
+
+                    <div class="alert alert-danger fs-5 mt-2" role="alert" *ngIf="message_error != ''"> {{ message_error }} </div>
+                    <div class="alert alert-success fs-5 mt-2" role="alert" *ngIf="message_update != ''"> {{ message_update }} </div>
+                  </form>
+          </div>
+
+    </div>
+   
+
+
+
+ <div class="row">
+
+  <div class="col-lg-4 offset-1 col-10">
+    <h4 class="title_element text-center"> {{ language.reserves.chose_payment }}: </h4>
+
+    <div class="accordion" id="accordionPayment">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <p class="p_accordion">  {{ language.reserves.full }}  </p>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionPayment">
+          <div class="accordion-body">
+            <label for="total"> {{ language.reserves.text_full }} €{{ reserve.cost.final_cost | number : '1.2-2' }}  </label>
+            <input type="radio" name="total" value="false" [(ngModel)]="reserve.advance.set" (click)="chosePayment()">
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <p class="p_accordion">  {{ language.reserves.no_full }} {{ reserve.advance.value }}%  </p>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionPayment">
+          <div class="accordion-body">
+            <label for="advance">  {{ language.reserves.text_noFull1 }} €{{ reserve.advance.value_advance | number : '1.2-2' }} {{ language.reserves.text_noFull2 }} €{{ reserve.advance.rest_advance | number : '1.2-2' }} {{ language.reserves.text_noFull3 }} {{ reserve.refund.limit }} </label>
+            <input type="radio" name="advance" value="true" [(ngModel)]="reserve.advance.set" (click)="chosePayment()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6 offset-lg-0 col-10 mt-4 offset-1">
+
+   <app-payment  [getDatas]="{home_name : home_name , reserve : reserve}" (Payment_Method)="getPayment($event)" ></app-payment>        <!--  scelta pagamento  -->
+
+  </div>
+
+
+</div>
+
+
+    <app-loading [loading]="loading"></app-loading>
+
+    <div class="alert alert-danger fs-4 mt-1 w-100" role="alert" *ngIf="message_error_method != ''">{{ message_error_method }}  </div>
+    <div  class="alert alert-danger fs-4 mt-1 w-100" role="alert"  *ngIf="message_error_payment != ''"> {{ message_error_payment }} </div>
+
+    <div class="button_confirm" (click)="getReserve()"> {{ language.reserves.pay }} </div>
+
+
+</div>
+
+</div>

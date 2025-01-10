@@ -1,0 +1,241 @@
+@use './styleGlobal.scss' as global;
+@use 'styleForms';
+@use 'styleHomes';
+@use 'styleReview';
+@use 'styleReserve';
+
+.dancing-scrip{
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-style: normal;
+}
+
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+$color_theme: global.$color_lightBlue;
+$color_badge : global.$color_light;
+$color_shadow : global.$color_shadow;
+$color_border : rgb(129, 145, 129);
+
+
+.alert{
+    display: flex !important;
+    justify-content: center !important;
+    font-size: 19px;
+}
+
+
+
+.titles_styles{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    padding-right: 10px;
+    text-shadow: 2px 1px 3px $color_shadow;
+    text-decoration: none;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.titles_styles:hover{ 
+    color: $color_badge;
+    text-shadow: 2px 1px 6px rgb(12, 12, 12);
+}  
+
+button{  
+    background-color: $color_theme;
+    color: white;
+ }
+
+input[type="submit"]{
+    width: 40%; 
+    margin: 0 auto;
+    margin-top: 5px;
+    background-color: $color_theme;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.dropdown-toggle:visited,
+.dropdown-toggle:focus,
+.dropdown-toggle:active{ border: transparent !important;  }
+
+
+.loading{
+    width: 180px !important;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+
+    span{
+        background-color: transparent !important;
+        color: black !important;
+        font-size: 20px;
+        margin-right: 8px !important;
+        width: auto !important;
+        border: transparent !important;
+        box-shadow: none !important;
+    }
+
+}
+
+ 
+
+#manage_homes{
+    color: red;
+}
+
+
+
+footer{
+    height: 8vh;
+    background-color: $color_theme;
+    border-top: 1px solid black;
+    box-shadow: 1px 2px 2px inset $color_border; 
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    text-shadow: 2px 1px 3px rgb(59, 57, 57);
+    letter-spacing: 1px;
+    p{ padding-top: 15px; }
+} 
+
+
+
+
+
+
+.dropdown .button_completePayment:hover{
+    text-decoration: underline;
+    color: green;
+}
+
+.dropdown .button_refund:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+
+
+
+/* //////////   MEDIA QUERY   ////////////// */
+
+
+@media(max-width:1200px){
+    .navbar{   #nav_home{ width: 40%; } }
+
+     #carouselSardinia{
+        
+        .carousel-inner{
+            .carousel-item{     
+                min-height: 480px;      
+                 img{
+                    height: 480px;
+                } 
+            }
+        }   
+    } 
+  
+}
+
+
+
+
+
+
+
+
+@media(max-width:991px){
+
+.navbar{
+
+    .titles_styles{ margin-bottom: 10px; font-size: 22px; }
+    .titles_styles:first-child{ margin-top: 10px; }
+
+    #nav_avatar{
+        display: none;
+    }
+    
+
+    .collapse{
+        position: absolute;
+        right: -32px;
+        top: 55px; 
+        z-index: 2;
+        display: block !important;
+        transform: translateX(130px);
+        opacity: 0;
+
+        ul{
+            width: 100%;
+            flex-direction: column-reverse;     
+            padding-left: 15px;
+            padding-right: 10px; 
+            flex-wrap: wrap;
+            background-image: linear-gradient(
+                rgb(198, 209, 223)  0% ,              
+                rgb(172, 190, 213) 25%,
+                rgb(108, 159, 225) 100%
+           
+              );
+
+             .nav-item{
+                font-weight: 300;
+                padding-left: 5px;
+                padding-right: 5px;
+            } 
+        }
+    }
+
+}
+
+ 
+}  
+
+
+
+
+
+
+
+@media(max-width:545px){
+
+  .navbar{
+    #nav_home{
+
+        #home{
+           span{
+            font-size: 20px;
+            margin-left: 0px; 
+           }
+
+           .home__one{
+            bottom: 0px;
+         }
+
+         .home__two{
+            top: 0px;
+            left: 23px;
+         } 
+         }
+  
+    }
+
+  
+  }   
+}  
+
+
+
+
+

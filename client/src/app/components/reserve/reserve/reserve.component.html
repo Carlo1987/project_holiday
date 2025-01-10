@@ -1,0 +1,36 @@
+
+<div class="container container_reserve">
+
+        <h3>{{ language.singleHome.reserve }} <i> {{ home_data.name }} </i> </h3> 
+
+        <form (ngSubmit)="getReserve()">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 d-flex flex-column">
+                            <label for="checkIn"> Check-In </label>
+                            <input type="date" name="checkIn"  [(ngModel)]="reserve.checkIn" >
+                        </div>
+        
+                        <div class="col-md-4 col-sm-6 d-flex flex-column">
+                            <label for="checkOut"> Check-Out </label>
+                            <input type="date" name="checkOut" [(ngModel)]="reserve.checkOut">
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <div class="d-flex flex-md-column pt-md-0 pt-2 people ">
+                                <label for="guests"> {{ language.guests }}:</label>
+                                <select name="guests" [(ngModel)]="reserve.guests" #select>  
+                                    <!--  option fatte con JS   -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+          
+            <div style="width: 100%; text-align: center;">
+                    <input type="submit" value="{{ language.singleHome.holiday }}" style="width: 200px;">
+            </div> 
+            
+        </form>
+
+        <div class="alert alert-danger text-center mt-2 fs-5" role="alert" *ngIf="message_error != ''"> {{ message_error }} </div>
+
+</div>

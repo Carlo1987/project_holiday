@@ -1,0 +1,65 @@
+<div class="block_container">
+  <div class="block">
+    <h2>{{ title_form }}</h2>
+
+    <form #newHomeForm="ngForm">
+      <div class="save_datas_form" [hidden]="!datas_form">
+
+        <p class="fs-5"> <i> {{ language.homes.save_alert }} </i> </p>
+
+       <div class="formDetails">
+
+         <app-home-datas [home]="home" (home_datas)="get_homeDatas($event)"></app-home-datas>         <!--  componente dati casa   -->
+
+      <div class="files_home ps-xxl-4 ps-xl-2 ps-md-3 ps-4">
+        {{ language.homes.avatar }}:  
+        <input type="file" name="avatar" (change)="avatar_home($event)" id="user_avatar" style="display: none;">   
+        <button type="button" class="btn btn-secondary ms-2"  onclick="document.querySelector('#user_avatar').click()"  #button_files> 
+          {{ language.acount.choose_file }} 
+         </button> 
+      </div> 
+           
+   
+        <div class="files_home ps-xxl-4 ps-xl-2 ps-md-3 ps-4">
+          {{ language.homes.min_images }}:  
+          <input type="file" name="images" multiple (change)="images_home($event)" id="user_images" style="display: none;">   
+          <button type="button" class="btn btn-secondary ms-2"  onclick="document.querySelector('#user_images').click()"  #buttons_files> 
+            {{ language.acount.choose_file }} 
+           </button> 
+        </div>
+
+  
+      </div> 
+
+      <input type="submit" value="{{ language.continue }}" [disabled]="!required_fields" (click)="detailsForm()"
+             [ngStyle]="{'text-decoration' : !required_fields ? 'line-through' : 'none' }"/>
+
+      <div class="alert alert-danger" role="alert" *ngIf="message_error_image != ''">  {{ message_error_image }}  </div>
+
+    </div>   <!--  fine contenuto dati -->
+
+      <!-- ////////////////////////////////////////////    DETTAGLI CASA   /////////////////////////////////////////// -->
+
+      <div class="save_datas_form" *ngIf="details_form">    
+
+        <app-home-details [home]="home" [button]="button" (home_details)="pricesForm($event)"></app-home-details>      <!--  componente dettagli casa   -->
+
+      </div>
+
+      <!-- ////////////////////////////////////////////    PREZZI   /////////////////////////////////////////// -->
+
+
+      <div class="w-100" [hidden]="!prices_form">    
+
+        <app-home-calendary [home]="home"                                     
+                            [message_calendary]="message_calendary" 
+                            [loading]="loading"
+                            [admin]="admin"
+                            (home_calendary)="save($event)">
+        </app-home-calendary>                                                             <!--  componente calendario      --> 
+
+      </div>
+    
+    </form>
+  </div>
+</div>

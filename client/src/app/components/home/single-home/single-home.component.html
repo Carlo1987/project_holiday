@@ -1,0 +1,197 @@
+
+<div class="home_profile">
+
+    <div class="home_name"> 
+        <h3> {{ home.name }} </h3> 
+    </div>
+
+
+    <div class="position-relative w-100">    <!--  contenitore immagini   -->
+
+        <div class="row list_images">
+           <div class="col-6 p-2" style="height: 400px;">
+              <img src="{{ url+'/get_image/'+ first_image }}" alt="foto_casa" style="width: 100%; height: 100%;">
+           </div>
+           <div class="col-6">
+                <div class="row">
+                    <div class="col-6 p-2" style="height: 200px;" *ngFor="let image of first_images">
+                        <img src="{{ url+'/get_image/'+ image }}" alt="foto_casa" style="width: 100%; height: 100%;">
+                    </div>               
+                </div>  
+           </div>
+        </div>
+
+
+     <!--   carrousel immagini per schermo più piccolo   -->        
+      <div id="carousel_singleHome" class="carousel slide carousel_singleHome">
+
+        <div class="carousel-inner">
+            <!--  fatto con JS  -->
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel_singleHome" data-bs-slide="prev">
+           <span class="carousel-control-prev-icon btn btn-dark" aria-hidden="true"></span>
+           <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carousel_singleHome" data-bs-slide="next">
+           <span class="carousel-control-next-icon btn btn-dark" aria-hidden="true"></span>
+           <span class="visually-hidden">Next</span>
+         </button>
+       </div>
+
+
+       <button  style="width: 255px;" class="btn btn-light position-absolute bottom-0 end-0 mb-3 me-3 button_totalImages" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          <i class="fa fa-picture-o fa-lg me-1" aria-hidden="true"></i>   <strong> {{ language.singleHome.show_images }} ({{ home_images_number }}) </strong>
+       </button>
+
+    <div class="offcanvas offcanvas-top" style="min-height: 730px;" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header w-100 d-flex justify-content-start">
+            <button type="button" class="btn btn-dark border" data-bs-dismiss="offcanvas" aria-label="Close">  <i class="fa fa-arrow-left fa-lg" aria-hidden="true"> </i> Torna indietro </button>      
+      </div>
+      <div class="offcanvas-body">
+          <div class="container">
+            <div class="row">
+                <div *ngFor="let image of home.images" class="col-lg-4 col-sm-6 mb-3"  style="height: 250px;">
+                    <img src="{{ url+'/get_image/'+ image }}" alt="foto_casa"  style="width: 100%; height: 100%;">
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+      </div>
+      <!--   fine carousel  -->
+
+
+
+
+      <div class="home_rooms">
+        <p>  {{ language.singleHome.home_m }} {{home.meters}} m², {{ language.singleHome.home_guests }} {{home.guests}} {{ language.people }}  </p>
+
+        <!-- <p>     paragrafo creato con JS  </p> -->
+      </div>
+
+      <div class="home_description"> 
+        <h5 class="fs-4"> {{ language.singleHome.description }}: </h5>
+        <p>{{ home.description }}  </p> 
+      </div>
+
+
+
+     <div class="row m-auto" style="width: 90%;">
+
+        <div class="col-xl-7 col-lg-7 col-md-6">
+            <p class="vote_home"  *ngIf="home_vote > 0"> <span class="vote_text"> {{ language.singleHome.vote }}: </span> <span class="vote">   <img src="../../../../assets/img/stella_gialla.png" >  {{ home_vote }}</span> </p>
+       </div>
+
+
+
+
+       <div class="col-xl-3 offset-xl-2 col-lg-4 offset-lg-1 col-md-6 d-flex justify-content-md-end" style="height: 47px;">  
+
+ <!-- inizio dettagli -->   
+ <button   class="btn btn-secondary p-2 border border-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasServices" aria-controls="offcanvasTop">
+    <i class="fa fa-arrows-v fa-md me-1" aria-hidden="true"></i>   <strong> {{ language.singleHome.show_services }} </strong>
+</button>
+<div class="offcanvas offcanvas-top" style="min-height: 730px;" tabindex="-1" id="offcanvasServices" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header w-100 d-flex justify-content-start">
+          <button type="button" class="btn btn-dark border" data-bs-dismiss="offcanvas" aria-label="Close">  <i class="fa fa-arrow-left fa-lg" aria-hidden="true"> </i> {{ language.back }} </button>      
+     
+        </div>
+    <div class="offcanvas-body w-100">
+
+    <h5> {{ language.singleHome.services }} {{ home.name }} </h5>
+      
+ <div class="home_details">
+    <div>
+        <div class="content_detail">         
+            <div class="title_detail"> <h3> {{ language.homes.details.bath }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.hairdryer ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/asciugacapelli.png">  {{ language.homes.details.hairdryer }}</p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.hot_water ? 'line-through' : 'none' }">  <i class="fa fa-tint" aria-hidden="true"></i>  {{ language.homes.details.hot_water }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.toilet_paper ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/carta_igienica.png"> {{ language.homes.details.toilet_paper }} </p> 
+        </div>
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.laundry }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.washing_machine ? 'line-through' : 'none' }"> <img src="../../../../assets/img/services/lavatrice.png"> {{ language.homes.details.washing_machine }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.dryer ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/lavatrice.png">  {{ language.homes.details.dryer }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.iron ? 'line-through' : 'none' }"> <img src="../../../../assets/img/services/ferro_stiro.png"> {{ language.homes.details.iron }} </p>
+        </div> 
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.children }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.crib ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/culla.png"> {{ language.homes.details.crib }} </p>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.chair_baby ? 'line-through' : 'none' }"> <img src="../../../../assets/img/services/seggiolone.png"> {{ language.homes.details.chair_baby }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.box_baby ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/box_bebe.png"> {{ language.homes.details.box_baby }} </p> 
+        </div>    
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.heating }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.air_conditioning ? 'line-through' : 'none' }">   <i class="fa fa-snowflake-o" aria-hidden="true"></i> {{ language.homes.details.air_conditioning }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.fireplace ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/fuoco.png"> {{ language.homes.details.fireplace }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.electric_fan ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/ventilatore.png">{{ language.homes.details.eletric_fan }}</p> 
+        </div>    
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.entertainment }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.tv ? 'line-through' : 'none' }"> <i class="fa fa-television" aria-hidden="true"></i> {{ language.homes.details.tv }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.wifi ? 'line-through' : 'none' }"> <i class="fa fa-wifi" aria-hidden="true"></i>  {{ language.homes.details.wifi }} </p> 
+        </div>
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.safety }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.fire_prevention ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/estintore.png">{{ language.homes.details.fire_prevention }}</p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.monoxide ? 'line-through' : 'none' }"> <i class="fa fa-circle" aria-hidden="true"></i> {{ language.homes.details.monoxide }} </p> 
+        </div>
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.extra }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.smoke ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/sigaretta.png"> {{ language.homes.details.smoke }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.animal ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/gatto.png"> {{ language.homes.details.animal }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.reception ? 'line-through' : 'none' }"> <i class="fa fa-users" aria-hidden="true"></i>  {{ language.homes.details.reception }} </p> 
+        </div>   
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.outdoors }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.courtyard ? 'line-through' : 'none' }"> <i class="fa fa-futbol-o" aria-hidden="true"></i> {{ language.homes.details.courtyard }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.balcony ? 'line-through' : 'none' }"> <i class="fa fa-window-minimize" aria-hidden="true"></i>  {{ language.homes.details.balcony }} </p>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.outdoor_food ? 'line-through' : 'none' }"> <i class="fa fa-lemon-o" aria-hidden="true"></i> {{ language.homes.details.outdoor }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.barbecue ? 'line-through' : 'none' }"> <i class="fa fa-fire" aria-hidden="true"></i>  {{ language.homes.details.barbeque }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.outdoor_forniture ? 'line-through' : 'none' }"> <img src="../../../../assets/img/services/mobile.png"> {{ language.homes.details.outdoor_forniture }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.parking ? 'line-through' : 'none' }"> <i class="fa fa-car" aria-hidden="true"></i>  {{ language.homes.details.parking }} </p> 
+        </div>
+    </div>
+    <div>
+        <div class="content_detail">
+            <div class="title_detail"> <h3> {{ language.homes.details.kitchen }} </h3> </div>
+            <p [ngStyle]="{ 'text-decoration' : !home.details.refrigerator ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/frigo.png"> {{ language.homes.details.refrigerator }} </p> 
+             <p [ngStyle]="{ 'text-decoration' : !home.details.microware ? 'line-through' : 'none' }"> <img src="../../../../assets/img/services/microonde.png">{{ language.homes.details.microware }}</p> 
+             <p [ngStyle]="{ 'text-decoration' : !home.details.plate ? 'line-through' : 'none' }"> <i class="fa fa-cutlery" aria-hidden="true"></i> {{ language.homes.details.plate }} </p> 
+             <p [ngStyle]="{ 'text-decoration' : !home.details.pot ? 'line-through' : 'none' }">  <img src="../../../../assets/img/services/pentola.png"> {{ language.homes.details.pot }} </p> 
+            <p [ngStyle]="{ 'text-decoration' : !home.details.coffee_machine ? 'line-through' : 'none' }"> <i class="fa fa-coffee" aria-hidden="true"></i> {{ language.homes.details.coffee_machine }} </p> 
+        </div>
+    </div>
+   </div>
+
+   </div>
+  </div>               <!--   fine dettagli  -->
+
+
+          </div>   <!--  fine col dettagli -->
+
+    </div>    <!--  fine row -->
+   
+
+    <app-reserve [home_data]="data_reserve"  [language]="language"  style="width: 100%;" ></app-reserve>                                                 <!--   prenotazioni    -->
+
+    <app-review-one-home  [language]="language"  (send_average)="getAverage($event)"  style="width: 100%;"> </app-review-one-home>                      <!--   recensioni    -->
+
+</div>
+

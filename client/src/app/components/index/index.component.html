@@ -1,0 +1,20 @@
+
+
+<div class="container__image_welcome">
+
+  <div   *ngFor="let image of images; let i = index"   class="card text-bg-dark image_welcome image_welcome--opacity{{ i+1 }}">
+    <img src="{{ image.img }}">
+    <div class="card-img-overlay">
+      <p class="card-text dancing-scrip"> {{ image.message }} </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+    <app-homes></app-homes>
+

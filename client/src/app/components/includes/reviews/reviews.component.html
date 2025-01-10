@@ -1,0 +1,64 @@
+<div class="review"  *ngFor="let review_content of reviews"> 
+
+  <div class="row py-1">
+    <div class="col-xl-3 col-lg-4">
+      <div class="d-flex flex-column">
+        <div class="w-100 d-flex flex-row gap-1">
+          <div class="ms-0">
+            <img src="{{ url_user + '/getImage/' + review_content.user_image }}" alt="utente" style="width: 50px; height: 50px; border-radius: 100px"/>
+          </div>
+          <div class="w-100 d-flex flex-column">
+            <div class="w-100 d-flex justify-content-start ms-1">
+              {{
+                review_content.user_name + "  " + review_content.user_surname
+              }}
+            </div>
+            <div class="w-100 d-flex justify-content-start ms-1">
+              {{ review_content.date }}
+            </div>
+          </div>
+        </div>
+
+        <div class="container_vote">
+          <div class="d-flex align-items-center flex-row">
+            <div *ngFor="let star_image of stars_array">
+              <img *ngIf="star_image.index > review_content.assessment; then star_white; else star_yellow"/>
+
+              <ng-template #star_white>
+                <img src="{{ '../../../../assets/img/' + star_image.white }}" alt="star" class="star"/>
+              </ng-template>
+
+              <ng-template #star_yellow>
+                <img src="{{ '../../../../assets/img/' + star_image.yellow }}" alt="star" class="star"/>
+              </ng-template>
+            </div>
+          </div>
+
+          <div class="vote_value">
+            {{ review_content.assessment }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-9 col-lg-8 container_textReview">
+      <div class="text">
+        {{ review_content.review }}
+      </div>
+    </div>
+
+    <div class="button_review btn-group dropstart" *ngIf="user && user._id == review_content.user_id">
+      <button type="button" class="btn dropdown-toggle ps-0 text-light buttonEdit_review" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li class="dropdown-item" (click)="edit(review_content._id, 'edit')">
+          {{ language.homes.edit }}
+        </li>
+        <li class="dropdown-item" (click)="edit(review_content._id, 'delete')">
+          {{ language.Delete }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 

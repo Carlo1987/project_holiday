@@ -1,0 +1,104 @@
+<div class="formDetails">
+
+
+
+<div class="generalDetails">
+    <label for="name"> {{ language.acount.name }}:</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="home.name" required/>
+    <span *ngIf="name.touched && !name.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="city"> {{ language.acount.city }}:</label>
+    <input type="text" name="city" #city="ngModel" [(ngModel)]="home.city" required/>
+    <span *ngIf="city.touched && !city.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="address"> {{ language.acount.address }}:</label>
+    <input type="text" name="address" #address="ngModel" [(ngModel)]="home.address"/>
+    <span *ngIf="address.touched && !address.valid">  {{ message_form }}   </span>
+  </div>
+
+ 
+  <div class="generalDetails">
+    <label for="cap">CAP:</label>
+    <input type="text" name="cap" #cap="ngModel" [(ngModel)]="home.cap" />
+    <span *ngIf="cap.touched && !cap.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="meters">{{ language.homes.meters }}²:</label>
+    <input type="number" name="meters" #meters="ngModel" [(ngModel)]="home.meters" required/>
+    <span *ngIf="meters.touched && !meters.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="rooms">N° {{ language.homes.rooms }}:</label>
+    <input type="number"  name="rooms" #rooms="ngModel" [(ngModel)]="home.rooms" required/>
+    <span *ngIf="rooms.touched && !rooms.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="single_bed">N° {{ language.homes.single_bed }}:</label>
+    <input type="number" name="single_bed" #single_bed="ngModel" [(ngModel)]="home.beds.single_beds" required/>
+    <span *ngIf="single_bed.touched && !single_bed.valid"> {{ message_form }} </span>
+  </div>
+
+  <div class="generalDetails">
+    <label for="doble_beds">N° {{ language.homes.doble_bed }}:</label>
+    <input type="number" name="doble_beds" #doble_beds="ngModel" [(ngModel)]="home.beds.doble_beds" required/>
+    <span *ngIf="doble_beds.touched && !doble_beds.valid"> {{ message_form }} </span>
+  </div>
+
+
+  <div class="generalDetails">
+    <label for="sofa_beds">N° {{ language.homes.sofa }}:</label>
+    <input type="number" name="sofa_beds" #sofa_beds="ngModel" [(ngModel)]="home.beds.sofa_beds" required/>
+    <span *ngIf="sofa_beds.touched && !sofa_beds.valid"> {{ message_form }} </span>
+  </div>
+
+
+
+  <div class="generalDetails">
+    <label for="forniture_beds">N° {{ language.homes.wardrobe }}:</label>
+    <input type="number" name="forniture_beds" #forniture_beds="ngModel" [(ngModel)]="home.beds.forniture_beds" required/>
+    <span *ngIf="forniture_beds.touched && !forniture_beds.valid"> {{ message_form }} </span>
+  </div>
+
+
+
+  <div class="generalDetails">
+    <label for="bunk_beds">N° {{ language.homes.bunk_bed }}:</label>
+    <input type="number" name="bunk_beds" #bunk_beds="ngModel" [(ngModel)]="home.beds.bunk_beds" required/>
+    <span *ngIf="bunk_beds.touched && !bunk_beds.valid"> {{ message_form }} </span>
+  </div>
+
+
+
+  <div class="generalDetails">
+    <label for="baths">N° {{ language.homes.bath }}:</label>
+    <input type="number" name="baths" #baths="ngModel" [(ngModel)]="home.baths" required/>
+    <span *ngIf="baths.touched && !baths.valid"> {{ message_form }} </span>
+  </div>
+
+ 
+
+  <div class="lastRowDetails">
+    <label for="description">{{ language.homes.description }}:</label>
+    <textarea name="description" #description="ngModel" [(ngModel)]="home.description" required></textarea>
+  </div>
+
+  <span style="width: 66.5%;" *ngIf="description.touched && !description.valid"> {{ message_form }} </span> 
+
+
+  
+  <app-loading [loading]="loading"></app-loading>
+
+
+</div>

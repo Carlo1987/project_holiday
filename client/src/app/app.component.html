@@ -1,0 +1,143 @@
+
+
+<div *ngIf="starting_loading">
+  <app-start-loading></app-start-loading>
+</div>
+
+
+
+<div [hidden]="starting_loading">
+
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div id="nav_home">
+      <div class="ms-0">
+          <a class="navbar-brand anton-regular" id="home" routerLink="">
+                <span class="home__one">  SARDEGNA </span>
+                <span class="home__two"> DREAM </span>
+          </a>
+      </div>
+      
+ 
+    </div>
+
+
+    <div id="nav_links">
+
+      <div class="position-relative d-flex align-items-center ms-0">
+        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../assets/img/flags/bandiera_italia.png" alt="flag_Italy"  id="flag" #flag>  
+       </button>
+       <ul class="dropdown-menu" id="dropdown_flags"> 
+          <li class="dropdown-item d-flex">  
+             <img src="../assets/img/flags/bandiera_italia.png" alt="flag_Italy"  (click)="setLanguage('ita')">  
+             <img src="../assets/img/flags/bandiera_spagna.png" alt="flag_Spain"   (click)="setLanguage('esp')"> 
+          </li>
+       </ul>
+      </div>
+     
+
+
+
+ 
+
+      <button id="button_collapse" class="navbar-toggler" type="button" (click)="openMenu()">   
+          <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <div class="collapse navbar-collapse">         
+        <ul class="navbar-nav mb-2 mb-lg-0 w-100">
+
+          <li class="nav-item">
+            <a class="nav-item titles_styles " routerLink="search-reserve"> {{ language.nav.reserve }}  </a> 
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-item titles_styles" routerLink="contact">  {{ language.nav.contact }}   </a> 
+          </li>
+
+          <li class="nav-item">                              <!--  se non sono loggato  -->
+            <a class="nav-item titles_styles" routerLink="acount" *ngIf="!identity.status">  Acount   </a>     
+          </li>
+
+
+         <li class="nav-item"  *ngIf="identity.status && access">       <!--  se sono loggato  -->
+
+          <a class="nav-item  titles_styles">       
+    
+            <div class="btn-group d-flex align-items-center">  
+              <img src="{{ url_acount+'/getImage/'+ identity.user.image }}" alt="user_avatar" id="nav_avatar"> 
+
+              <button type="button" class="btn dropdown-toggle" id="button__acount" class="titles_styles" style="background-color: transparent;" data-bs-toggle="dropdown" aria-expanded="false" >  
+                {{ identity.user.name }} <i class="fa fa-sort-desc fa-2xs ms-1" aria-hidden="true"></i>
+           
+               <ul class="dropdown-menu" id="dropdown_acount" >   
+                <li><a class="dropdown-item" (click)="link('/acount-edit/',identity.user._id)"> {{ language.menuHeader.datas }} </a></li>  
+                <li><a class="dropdown-item" (click)="link('/image-update/',identity.user._id)"> {{ language.menuHeader.image }} </a></li>
+                <li><a class="dropdown-item" (click)="link('/password-edit/',identity.user._id)"> {{ language.menuHeader.password }} </a></li>
+                <li><a class="dropdown-item" (click)="link('/user-reserve/',identity.user._id)"> {{ language.menuHeader.reserves }} </a></li>
+                <li><a class="dropdown-item link-danger" style="font-size: 20px; text-shadow: none;" (click)="logout()">LOGOUT</a></li>
+               
+                <li *ngIf="identity.user.status == 'admin'" class="text-center"><hr class="dropdown-divider"> <span id="nav_admin"> {{ language.menuHeader.admin }} </span>  </li>
+  
+                <li *ngIf="identity.user.status == 'admin'">
+                  <a class="dropdown-item" (click)="link('/instruments')">
+                    {{ language.menuHeader.general }}
+                  </a>
+                </li>
+                <li *ngIf="identity.user.status == 'admin'">
+                  <a class="dropdown-item" (click)="link('/clients-reserves')" >
+                    {{ language.menuHeader.client_reserves }}
+                  </a>
+                </li>
+                <li *ngIf="identity.user.status == 'admin'">
+                  <a class="dropdown-item" (click)="link('/save-home')">
+                    {{ language.menuHeader.newHome }}
+                  </a>
+                </li>    
+                <li *ngIf="identity.user.status == 'admin'">
+                  <a class="dropdown-item" (click)="link('/edit-homes')">
+                    {{ language.menuHeader.editHomes }}
+                  </a>
+                </li>  
+              </ul>
+            </button>
+            </div>
+           </a>
+          </li>
+
+        </ul>
+       
+      </div>
+
+    </div>
+
+
+  
+  </div>
+</nav>
+
+
+
+
+<main>
+      <router-outlet></router-outlet>
+</main>
+
+
+
+
+
+<footer class="container-fluid fs-4" id="titles_styles" >
+  <p> Web Developper Loi Carlo</p>
+</footer>
+
+
+
+</div>
+
+
+
+
+

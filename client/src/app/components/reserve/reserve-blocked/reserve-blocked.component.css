@@ -1,0 +1,27 @@
+
+
+
+
+
+.noFoud_reserve{ font-size: 23px; }
+
+
+@media(max-width:700px){
+    .noFoud_reserve{ font-size: 19px; }
+} 
+
+
+
+
+@media(max-width:555px){
+    .noReserve_homeAvatar{
+        height: 250px;
+    }
+} 
+
+
+@media(max-width:400px){
+    .noReserve_homeAvatar{
+        height: 200px;
+    }
+} 
